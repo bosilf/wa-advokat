@@ -1,20 +1,22 @@
 import Link from "next/link";
 import { client } from "@/sanity/client";
+import { COURSE_BY_CATEGORY_QUERY } from "@/sanity/queries";
+COURSE_BY_CATEGORY_QUERY
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
 
-  const query = `*[_type == "courseCategory" && slug.current == $category][0]{
-    title,
-    description,
-    "courses": *[_type == "course" && category._ref == ^._id] | order(courseName asc) {
-      _id,
-      courseName,
-      "slug": slug.current
-    }
-  }`;
+  // const query = `*[_type == "courseCategory" && slug.current == $category][0]{
+  //   title,
+  //   description,
+  //   "courses": *[_type == "course" && category._ref == ^._id] | order(courseName asc) {
+  //     _id,
+  //     courseName,
+  //     "slug": slug.current
+  //   }
+  // }`;
 
-  const data = await client.fetch(query, { category });
+  const data = await client.fetch(COURSE_BY_CATEGORY_QUERY, { category });
 
   if (!data) return <main className="p-8 text-white">Kategorin hittades inte.</main>;
 
@@ -36,10 +38,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           </p>
           <div className="flex flex-wrap gap-3">
             {data.courses && data.courses.length > 0 ? (
-              data.courses.map((course: any) => (
+              data.courses.map((course) => (
                 <Link
                   key={course._id}
-                  href={`/juridikkurser/${category}/${course.slug}`}
+                  href={`/juridikkurser/${category}/${course.slug || ""}`}
                   className="bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-500 hover:text-white transition-colors"
                 >
                   {course.courseName}

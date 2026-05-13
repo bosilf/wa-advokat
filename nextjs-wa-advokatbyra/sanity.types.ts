@@ -594,6 +594,28 @@ export type DATA_QUERY_RESULT =
   | null;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: ALL_COURSES_QUERY
+// Query: *[_type == "course" && defined(slug.current)] | order(courseName asc){    _id,    courseName,    "slug": slug.current,    "categoryTitle": category->title,    "lecturer": lecturer->{      name,      role,      image    }  }
+export type ALL_COURSES_QUERY_RESULT = Array<{
+  _id: string;
+  courseName: string | null;
+  slug: string | null;
+  categoryTitle: string | null;
+  lecturer: {
+    name: string | null;
+    role: null;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    } | null;
+  } | null;
+}>;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: COURSE_CATEGORIES_QUERY
 // Query: *[_type == "courseCategory"]{    _id,    title,    "slug": slug.current  } | order(title asc)
 export type COURSE_CATEGORIES_QUERY_RESULT = Array<{
@@ -629,6 +651,19 @@ export type COURSE_QUERY_RESULT = Array<{
     } | null;
   } | null;
 }>;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: COURSE_BY_CATEGORY_QUERY
+// Query: *[_type == "courseCategory" && slug.current == $category][0]{    title,    description,    "courses": *[_type == "course" && category._ref == ^._id] | order(courseName asc) {      _id,      courseName,      "slug": slug.current    }  }
+export type COURSE_BY_CATEGORY_QUERY_RESULT = {
+  title: string | null;
+  description: string | null;
+  courses: Array<{
+    _id: string;
+    courseName: string | null;
+    slug: string | null;
+  }>;
+} | null;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: COURSE_DETAIL_PAGE_QUERY
@@ -826,9 +861,11 @@ declare module "@sanity/client" {
     '\n  *[_type == "homepage"][0]{\n    title,\n    heroTitle,\n    heroText,\n    heroImage\n  }\n': HOMEPAGE_QUERY_RESULT;
     '\n  *[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...12]{\n    _id, \n    title, \n    "slug": slug.current, \n    publishedAt\n  }\n': POSTS_QUERY_RESULT;
     '\n  *[(_type == "post" || _type == "employee") && slug.current == $slug][0]{\n    _type,\n    _id,\n    title,\n    name,\n    role,\n    image,\n    bio,\n    body,\n    publishedAt,\n    educationList[]{\n      school,\n      year\n    }\n  }\n': DATA_QUERY_RESULT;
+    '\n  *[_type == "course" && defined(slug.current)] | order(courseName asc){\n    _id,\n    courseName,\n    "slug": slug.current,\n    "categoryTitle": category->title,\n    "lecturer": lecturer->{\n      name,\n      role,\n      image\n    }\n  }\n': ALL_COURSES_QUERY_RESULT;
     '\n  *[_type == "courseCategory"]{\n    _id,\n    title,\n    "slug": slug.current\n  } | order(title asc)\n': COURSE_CATEGORIES_QUERY_RESULT;
     '\n  *[_type == "course" && defined(category)] | order(category asc) {\n    category\n  }[0...100]\n': COURSE_CATEGORY_QUERY_RESULT;
     '\n  *[_type == "course" && defined(slug.current)] | order(name asc){\n    _id, \n    courseName, \n    "slug": slug.current,\n    "lecturer": lecturer->{\n      name,\n      role,\n      image\n    }\n  }\n': COURSE_QUERY_RESULT;
+    '\n  *[_type == "courseCategory" && slug.current == $category][0]{\n    title,\n    description,\n    "courses": *[_type == "course" && category._ref == ^._id] | order(courseName asc) {\n      _id,\n      courseName,\n      "slug": slug.current\n    }\n  }\n': COURSE_BY_CATEGORY_QUERY_RESULT;
     '\n  *[_type == "course" && slug.current == $slug][0]{\n    courseName,\n    aimCourse,\n    aboutCourse,\n    content,\n    image,\n    length,\n    conditionsCourse,\n    "categoryTitle": category->title, \n    courseSections[]{\n      sectionTitle,\n      sectionText\n    },\n    "lecturer": lecturer->{\n      name,\n      role,\n      number, \n      image,\n      email,\n      slug\n    }\n  }\n': COURSE_DETAIL_PAGE_QUERY_RESULT;
     '\n  *[_type == "employee" && defined(slug.current)] | order(name asc){\n    _id,\n    name,\n    "slug": slug.current,\n    image,\n    "roles": roles[]->{ title, "slug": slug.current }\n  }\n': EMPLOYEES_QUERY_RESULT;
     '\n  {\n    "role": *[_type == "role" && slug.current == $role][0] { title },\n    "employees": *[\n      _type == "employee" &&\n      $role in roles[]->slug.current &&\n      defined(slug.current)\n    ] | order(name asc) {\n      _id,\n      name,\n      "roles": roles[]->{ title, "slug": slug.current },\n      "slug": slug.current,\n      image\n    }\n  }\n': EMPLOYEE_ROLE_QUERY_RESULT;

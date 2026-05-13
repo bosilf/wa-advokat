@@ -36,20 +36,22 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ c
       )}
         <h1 className="text-5xl font-bold mb-4">{course.courseName}</h1>
         <div className="flex items-center gap-4 text-lg text-gray-600">
-          <Link href={`/medarbetare/${course.lecturer?.slug || ""}`} ><strong>Föreläsare:</strong> {course.lecturer?.name}</Link>
+          <Link href={`/medarbetare/${course.lecturer?.slug?.current || ""}`}>
+            <strong>Föreläsare:</strong> {course.lecturer?.name}
+          </Link>
 
           {course.lecturer?.number && (
             <div>
               <p>
                 <strong>Telefon:</strong> 
-                <a href={`tel:${course.lecturer.number}`} className="hover:underline">
+                <a href={`tel:${course.lecturer?.number}`} className="hover:underline">
                   {course.lecturer.number}
                 </a>
               </p>
               <p>{course.lecturer.role}</p>
               <p>
                 <strong>Telefon:</strong> 
-                <a href={`tel:${course.lecturer.email}`} className="hover:underline">
+                <a href={`tel:${course.lecturer?.email}`} className="hover:underline">
                   {course.lecturer.email}
                 </a>
               </p>

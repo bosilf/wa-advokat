@@ -41,6 +41,21 @@ export const DATA_QUERY = defineQuery(`
 
 // --- KURSER & UTBILDNINGAR ---
 
+export const ALL_COURSES_QUERY = defineQuery(`
+  *[_type == "course" && defined(slug.current)] | order(courseName asc){
+    _id,
+    courseName,
+    "slug": slug.current,
+    "categoryTitle": category->title,
+    "lecturer": lecturer->{
+      name,
+      role,
+      image
+    }
+  }
+`);
+
+
 export const COURSE_CATEGORIES_QUERY = defineQuery(`
   *[_type == "courseCategory"]{
     _id,
@@ -68,6 +83,19 @@ export const COURSE_QUERY = defineQuery(`
     }
   }
 `)
+
+export const COURSE_BY_CATEGORY_QUERY = defineQuery(`
+  *[_type == "courseCategory" && slug.current == $category][0]{
+    title,
+    description,
+    "courses": *[_type == "course" && category._ref == ^._id] | order(courseName asc) {
+      _id,
+      courseName,
+      "slug": slug.current
+    }
+  }
+`);
+
 
 // Detaljerad kurssida (Hanterar både gamla WORK_PAGE och DETAIL_PAGE i ett svep)
 export const COURSE_DETAIL_PAGE_QUERY = defineQuery(`
