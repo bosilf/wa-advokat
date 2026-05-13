@@ -3,8 +3,11 @@ import { client } from "@/sanity/client";
 import { COURSE_CATEGORIES_QUERY } from "@/sanity/queries";
 import PageHeader from "@/components/PageHeader";
 
+const options = { next: { revalidate: 30 } };
+
+
 export default async function CoursesPage() {
-  const categories = await client.fetch(COURSE_CATEGORIES_QUERY);
+  const categories = await client.fetch(COURSE_CATEGORIES_QUERY, {}, options);
 
   return (
     <main className="container mx-auto p-8">

@@ -2,12 +2,13 @@ import Link from "next/link";
 import { client } from "@/sanity/client";
 import { COURSE_BY_CATEGORY_QUERY } from "@/sanity/queries";
 
+const options = { next: { revalidate: 30 } };
+
+
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
 
-
-
-  const data = await client.fetch(COURSE_BY_CATEGORY_QUERY, { category });
+  const data = await client.fetch(COURSE_BY_CATEGORY_QUERY, { category }, options);
 
   if (!data) return <main className="p-8 text-white">Kategorin hittades inte.</main>;
 

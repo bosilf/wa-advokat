@@ -22,7 +22,7 @@ export default async function IndexPage() {
   const employees = await client.fetch(EMPLOYEES_QUERY, {}, options);
   const homepage = await client.fetch(HOMEPAGE_QUERY)
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl p-8">
+    <div className="container mx-auto min-h-screen max-w-3xl p-8">
       <h1 className="text-4xl font-bold mb-8">{homepage?.heroTitle}</h1>
       {homepage?.heroImage ? (
         <Image 
@@ -63,6 +63,6 @@ export default async function IndexPage() {
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }

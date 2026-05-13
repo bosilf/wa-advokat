@@ -7,10 +7,10 @@ import PageHeader from "@/components/PageHeader";
 import { EMPLOYEES_QUERY } from "@/sanity/queries";
 
 
-
+const options = { next: { revalidate: 30 } };
 
 export default async function MedarbetarePage() {
-  const employees = await client.fetch(EMPLOYEES_QUERY);
+  const employees = await client.fetch(EMPLOYEES_QUERY, {}, options);
   return (
     <div className="min-h-screen container flex flex-col mx-auto p-8">
       <PageHeader pageName="medarbetare" />
@@ -18,23 +18,27 @@ export default async function MedarbetarePage() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {employees.map((employee) => (
-          <Link 
+          <div 
             key={employee._id} 
-            href={`/medarbetare/${employee.slug}`}
+            // href={`/medarbetare/${employee.slug}`}
             className="group block border p-6 rounded-xl hover:border-blue-500 hover:shadow-md transition-all"
           >
             {employee.image && (
-              <Image
-                src={urlFor(employee.image).url()}
-                alt={employee.name || "Medarbetare"}
-                width={600}
-                height={600}
-                className="rounded-lg mb-4 object-cover"
-              />
+              <Link href={`/medarbetare/${employee.slug}`}>
+                <Image
+                  src={urlFor(employee.image).url()}
+                  alt={employee.name || "Medarbetare"}
+                  width={600}
+                  height={600}
+                  className="rounded-lg mb-4 object-cover"
+                />
+              </Link>
             )}
-            <h2 className="text-2xl font-bold group-hover:text-blue-600 transition-colors">
-              {employee.name}
-            </h2>
+            <Link href={`/medarbetare/${employee.slug}`}>
+              <h2 className="text-2xl font-bold group-hover:text-blue-600 transition-colors">
+                {employee.name}
+              </h2>
+            </Link>
             <p className="text-gray-600 mt-2 capitalize">
             <div className="flex flex-row gap-2 w-full text-sm font-medium">
               {employee.roles?.map((role, index: number) => (
@@ -53,7 +57,7 @@ export default async function MedarbetarePage() {
             <span className="text-blue-500 mt-4 inline-block font-medium">
               Läs mer →
             </span>
-          </Link>
+          </div>
         ))}
       </div>
 
