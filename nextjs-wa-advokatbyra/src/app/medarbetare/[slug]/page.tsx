@@ -3,7 +3,6 @@ import { CustomPortableText } from "@/components/CustomPortableText";
 import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 import { EMPLOYEE_PAGE_QUERY } from "@/sanity/queries";
-import { PortableText } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -2,14 +2,14 @@ import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image"; 
 import Image from "next/image";
 import Link from "next/link";
-import { WORK_PAGE_QUERY } from "@/sanity/queries";
+import { COURSE_DETAIL_PAGE_QUERY } from "@/sanity/queries";
 import { CustomPortableText } from "@/components/CustomPortableText";
 
 
 export default async function WorkPage({ params }: { params: Promise<{ category: string, slug: string }> }) {
   const { category, slug } = await params;
 
-  const course = await client.fetch(WORK_PAGE_QUERY, { category, slug });
+  const course = await client.fetch(COURSE_DETAIL_PAGE_QUERY, { category, slug });
 
   if (!course) return <main className="p-8">Kursen hittades inte...</main>;
 

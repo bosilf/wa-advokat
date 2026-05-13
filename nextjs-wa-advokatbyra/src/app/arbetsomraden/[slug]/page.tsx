@@ -1,46 +1,30 @@
 import { client } from "@/sanity/client";
-import { PortableText } from "next-sanity";
-import { urlFor } from "@/sanity/image"; // Din image-helper
+import { urlFor } from "@/sanity/image"; 
 import Image from "next/image";
 import Link from "next/link";
+import { COURSE_DETAIL_PAGE_QUERY } from "@/sanity/queries";
+import { CustomPortableText } from "@/components/CustomPortableText";
 
 export default async function WorkDetailPage({ params }: { params: Promise<{ category: string, slug: string }> }) {
   const { category, slug } = await params;
 
-  // Vi hämtar kursen som matchar sluggen OCH vars kategori-slug matchar URL:en
-  const query = `*[_type == "course" && slug.current == $slug]{
-  courseName,
-  content,
-  // Här hämtar vi både namnet och telefonnumret från den länkade medarbetaren
-  "lecturer": lecturer->{
-    name,
-    role,
-    number, // Se till att fältet heter 'number' i ditt employee-schema
-    image,
-    email,
-    slug
-  }
-} [0]`;
-
-  const course = await client.fetch(query, { category, slug });
+  const course = await client.fetch(COURSE_DETAIL_PAGE_QUERY, { category, slug });
 
   if (!course) return <main className="p-8">Kursen hittades inte...</main>;
 
   return (
     <main className="container mx-auto p-8 max-w-4xl">
-      {/* Brödsmulor / Navigering tillbaka */}
       <nav className="text-sm text-gray-500 mb-8">
         <Link href="/juridikkurser" className="hover:underline">Utbildningar</Link>
         <span className="mx-2">/</span>
         <Link href={`/juridikkurser/${category}`} className="hover:underline">{course.categoryTitle}</Link>
       </nav>
 
-      {/* Kursbild */}
       {course.image && (
         <div className="relative w-full h-[400px] mb-8 overflow-hidden rounded-2xl">
           <Image 
             src={urlFor(course.image).width(1200).url()} 
-            alt={course.courseName}
+            alt={course.courseName || "Bild kurs"}
             fill
             className="object-cover"
             priority
@@ -51,7 +35,7 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ cat
       <header className="mb-12">
         <h1 className="text-5xl font-bold mb-4">{course.courseName}</h1>
         <div className="flex items-center gap-4 text-lg text-gray-600">
-        <Link href={`/medarbetare/${course.lecturer?.slug.current}`} ><strong>Föreläsare:</strong> {course.lecturer?.name}</Link>
+        <Link href={`/medarbetare/${course.lecturer?.slug}`} ><strong>Föreläsare:</strong> {course.lecturer?.name}</Link>
   
         {course.lecturer?.number && (
           <p>
@@ -72,16 +56,14 @@ export default async function WorkDetailPage({ params }: { params: Promise<{ cat
         </div>
       </header>
 
-      {/* Själva kursinnehållet (Portable Text) */}
       <section className="prose prose-lg max-w-none border-t pt-8">
         {course.content ? (
-          <PortableText value={course.content} />
+          <CustomPortableText value={course.content} />
         ) : (
           <p className="italic text-gray-500">Kursbeskrivning saknas.</p>
         )}
       </section>
 
-      {/* Bokningssektion */}
       <footer className="mt-16 p-8 bg-blue-50 rounded-2xl border border-blue-100 flex flex-col items-center text-center">
         <h2 className="text-2xl font-bold mb-4">Vill du boka denna kurs?</h2>
         <p className="mb-6 text-gray-700">Kontakta oss för prisförslag och bokning av {course.courseName}.</p>

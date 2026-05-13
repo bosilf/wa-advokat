@@ -473,7 +473,7 @@ export type AllSanitySchemaTypes =
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: HOMEPAGE_QUERY
-// Query: *[_type == "homepage"][0]{    title,    heroTitle,    heroText,    heroImage,  }
+// Query: *[_type == "homepage"][0]{    title,    heroTitle,    heroText,    heroImage  }
 export type HOMEPAGE_QUERY_RESULT = {
   title: null;
   heroTitle: string | null;
@@ -488,21 +488,269 @@ export type HOMEPAGE_QUERY_RESULT = {
 } | null;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: POSTS_QUERY
+// Query: *[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...12]{    _id,     title,     "slug": slug.current,     publishedAt  }
+export type POSTS_QUERY_RESULT = Array<{
+  _id: string;
+  title: string | null;
+  slug: string | null;
+  publishedAt: string | null;
+}>;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: DATA_QUERY
+// Query: *[(_type == "post" || _type == "employee") && slug.current == $slug][0]{    _type,    _id,    title,    name,    role,    image,    bio,    body,    publishedAt,    educationList[]{      school,      year    }  }
+export type DATA_QUERY_RESULT =
+  | {
+      _type: "employee";
+      _id: string;
+      title: null;
+      name: string | null;
+      role: null;
+      image: {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      } | null;
+      bio: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      body: null;
+      publishedAt: null;
+      educationList: Array<{
+        school: string | null;
+        year: null;
+      }> | null;
+    }
+  | {
+      _type: "post";
+      _id: string;
+      title: string | null;
+      name: null;
+      role: null;
+      image: {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      } | null;
+      bio: null;
+      body: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      publishedAt: string | null;
+      educationList: null;
+    }
+  | null;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: COURSE_CATEGORIES_QUERY
+// Query: *[_type == "courseCategory"]{    _id,    title,    "slug": slug.current  } | order(title asc)
+export type COURSE_CATEGORIES_QUERY_RESULT = Array<{
+  _id: string;
+  title: string | null;
+  slug: string | null;
+}>;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: COURSE_CATEGORY_QUERY
-// Query: *[_type == "course" && defined(category)] | order(category asc) {    category  } [0...100]
+// Query: *[_type == "course" && defined(category)] | order(category asc) {    category  }[0...100]
 export type COURSE_CATEGORY_QUERY_RESULT = Array<{
   category: CourseCategoryReference;
 }>;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: COURSE_QUERY
-// Query: *[_type == "course" && defined(slug.current)] | order(name asc) [0] {    _id,     courseName,     lecturer,     slug,  }
-export type COURSE_QUERY_RESULT = {
+// Query: *[_type == "course" && defined(slug.current)] | order(name asc){    _id,     courseName,     "slug": slug.current,    "lecturer": lecturer->{      name,      role,      image    }  }
+export type COURSE_QUERY_RESULT = Array<{
   _id: string;
   courseName: string | null;
-  lecturer: EmployeeReference | null;
-  slug: Slug | null;
+  slug: string | null;
+  lecturer: {
+    name: string | null;
+    role: null;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    } | null;
+  } | null;
+}>;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: COURSE_DETAIL_PAGE_QUERY
+// Query: *[_type == "course" && slug.current == $slug][0]{    courseName,    aimCourse,    aboutCourse,    content,    image,    length,    conditionsCourse,    "categoryTitle": category->title,     courseSections[]{      sectionTitle,      sectionText    },    "lecturer": lecturer->{      name,      role,      number,       image,      email,      slug    }  }
+export type COURSE_DETAIL_PAGE_QUERY_RESULT = {
+  courseName: string | null;
+  aimCourse: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  aboutCourse: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  content: null;
+  image: null;
+  length: string | null;
+  conditionsCourse: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  categoryTitle: string | null;
+  courseSections: Array<{
+    sectionTitle: string | null;
+    sectionText: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+  }> | null;
+  lecturer: {
+    name: string | null;
+    role: null;
+    number: number | null;
+    image: {
+      asset?: SanityImageAssetReference;
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    } | null;
+    email: string | null;
+    slug: Slug | null;
+  } | null;
 } | null;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: EMPLOYEES_QUERY
+// Query: *[_type == "employee" && defined(slug.current)] | order(name asc){    _id,    name,    "slug": slug.current,    image,    "roles": roles[]->{ title, "slug": slug.current }  }
+export type EMPLOYEES_QUERY_RESULT = Array<{
+  _id: string;
+  name: string | null;
+  slug: string | null;
+  image: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  roles: Array<{
+    title: string | null;
+    slug: string | null;
+  }> | null;
+}>;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: EMPLOYEE_ROLE_QUERY
@@ -529,27 +777,6 @@ export type EMPLOYEE_ROLE_QUERY_RESULT = {
     } | null;
   }>;
 };
-
-// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
-// Variable: EMPLOYEES_QUERY
-// Query: *[_type == "employee" && defined(slug.current)]  | order(name asc) {    _id,    name,    "slug": slug.current,    image,    "roles": roles[]->{ title, "slug": slug.current }  }
-export type EMPLOYEES_QUERY_RESULT = Array<{
-  _id: string;
-  name: string | null;
-  slug: string | null;
-  image: {
-    asset?: SanityImageAssetReference;
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-  } | null;
-  roles: Array<{
-    title: string | null;
-    slug: string | null;
-  }> | null;
-}>;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: EMPLOYEE_PAGE_QUERY
@@ -592,153 +819,19 @@ export type EMPLOYEE_PAGE_QUERY_RESULT = {
   }> | null;
 } | null;
 
-// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
-// Variable: COURSE_CATEGORIES_QUERY
-// Query: *[_type == "courseCategory"]{    _id,    title,    "slug": slug.current  } | order(title asc)
-export type COURSE_CATEGORIES_QUERY_RESULT = Array<{
-  _id: string;
-  title: string | null;
-  slug: string | null;
-}>;
-
-// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
-// Variable: COURSE_DETAIL_PAGE_QUERY
-// Query: *[_type == "course" && slug.current == $slug]{  courseName,  aimCourse,  aboutCourse,  courseSections[]{    sectionTitle,    sectionText  },  "categoryTitle": category->title,   length,  conditionsCourse,  category,  "lecturer": lecturer->{    name,    role,    number,     image,    email,    courseSections,    slug  }} [0]
-export type COURSE_DETAIL_PAGE_QUERY_RESULT = {
-  courseName: string | null;
-  aimCourse: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }> | null;
-  aboutCourse: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }> | null;
-  courseSections: Array<{
-    sectionTitle: string | null;
-    sectionText: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }> | null;
-  }> | null;
-  categoryTitle: string | null;
-  length: string | null;
-  conditionsCourse: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }> | null;
-  category: CourseCategoryReference | null;
-  lecturer: {
-    name: string | null;
-    role: null;
-    number: number | null;
-    image: {
-      asset?: SanityImageAssetReference;
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      alt?: string;
-      _type: "image";
-    } | null;
-    email: string | null;
-    courseSections: null;
-    slug: Slug | null;
-  } | null;
-} | null;
-
-// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
-// Variable: WORK_PAGE_QUERY
-// Query: *[_type == "course" && slug.current == $slug][0]{    courseName,    content,    image,    "categoryTitle": category->title,     "lecturer": lecturer->{      name,      role,      number,      image,      email,      slug     }  }
-export type WORK_PAGE_QUERY_RESULT = {
-  courseName: string | null;
-  content: null;
-  image: null;
-  categoryTitle: string | null;
-  lecturer: {
-    name: string | null;
-    role: null;
-    number: number | null;
-    image: {
-      asset?: SanityImageAssetReference;
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      alt?: string;
-      _type: "image";
-    } | null;
-    email: string | null;
-    slug: Slug | null;
-  } | null;
-} | null;
-
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    '\n  *[_type == "homepage"][0]{\n    title,\n    heroTitle,\n    heroText,\n    heroImage,\n  }\n': HOMEPAGE_QUERY_RESULT;
-    '\n  *[_type == "course" && defined(category)] | order(category asc) {\n    category\n  } [0...100]\n': COURSE_CATEGORY_QUERY_RESULT;
-    '\n  *[_type == "course" && defined(slug.current)] | order(name asc) [0] {\n    _id, \n    courseName, \n    lecturer, \n    slug,\n  }\n': COURSE_QUERY_RESULT;
-    '\n  {\n    "role": *[_type == "role" && slug.current == $role][0] { title },\n    "employees": *[\n      _type == "employee" &&\n      $role in roles[]->slug.current &&\n      defined(slug.current)\n    ] | order(name asc) {\n      _id,\n      name,\n      "roles": roles[]->{ title, "slug": slug.current },\n      "slug": slug.current,\n      image\n    }\n  }\n': EMPLOYEE_ROLE_QUERY_RESULT;
-    '\n  *[_type == "employee" && defined(slug.current)]\n  | order(name asc) {\n    _id,\n    name,\n    "slug": slug.current,\n    image,\n    "roles": roles[]->{ title, "slug": slug.current }\n  }\n': EMPLOYEES_QUERY_RESULT;
-    '\n  *[_type == "employee" && slug.current == $slug][0]{\n\n    name,\n    "slug": slug.current,\n    number,\n    email,\n    bio,\n    image{\n      asset,\n      alt\n    },\n    "roles": roles[]->{ title, "slug": slug.current },\n    educationList[]{\n      school,\n      yearStart,\n      yearEnd\n    }\n  }\n': EMPLOYEE_PAGE_QUERY_RESULT;
+    '\n  *[_type == "homepage"][0]{\n    title,\n    heroTitle,\n    heroText,\n    heroImage\n  }\n': HOMEPAGE_QUERY_RESULT;
+    '\n  *[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...12]{\n    _id, \n    title, \n    "slug": slug.current, \n    publishedAt\n  }\n': POSTS_QUERY_RESULT;
+    '\n  *[(_type == "post" || _type == "employee") && slug.current == $slug][0]{\n    _type,\n    _id,\n    title,\n    name,\n    role,\n    image,\n    bio,\n    body,\n    publishedAt,\n    educationList[]{\n      school,\n      year\n    }\n  }\n': DATA_QUERY_RESULT;
     '\n  *[_type == "courseCategory"]{\n    _id,\n    title,\n    "slug": slug.current\n  } | order(title asc)\n': COURSE_CATEGORIES_QUERY_RESULT;
-    '*[_type == "course" && slug.current == $slug]{\n  courseName,\n  aimCourse,\n  aboutCourse,\n  courseSections[]{\n    sectionTitle,\n    sectionText\n  },\n  "categoryTitle": category->title, \n  length,\n  conditionsCourse,\n  category,\n  "lecturer": lecturer->{\n    name,\n    role,\n    number, \n    image,\n    email,\n    courseSections,\n    slug\n  }\n} [0]': COURSE_DETAIL_PAGE_QUERY_RESULT;
-    '\n  *[_type == "course" && slug.current == $slug][0]{\n    courseName,\n    content,\n    image,\n    "categoryTitle": category->title, \n    "lecturer": lecturer->{\n      name,\n      role,\n      number,\n      image,\n      email,\n      slug \n    }\n  }\n': WORK_PAGE_QUERY_RESULT;
+    '\n  *[_type == "course" && defined(category)] | order(category asc) {\n    category\n  }[0...100]\n': COURSE_CATEGORY_QUERY_RESULT;
+    '\n  *[_type == "course" && defined(slug.current)] | order(name asc){\n    _id, \n    courseName, \n    "slug": slug.current,\n    "lecturer": lecturer->{\n      name,\n      role,\n      image\n    }\n  }\n': COURSE_QUERY_RESULT;
+    '\n  *[_type == "course" && slug.current == $slug][0]{\n    courseName,\n    aimCourse,\n    aboutCourse,\n    content,\n    image,\n    length,\n    conditionsCourse,\n    "categoryTitle": category->title, \n    courseSections[]{\n      sectionTitle,\n      sectionText\n    },\n    "lecturer": lecturer->{\n      name,\n      role,\n      number, \n      image,\n      email,\n      slug\n    }\n  }\n': COURSE_DETAIL_PAGE_QUERY_RESULT;
+    '\n  *[_type == "employee" && defined(slug.current)] | order(name asc){\n    _id,\n    name,\n    "slug": slug.current,\n    image,\n    "roles": roles[]->{ title, "slug": slug.current }\n  }\n': EMPLOYEES_QUERY_RESULT;
+    '\n  {\n    "role": *[_type == "role" && slug.current == $role][0] { title },\n    "employees": *[\n      _type == "employee" &&\n      $role in roles[]->slug.current &&\n      defined(slug.current)\n    ] | order(name asc) {\n      _id,\n      name,\n      "roles": roles[]->{ title, "slug": slug.current },\n      "slug": slug.current,\n      image\n    }\n  }\n': EMPLOYEE_ROLE_QUERY_RESULT;
+    '\n  *[_type == "employee" && slug.current == $slug][0]{\n    name,\n    "slug": slug.current,\n    number,\n    email,\n    bio,\n    image{\n      asset,\n      alt\n    },\n    "roles": roles[]->{ title, "slug": slug.current },\n    educationList[]{\n      school,\n      yearStart,\n      yearEnd\n    }\n  }\n': EMPLOYEE_PAGE_QUERY_RESULT;
   }
 }

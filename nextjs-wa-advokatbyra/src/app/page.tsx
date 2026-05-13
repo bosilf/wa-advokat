@@ -1,15 +1,14 @@
 import Link from "next/link";
-import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
-import { HOMEPAGE_QUERY, EMPLOYEES_QUERY } from "@/sanity/queries";
+import { HOMEPAGE_QUERY, EMPLOYEES_QUERY, POSTS_QUERY } from "@/sanity/queries";
 import Image from "next/image";
 import { urlFor } from "@/sanity/image";
 
 
-const POSTS_QUERY = `*[
-  _type == "post"
-  && defined(slug.current)
-]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+// const POSTS_QUERY = `*[
+//   _type == "post"
+//   && defined(slug.current)
+// ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
 
 // const EMPLOYEES_QUERY = `*[
 //   _type == "employee"
@@ -19,7 +18,7 @@ const POSTS_QUERY = `*[
 const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
-  const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
+  const posts = await client.fetch(POSTS_QUERY, {}, options);
   const employees = await client.fetch(EMPLOYEES_QUERY, {}, options);
   const homepage = await client.fetch(HOMEPAGE_QUERY)
   return (
@@ -46,9 +45,9 @@ export default async function IndexPage() {
       <ul className="flex flex-col gap-y-4">
         {posts.map((post) => (
           <li className="hover:underline" key={post._id}>
-            <Link href={`/${post.slug.current}`}>
+            <Link href={`/${post.slug}`}>
               <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
+              <p>{new Date(post.publishedAt || "").toLocaleDateString()}</p>
             </Link>
           </li>
         ))}

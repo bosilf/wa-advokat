@@ -4,13 +4,6 @@ import PageHeader from "@/components/PageHeader";
 import { COURSE_CATEGORIES_QUERY } from "@/sanity/queries";
 
 export default async function CoursesPage() {
-//   const categories = await client.fetch<any[]>(`
-//     *[_type == "courseCategory"]{
-//       _id,
-//       title,
-//       "slug": slug.current
-//     } | order(title asc)
-//   `);
 const categories = await client.fetch(COURSE_CATEGORIES_QUERY);
   return (
     <main className="container mx-auto p-8">
