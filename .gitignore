@@ -1,0 +1,9 @@
+**/node_modules
+.pnp
+.pnp.*
+
+**/next/
+**/.next/
+**/.env*.local
+
+**/dist
