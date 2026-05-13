@@ -114,7 +114,7 @@ export const COURSE_DETAIL_PAGE_QUERY = defineQuery(`
     },
     "lecturer": lecturer->{
       name,
-      role,
+      "role": roles[0]->title,
       number, 
       image,
       email,

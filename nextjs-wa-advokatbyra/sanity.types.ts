@@ -667,7 +667,7 @@ export type COURSE_BY_CATEGORY_QUERY_RESULT = {
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: COURSE_DETAIL_PAGE_QUERY
-// Query: *[_type == "course" && slug.current == $slug][0]{    courseName,    aimCourse,    aboutCourse,    content,    image,    length,    conditionsCourse,    "categoryTitle": category->title,     courseSections[]{      sectionTitle,      sectionText    },    "lecturer": lecturer->{      name,      role,      number,       image,      email,      slug    }  }
+// Query: *[_type == "course" && slug.current == $slug][0]{    courseName,    aimCourse,    aboutCourse,    content,    image,    length,    conditionsCourse,    "categoryTitle": category->title,     courseSections[]{      sectionTitle,      sectionText    },    "lecturer": lecturer->{      name,      "role": roles[0]->title,      number,       image,      email,      slug    }  }
 export type COURSE_DETAIL_PAGE_QUERY_RESULT = {
   courseName: string | null;
   aimCourse: Array<{
@@ -751,7 +751,7 @@ export type COURSE_DETAIL_PAGE_QUERY_RESULT = {
   }> | null;
   lecturer: {
     name: string | null;
-    role: null;
+    role: string | null;
     number: number | null;
     image: {
       asset?: SanityImageAssetReference;
@@ -866,7 +866,7 @@ declare module "@sanity/client" {
     '\n  *[_type == "course" && defined(category)] | order(category asc) {\n    category\n  }[0...100]\n': COURSE_CATEGORY_QUERY_RESULT;
     '\n  *[_type == "course" && defined(slug.current)] | order(name asc){\n    _id, \n    courseName, \n    "slug": slug.current,\n    "lecturer": lecturer->{\n      name,\n      role,\n      image\n    }\n  }\n': COURSE_QUERY_RESULT;
     '\n  *[_type == "courseCategory" && slug.current == $category][0]{\n    title,\n    description,\n    "courses": *[_type == "course" && category._ref == ^._id] | order(courseName asc) {\n      _id,\n      courseName,\n      "slug": slug.current\n    }\n  }\n': COURSE_BY_CATEGORY_QUERY_RESULT;
-    '\n  *[_type == "course" && slug.current == $slug][0]{\n    courseName,\n    aimCourse,\n    aboutCourse,\n    content,\n    image,\n    length,\n    conditionsCourse,\n    "categoryTitle": category->title, \n    courseSections[]{\n      sectionTitle,\n      sectionText\n    },\n    "lecturer": lecturer->{\n      name,\n      role,\n      number, \n      image,\n      email,\n      slug\n    }\n  }\n': COURSE_DETAIL_PAGE_QUERY_RESULT;
+    '\n  *[_type == "course" && slug.current == $slug][0]{\n    courseName,\n    aimCourse,\n    aboutCourse,\n    content,\n    image,\n    length,\n    conditionsCourse,\n    "categoryTitle": category->title, \n    courseSections[]{\n      sectionTitle,\n      sectionText\n    },\n    "lecturer": lecturer->{\n      name,\n      "role": roles[0]->title,\n      number, \n      image,\n      email,\n      slug\n    }\n  }\n': COURSE_DETAIL_PAGE_QUERY_RESULT;
     '\n  *[_type == "employee" && defined(slug.current)] | order(name asc){\n    _id,\n    name,\n    "slug": slug.current,\n    image,\n    "roles": roles[]->{ title, "slug": slug.current }\n  }\n': EMPLOYEES_QUERY_RESULT;
     '\n  {\n    "role": *[_type == "role" && slug.current == $role][0] { title },\n    "employees": *[\n      _type == "employee" &&\n      $role in roles[]->slug.current &&\n      defined(slug.current)\n    ] | order(name asc) {\n      _id,\n      name,\n      "roles": roles[]->{ title, "slug": slug.current },\n      "slug": slug.current,\n      image\n    }\n  }\n': EMPLOYEE_ROLE_QUERY_RESULT;
     '\n  *[_type == "employee" && slug.current == $slug][0]{\n    name,\n    "slug": slug.current,\n    number,\n    email,\n    bio,\n    image{\n      asset,\n      alt\n    },\n    "roles": roles[]->{ title, "slug": slug.current },\n    educationList[]{\n      school,\n      yearStart,\n      yearEnd\n    }\n  }\n': EMPLOYEE_PAGE_QUERY_RESULT;

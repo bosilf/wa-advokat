@@ -1,20 +1,11 @@
 import Link from "next/link";
 import { client } from "@/sanity/client";
 import { COURSE_BY_CATEGORY_QUERY } from "@/sanity/queries";
-COURSE_BY_CATEGORY_QUERY
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
 
-  // const query = `*[_type == "courseCategory" && slug.current == $category][0]{
-  //   title,
-  //   description,
-  //   "courses": *[_type == "course" && category._ref == ^._id] | order(courseName asc) {
-  //     _id,
-  //     courseName,
-  //     "slug": slug.current
-  //   }
-  // }`;
+
 
   const data = await client.fetch(COURSE_BY_CATEGORY_QUERY, { category });
 
