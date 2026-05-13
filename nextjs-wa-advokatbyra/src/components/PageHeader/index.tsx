@@ -1,4 +1,4 @@
-import { type SanityDocument } from "next-sanity";
+// import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import Image from "next/image";
 import { urlFor } from "@/sanity/image";

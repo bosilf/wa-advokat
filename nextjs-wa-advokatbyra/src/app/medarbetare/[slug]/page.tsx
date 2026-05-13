@@ -1,4 +1,4 @@
-import { CustomPortableText } from "@/components/CustomPortableText";
+// import { CustomPortableText } from "@/components/CustomPortableText";
 import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 import { PortableText } from "next-sanity";
