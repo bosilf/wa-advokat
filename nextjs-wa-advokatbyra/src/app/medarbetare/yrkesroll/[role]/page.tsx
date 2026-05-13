@@ -1,27 +1,11 @@
 import Link from "next/link";
 import { client } from "@/sanity/client";
-import { SanityDocument } from "next-sanity";
 import Image from "next/image";
 import { urlFor } from "@/sanity/image";
 import RoleFilter from "@/components/RoleFilter";
+import { EMPLOYEE_ROLE_QUERY } from "@/sanity/queries";
 
-// Vi hämtar både rollens titel och medarbetarna i en och samma query
-const DATA_QUERY = `
-  {
-    "role": *[_type == "role" && slug.current == $role][0] { title },
-    "employees": *[
-      _type == "employee" &&
-      $role in roles[]->slug.current &&
-      defined(slug.current)
-    ] | order(name asc) {
-      _id,
-      name,
-      "roles": roles[]->{ title, "slug": slug.current },
-      "slug": slug.current,
-      image
-    }
-  }
-`;
+
 
 export default async function RolePage({
   params,
@@ -30,11 +14,7 @@ export default async function RolePage({
 }) {
   const { role } = await params;
 
-  // Vi hämtar ett objekt som innehåller både 'role' och 'employees'
-  const data = await client.fetch<{ role: { title: string } | null, employees: SanityDocument[] }>(
-    DATA_QUERY,
-    { role }
-  );
+  const data = await client.fetch(EMPLOYEE_ROLE_QUERY, { role });
 
   return (
     <main className="container mx-auto p-8">
@@ -53,7 +33,7 @@ export default async function RolePage({
             {employee.image && (
               <Image
                 src={urlFor(employee.image).width(600).url()}
-                alt={employee.name}
+                alt={employee.name || "Bild Medarabetare"}
                 width={600}
                 height={400}
                 className="rounded-lg mb-4 object-cover"
@@ -65,7 +45,7 @@ export default async function RolePage({
             </h2>
 
             <div className="flex flex-row gap-2 w-full text-sm font-medium">
-              {employee.roles?.map((role: any, index: number) => (
+              {employee.roles?.map((role, index: number) => (
                 <Link  
                   href={`/medarbetare/yrkesroll/${role.slug}`}
                   key={index}

@@ -11,7 +11,6 @@ const PAGE_IMAGE_QUERY = `
 `
 
 export default async function PageHeader({ pageName }: { pageName: string }) {
-  // Hämta datan direkt i komponenten (Server Component)
   const data = await client.fetch(PAGE_IMAGE_QUERY, { page: pageName })
   if (!data?.image) return null
   const activeColor = data.pageColor || "#8AA2BD"

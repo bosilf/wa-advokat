@@ -4,7 +4,6 @@ import { client } from "@/sanity/client";
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
 
-  // Vi hämtar ENDAST den kategori som matchar sluggen i URL:en
   const query = `*[_type == "courseCategory" && slug.current == $category][0]{
     title,
     description,
@@ -17,7 +16,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
   const data = await client.fetch(query, { category });
 
-  // Om användaren skriver in en slug som inte finns
   if (!data) return <main className="p-8 text-white">Kategorin hittades inte.</main>;
 
   return (

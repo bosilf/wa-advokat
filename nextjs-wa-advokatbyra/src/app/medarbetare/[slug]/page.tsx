@@ -1,54 +1,37 @@
 // import { CustomPortableText } from "@/components/CustomPortableText";
+import { CustomPortableText } from "@/components/CustomPortableText";
 import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
+import { EMPLOYEE_PAGE_QUERY } from "@/sanity/queries";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default async function EmployeePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   
-  const query = `
-  *[_type == "employee" && slug.current == $slug][0]{
-    
-    name,
-    "slug": slug.current,
-    number,
-    email,
-    bio,
-    image{
-      asset,
-      alt
-    },
-    "roles": roles[]->{ title, "slug": slug.current },
-    educationList[]{
-      school,
-      yearStart,
-      yearEnd
-    }
-  }
-`;
+  const employee = await client.fetch(EMPLOYEE_PAGE_QUERY, { slug });
 
-  const data = await client.fetch(query, { slug });
 
-  if (!data) return <div>Hittades inte...</div>;
+  if (!employee) return <div>Hittades inte...</div>;
 
   return (
     <main className="p-8">
-      {data.image && (
+      {employee.image && (
         <Image
-          src={urlFor(data.image).width(600).url()}
-          alt={data.name || "Medarbetare"}
+          src={urlFor(employee.image).width(600).url()}
+          alt={employee.name || "Medarbetare"}
           width={600}
           height={400}
           className="rounded-lg mb-4 object-cover"
         />
       )}
-      <h1 className="text-4xl font-bold">{data.name}</h1>
-      <p>Telefon: {data.number}</p>
-      <p>E-mail: {data.email}</p>
+      <h1 className="text-4xl font-bold">{employee.name}</h1>
+      <p>Telefon: {employee.number}</p>
+      <p>E-mail: {employee.email}</p>
       <div className="flex flex-row gap-2 w-full text-sm font-medium">
-        {data.roles?.map((role: any, index: number) => (
+        {employee.roles?.map((role, index: number) => (
           <Link  
             href={`/medarbetare/yrkesroll/${role.slug}`}
             key={index}
@@ -61,7 +44,7 @@ export default async function EmployeePage({ params }: { params: Promise<{ slug:
         ))}
       </div>
       <div className="prose mt-6">
-        <PortableText value={data.bio} />
+        <CustomPortableText value={employee.bio} />
       </div>
     </main>
   );

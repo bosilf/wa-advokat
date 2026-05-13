@@ -3,7 +3,7 @@ import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemaTypes'
 import { media } from 'sanity-plugin-media'
-import { BookIcon, FolderIcon, UsersIcon, HomeIcon, DocumentsIcon, CogIcon } from '@sanity/icons'
+import { BookIcon, FolderIcon, UsersIcon, HomeIcon, DocumentsIcon } from '@sanity/icons'
 
 export default defineConfig({
   name: 'default',

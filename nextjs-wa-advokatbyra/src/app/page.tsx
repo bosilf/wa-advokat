@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
-import { homepageQuery } from "@/sanity/queries";
+import { HOMEPAGE_QUERY, EMPLOYEES_QUERY } from "@/sanity/queries";
 import Image from "next/image";
 import { urlFor } from "@/sanity/image";
 
@@ -11,24 +11,24 @@ const POSTS_QUERY = `*[
   && defined(slug.current)
 ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
 
-const EMPLOYEES_QUERY = `*[
-  _type == "employee"
-  && defined(slug.current)
-]|order(name asc)[0...12]{_id, name, slug}`; 
+// const EMPLOYEES_QUERY = `*[
+//   _type == "employee"
+//   && defined(slug.current)
+// ]|order(name asc)[0...12]{_id, name, slug}`; 
 
 const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
   const posts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
-  const employees = await client.fetch<SanityDocument[]>(EMPLOYEES_QUERY, {}, options);
-  const homepage = await client.fetch(homepageQuery)
+  const employees = await client.fetch(EMPLOYEES_QUERY, {}, options);
+  const homepage = await client.fetch(HOMEPAGE_QUERY)
   return (
     <main className="container mx-auto min-h-screen max-w-3xl p-8">
       <h1 className="text-4xl font-bold mb-8">{homepage?.heroTitle}</h1>
-      {homepage.heroImage ? (
+      {homepage?.heroImage ? (
         <Image 
-          src={urlFor(homepage.heroImage).url()} 
-          alt={homepage.heroTitle}
+          src={urlFor(homepage.heroImage || "default.png").url()} 
+          alt={homepage.heroTitle || "Hero bild"}
           width={1600}
           height={900}
           priority
@@ -58,8 +58,7 @@ export default async function IndexPage() {
         {employees.map((employee) => (
           <li className="hover:underline border p-4 rounded-lg" key={employee._id}>
             <Link href='/medarbetare'>medarbetare</Link>
-            <Link href={`/medarbetare/${employee.slug.current}`}>
-              {/* Använd employee.name här! */}
+            <Link href={`/medarbetare/${employee.slug}`}>
               <h2 className="text-xl font-semibold">{employee.name}</h2>
             </Link>
           </li>
