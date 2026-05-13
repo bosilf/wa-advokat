@@ -4,7 +4,7 @@ import { urlFor } from "@/sanity/image"; // Din image-helper
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function CourseDetailPage({ params }: { params: Promise<{ category: string, slug: string }> }) {
+export default async function WorkPage({ params }: { params: Promise<{ category: string, slug: string }> }) {
   const { category, slug } = await params;
 
   // Vi hämtar kursen som matchar sluggen OCH vars kategori-slug matchar URL:en
