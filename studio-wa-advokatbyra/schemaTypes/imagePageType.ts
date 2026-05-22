@@ -30,13 +30,14 @@ export const imagePageType = defineType({
           {title: 'Mörkgrå', value: '#333333'},
         ],
       },
-      initialValue: '#8AA2BD', // Sätter standardfärgen automatiskt
+      initialValue: '#8AA2BD',
     }),
     defineField({
       name: 'image',
       title: 'Sidobild',
       type: 'image',
       description: 'Bild på hemsidan',
+      options: { hotspot: true },
       validation: (rule) => rule.required(),
     }),
   ]

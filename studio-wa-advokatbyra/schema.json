@@ -1669,7 +1669,14 @@
           "type": "string"
         }
       },
-      "name": {
+      "firstName": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "lastName": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
@@ -1728,6 +1735,13 @@
             "type": "object",
             "attributes": {
               "school": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "education": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "string"

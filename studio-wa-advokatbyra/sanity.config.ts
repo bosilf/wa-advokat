@@ -4,6 +4,7 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemaTypes'
 import { media } from 'sanity-plugin-media'
 import { BookIcon, FolderIcon, UsersIcon, HomeIcon, DocumentsIcon } from '@sanity/icons'
+// import { svSELocale } from 'sanity-locale-sv-se'
 
 export default defineConfig({
   name: 'default',
@@ -13,6 +14,7 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
+    // svSELocale(),
     visionTool(),
     media(),
     structureTool({

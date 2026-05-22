@@ -6,20 +6,25 @@ export const employeeType = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'name',
-      title: 'Namn',
+      name: 'firstName',
+      title: 'Förnamn',
       type: 'string',
-      description: 'För- och Efternamn',
-
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'lastName',
+      title: 'Efternamn',
+      type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
-      title: 'Länk',
+      title: 'Länk (Slug)',
       type: 'slug',
-      description: 'Klicka på "Generate" knappen till höger. Det skapar automatiskt en länk till medarbetarens personliga sida.',
+      description: 'Klicka på "Generate" för att skapa länken baserat på för- och efternamn.',
       options: {
-        source: 'name',
+        // Genererar länken automatiskt baserat på båda fälten (t.ex. johan-persson)
+        source: (doc) => `${doc.firstName} ${doc.lastName}`,
         maxLength: 96,
       },
       validation: (rule) => rule.required(),
@@ -45,6 +50,8 @@ export const employeeType = defineType({
       name: 'number',
       title: 'Mobilnummer',
       type: 'number',
+      description: 'Använd bara siffror, inga specialtecken',
+
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -60,27 +67,46 @@ export const employeeType = defineType({
       of: [
         {
           type: 'object',
+        
+          options: {
+            collapsible: true,
+            collapsed: false,
+          },
+        
           fields: [
-            { name: 'school', title: 'Skola/Utbildning', type: 'string' },
-            { 
-              name: 'yearStart', 
-              title: 'År Start', 
-              type: 'date', 
-              options: { dateFormat: 'YYYY' } 
+            { name: 'school', title: 'Skola', type: 'string' },
+            { name: 'education', title: 'Utbildning', type: 'string' },
+        
+            {
+              name: 'yearStart',
+              title: 'År Start',
+              type: 'date',
+              options: { dateFormat: 'YYYY' },
             },
-            { 
-              name: 'yearEnd', 
-              title: 'År Avklarat', 
-              type: 'date', 
-              options: { dateFormat: 'YYYY' } 
+        
+            {
+              name: 'yearEnd',
+              title: 'År Avklarat',
+              type: 'date',
+              options: { dateFormat: 'YYYY' },
             },
           ],
+        
           preview: {
             select: {
-              title: 'school',
-              subtitle: 'year start',
-            }
-          }
+              school: 'school',
+              education: 'education',
+              yearStart: 'yearStart',
+              yearEnd: 'yearEnd',
+            },
+        
+            prepare({ school, education, yearStart, yearEnd }) {
+              return {
+                title: education || 'Utbildning',
+                subtitle: `${school || ''} (${yearStart?.slice(0,4) || '?'}–${yearEnd?.slice(0,4) || 'Pågående'})`,
+              }
+            },
+          },
         }
       ]
     }),
@@ -94,6 +120,7 @@ export const employeeType = defineType({
           name: 'alt',
           type: 'string',
           title: 'Alternativ text',
+          description: 'Beskriv bilden för SEO och tillgänglighet. Exempel: "Porträtt av Anna Svensson, advokat på WA Advokatbyrå".',
         }
       ]
     }),
@@ -104,4 +131,18 @@ export const employeeType = defineType({
       of: [{type: 'block'}],
     }),
   ],
+  preview: {
+    select: {
+      firstName: 'firstName',
+      lastName: 'lastName',
+      media: 'image', // Lägg till detta om du har ett bildfält som heter 'image'
+    },
+    prepare(selection) {
+      const { firstName, lastName, media } = selection
+      return {
+        title: `${firstName || ''} ${lastName || ''}`.trim(),
+        media: media,
+      }
+    },
+  },
 })
