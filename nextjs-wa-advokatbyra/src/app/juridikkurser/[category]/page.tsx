@@ -13,7 +13,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   if (!data) return <main className="p-8 text-white">Kategorin hittades inte.</main>;
 
   return (
-    <main className="container mx-auto p-8 text-white">
+    <div className="container mx-auto p-8 text-white">
       <Link href="/juridikkurser" className="text-blue-400 hover:underline mb-8 block">
         ← Tillbaka till alla utbildningar
       </Link>
@@ -45,6 +45,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

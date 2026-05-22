@@ -26,7 +26,8 @@ export const DATA_QUERY = defineQuery(`
     _type,
     _id,
     title,
-    name,
+    firstName,
+    lastName,
     role,
     image,
     bio,
@@ -48,7 +49,8 @@ export const ALL_COURSES_QUERY = defineQuery(`
     "slug": slug.current,
     "categoryTitle": category->title,
     "lecturer": lecturer->{
-      name,
+      firstName,
+      lastName,
       role,
       image
     }
@@ -72,12 +74,13 @@ export const COURSE_CATEGORY_QUERY = defineQuery(`
 
 // Hämtar en lista med kurser (Här lades -> till på lecturer för att få riktig data)
 export const COURSE_QUERY = defineQuery(`
-  *[_type == "course" && defined(slug.current)] | order(name asc){
+  *[_type == "course" && defined(slug.current)] | order(lastName asc){
     _id, 
     courseName, 
     "slug": slug.current,
     "lecturer": lecturer->{
-      name,
+      firstName,
+      lastName
       role,
       image
     }
@@ -113,7 +116,8 @@ export const COURSE_DETAIL_PAGE_QUERY = defineQuery(`
       sectionText
     },
     "lecturer": lecturer->{
-      name,
+      firstName,
+      lastName,
       "role": roles[0]->title,
       number, 
       image,
@@ -126,9 +130,13 @@ export const COURSE_DETAIL_PAGE_QUERY = defineQuery(`
 // --- MEDARBETARE & ROLLER ---
 
 export const EMPLOYEES_QUERY = defineQuery(`
-  *[_type == "employee" && defined(slug.current)] | order(name asc){
+  *[_type == "employee" && defined(slug.current)] | order(lastName asc){
     _id,
-    name,
+    firstName,
+    lastName,
+    number,
+    email,
+    bio,
     "slug": slug.current,
     image,
     "roles": roles[]->{ title, "slug": slug.current }
@@ -142,9 +150,10 @@ export const EMPLOYEE_ROLE_QUERY = defineQuery(`
       _type == "employee" &&
       $role in roles[]->slug.current &&
       defined(slug.current)
-    ] | order(name asc) {
+    ] | order(lastName asc) {
       _id,
-      name,
+      firstName,
+      lastName,
       "roles": roles[]->{ title, "slug": slug.current },
       "slug": slug.current,
       image
@@ -152,9 +161,24 @@ export const EMPLOYEE_ROLE_QUERY = defineQuery(`
   }
 `)
 
+export const ROLES_QUERY = defineQuery(`
+  *[
+    _type == "role" &&
+    count(*[
+      _type == "employee" &&
+      references(^._id)
+    ]) > 0
+  ]
+  | order(title asc) {
+    title,
+    "slug": slug.current
+  }
+`)
+
 export const EMPLOYEE_PAGE_QUERY = defineQuery(`
   *[_type == "employee" && slug.current == $slug][0]{
-    name,
+    firstName,
+    lastName,
     "slug": slug.current,
     number,
     email,
@@ -166,6 +190,7 @@ export const EMPLOYEE_PAGE_QUERY = defineQuery(`
     "roles": roles[]->{ title, "slug": slug.current },
     educationList[]{
       school,
+      education,
       yearStart,
       yearEnd
     }

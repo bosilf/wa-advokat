@@ -75,7 +75,7 @@
 //   );
 // }
 
-import { CustomPortableText } from "@/components/CustomPortableText";
+import { CustomPortableText } from "@/components/common/CustomPortableText";
 import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 import { EMPLOYEE_PAGE_QUERY } from "@/sanity/queries";
@@ -92,7 +92,7 @@ export default async function EmployeePage({ params }: { params: Promise<{ slug:
   if (!employee) return <div>Hittades inte...</div>;
 
   return (
-    <main className="p-8">
+    <div className="p-8">
       {employee.image && (
         <Image
           src={urlFor(employee.image).url()}
@@ -121,6 +121,6 @@ export default async function EmployeePage({ params }: { params: Promise<{ slug:
       <div className="prose mt-6">
         <CustomPortableText value={employee.bio} />
       </div>
-    </main>
+    </div>
   );
 }

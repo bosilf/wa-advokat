@@ -3,7 +3,7 @@ import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 import Image from "next/image";
 import Link from "next/link";
-import { CustomPortableText } from "@/components/CustomPortableText";
+import { CustomPortableText } from "@/components/common/CustomPortableText";
 import { COURSE_DETAIL_PAGE_QUERY } from "@/sanity/queries";
 
 export default async function CourseDetailPage({ params }: { params: Promise<{ category: string, slug: string }> }) {
@@ -14,7 +14,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ c
   if (!course) return <main className="p-8">Kursen hittades inte...</main>;
 
   return (
-    <main className="container mx-auto p-8 max-w-4xl">
+    <div className="container mx-auto p-8 max-w-4xl">
       <nav className="text-sm text-gray-500 mb-8">
         <Link href="/juridikkurser" className="hover:underline">Utbildningar</Link>
         <span className="mx-2">/</span>
@@ -99,6 +99,6 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ c
           Skicka bokningsförfrågan
         </a>
       </footer>
-    </main>
+    </div>
   );
 }

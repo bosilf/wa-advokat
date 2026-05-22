@@ -8,8 +8,9 @@ export default function ActiveFilter({ href, children }: { href: string, childre
 
   return (
     <Link 
+      scroll={false}
       href={href} 
-      className={`hover:text-blue-500 capitalize ${isActive ? "underline font-bold" : ""}`}
+      className={`transition-all duration-500  hover:underline ${isActive ? "font-bold" : ""}`}
     >
       {children}
     </Link>

@@ -6,7 +6,7 @@ export default async function ArbetsomradenPage() {
   const courses = await client.fetch(ALL_COURSES_QUERY);
 
   return (
-    <main className="container mx-auto p-8">
+    <div className="container mx-auto p-8">
       <h1 className="text-4xl font-bold mb-8">Våra Arbetsområden & Kurser</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -34,6 +34,6 @@ export default async function ArbetsomradenPage() {
           <p className="text-gray-500 italic">Inga arbetsområden hittades.</p>
         )}
       </div>
-    </main>
+    </div>
   );
 }
