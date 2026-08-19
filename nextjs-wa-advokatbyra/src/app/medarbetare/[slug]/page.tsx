@@ -96,13 +96,13 @@ export default async function EmployeePage({ params }: { params: Promise<{ slug:
       {employee.image && (
         <Image
           src={urlFor(employee.image).url()}
-          alt={employee.name || "Medarbetare"}
+          alt={employee.firstName || "Medarbetare"}
           width={600}
           height={400}
           className="rounded-lg mb-4 object-cover"
         />
       )}
-      <h1 className="text-4xl font-bold">{employee.name}</h1>
+      <h1 className="text-4xl font-bold">{employee.firstName}</h1>
       <p>Telefon: {employee.number}</p>
       <p>E-mail: {employee.email}</p>
       <div className="flex flex-row gap-2 w-full text-sm font-medium">
