@@ -22,7 +22,7 @@ interface EmployeeCardProps {
     number: string;
     email: string;
     slug: { current: string } | string; 
-    image?: any;
+    image?: string;
     roles?: Array<{ title: string; slug: { current: string } | string }>;
   };
 }
@@ -107,15 +107,17 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
                     >
                       {role.title}
                     </Link>
-                    {index === 0 && employee.roles.length > 1 && (
+                    {index === 0 && employee.roles?length > 1 && (
                       <div className="w-[1px] h-fill my-0.5 bg-ink"></div>
-                    )}
+                    )
+                    :
+                    ""
+                  }
                   </span>
                 );
               })}
             </div>
         </div>
-
       </article>
-  );
+  )
 }
