@@ -23,8 +23,8 @@ export default async function IndexPage() {
   const homepage = await client.fetch(HOMEPAGE_QUERY, {}, options);
 
   const intro = homepage?.introSection || {};
-  const tjanster = homepage?.tjansterSection || {};
-  const teamSection = homepage?.employeeSection || {};
+  // const tjanster = homepage?.tjansterSection || {};
+  // const teamSection = homepage?.employeeSection || {};
   const cardData = homepage?.servicesCard || {};
   console.log(homepage);
   console.log('Card container test: ', homepage?.servicesCard);
