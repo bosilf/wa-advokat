@@ -1,85 +1,118 @@
 import { defineType, defineField } from 'sanity'
+import { CogIcon, TagIcon, UserIcon, HomeIcon, DocumentIcon } from '@sanity/icons'
+
 
 export const homePageType = defineType({
-  name: 'homepage',
+  name: 'home',
   title: 'Förstasidan',
   type: 'document',
+  
+
+  groups: [
+    {
+      name: 'homeIntros',
+      title: 'Intro',
+    },
+    {
+      name: 'homeTjanster',
+      title: 'Tjänster',
+    },
+    {
+      name: 'homeEmployees',
+      title: 'Medarbetare',
+    },
+    {
+      name: 'homeContact',
+      title: 'Kontakt',
+    },
+  ],
 
   fields: [
     defineField({
-      name: 'heroTitle',
-      title: 'Hero Titel',
+      name: 'homeTitle',
+      title: 'Förstasidan huvudtitel',
       type: 'string',
       validation: Rule => Rule.required(),
     }),
-
     defineField({
-      name: 'heroImage',
-      title: 'Hero Bild',
-      type: 'image',
-      options: { hotspot: true },
+      name: 'homeEyebrow',
+      title: 'Förstasidan eyebrow',
+      type: 'string',
+      validation: Rule => Rule.required(),
     }),
-
-    defineField({
-      name: 'heroText',
-      title: 'Hero Text',
-      type: 'text',
-    }),
-
-    defineField({
-      name: 'content',
-      title: 'Innehåll',
-      type: 'array',
-      of: [{ type: 'block' }],
-    }),
-
-    defineField({
-      name: 'educationList',
-      title: 'Utbildningar',
-      type: 'array',
-      of: [
+    defineField({ 
+      name: 'introSection', 
+      title: 'Intro',
+      group: 'homeIntros',
+      type: 'object',
+      fields: [
         {
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'school',
-              title: 'Skola/Utbildning',
-              type: 'string',
-            }),
-
-            defineField({
-              name: 'yearStart',
-              title: 'År Start',
-              type: 'number',
-            }),
-
-            defineField({
-              name: 'yearEnd',
-              title: 'År Avklarat',
-              type: 'number',
-            }),
-          ],
-
-          preview: {
-            select: {
-              title: 'school',
-              subtitle: 'yearStart',
-            },
-          },
+          name: 'introTitle', 
+          title: 'Titel',
+          type: 'string',
+          validation: Rule => Rule.required(),
+        },
+        {
+          name: 'introText',
+          title: 'Intro Text',
+          type: 'array',
+          of: [{type: 'block'}],
         },
       ],
     }),
+    defineField({ 
+      name: 'tjansterSection', 
+      title: 'Tjänster',
+      group: 'homeTjanster',
+      type: 'object',
+      fields: [
+        {
+          name: 'tjansterTitle', 
+          title: 'Titel',
+          type: 'string',
+          validation: Rule => Rule.required(),
+        },
+        {
+          name: 'tjansterEyebrow', 
+          title: 'ögonbryn',
+          type: 'string',
+        },
+        {
+          name: 'tjansterText',
+          title: 'Tjänster Text',
+          type: 'array',
+          of: [{type: 'block'}],
+        },
+      ],
+    }),
+    defineField({ 
+      name: 'employeeSection', 
+      title: 'Medarbetare',
+      group: 'homeEmployees',
+      type: 'object',
+      fields: [
+        {
+          name: 'employeeTitle', 
+          title: 'Titel',
+          type: 'string',
+          validation: Rule => Rule.required(),
+        },
+        {
+          name: 'employeeEyebrow', 
+          title: 'ögonbryn',
+          type: 'string',
+        },
+        {
+          name: 'employeeText', 
+          title: 'Tjänster text',
+          type: 'text'
+        },
+      ],
+    }),
+    defineField({
+      name: 'servicesCard',
+      title: 'Tjänstekort (Card Container)',
+      type: 'cardContainer',
+    }),
   ],
-
-  preview: {
-    select: {
-      title: 'heroTitle', // Här säger vi till Sanity att hämta texten från heroTitle
-    },
-    prepare(selection) {
-      const {title} = selection
-      return {
-        title: title || 'Namnlös förstasida', // Visar titeln eller en backup-text
-      }
-    },
-  }
 })

@@ -22,8 +22,8 @@ export default async function PageHeader({ pageName }: { pageName: string }) {
   const activeColor = data.pageColor || "#8AA2BD";
 
   return (
-    <header className="w-screen  h-[70%] grid grid-rows-[1fr_8fr] p-3 pt-0 md:p-8 md:pt-0 mb-8">
-      <h1 className="text-4xl capitalize self-center text-center font-bold my-6">{pageName}</h1>
+    <header className="w-screen h-150 sm:h-[70%] grid grid-rows-[1fr_8fr] p-3 pt-0 md:p-8 md:pt-0 mb-8">
+      <h1 className="text-4xl capitalize self-center text-center font-heading my-6">{pageName}</h1>
       <PageHeaderImage image={data.image} activeColor={activeColor} />
     </header>
   );

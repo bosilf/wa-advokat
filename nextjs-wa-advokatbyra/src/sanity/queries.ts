@@ -1,13 +1,36 @@
 import { defineQuery } from 'next-sanity'
 
-// --- STARTSIDA & BLOGG ---
-
 export const HOMEPAGE_QUERY = defineQuery(`
-  *[_type == "homepage"][0]{
-    title,
-    heroTitle,
-    heroText,
-    heroImage
+  *[_type == "home"][0]{
+    homeTitle,
+    homeEyebrow,
+    introSection {
+      introTitle,
+      introText,
+    },
+    tjansterSection {
+      tjansterTitle,
+      tjansterEyebrow,
+      tjansterText,
+    },
+    employeeSection {
+      employeeTitle,
+      employeeEyebrow,
+      employeeText,
+    },
+    servicesCard {
+      descriptionText,
+      hideDescription,
+      hideAccordion,
+      hideImage,
+      hideCardSmall,
+      accordions[] {
+        title,
+        description,
+        btnHref,
+        icon
+      }
+    }
   }
 `)
 
@@ -20,7 +43,6 @@ export const POSTS_QUERY = defineQuery(`
   }
 `)
 
-// Universell sökning för dynamiska [slug]-sidor som hanterar både inlägg och medarbetare
 export const DATA_QUERY = defineQuery(`
   *[(_type == "post" || _type == "employee") && slug.current == $slug][0]{
     _type,
@@ -40,8 +62,6 @@ export const DATA_QUERY = defineQuery(`
   }
 `)
 
-// --- KURSER & UTBILDNINGAR ---
-
 export const ALL_COURSES_QUERY = defineQuery(`
   *[_type == "course" && defined(slug.current)] | order(courseName asc){
     _id,
@@ -57,7 +77,6 @@ export const ALL_COURSES_QUERY = defineQuery(`
   }
 `);
 
-
 export const COURSE_CATEGORIES_QUERY = defineQuery(`
   *[_type == "courseCategory"]{
     _id,
@@ -72,7 +91,6 @@ export const COURSE_CATEGORY_QUERY = defineQuery(`
   }[0...100]
 `)
 
-// Hämtar en lista med kurser (Här lades -> till på lecturer för att få riktig data)
 export const COURSE_QUERY = defineQuery(`
   *[_type == "course" && defined(slug.current)] | order(lastName asc){
     _id, 
@@ -100,7 +118,6 @@ export const COURSE_BY_CATEGORY_QUERY = defineQuery(`
 `);
 
 
-// Detaljerad kurssida (Hanterar både gamla WORK_PAGE och DETAIL_PAGE i ett svep)
 export const COURSE_DETAIL_PAGE_QUERY = defineQuery(`
   *[_type == "course" && slug.current == $slug][0]{
     courseName,

@@ -7,6 +7,7 @@ import { urlFor } from "@/sanity/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Icon from "../Icon";
 
 // Registrera ScrollTrigger så att GSAP kan lyssna på webbläsarens scroll
 if (typeof window !== "undefined") {
@@ -66,58 +67,55 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
   }, { scope: containerRef });
 
   return (
-    <article ref={containerRef} className=" group block flex flex-col justify-between mb-12">
+    <article ref={containerRef} className="aspect-2/3 rounded-lg w-full bg-white overflow-hidden group block flex flex-col justify-between hover:drop-shadow-lg">
         {employee.image && (
-          <Link href={`/medarbetare/${employeeSlug}`}>
+          <Link className="h-full flex-1" href={`/medarbetare/${employeeSlug}`}>
             {/* Ramen måste ha scale-105 eller h-[110%] på bilden så att det finns utrymme att flytta den utan att kanterna syns */}
-            <div className="rounded-xl md:rounded-lg overflow-hidden w-full aspect-square relative">
-              <div className="z-10 absolute inset-0 bg-[#8AA2BD]/60 backdrop-blur-xs opacity-0 transition-all duration-300 hover:opacity-100 flex flex-col items-center justify-center text-white p-4 gap-1 select-none">
-                <div className="flex flex-col h-full w-full opacity-0 group-hover:opacity-100 justify-center transition-all delay-100 duration-300">
-                  <h3 className="text-center break-all">{employee.firstName} {employee.lastName}</h3>
-                  <p className="text-center font-medium break-all">{employee.number}</p>
-                  <p className="text-center font-medium break-all">{employee.email}</p>
-                </div>
+            <div className="overflow-hidden h-full relative ">
+              <div className="z-10 absolute h-full inset-0 bg-accent/60 backdrop-blur-xs opacity-0 group transition-all duration-300 hover:opacity-100 flex flex-col items-center justify-center text-white gap-1 select-none">
+                  <h3 className="flex flex-col justify-center text-colors-type-ink text-base font-semibold font-body">Läs mer om <span className="duration-300 flex w-fit gap-0 group-hover:gap-sm">{employee.firstName} <Icon name="arrow" size={15} className="text-white" /></span></h3>
               </div>
               <Image
                 ref={imageRef}
                 src={urlFor(employee.image)
                   .fit('crop')
-                  .width(600)
-                  .height(600)
+                  .width(800)
+                  .height(900)
                   .url()}
                 alt={`${employeeName}${rolesText ? `, ${rolesText}` : ''} på WA Advokatbyrå`}
                 fill
-                className="object-cover w-full h-full scale-110 absolute inset-0 will-change-transform"
+                className="object-cover w-full h-stretch scale-110 absolute inset-0 will-change-transform"
               />
             </div>
           </Link>
         )}
-        
-        <Link href={`/medarbetare/${employeeSlug}`}>
-          <h2 className="text-2xl font-bold hover:text-blue-600 transition-colors mt-4">
-            {employeeName}
-          </h2>
-        </Link>
-        
-        <div className="flex flex-col justify-between items-center mt-2">
-          <div className="flex flex-wrap gap-1 w-full h-min text-xs md:text-sm font-medium">
-            {employee.roles?.map((role, index: number) => {
-              const roleSlug = typeof role.slug === 'object' ? role.slug.current : role.slug;
-              return (
-                <Link  
-                  href={`/medarbetare/yrkesroll/${roleSlug}`}
-                  key={index}
-                  className="transition-all duration-300 ease-in-out hover:text-[#8AA2BD] hover:bg-white bg-[#8AA2BD] text-white px-2 py-sm rounded-full border border-[#8AA2BD]"
-                >
-                  {role.title}
-                </Link>
-              );
-            })}
-          </div>
-          <Link className="text-[#8AA2BD] hover:text-blue-500 self-start text-sm capitalize whitespace-nowrap" href={`/medarbetare/${employeeSlug}`}>
-              mer om {employee.firstName}
+        <div className="flex flex-col p-6">
+          <Link href={`/medarbetare/${employeeSlug}`}>
+            <h3 className="justify-center text-colors-type-ink text-base font-semibold font-['Poppins']">
+              {employeeName}
+            </h3>
           </Link>
+
+            <div className="mt-2 h-min flex gap-1 text-colors-type-body text-xs font-normal font-['Poppins']">
+              {employee.roles?.map((role, index: number) => {
+                const roleSlug = typeof role.slug === 'object' ? role.slug.current : role.slug;
+                return (
+                  <span className="flex justify-center gap-1 flex-row" key={index}>
+                    <Link  
+                    className="hover:text-accent hover:underline"
+                    href={`/medarbetare/yrkesroll/${roleSlug}`}
+                    >
+                      {role.title}
+                    </Link>
+                    {index === 0 && employee.roles.length > 1 && (
+                      <div className="w-[1px] h-fill my-0.5 bg-ink"></div>
+                    )}
+                  </span>
+                );
+              })}
+            </div>
         </div>
+
       </article>
   );
 }

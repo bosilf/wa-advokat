@@ -16,15 +16,18 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/vision": "^5.26.0",
+    "@sanity/color-input": "^6.1.1",
+    "@sanity/vision": "^5.31.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "sanity": "^5.26.0",
+    "sanity": "^5.31.1",
+    "sanity-plugin-hotspot-array": "^5.0.12",
     "sanity-plugin-media": "^4.2.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^6.0.0",
+    "@types/node": "^26.1.2",
     "@types/react": "^19.2.14",
     "eslint": "^9.28",
     "prettier": "^3.5",

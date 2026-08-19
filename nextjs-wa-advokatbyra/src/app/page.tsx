@@ -1,68 +1,88 @@
-import Link from "next/link";
 import { client } from "@/sanity/client";
-import { HOMEPAGE_QUERY, EMPLOYEES_QUERY, POSTS_QUERY } from "@/sanity/queries";
+// import Link from "next/link";
+import { HOMEPAGE_QUERY, EMPLOYEES_QUERY } from "@/sanity/queries";
 import Image from "next/image";
-import { urlFor } from "@/sanity/image";
+// import { urlFor } from "@/sanity/image";
+import CardContainer from "@/components/cards/CardContainer";
+// import TeamCard from "@/components/cards/TeamCard";
+// import HeroHome from "@/components/heros/HeroHome";
+import Button from "@/components/Button";
+import EmployeeCard from "@/components/EmployeeCard";
+import Section from "@/components/Section";
+import { CustomPortableText } from "@/components/common/CustomPortableText";
+import { PortableText } from "@portabletext/react";
 
 
-// const POSTS_QUERY = `*[
-//   _type == "post"
-//   && defined(slug.current)
-// ]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+const options = { next: { revalidate: 0 } };
 
-// const EMPLOYEES_QUERY = `*[
-//   _type == "employee"
-//   && defined(slug.current)
-// ]|order(name asc)[0...12]{_id, name, slug}`; 
 
-const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
-  const posts = await client.fetch(POSTS_QUERY, {}, options);
+
   const employees = await client.fetch(EMPLOYEES_QUERY, {}, options);
-  const homepage = await client.fetch(HOMEPAGE_QUERY)
+  const homepage = await client.fetch(HOMEPAGE_QUERY, {}, options);
+
+  const intro = homepage?.introSection || {};
+  const tjanster = homepage?.tjansterSection || {};
+  const teamSection = homepage?.employeeSection || {};
+  const cardData = homepage?.servicesCard || {};
+  console.log(homepage);
+  console.log('Card container test: ', homepage?.servicesCard);
   return (
-    <div className="container mx-auto min-h-screen max-w-3xl p-8">
-      <h1 className="text-4xl font-bold mb-8">{homepage?.heroTitle}</h1>
-      {homepage?.heroImage ? (
-        <Image 
-          src={urlFor(homepage.heroImage || "default.png").url()} 
-          alt={homepage.heroTitle || "Hero bild"}
-          width={1600}
-          height={900}
-          priority
-        />
-        ) : (
-          <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
-            <span className="text-gray-400">Bild saknas</span>
-          </div>
-      )}
-      {/* <Image
-        src={urlFor(homepage.heroImage).url()}
-      /> */}
-      <p>{homepage?.heroText}</p>
-      <h1 className="text-4xl font-bold mb-8">Posts</h1>
-      <ul className="flex flex-col gap-y-4">
-        {posts.map((post) => (
-          <li className="hover:underline" key={post._id}>
-            <Link href={`/${post.slug}`}>
-              <h2 className="text-xl font-semibold">{post.title}</h2>
-              <p>{new Date(post.publishedAt || "").toLocaleDateString()}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <hr className="my-8" />
-      <ul className="grid grid-cols-1 gap-y-4">
-        {employees.map((employee) => (
-          <li className="hover:underline border p-4 rounded-lg" key={employee._id}>
-            <Link href='/medarbetare'>medarbetare</Link>
-            <Link href={`/medarbetare/${employee.slug}`}>
-              <h2 className="text-xl font-semibold">{employee.name}</h2>
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <div className="">
+      <p >{homepage?.homeText}</p>
+        <Section 
+          color="bg-surface" 
+          hideEyebrow 
+          heading={intro.introTitle || "Titel saknas"}
+        >
+          {/* 🚀 Kör BARA din CustomPortableText och skicka med värdet */}
+          {intro.introText ? (
+            <CustomPortableText value={intro.introText} />
+          ) : (
+            <p className="font-body text-gray-400">Text saknas i Sanity.</p>
+          )}
+        </Section>
+        <Section color="canvas" eyebrow="juridiska tjänster" heading="Juridisk expertis du kan lita på">
+          <p className="font-body whitespace-pre-line">
+            Du får rådgivning på hög nivå, där både juridiska 
+            och kommersiella aspekter vägs in. Du möts av ett prestigelöst förhållningssätt och en stark samarbetspartner i dina affärer.
+          </p>
+          <Button b={{ href: "/kontakt", variant: "primary", hasIcon: true, icon: "arrow", title: ""}} >Läs mer</Button>
+          <CardContainer 
+            descriptionText={cardData.descriptionText}
+            accordions={cardData.accordions}
+            hideDescription={cardData.hideDescription}
+            hideAccordion={cardData.hideAccordion}
+            hideImage={cardData.hideImage}
+            hideCardSmall={cardData.hideCardSmall}
+          />
+        </Section>
+        <Section color="bg-surface" eyebrow="medarbetare" heading="Möt teamet">
+          <p className="font-body">
+            Vi är lösningsorienterade och vi strävar efter att inte enbart peka på risker utan att försöka hitta lösningar och möjligheter på olika problem och frågor. 
+          </p>
+          {employees.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-md gap-x-md">
+              {employees.map((employee) => (
+                <EmployeeCard key={employee._id} employee={employee} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-500 mt-8 text-center">Inga medarbetare hittades.</p>
+          )}
+          {employees.length === 0 && (
+            <p className="text-gray-500">Inga medarbetare hittades.</p>
+          )}
+        </Section>
+
+      <Section eyebrow="kontakt" heading="Kontakta oss idag!">
+        <p className="font-body">Be om juridisk rådgivning i bygg- och fastighetsrelaterade frågor. Vi hjälper er i tidigt i processen eller när tvist uppstår. WA Advokatbyrå är specialister på offentlig upphandling och vet vilka problem som brukar uppstå samt hur de kan lösas på bästa sätt. Ta del av våra juridiska utbildningar och anmäl intresse till någon av våra kurser. </p>
+        {/* <Button href="" hasIcon>Kontakta oss</Button> */}
+        {/* <div className="-ml-section-sides -mb-xl border-t-1 border-canvas relative overflow-hidden w-screen"> */}
+          {/* <Image width={500} height={500} className="relative" src="/assets/section (1).svg" alt="" /> */}
+        {/* </div> */}
+      </Section>
     </div>
-  );
+  )
 }

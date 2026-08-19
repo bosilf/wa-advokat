@@ -8,5 +8,6 @@ export default async function RoleFilter() {
   // const yrkesrollSelection = {}yrkesroll
 // yrkesroll={yrkesrollSelection}
   const roles = await client.fetch(ROLES_QUERY);
-  return <RoleFilterClient roles={roles}  />;
+  return<RoleFilterClient roles={roles} />
+  
 }

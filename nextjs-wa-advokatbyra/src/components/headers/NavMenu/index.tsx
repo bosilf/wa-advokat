@@ -1,10 +1,13 @@
+// import Image from "next/image"
+
 
 import Nav from "../Navigation"
 
 const NavMenu = () => {
   return (
-    <nav className="h-6 mb-6">
-      <div className="flex justify-between m-3">
+    <nav className="">
+      <div className="absolute top-0 w-full flex justify-between p-sm">
+        {/* <Image src="../public/assets/wa-logo-white@2x (1).png" alt="" /> */}
         <div>logo</div>
         <div>telefon / mail</div>
       </div>

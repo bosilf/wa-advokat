@@ -3,30 +3,222 @@
 @source "../../components"; 
 
 :root {
-  --background: #ffffff;
+  --background: #F3F5F7;
   --foreground: #171717;
-  --text: #0a0a0a;
-
+  --text: #4A4A4A;
+  
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --text: #0a0a0a;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-canvas: #F3F5F7;
+  --color-surface: #EAEDF2;
+  --color-white: #FFF;
+  --color-border: #D9DBE0;
+  --color-footer: #51616B;
+
+  --color-ink: #1A1A1A;
+  --color-body: #4A4A4A;
+  --color-muted: #928F8E;
+
+  --color-accent: #9AABB5;
+
+  --spacing-0: 0;
+  --spacing-xs: clamp(2px, 1vw, 4px);
+  --spacing-sm: clamp(6px, 1vw, 8px);
+  --spacing-md: clamp(16px, 1vw, 32px);
+  --spacing-lg: clamp(32px, 1vw, 64px);
+  --spacing-xl: clamp(64px, 1vw, 120px);
+  --spacing-section-sides: clamp(24px, 1vw, 80px);
+  --spacing-5xl: clamp(100px, 1vw, 160px);
+
+
+
+  --radius-*: initial;
+  --radius-sharp: 0px;
+  --radius-xs: clamp(2px, 1vw, 4px);
+  --radius-sm: 4px;
+  --radius-md: 16px;
+  --radius-lg: 18px;
+  --radius-xl: 50px;
+  --radius-2xl: 150px;
+  --radius-round: 9999px;
+
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Poppins", sans-serif;
+  --font-cursive: "Dancing Script", cursive;
+  --font-display: var(--font-serif);
+  --font-heading: var(--font-serif);
+  --font-subheading: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-caption: var(--font-sans);
+  --font-eyebrow: var(--font-sans);
+
+  --size-icon-body: clamp(2px, 4vw, 32px);
+  --size-icon-subheading: clamp(0.9rem, 4vw, 1.2rem);
+  --size-icon-heading: clamp(2rem, 4vw, 2.5rem);
+
+  --animate-line-trim: kf_Line_1_path-trim_0 600ms ease-out infinite;
+
+  @keyframes kf_Line_1_path-trim_0 {
+    0% {
+      animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+      stroke-dasharray: 0 1;
+      visibility: hidden;
+    }
+    15% {
+      stroke-dasharray: 1 1;
+      visibility: visible;
+    }
+    100% {
+      stroke-dasharray: 1 1;
+      visibility: visible;
+    }
+  }
+
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --text: #0a0a0a;
+@layer utilities {
+  .font-section-heading {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-family: var(--font-serif);
+    line-height: 1.2;
+    font-weight: 600;
+    color: inherit;
+    color: var(--color-ink);
+  }
+  .font-subheading {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  .font-body {
+    font-size: clamp(14px, 4vw, 1rem);
+    font-family: var(--font-body);
+    line-height: 2;
+    font-weight: 400;
+    margin-bottom: var(--spacing-sm);
+  }
+  .font-bodybold {
+    font-size: clamp(14px, 4vw, 1rem);
+    font-family: var(--font-body);
+    line-height: 2;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+  }
+  .font-eyebrow {
+    font-size: clamp(10px, 4vw, 0.7rem);
+    font-family: var(--font-body);
+    line-height: 2;
+    font-weight: 400;
+    letter-spacing: 2;
+    text-transform: uppercase;
+    color: inherit;
+    color: var(--color-muted);
+  }
+}
+
+@utility displayHeading {
+  color: inherit;
+  color: var(--color-ink);
+  font-style: italic;
+  font-size: 2.2rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+
+  @media (min-width: 640px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.7rem;
+  }
+}
+
+@utility heading {
+  color: inherit;
+  color: var(--color-ink);
+  font-size: 1.8rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+
+  @media (min-width: 640px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.7rem;
+  }
+}
+
+@utility body {
+  color: inherit;
+  color: var(--color-body);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+
+  @media (min-width: 640px) {
+    font-size: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.1rem;
+  }
+}
+
+@utility eyebrow {
+  color: inherit;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 20%;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-family: var(--font-eyebrow);
+  font-weight: 400;
+
+  @media (min-width: 640px) {
+    font-size: 0.7rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 0.7rem;
+  }
+}
+@utility iconSize {
+  color: inherit;
+  color: var(--color-ink);
+  width: 12px;
+  
+  @media (min-width: 640px) {
+    width: 18px;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 20px;
+  }
+}
+
+@utility caption {
+  color: inherit;
+  color: var(--color-body);
+  font-size: 1.8rem;
+  font-family: var(--font-caption);
+  font-weight: 700;
+
+  @media (min-width: 640px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 2.7rem;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--text);
+  background: var(--color-canvas);
+  color: var(--color-body);
   font-family: Arial, Helvetica, sans-serif;
 }

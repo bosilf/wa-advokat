@@ -1,4 +1,4 @@
-import { PortableText } from "next-sanity";
+import { PortableText } from "@portabletext/react";
 
 const components = {
   list: {

@@ -1,19 +1,27 @@
-import { employeeType } from './employeeType'
-import { postType } from './postType'
-import { homePageType } from './homePageType'
-import { courseType } from './courseType'
-import { courseCategoryType } from './courseCategoryType'
 import { companyInfoType } from './companyInfoType'
+import { courseCategoryType } from './courseCategoryType'
+import { courseType } from './courseType'
+import { employeeType } from './employeeType'
+import { homePageType } from './homePageType'
+import { imagePageType } from './imagePageType'
+import { postType } from './postType'
 import { roleType } from './roleType'
-import { imagePageType } from './ImagePageType'
+import { cardContainerType } from './cardContainerType'
+import { tjansterType } from './tjansterType'
+import { menu } from './menu'
+import seo from '../components/objects/seo/seo'
 
 export const schemaTypes = [
-  postType, 
+  companyInfoType,
+  courseCategoryType,
+  courseType,
   employeeType,
   homePageType,
-  courseType,
-  courseCategoryType,
-  companyInfoType,
-  roleType,
   imagePageType,
+  postType, 
+  roleType,
+  cardContainerType,
+  tjansterType,
+  menu,
+  seo,
 ]

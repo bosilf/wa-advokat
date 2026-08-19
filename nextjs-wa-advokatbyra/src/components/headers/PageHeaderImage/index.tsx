@@ -40,9 +40,9 @@ export default function PageHeaderImage({ image, activeColor }: PageHeaderImageP
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="h-full grid grid-cols-[1fr_6fr_1fr] md:grid-cols-[1fr_3fr_1fr] grid-rows-[1fr_3fr] md:grid-rows-[1fr_2fr] overflow-hidden mt-10">
-      
-      <div ref={imageRef} className=" relative row-span-2 w-full col-start-2 relative overflow-hidden border-x-10 mt-3 border-t-10 rounded-t-[20px] shadow-[2px_-1px_6px_3px_#00000029]">
+    <div ref={containerRef} className="h-full grid grid-cols-[1fr_6fr_1fr] md:grid-cols-[1fr_3fr_1fr] grid-rows-[1fr_3fr] md:grid-rows-[1fr_2fr] overflow-hidden mt-10 inset-shadow-900/100">
+       {/* shadow-[2px_-1px_6px_3px_#00000029] */}
+      <div ref={imageRef} className=" relative row-span-2 w-full col-start-2 relative overflow-hidden border-x-10 mt-3 border-t-10 rounded-t-[20px] shadow-xl/20">
         <Image 
           
           src={urlFor(image)
@@ -54,7 +54,7 @@ export default function PageHeaderImage({ image, activeColor }: PageHeaderImageP
           alt="Sidobild med parallaxeffekt"
           sizes="true"
           fill
-          className="object-cover w-[390px] h-[844ps] md:w-[100%] md:h-[auto] scale-102 inset-0 will-change-transform"
+          className="object-cover w-[390px] h-[844ps] sm:w-[100%] md:h-[auto] scale-102 inset-0 will-change-transform"
           priority
         />
       </div>
