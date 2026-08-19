@@ -27,7 +27,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ c
         <div className="relative w-[400px] h-[400px] mb-8 overflow-hidden rounded-2xl">
           <Image 
             src={urlFor(course.lecturer.image).url()} 
-            alt={course.lecturer.name || "Föreläsare"}
+            alt={course.lecturer.firstName || "Föreläsare"}
             fill
             className="object-cover"
             priority
@@ -37,7 +37,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ c
         <h1 className="text-5xl font-bold mb-4">{course.courseName}</h1>
         <div className="flex items-center gap-4 text-lg text-gray-600">
           <Link href={`/medarbetare/${course.lecturer?.slug?.current || ""}`}>
-            <strong>Föreläsare:</strong> {course.lecturer?.name}
+            <strong>Föreläsare:</strong> {course.lecturer?.firstName}
           </Link>
 
           {course.lecturer?.number && (
