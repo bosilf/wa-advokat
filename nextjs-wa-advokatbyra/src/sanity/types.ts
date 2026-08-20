@@ -20,11 +20,11 @@ export type ButtonData = {
 
 export type EmployeeType = {
   _id: string,
-  firstName: string | null,
-  lastName: string | null,
-  number: number | string | null,
-  email: string | null,
-  slug: string | null,
-  image?: any | null,
+  firstName?: string | "Medarbetare saknas",
+  lastName?: string | "Efternamn saknas",
+  number?: number | string,
+  email?: string,
+  slug?: string,
+  image?: string | "",
   roles?: Array<{ title: string; slug: string }> | null 
 }

@@ -8,7 +8,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Icon from "../Icon";
-import { EmployeeType } from "./din-fil-sökväg"; // Importera din uppdaterade typ ovanifrån
+import { EmployeeType } from "@/sanity/types";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
