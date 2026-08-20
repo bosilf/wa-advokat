@@ -4,11 +4,11 @@ import TeamCardSmall from "../TeamCardSmall";
 import Accordion from "../Accordion";
 
 export type AccordionItemData = {
-  title: string;
-  description: string;
-  btnHref?: string;
-  icon?: boolean;
-};
+  title?: string | null
+  description?: string | null
+  btnHref?: string | null
+  icon?: boolean | null
+}
 
 export type CardProps = {
   descriptionText?: string;
@@ -44,7 +44,17 @@ const CardContainer = ({
         <ul className="p-md flex flex-col gap-4">
           {accordions.map((item, index) => (
             <li key={index}>
-              <Accordion title={item.title || ""} btnHref={item.btnHref || ""} description={item.description} b={{title: "test", variant: 'secondary', href: item.btnHref || "", hasIcon: true}}  />
+              <Accordion
+                title={item.title ?? ""}
+                btnHref={item.btnHref ?? ""}
+                description={item.description ?? ""}
+                b={{
+                  title: "test",
+                  variant: "secondary",
+                  href: item.btnHref ?? "",
+                  hasIcon: true,
+                }}
+              />
             </li>
           ))}
         </ul>

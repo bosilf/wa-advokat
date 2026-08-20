@@ -21,8 +21,12 @@ export default async function HeroHome() {
         {homepage?.homeTitle}
       </h1>
       <div className="flex gap-sm">
-        <Button b={{title: "", href: "/", hasIcon: false}} >Kontakta oss</Button>
-        <Button b={{title: "", href: "/", hasIcon: true, variant: 'secondary'}} >Läs mer</Button>
+        <Button 
+        href=""
+        >Kontakta oss</Button>
+        <Button 
+        href=""
+        >Läs mer</Button>
       </div>
       </div>
     <div className="h-full flex items-end">

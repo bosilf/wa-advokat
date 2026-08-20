@@ -36,11 +36,10 @@ export default function Accordion({ title, btnHref, description, icon = true, }:
           <div className="w-full flex flex-col gap-md pb-2">
             <p className="font-body">{description}</p>
             { btnHref && 
-              <Button b={{ 
-                href: btnHref, 
-                variant: "simple", 
-                hasIcon: icon, 
-                title: "Läs mer om " }}
+              <Button 
+                href=""
+                showIcon
+                variant="primary"
               >
                 {title}
               </Button>

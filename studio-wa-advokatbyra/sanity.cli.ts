@@ -17,6 +17,6 @@ export default defineCliConfig({
     // Säg till studion att skanna dina Next.js-filer efter GROQ-queries
     path: '../nextjs-wa-advokatbyra/src/**/*.{ts,tsx}',
     // Säg till vart den färdiga TypeScript-filen ska sparas
-    generates: '../nextjs-wa-advokatbyra/sanity.types.ts',
+    generates: '../nextjs-wa-advokatbyra/src/sanity/sanity.types.ts',
   }
 })

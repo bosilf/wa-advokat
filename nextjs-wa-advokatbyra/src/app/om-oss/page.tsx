@@ -22,13 +22,17 @@ export default async function OmOss() {
       ) : (
         <p className="text-gray-500 mt-8 text-center">Inga medarbetare hittades.</p>
       )}
-      <Button b={{variant: 'primary', title: 'Kontakta', href: '', hasIcon: true}} >oss</Button>
+      <Button 
+      href=""
+      >oss</Button>
       <p>Be om juridisk rådgivning i frågor kring offentlig upphandling, bygg- och entreprenad. Vi hjälper er tidigt i processen eller när tvist uppstår. WA Advokatbyrå är också specialister på offentlig upphandling och vet vilka problem som brukar uppstå samt hur de kan lösas på bästa sätt. Ta del av våra juridiska utbildningar och anmäl intresse till någon av våra kurser. </p>
     </Section>
     <Section heading="" >
       <ul>
         <li>
-          <Button b={{title: 'Entreprenadrätt', href: '/', hasIcon: true}}>child</Button>
+          <Button 
+          href=""
+          >child</Button>
         </li>
         <li></li>
         <li></li>

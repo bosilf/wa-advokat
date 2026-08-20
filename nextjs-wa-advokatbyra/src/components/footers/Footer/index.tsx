@@ -35,7 +35,9 @@ const Footer = () => {
                             <Link href="/">Offentlig upphandling</Link>
                         </li>
                         <li>
-                            <Button b={{variant: 'simpleWhite', title: 'Boka ', hasIcon: true, href: "/"}}>kurs</Button>
+                            <Button 
+                            href=""
+                            >kurs</Button>
                         </li>
                     </ul>
                 </section>

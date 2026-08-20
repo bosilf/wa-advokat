@@ -1,56 +1,81 @@
 import Link from "next/link"
+import type { ReactNode } from "react"
+
 import Icon from "../Icon"
-import { ReactNode } from "react";
-import { ButtonData } from "@/sanity/types";
+
+type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "simple"
+  | "simpleWhite"
+
+type ButtonIcon = "arrow" | "arrowSimple"
 
 export type ButtonProps = {
-  b: ButtonData,
+  href: string
   children: ReactNode
+  variant?: ButtonVariant
+  icon?: ButtonIcon
+  showIcon?: boolean
+  ariaLabel?: string
+  download?: boolean
+  target?: "_self" | "_blank"
 }
 
-export default function Button({ 
-  b,
+export default function Button({
+  href,
   children,
-
+  variant = "primary",
+  icon = "arrow",
+  showIcon = true,
+  ariaLabel,
+  download = false,
+  target = "_self",
 }: ButtonProps) {
-  const { 
-    title = "Läs mer om ",
-    variant = "primary", 
-    href = "#", 
-    hasIcon = true, 
-    icon = "arrow", 
-    ariaLabel, 
-    download = false, 
-    target = "_blank" 
-  } = b || {};
+  const variantClasses: Record<ButtonVariant, string> = {
+    primary:
+      "py-sm px-md bg-ink text-white rounded-full font-subheading hover:bg-accent",
 
-  const variantClasses = {
-    primary: "py-sm px-md text-white bg-ink rounded-full font-subheading inline-flex justify-center items-center hover:bg-accent",
-    secondary: "py-sm px-md text-ink rounded-full outline outline-1 font-subheading outline-offset-[-1px] outline-ink i justify-center items-center gap-6 overflow-hidden",
-    simple: "text-ink font-bodybold  justify-center items-center gap-6 overflow-hidden border-b-2 ",
-    simpleWhite: "text-white font-bodybold  justify-center items-center gap-6 overflow-hidden border-b-2 "
-}
+    secondary:
+      "py-sm px-md text-ink rounded-full outline outline-1 outline-ink outline-offset-[-1px] font-subheading hover:bg-ink hover:text-white",
 
-const iconsColor = {
-  primary: "text-white",
-  secondary: "text-ink",
-  simple: "text-ink",
-  simpleWhite: "text-white"
-}
+    simple:
+      "text-ink font-bodybold border-b-2 border-current",
 
+    simpleWhite:
+      "text-white font-bodybold border-b-2 border-current",
+  }
 
-  return ( 
-    <Link 
-      className={`${variantClasses[variant]}  first-letter:capitalize lowercase w-fit flex no-wrap justify-center transition-all duration-300 gap-sm overflow-hidden group hover:gap-md`}
-      href={href || ""}
+  return (
+    <Link
+      href={href}
       aria-label={ariaLabel}
-      download={download}
+      download={download || undefined}
       target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+      className={`
+        ${variantClasses[variant]}
+        group
+        inline-flex
+        w-fit
+        items-center
+        justify-center
+        gap-sm
+        whitespace-nowrap
+        transition-all
+        duration-300
+        hover:gap-md
+      `}
     >
-      {title} {children}
-      { hasIcon && (
-        <Icon name={icon || "arrow"} size="" className={`${iconsColor[variant]}`} />
+      <span>{children}</span>
+
+      {showIcon && (
+        <Icon
+          name={icon}
+          size={15}
+          className="transition-transform duration-300 group-hover:translate-x-1"
+        />
       )}
     </Link>
   )
-} 
+}

@@ -92,13 +92,13 @@ export const COURSE_CATEGORY_QUERY = defineQuery(`
 `)
 
 export const COURSE_QUERY = defineQuery(`
-  *[_type == "course" && defined(slug.current)] | order(lastName asc){
-    _id, 
-    courseName, 
+  *[_type == "course" && defined(slug.current)] | order(courseName asc) {
+    _id,
+    courseName,
     "slug": slug.current,
     "lecturer": lecturer->{
       firstName,
-      lastName
+      lastName,
       role,
       image
     }
