@@ -3,10 +3,8 @@ import { Cormorant_Garamond, Dancing_Script, Poppins } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import NavMenu from "@/components/headers/NavMenu";
 import Footer from "@/components/footers/Footer";
 import HeroHome from "@/components/heros/HeroHome";
-import Navigation from "@/components/headers/navs/Navigation";
 import Nav from "@/components/headers/navs/Nav";
 
 
@@ -48,7 +46,6 @@ export default function RootLayout({
       <body className="overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
         <Nav />
         <HeroHome />
-        {/* <NavMenu /> */}
           {children}
         <Footer />
         <Analytics />
