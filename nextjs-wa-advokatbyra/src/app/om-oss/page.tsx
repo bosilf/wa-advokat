@@ -28,7 +28,7 @@ export default async function OmOss() {
     <Section heading="" >
       <ul>
         <li>
-          <Button b={{title: 'Entreprenadrätt'}}></Button>
+          <Button b={{title: 'Entreprenadrätt', href: '/', hasIcon: true}}>child</Button>
         </li>
         <li></li>
         <li></li>

@@ -73,10 +73,6 @@ export default async function IndexPage() {
 
       <Section eyebrow="kontakt" heading="Kontakta oss idag!">
         <p className="font-body">Be om juridisk rådgivning i bygg- och fastighetsrelaterade frågor. Vi hjälper er i tidigt i processen eller när tvist uppstår. WA Advokatbyrå är specialister på offentlig upphandling och vet vilka problem som brukar uppstå samt hur de kan lösas på bästa sätt. Ta del av våra juridiska utbildningar och anmäl intresse till någon av våra kurser. </p>
-        {/* <Button href="" hasIcon>Kontakta oss</Button> */}
-        {/* <div className="-ml-section-sides -mb-xl border-t-1 border-canvas relative overflow-hidden w-screen"> */}
-          {/* <Image width={500} height={500} className="relative" src="/assets/section (1).svg" alt="" /> */}
-        {/* </div> */}
       </Section>
     </div>
   )

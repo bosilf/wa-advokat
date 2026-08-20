@@ -40,11 +40,6 @@ const CardContainer = ({
           {descriptionText || ""}
         </p>
       )}
-      
-      {/* {!hideAccordion && hideDescription && accordions.length > 0 && (
-        <hr className="bg-border" />
-      )} */}
-      
       {!hideAccordion && accordions?.length > 0 && (
         <ul className="p-md flex flex-col gap-4">
           {accordions.map((item, index) => (

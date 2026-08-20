@@ -48,7 +48,7 @@ export default function RootLayout({
       <body className="overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
         <Nav />
         <HeroHome />
-        <NavMenu />
+        {/* <NavMenu /> */}
           {children}
         <Footer />
         <Analytics />
