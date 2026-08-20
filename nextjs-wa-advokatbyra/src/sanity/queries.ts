@@ -30,7 +30,7 @@ export const HOMEPAGE_QUERY = defineQuery(`
         btnHref,
         icon
       }
-    }
+    },
   }
 `)
 

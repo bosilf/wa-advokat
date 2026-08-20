@@ -10,6 +10,11 @@ import { cardContainerType } from './cardContainerType'
 import { tjansterType } from './tjansterType'
 import { menu } from './menu'
 import seo from '../components/objects/seo/seo'
+import { article } from './articles'
+import { button } from './buttonsType'
+import { section } from './sectionType'
+import { teamSection } from './teamSectionType'
+import { textObject } from './textType'
 
 export const schemaTypes = [
   companyInfoType,
@@ -24,4 +29,9 @@ export const schemaTypes = [
   tjansterType,
   menu,
   seo,
+  article,
+  button,
+  section,
+  teamSection,
+  textObject,
 ]

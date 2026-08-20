@@ -1,17 +1,13 @@
 import { client } from "@/sanity/client";
 // import Link from "next/link";
 import { HOMEPAGE_QUERY, EMPLOYEES_QUERY } from "@/sanity/queries";
-import Image from "next/image";
+// import Image from "next/image";
 // import { urlFor } from "@/sanity/image";
 import CardContainer from "@/components/cards/CardContainer";
-// import TeamCard from "@/components/cards/TeamCard";
-// import HeroHome from "@/components/heros/HeroHome";
 import Button from "@/components/Button";
 import EmployeeCard from "@/components/EmployeeCard";
 import Section from "@/components/Section";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
-import { PortableText } from "@portabletext/react";
-
 
 const options = { next: { revalidate: 0 } };
 
@@ -36,7 +32,6 @@ export default async function IndexPage() {
           hideEyebrow 
           heading={intro.introTitle || "Titel saknas"}
         >
-          {/* 🚀 Kör BARA din CustomPortableText och skicka med värdet */}
           {intro.introText ? (
             <CustomPortableText value={intro.introText} />
           ) : (

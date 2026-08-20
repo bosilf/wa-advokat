@@ -11,8 +11,6 @@ export const cardContainerType = defineType({
       type: 'text',
       description: 'Huvudtexten som visas högst upp i kortet.',
     }),
-
-    // 2. Reglage för att dölja/visa delar (Booleans)
     defineField({
       name: 'hideDescription',
       title: 'Dölj beskrivningstexten',

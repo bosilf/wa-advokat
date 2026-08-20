@@ -23,3 +23,14 @@ export type ButtonData = {
   hasIcon: boolean,
   iconColor?: string,
 }
+
+export type EmployeeType = {
+  _id: string,
+  firstName: string,
+  lastName: string,
+  number: string,
+  email: string,
+  slug: { current: string } | string,
+  image?: string,
+  roles?: Array<{ title: string; slug: { current: string } | string }>
+}

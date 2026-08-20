@@ -83,6 +83,38 @@ export const homePageType = defineType({
           type: 'array',
           of: [{type: 'block'}],
         },
+        {
+          type: 'object',
+          name: 'accordionItem',
+          title: 'Dragspel',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Titel på dragspelet',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'description',
+              title: 'Innehåll/Text inuti dragspelet',
+              type: 'text',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'btnHref',
+              title: 'Länk till knapp (Läs mer)',
+              type: 'string',
+              description: 'Exempel: /tjanster/entreprenad (Lämna tom om knappen ska döljas)',
+            }),
+            defineField({
+              name: 'icon',
+              title: 'Visa ikon i knappen',
+              type: 'boolean',
+              initialValue: true,
+              hidden: ({ parent }) => !parent?.btnHref,
+            }),
+          ],
+        },
       ],
     }),
     defineField({ 
@@ -115,4 +147,10 @@ export const homePageType = defineType({
       type: 'cardContainer',
     }),
   ],
+  preview: {
+    select: {
+      title: "title",
+      subtitle: "eyebrow",
+    },
+  },
 })
