@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity"
 
-export const section = defineType({
+export const sections = defineType({
   name: "section",
   title: "Section",
   type: "object",
@@ -26,9 +26,8 @@ export const section = defineType({
         { type: "textObject" },
         { type: "button" },
         { type: "cardContainer" },
-
-        // { type: "teamMemberCards" },
         { type: "image" },
+
       ],
     }),
   ],

@@ -34,6 +34,97 @@ export const HOMEPAGE_QUERY = defineQuery(`
   }
 `)
 
+export const NAVIGATION_QUERY = defineQuery(`
+  *[_type == "navigation"][0]{
+    headerNavigation[]{
+      _key,
+      label,
+      hasDropdown,
+      dropdownSource,
+      "href": link->href,
+
+      "dropdownItems": select(
+        dropdownSource == "employees" =>
+          *[
+            _type == "employee" &&
+            defined(slug.current)
+          ]
+          | order(lastName asc) {
+            _id,
+            "title": firstName + " " + lastName,
+            "href": "/medarbetare/" + slug.current
+          },
+
+        dropdownSource == "services" =>
+          *[
+            _type == "tjanster" &&
+            defined(slug.current)
+          ]
+          | order(title asc) {
+            _id,
+            title,
+            "href": "/tjanster/" + slug.current
+          },
+
+        dropdownSource == "manual" =>
+          dropdownItems[]->{
+            _id,
+            title,
+            href
+          },
+
+        []
+      ),
+
+      "courseGroups": select(
+        dropdownSource == "courses" => [
+          {
+            "_key": "upphandling",
+            "title": "Offentlig upphandling",
+            "items":
+              *[
+                _type == "course" &&
+                category->slug.current == "upphandling" &&
+                defined(slug.current)
+              ]
+              | order(courseName asc) {
+                _id,
+                "title": courseName,
+                "href": "/juridikkurser/" + slug.current
+              }
+          },
+
+          {
+            "_key": "entreprenad",
+            "title": "Entreprenadjuridik",
+            "items":
+              *[
+                _type == "course" &&
+                category->slug.current == "entreprenad" &&
+                defined(slug.current)
+              ]
+              | order(courseName asc) {
+                _id,
+                "title": courseName,
+                "href": "/juridikkurser/" + slug.current
+              }
+          }
+        ],
+
+        []
+      )
+    },
+
+    footerNavigation[]{
+      _key,
+      label,
+      hasDropdown,
+      dropdownSource,
+      "href": link->href
+    }
+  }
+`)
+
 export const POSTS_QUERY = defineQuery(`
   *[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...12]{
     _id, 

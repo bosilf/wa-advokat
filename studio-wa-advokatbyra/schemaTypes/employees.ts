@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-export const employeeType = defineType({
+export const employees = defineType({
   name: 'employee',
   title: 'Medarbetare',
   type: 'document',
@@ -23,7 +23,6 @@ export const employeeType = defineType({
       type: 'slug',
       description: 'Klicka på "Generate" för att skapa länken baserat på för- och efternamn.',
       options: {
-        // Genererar länken automatiskt baserat på båda fälten (t.ex. johan-persson)
         source: (doc) => `${doc.firstName} ${doc.lastName}`,
         maxLength: 96,
       },
@@ -135,7 +134,7 @@ export const employeeType = defineType({
     select: {
       firstName: 'firstName',
       lastName: 'lastName',
-      media: 'image', // Lägg till detta om du har ett bildfält som heter 'image'
+      media: 'image',
     },
     prepare(selection) {
       const { firstName, lastName, media } = selection

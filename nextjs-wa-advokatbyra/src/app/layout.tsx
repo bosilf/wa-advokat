@@ -1,19 +1,24 @@
-import type { Metadata } from "next";
-import { Cormorant_Garamond, Dancing_Script, Poppins } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from "next"
+import {
+  Cormorant_Garamond,
+  Dancing_Script,
+  Poppins,
+} from "next/font/google"
+
+import "./globals.css"
+
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import Footer from "@/components/footers/Footer";
-import HeroHome from "@/components/heros/HeroHome";
-import Nav from "@/components/headers/navs/Nav";
 
+import Footer from "@/components/footers/Footer"
+import Nav from "@/components/headers/navs/Nav"
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-serif",
   display: "swap",
-});
+})
 
 const sans = Poppins({
   variable: "--font-sans",
@@ -27,16 +32,15 @@ const cursive = Dancing_Script({
   weight: ["400", "500", "600", "700"],
 })
 
-
 export const metadata: Metadata = {
   title: "WA Advokatbyrå",
   description: "Välkommen till WA Advokatbyrås hemsida",
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html
@@ -45,12 +49,11 @@ export default function RootLayout({
     >
       <body className="overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
         <Nav />
-        <HeroHome />
-          {children}
+        {children}
         <Footer />
         <Analytics />
         <SpeedInsights />
       </body>
     </html>
-  );
+  )
 }

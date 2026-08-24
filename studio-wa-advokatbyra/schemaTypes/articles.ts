@@ -38,12 +38,7 @@ export const article = defineType({
       name: 'image',
       type: 'image',
     }),
-    defineField({
-      name: 'buttons',
-      title: 'Buttons',
-      type: 'array',
-      of: [{type: 'button'}],
-    }),
+
     defineField({
       name: 'body',
       type: 'array',

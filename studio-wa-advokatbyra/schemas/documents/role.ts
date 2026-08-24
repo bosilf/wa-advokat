@@ -1,17 +1,11 @@
 import { TagIcon } from '@sanity/icons'
 import { defineType, defineField } from 'sanity'
-// import RolePreview from '../../components/RolePreview'
 
 export const role = defineType({
   name: 'role',
   title: 'Yrkestitlar',
   type: 'document',
   icon: TagIcon,
-  
-  // 🟢 2. Koppla på förhandsvisningen till din externa fil!
-  // components: {
-  //   preview: RolePreview
-  // },
 
   fields: [
     

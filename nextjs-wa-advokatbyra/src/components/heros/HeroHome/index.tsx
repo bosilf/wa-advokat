@@ -17,16 +17,12 @@ export default async function HeroHome() {
       </div>
       <div className="p-10 z-10 flex flex-col  justify-center gap-md">
       <h1 className=" flex flex-col displayHeading text-white" >
-        <span className="text-white eyebrow">{homepage?.homeEyebrow} </span>
+        <span className="text-white eyebrow">{homepage?.homeEyebrow}</span>
         {homepage?.homeTitle}
       </h1>
       <div className="flex gap-sm">
-        <Button 
-        href=""
-        >Kontakta oss</Button>
-        <Button 
-        href=""
-        >Läs mer</Button>
+        <Button href="" showIcon={false}>Kontakta oss</Button>
+        <Button href="" variant="secondary">Läs mer</Button>
       </div>
       </div>
     <div className="h-full flex items-end">

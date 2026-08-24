@@ -1,83 +1,41 @@
 import { defineField, defineType } from 'sanity'
 
 export const cardContainer = defineType({
-  name: 'cardContainer',
-  title: 'Kort-behållare (Card Container)',
-  type: 'object',
+  name: "cardContainer",
+  title: "Kort",
+  type: "object",
+
   fields: [
     defineField({
-      name: 'descriptionText',
-      title: 'Beskrivningstext',
-      type: 'text',
-      description: 'Huvudtexten som visas högst upp i kortet.',
-    }),
+      name: "imageContent",
+      title: "Bildinnehåll",
+      type: "object",
 
-    // 2. Reglage för att dölja/visa delar (Booleans)
-    defineField({
-      name: 'hideDescription',
-      title: 'Dölj beskrivningstexten',
-      type: 'boolean',
-      initialValue: false,
-    }),
-    defineField({
-      name: 'hideAccordion',
-      title: 'Dölj alla dragspel (Accordions)',
-      type: 'boolean',
-      initialValue: false,
-    }),
-    defineField({
-      name: 'hideImage',
-      title: 'Dölj bild (ImageBlurText)',
-      type: 'boolean',
-      initialValue: false,
-    }),
-    defineField({
-      name: 'hideCardSmall',
-      title: 'Dölj litet medarbetarkort (TeamCardSmall)',
-      type: 'boolean',
-      initialValue: false,
-    }),
+      fields: [
+        defineField({
+          name: "image",
+          title: "Bild",
+          type: "image",
+        }),
 
-    defineField({
-      name: 'accordions',
-      title: 'Dragspel (Accordions)',
-      type: 'array',
-      description: 'Lägg till de dragspel som ska visas i botten av kortet.',
-      hidden: ({ parent }) => parent?.hideAccordion === true,
-      of: [
-        {
-          type: 'object',
-          name: 'accordionItem',
-          title: 'Dragspel',
-          fields: [
-            defineField({
-              name: 'title',
-              title: 'Titel på dragspelet',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: 'description',
-              title: 'Innehåll/Text inuti dragspelet',
-              type: 'text',
-              validation: (Rule) => Rule.required(),
-            }),
-            defineField({
-              name: 'btnHref',
-              title: 'Länk till knapp (Läs mer)',
-              type: 'string',
-              description: 'Exempel: /tjanster/entreprenad (Lämna tom om knappen ska döljas)',
-            }),
-            defineField({
-              name: 'icon',
-              title: 'Visa ikon i knappen',
-              type: 'boolean',
-              initialValue: true,
-              hidden: ({ parent }) => !parent?.btnHref,
-            }),
-          ],
-        },
+        defineField({
+          name: "eyebrow",
+          title: "Eyebrow",
+          type: "string",
+        }),
+
+        defineField({
+          name: "title",
+          title: "Rubrik",
+          type: "string",
+        }),
       ],
+    }),
+
+    defineField({
+      name: "description",
+      title: "Beskrivning",
+      type: "text",
     }),
   ],
 })

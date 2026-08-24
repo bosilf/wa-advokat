@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-export const imagePageType = defineType({
+export const imagePage = defineType({
   name: 'pageimage',
   title: 'Bilder till sidorna',
   type: 'document',

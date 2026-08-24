@@ -4,7 +4,6 @@ export const section = defineType({
   name: 'section',
   title: 'Sektion',
   type: 'document',
-  // icon: CogIcon,
   groups: [
     {
       default: true,
@@ -75,7 +74,7 @@ export const section = defineType({
                   ],
                 },
               ],
-             },
+            },
             { name: 'url', title: 'Webbadress (t.ex. /integritetspolicy)', type: 'string' }
           ]
         }
@@ -87,8 +86,5 @@ export const section = defineType({
       type: 'text',
       description: 'Huvudtexten som visas högst upp i kortet.',
     }),
-
-    // 2. Reglage för att dölja/visa delar (Booleans)
-    
   ],
 })

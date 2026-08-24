@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-export const tjansterType = defineType({
+export const tjanster = defineType({
   name: 'tjanster',
   title: 'Tjänster',
   type: 'document',
@@ -8,7 +8,7 @@ export const tjansterType = defineType({
   groups: [
     {
       name: 'seos',
-      title: 'SEO',
+      title: 'Global SEO',
     },
   ],
 
@@ -26,7 +26,7 @@ export const tjansterType = defineType({
     defineField({
       name: 'slug',
       type: 'slug',
-      options: {source: 'eyebrow'},
+      options: {source: 'title'},
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -41,7 +41,7 @@ export const tjansterType = defineType({
     }),
     defineField({
       name: "experts",
-      title: "Experter",
+      title: "Ansvarig advokat",
       type: "array",
       of: [
         {
@@ -52,7 +52,7 @@ export const tjansterType = defineType({
     }),
     defineField({
       name: "sections",
-      title: "Sektioner",
+      title: "Lägg till/ändra sektioner",
       type: "array",
       of: [
         { type: "section" },
@@ -61,42 +61,16 @@ export const tjansterType = defineType({
       ],
     }),
     defineField({
-      name: "seo",
-      title: "SEO texter",
+      name: 'seo',
+      type: 'seo',
       group: 'seos',
-      type: "object",
-      fields: [
-        {
-          name: 'small',
-          description: 'beskrivning av tjänsten (max 1 mening)',
-          title: 'Kort',
-          type: 'string',
-          validation: Rule => Rule.required(),
-
-        },
-        {
-          name: 'medium',
-          description: 'beskrivning av tjänsten (max 20 ord)',
-          title: 'Medium',
-          type: 'array',
-          of: [{type: 'block'}],
-          validation: Rule => Rule.required(),
-        },
-        {
-          name: 'long',
-          description: 'beskrivning av tjänsten (max 50 ord)',
-          title: 'Längre',
-          type: 'array',
-          of: [{type: 'block',}],
-          validation: Rule => Rule.required(),
-        },
-      ]
+      title: 'SEO',
     })
   ],
   preview: {
     select: {
-      title: "eyebrow",
-      subtitle: "title",
+      title: "title",
+      // subtitle: "title",
     },
   },
 })

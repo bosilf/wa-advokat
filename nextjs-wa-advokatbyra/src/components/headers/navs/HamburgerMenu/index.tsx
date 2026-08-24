@@ -9,7 +9,7 @@ export default function HamburgerMenu({isOpen, toggleMenu}: HamburgerProps) {
     <button
       onClick={toggleMenu}
       aria-label={isOpen ? "Stäng meny" : "Öppna meny"}
-      className="z-900 fixed top-sm left-sm w-[51px] h-[51px] focus:outline-none transition-transform active:scale-95"
+      className="md:hidden bg-canvas rounded-l-sm z-900 fixed top-sm right-0 w-[51px] h-[51px] focus:outline-none transition-transform active:scale-95"
     >
       <svg
         width="51"

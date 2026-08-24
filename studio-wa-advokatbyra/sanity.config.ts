@@ -20,7 +20,7 @@ export default defineConfig({
 
   plugins: [
     structureTool({
-      structure: deskStructure
+      structure: deskStructure,
     }),
     colorInput(),
     // customDocumentActions(),

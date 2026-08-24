@@ -1,13 +1,11 @@
 import { defineType, defineField } from 'sanity'
-import { CogIcon, TagIcon, UserIcon, HomeIcon, DocumentIcon } from '@sanity/icons'
 
 
-export const homePageType = defineType({
+export const homePage = defineType({
   name: 'home',
   title: 'Förstasidan',
   type: 'document',
   
-
   groups: [
     {
       name: 'homeIntros',
@@ -115,6 +113,11 @@ export const homePageType = defineType({
             }),
           ],
         },
+        {
+          name: 'cta',
+          title: 'Tjänster CTA knapp',
+          type: 'button'
+        }
       ],
     }),
     defineField({ 

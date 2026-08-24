@@ -1,6 +1,6 @@
 import { defineType, defineField } from 'sanity'
 
-export const roleType = defineType({
+export const roles = defineType({
   name: 'role',
   title: 'Yrkestitlar',
   type: 'document',

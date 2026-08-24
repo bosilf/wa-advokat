@@ -15,9 +15,25 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: schema.json
-export type TextObject = {
-  _type: "textObject";
-  text?: string;
+export type ImageContent = {
+  image?: ImageContentImage;
+  eyebrow?: string;
+  title?: string;
+};
+
+export type SanityImageAssetReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+};
+
+export type ImageContentImage = {
+  asset?: SanityImageAssetReference;
+  media?: unknown; // Unable to locate the referenced type "media" in schema
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  _type: "image";
 };
 
 export type EmployeeReference = {
@@ -25,6 +41,219 @@ export type EmployeeReference = {
   _type: "reference";
   _weak?: boolean;
   [internalGroqTypeReferenceTo]?: "employee";
+};
+
+export type CourseMainPage = {
+  _id: string;
+  _type: "courseMainPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  image?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  title?: string;
+  eyebrow?: string;
+  slug?: Slug;
+  body?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  experts?: Array<
+    {
+      _key: string;
+    } & EmployeeReference
+  >;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
+export type Seo = {
+  _type: "seo";
+  shortDescription?: string;
+  summary?: string;
+  extendedDescription?: string;
+};
+
+export type Accordions = {
+  _id: string;
+  _type: "accordions";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  card?: CardContainer;
+  items?: Array<
+    {
+      _key: string;
+    } & Accordion
+  >;
+};
+
+export type CardContainer = {
+  _type: "cardContainer";
+  imageContent?: ImageContent;
+  description?: string;
+};
+
+export type LinkItemReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "linkItem";
+};
+
+export type Accordion = {
+  _type: "accordion";
+  accordion?: Array<{
+    title?: string;
+    description?: string;
+    btnHref?: LinkItemReference;
+    icon?: boolean;
+    _type: "accordionItem";
+    _key: string;
+  }>;
+};
+
+export type BlockObject = {
+  _type: "blockObject";
+  block?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type TitleObject = {
+  _type: "titleObject";
+  title?: string;
+};
+
+export type MainPage = {
+  _id: string;
+  _type: "mainPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  body?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  image?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  contents?: Array<
+    {
+      _key: string;
+    } & Section
+  >;
+  seo?: Seo;
+};
+
+export type Navigation = {
+  _id: string;
+  _type: "navigation";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  headerNavigation?: Array<
+    {
+      _key: string;
+    } & NavigationItem
+  >;
+  footerNavigation?: Array<
+    {
+      _key: string;
+    } & NavigationItem
+  >;
+};
+
+export type NavigationItem = {
+  _type: "navigationItem";
+  label?: string;
+  link?: LinkItemReference;
+  hasDropdown?: boolean;
+  dropdownSource?: "manual" | "employees" | "services" | "courses";
+  dropdownItems?: Array<
+    {
+      _key: string;
+    } & LinkItemReference
+  >;
+};
+
+export type TextObject = {
+  _type: "textObject";
+  text?: string;
 };
 
 export type TeamSection = {
@@ -42,13 +271,6 @@ export type TeamSection = {
       _key: string;
     } & Button
   >;
-};
-
-export type SanityImageAssetReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
 };
 
 export type Section = {
@@ -79,9 +301,19 @@ export type Section = {
 export type Button = {
   _type: "button";
   label?: string;
-  link?: string;
+  link?: LinkItemReference;
   variant?: "primary" | "secondary" | "simple";
   icon?: boolean;
+};
+
+export type LinkItem = {
+  _id: string;
+  _type: "linkItem";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  href?: string;
 };
 
 export type Article = {
@@ -105,11 +337,6 @@ export type Article = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  buttons?: Array<
-    {
-      _key: string;
-    } & Button
-  >;
   body?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -128,119 +355,6 @@ export type Article = {
     _type: "block";
     _key: string;
   }>;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
-};
-
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
-export type Seo = {
-  _type: "seo";
-  title?: string;
-  description?: string;
-};
-
-export type Menu = {
-  _id: string;
-  _type: "menu";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  menuLinks?: Array<{
-    pageName?: string;
-    path?: Slug;
-    _type: "menuLinkItem";
-    _key: string;
-  }>;
-  headerMenuItems?: string;
-  menuItem?: {
-    employeeList?: Array<
-      {
-        _key: string;
-      } & EmployeeReference
-    >;
-  };
-  footerMenuItems?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
-  courseSections?: Array<{
-    sectionTitle?: string;
-    sectionText?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-    _type: "section";
-    _key: string;
-  }>;
-  length?: string;
-  conditionsCourse?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
-  employees?: EmployeeReference;
-  slug?: Slug;
-  category?: "entreprenad" | "upphandling";
 };
 
 export type Tjanster = {
@@ -298,62 +412,7 @@ export type Tjanster = {
         _key: string;
       }
   >;
-  seo?: {
-    small?: string;
-    medium?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-    long?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-  };
-};
-
-export type CardContainer = {
-  _type: "cardContainer";
-  descriptionText?: string;
-  hideDescription?: boolean;
-  hideAccordion?: boolean;
-  hideImage?: boolean;
-  hideCardSmall?: boolean;
-  accordions?: Array<{
-    title?: string;
-    description?: string;
-    btnHref?: string;
-    icon?: boolean;
-    _type: "accordionItem";
-    _key: string;
-  }>;
+  seo?: Seo;
 };
 
 export type Role = {
@@ -364,42 +423,6 @@ export type Role = {
   _rev: string;
   title?: string;
   slug?: Slug;
-};
-
-export type Post = {
-  _id: string;
-  _type: "post";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  publishedAt?: string;
-  image?: {
-    asset?: SanityImageAssetReference;
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  body?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
 };
 
 export type Pageimage = {
@@ -475,6 +498,7 @@ export type Home = {
       btnHref?: string;
       icon?: boolean;
     };
+    cta?: Button;
   };
   employeeSection?: {
     employeeTitle?: string;
@@ -534,29 +558,19 @@ export type Course = {
     _type: "block";
     _key: string;
   }>;
-  courseSections?: Array<{
-    sectionTitle?: string;
-    sectionText?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
+  courseSections?: Array<
+    | ({
         _key: string;
-      }>;
-      style?: "normal";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
+      } & Section)
+    | {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
         _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-    _type: "section";
-    _key: string;
-  }>;
+      }
+  >;
   length?: string;
   conditionsCourse?: Array<{
     children?: Array<{
@@ -579,6 +593,7 @@ export type Course = {
   lecturer?: EmployeeReference;
   slug?: Slug;
   category?: CourseCategoryReference;
+  seo?: Seo;
 };
 
 export type RoleReference = {
@@ -810,22 +825,32 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
-  | TextObject
-  | EmployeeReference
-  | TeamSection
+  | ImageContent
   | SanityImageAssetReference
-  | Section
-  | Button
-  | Article
+  | ImageContentImage
+  | EmployeeReference
+  | CourseMainPage
+  | Slug
   | SanityImageCrop
   | SanityImageHotspot
-  | Slug
   | Seo
-  | Menu
-  | Tjanster
+  | Accordions
   | CardContainer
+  | LinkItemReference
+  | Accordion
+  | BlockObject
+  | TitleObject
+  | MainPage
+  | Navigation
+  | NavigationItem
+  | TextObject
+  | TeamSection
+  | Section
+  | Button
+  | LinkItem
+  | Article
+  | Tjanster
   | Role
-  | Post
   | Pageimage
   | Home
   | CourseCategoryReference
@@ -903,127 +928,118 @@ export type HOMEPAGE_QUERY_RESULT = {
     employeeText: string | null;
   } | null;
   servicesCard: {
-    descriptionText: string | null;
-    hideDescription: boolean | null;
-    hideAccordion: boolean | null;
-    hideImage: boolean | null;
-    hideCardSmall: boolean | null;
-    accordions: Array<{
-      title: string | null;
-      description: string | null;
-      btnHref: string | null;
-      icon: boolean | null;
-    }> | null;
+    descriptionText: null;
+    hideDescription: null;
+    hideAccordion: null;
+    hideImage: null;
+    hideCardSmall: null;
+    accordions: null;
   } | null;
+} | null;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: NAVIGATION_QUERY
+// Query: *[_type == "navigation"][0]{    headerNavigation[]{      _key,      label,      hasDropdown,      dropdownSource,      "href": link->href,      "dropdownItems": select(        dropdownSource == "employees" =>          *[            _type == "employee" &&            defined(slug.current)          ]          | order(lastName asc) {            _id,            "title": firstName + " " + lastName,            "href": "/medarbetare/" + slug.current          },        dropdownSource == "services" =>          *[            _type == "tjanster" &&            defined(slug.current)          ]          | order(title asc) {            _id,            title,            "href": "/tjanster/" + slug.current          },        dropdownSource == "manual" =>          dropdownItems[]->{            _id,            title,            href          },        []      ),      "courseGroups": select(        dropdownSource == "courses" => [          {            "_key": "upphandling",            "title": "Offentlig upphandling",            "items":              *[                _type == "course" &&                category->slug.current == "upphandling" &&                defined(slug.current)              ]              | order(courseName asc) {                _id,                "title": courseName,                "href": "/juridikkurser/" + slug.current              }          },          {            "_key": "entreprenad",            "title": "Entreprenadjuridik",            "items":              *[                _type == "course" &&                category->slug.current == "entreprenad" &&                defined(slug.current)              ]              | order(courseName asc) {                _id,                "title": courseName,                "href": "/juridikkurser/" + slug.current              }          }        ],        []      )    },    footerNavigation[]{      _key,      label,      hasDropdown,      dropdownSource,      "href": link->href    }  }
+export type NAVIGATION_QUERY_RESULT = {
+  headerNavigation: Array<{
+    _key: string;
+    label: string | null;
+    hasDropdown: boolean | null;
+    dropdownSource: "courses" | "employees" | "manual" | "services" | null;
+    href: string | null;
+    dropdownItems:
+      | Array<{
+          _id: string;
+          title: string | null;
+          href: string | null;
+        }>
+      | Array<{
+          _id: string;
+          title: string | null;
+          href: string | null;
+        }>
+      | Array<never>
+      | null;
+    courseGroups:
+      | Array<never>
+      | Array<
+          | {
+              _key: "entreprenad";
+              title: "Entreprenadjuridik";
+              items: Array<{
+                _id: string;
+                title: string | null;
+                href: string | null;
+              }>;
+            }
+          | {
+              _key: "upphandling";
+              title: "Offentlig upphandling";
+              items: Array<{
+                _id: string;
+                title: string | null;
+                href: string | null;
+              }>;
+            }
+        >;
+  }> | null;
+  footerNavigation: Array<{
+    _key: string;
+    label: string | null;
+    hasDropdown: boolean | null;
+    dropdownSource: "courses" | "employees" | "manual" | "services" | null;
+    href: string | null;
+  }> | null;
 } | null;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: POSTS_QUERY
 // Query: *[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...12]{    _id,     title,     "slug": slug.current,     publishedAt  }
-export type POSTS_QUERY_RESULT = Array<{
-  _id: string;
-  title: string | null;
-  slug: string | null;
-  publishedAt: string | null;
-}>;
+export type POSTS_QUERY_RESULT = Array<never>;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: DATA_QUERY
 // Query: *[(_type == "post" || _type == "employee") && slug.current == $slug][0]{    _type,    _id,    title,    firstName,    lastName,    role,    image,    bio,    body,    publishedAt,    educationList[]{      school,      year    }  }
-export type DATA_QUERY_RESULT =
-  | {
-      _type: "employee";
-      _id: string;
-      title: null;
-      firstName: string | null;
-      lastName: string | null;
-      role: null;
-      image: {
-        asset?: SanityImageAssetReference;
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-      } | null;
-      bio: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?:
-          | "blockquote"
-          | "h1"
-          | "h2"
-          | "h3"
-          | "h4"
-          | "h5"
-          | "h6"
-          | "normal";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }> | null;
-      body: null;
-      publishedAt: null;
-      educationList: Array<{
-        school: string | null;
-        year: null;
-      }> | null;
-    }
-  | {
-      _type: "post";
-      _id: string;
-      title: string | null;
-      firstName: null;
-      lastName: null;
-      role: null;
-      image: {
-        asset?: SanityImageAssetReference;
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
-      } | null;
-      bio: null;
-      body: Array<{
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?:
-          | "blockquote"
-          | "h1"
-          | "h2"
-          | "h3"
-          | "h4"
-          | "h5"
-          | "h6"
-          | "normal";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }> | null;
-      publishedAt: string | null;
-      educationList: null;
-    }
-  | null;
+export type DATA_QUERY_RESULT = {
+  _type: "employee";
+  _id: string;
+  title: null;
+  firstName: string | null;
+  lastName: string | null;
+  role: null;
+  image: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  bio: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  body: null;
+  publishedAt: null;
+  educationList: Array<{
+    school: string | null;
+    year: null;
+  }> | null;
+} | null;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: ALL_COURSES_QUERY
@@ -1163,25 +1179,8 @@ export type COURSE_DETAIL_PAGE_QUERY_RESULT = {
   }> | null;
   categoryTitle: string | null;
   courseSections: Array<{
-    sectionTitle: string | null;
-    sectionText: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }> | null;
+    sectionTitle: null;
+    sectionText: null;
   }> | null;
   lecturer: {
     firstName: string | null;
@@ -1326,6 +1325,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '\n  *[_type == "home"][0]{\n    homeTitle,\n    homeEyebrow,\n    introSection {\n      introTitle,\n      introText,\n    },\n    tjansterSection {\n      tjansterTitle,\n      tjansterEyebrow,\n      tjansterText,\n    },\n    employeeSection {\n      employeeTitle,\n      employeeEyebrow,\n      employeeText,\n    },\n    servicesCard {\n      descriptionText,\n      hideDescription,\n      hideAccordion,\n      hideImage,\n      hideCardSmall,\n      accordions[] {\n        title,\n        description,\n        btnHref,\n        icon\n      }\n    },\n  }\n': HOMEPAGE_QUERY_RESULT;
+    '\n  *[_type == "navigation"][0]{\n    headerNavigation[]{\n      _key,\n      label,\n      hasDropdown,\n      dropdownSource,\n      "href": link->href,\n\n      "dropdownItems": select(\n        dropdownSource == "employees" =>\n          *[\n            _type == "employee" &&\n            defined(slug.current)\n          ]\n          | order(lastName asc) {\n            _id,\n            "title": firstName + " " + lastName,\n            "href": "/medarbetare/" + slug.current\n          },\n\n        dropdownSource == "services" =>\n          *[\n            _type == "tjanster" &&\n            defined(slug.current)\n          ]\n          | order(title asc) {\n            _id,\n            title,\n            "href": "/tjanster/" + slug.current\n          },\n\n        dropdownSource == "manual" =>\n          dropdownItems[]->{\n            _id,\n            title,\n            href\n          },\n\n        []\n      ),\n\n      "courseGroups": select(\n        dropdownSource == "courses" => [\n          {\n            "_key": "upphandling",\n            "title": "Offentlig upphandling",\n            "items":\n              *[\n                _type == "course" &&\n                category->slug.current == "upphandling" &&\n                defined(slug.current)\n              ]\n              | order(courseName asc) {\n                _id,\n                "title": courseName,\n                "href": "/juridikkurser/" + slug.current\n              }\n          },\n\n          {\n            "_key": "entreprenad",\n            "title": "Entreprenadjuridik",\n            "items":\n              *[\n                _type == "course" &&\n                category->slug.current == "entreprenad" &&\n                defined(slug.current)\n              ]\n              | order(courseName asc) {\n                _id,\n                "title": courseName,\n                "href": "/juridikkurser/" + slug.current\n              }\n          }\n        ],\n\n        []\n      )\n    },\n\n    footerNavigation[]{\n      _key,\n      label,\n      hasDropdown,\n      dropdownSource,\n      "href": link->href\n    }\n  }\n': NAVIGATION_QUERY_RESULT;
     '\n  *[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...12]{\n    _id, \n    title, \n    "slug": slug.current, \n    publishedAt\n  }\n': POSTS_QUERY_RESULT;
     '\n  *[(_type == "post" || _type == "employee") && slug.current == $slug][0]{\n    _type,\n    _id,\n    title,\n    firstName,\n    lastName,\n    role,\n    image,\n    bio,\n    body,\n    publishedAt,\n    educationList[]{\n      school,\n      year\n    }\n  }\n': DATA_QUERY_RESULT;
     '\n  *[_type == "course" && defined(slug.current)] | order(courseName asc){\n    _id,\n    courseName,\n    "slug": slug.current,\n    "categoryTitle": category->title,\n    "lecturer": lecturer->{\n      firstName,\n      lastName,\n      role,\n      image\n    }\n  }\n': ALL_COURSES_QUERY_RESULT;

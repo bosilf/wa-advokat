@@ -137,7 +137,6 @@ export const employee = defineType({
     select: {
       firstName: 'firstName',
       lastName: 'lastName',
-      // 🟢 FIXAT: Denna pil (->) följer referensen till 'role' och plockar ut dess titel automatiskt för förhandsvisningen!
       media: 'image',
     },
     prepare(selection) {

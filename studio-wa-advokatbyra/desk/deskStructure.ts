@@ -1,80 +1,156 @@
-import { StructureResolver } from 'sanity/structure'
-import { CogIcon, TagIcon, UsersIcon, MenuIcon, HomeIcon, DocumentIcon, DocumentTextIcon, AddUserIcon, CaseIcon } from '@sanity/icons'
+import type { StructureResolver } from "sanity/structure"
+import {
+  LinkIcon,
+  CogIcon,
+  TagsIcon,
+  UsersIcon,
+  StackCompactIcon,
+  HomeIcon,
+  DocumentTextIcon,
+  CaseIcon,
+  FolderIcon,
+  EnvelopeIcon,
+  PresentationIcon,
+  AddUserIcon
+} from "@sanity/icons"
+
 
 export const deskStructure: StructureResolver = (S) =>
   S.list()
-    .title('Innehåll (WA Advokatbyrå)')
+    .title("Innehåll (WA Advokatbyrå)")
     .items([
-      // 1. STARTSIDA (Singleton)
+      // --------------------------------
+      // HUVUDSIDOR
+      // --------------------------------
+
       S.listItem()
-        .title('Startsida')
-        .icon(HomeIcon)
+        .title("Huvudsidor")
+        .icon(FolderIcon)
         .child(
-          S.document()
-            .schemaType('home')
-            .documentId('home')
+          S.list()
+            .title("Huvudsidor")
+            .items([
+              S.listItem()
+                .title("Startsida")
+                .icon(HomeIcon)
+                .child(
+                  S.document()
+                    .schemaType("home")
+                    .documentId("home")
+                ),
+
+              S.listItem()
+                .title("Om oss")
+                .icon(UsersIcon)
+                .child(
+                  S.document()
+                    .schemaType("employeesPage")
+                    .documentId("employees-page")
+                ),
+
+              S.listItem()
+                .title("Rättsområden")
+                .icon(CaseIcon)
+                .child(
+                  S.document()
+                    .schemaType("servicesPage")
+                    .documentId("services-page")
+                ),
+
+              S.listItem()
+                .title("Juridikkurser")
+                .icon(PresentationIcon)
+                .child(
+                  S.document()
+                    .schemaType("coursesPage")
+                    .documentId("courses-page")
+                ),
+
+              S.listItem()
+                .title("Kontakt")
+                .icon(EnvelopeIcon)
+                .child(
+                  S.document()
+                    .schemaType("contactPage")
+                    .documentId("contact-page")
+                ),
+            ])
         ),
 
-        S.listItem()
-        .title('Medarbetare')
-        .icon(UsersIcon)
+      // --------------------------------
+      // CONTENT COLLECTIONS
+      // --------------------------------
+
+      S.listItem()
+        .title("Medarbetare")
+        .icon(AddUserIcon)
         .child(
-          S.documentTypeList('employee')
-            .title('Alla Medarbetare')
+          S.documentTypeList("employee")
+            .title("Alla Medarbetare")
         ),
-        S.listItem()
-        .title('Tjänster')
+
+      S.listItem()
+        .title("Tjänster")
         .icon(CaseIcon)
         .child(
-          S.documentTypeList('tjanster')
-            .title('Alla Tjänster')
+          S.documentTypeList("tjanster")
+            .title("Alla Tjänster")
         ),
-        S.listItem()
-        .title('Artiklar')
+
+      S.listItem()
+        .title("Kurser")
+        .icon(PresentationIcon)
+        .child(
+          S.documentTypeList("course")
+            .title("Alla Kurser")
+        ),
+
+      S.listItem()
+        .title("Artiklar")
         .icon(DocumentTextIcon)
         .child(
-          S.documentTypeList('article')
-            .title('Alla Artiklar')
+          S.documentTypeList("article")
+            .title("Alla Artiklar")
         ),
+
+      S.divider(),
+
+      // --------------------------------
+      // GLOBAL / REUSABLE
+      // --------------------------------
+
       S.listItem()
-        .title('Menyer')
-        .icon(MenuIcon)
+        .title("Navigering")
+        .icon(LinkIcon)
         .child(
           S.document()
-          .schemaType('menu')
-          .documentId('menu')
-          .title('TITLE')
-        ),
-      // S.listItem()
-      //   .title('Section')
-      //   .icon(UserIcon)
-      //   .child(S.documentTypeList('section').title('Alla sectioner')),
-      
-      S.listItem()
-        .title('Huvudsidor')
-        .child(
-          S.documentTypeList('article')
-            .title('Alla Artiklar')
-        ),
-      S.divider(), 
-
-      // 4. SAMLAD LISTA FÖR YRKESTITLAR 🚀
-      S.listItem()
-        .title('Yrkestitlar')
-        .icon(TagIcon)
-        .child(
-          S.documentTypeList('role')
-            .title('Hantera Yrkestitlar')
-            .defaultLayout('default') 
+            .schemaType("navigation")
+            .documentId("navigation")
+            .title("Navigering")
         ),
 
-      // 5. GLOBALA INSTÄLLNINGAR & FÄRGER (Singleton)
       S.listItem()
-        .title('Globala Inställningar & Färger')
+        .title("Yrkestitlar")
+        .icon(TagsIcon)
+        .child(
+          S.documentTypeList("role")
+            .title("Hantera Yrkestitlar")
+        ),
+
+      S.listItem()
+        .title("Dragspel")
+        .icon(StackCompactIcon)
+        .child(
+          S.documentTypeList("accordions")
+            .title("Hantera Dragspel")
+        ),
+
+      S.listItem()
+        .title("Globala Inställningar & Färger")
         .icon(CogIcon)
         .child(
           S.document()
-            .schemaType('settings')
-            .documentId('global-settings')
+            .schemaType("settings")
+            .documentId("global-settings")
         ),
     ])
