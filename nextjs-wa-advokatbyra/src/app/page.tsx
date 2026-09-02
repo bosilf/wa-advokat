@@ -1,36 +1,43 @@
 import { client } from "@/sanity/client";
 // import Link from "next/link";
-import { HOMEPAGE_QUERY, EMPLOYEES_QUERY } from "@/sanity/queries";
+import { HOMEPAGE_QUERY } from "@/sanity/queries";
+import type { HOMEPAGE_QUERY_RESULT } from "@/sanity/sanity.types";
 // import Image from "next/image";
 // import { urlFor } from "@/sanity/image";
 import CardContainer from "@/components/cards/CardContainer";
-import Button from "@/components/Button";
-import EmployeeCard from "@/components/EmployeeCard";
+import Button from "@/components/buttons/Button";
+import EmployeeCard from "@/components/cards/EmployeeCard";
 import Section from "@/components/Section";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
 import HeroHome from "@/components/heros/HeroHome";
 
-const options = { next: { revalidate: 0 } };
+const options = { next: { revalidate: 30 } };
 
 
 
 export default async function IndexPage() {
 
-  const employees = await client.fetch(EMPLOYEES_QUERY, {}, options);
-  const homepage = await client.fetch(HOMEPAGE_QUERY, {}, options);
+  const page = await client.fetch<HOMEPAGE_QUERY_RESULT>(
+    HOMEPAGE_QUERY,
+    {},
+    options,
+  );
 
-  const intro = homepage?.introSection
-  const tjanster = homepage?.tjansterSection
-  const teamSection = homepage?.employeeSection
-  const cardData = homepage?.servicesCard;
+  const intro = page?.introSection;
+  const services = page?.tjansterSection;
+  const team = page?.employeeSection;
+  const contact = page?.contactSection;
+  
+  const employees = team?.employees ?? [];
+
   return (
     <>
       <HeroHome />
-      <main>
+      <main className="z-10">
         <Section 
           color="bg-surface" 
           hideEyebrow 
-          heading={intro?.introTitle ?? "Titel saknas"}
+          heading={intro?.introTitle ?? "Title saknas"}
           >
           {intro?.introText ? (
             <CustomPortableText value={intro.introText} />
@@ -38,9 +45,16 @@ export default async function IndexPage() {
             <p className="font-body text-gray-400">Text saknas i Sanity.</p>
           )}
         </Section>
-        <Section color="canvas" eyebrow={tjanster?.tjansterEyebrow ?? ""} heading={tjanster?.tjansterTitle ?? "Titel Saknas"}>
-          {tjanster?.tjansterText ? (
-            <CustomPortableText value={tjanster.tjansterText} />
+        <Section
+          color="bg-canvas"
+          eyebrow={services?.tjansterEyebrow?.text ?? ""}
+          eyebrowHref={
+            services?.tjansterEyebrow?.resolvedLink?.href ?? undefined
+          }
+          heading={services?.tjansterTitle ?? "Title saknas"}
+        >
+          {services?.tjansterText ? (
+            <CustomPortableText value={services.tjansterText} />
           ) : (
             <p className="font-body text-gray-400">Text saknas i Sanity.</p>
           )}
@@ -50,33 +64,63 @@ export default async function IndexPage() {
             Läs mer
           </Button>
           <CardContainer
-            accordions={cardData?.accordions ?? undefined}
+            accordions={services?.accordions ?? undefined}
             hideDescription
             hideImage
             hideCardSmall
           />
         </Section>
-        <Section color="bg-surface" eyebrow={teamSection?.employeeEyebrow ?? ""} heading={teamSection?.employeeTitle ?? "Titel saknas"}>
-          {teamSection?.employeeText ? (
-            <CustomPortableText value={teamSection.employeeText} />
+        <Section 
+          eyebrow={team?.employeeEyebrow?.text ?? ""}
+          eyebrowHref={
+            team?.employeeEyebrow?.resolvedLink?.href ?? undefined
+          }
+          heading={team?.employeeTitle ?? "Title saknas"}
+          color="bg-surface" 
+        >
+          <p className="font-body">
+          Vi är lösningsorienterade och vi strävar efter att inte enbart peka på risker utan att försöka hitta lösningar och möjligheter på olika problem och frågor.
+          </p>
+          {team?.employeeText ? (
+            <CustomPortableText value={team.employeeText} />
           ) : (
             <p className="font-body text-gray-400">Text saknas i Sanity.</p>
           )}
           {employees.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-y-md gap-x-md">
-              {employees.map((employee) => (
-                <EmployeeCard key={employee._id} employee={employee} />
-              ))}
-            </div>
+            <ul className="grid grid-cols-2 gap-md md:grid-cols-3">
+            {employees.map((employee) => (
+              <li key={employee._id}>
+                <EmployeeCard employee={employee} />
+              </li>
+            ))}
+          </ul>
           ) : (
             <p className="text-gray-500 mt-8 text-center">Inga medarbetare hittades.</p>
           )}
-          {employees.length === 0 && (
-            <p className="text-gray-500">Inga medarbetare hittades.</p>
-          )}
         </Section>
-        <Section eyebrow="kontakt" heading="Kontakta oss idag!">
-          <p className="font-body">Be om juridisk rådgivning i bygg- och fastighetsrelaterade frågor. Vi hjälper er i tidigt i processen eller när tvist uppstår. WA Advokatbyrå är specialister på offentlig upphandling och vet vilka problem som brukar uppstå samt hur de kan lösas på bästa sätt. Ta del av våra juridiska utbildningar och anmäl intresse till någon av våra kurser. </p>
+        <Section
+          eyebrow={contact?.contactEyebrow?.text ?? undefined}
+          eyebrowHref={
+            contact?.contactEyebrow?.resolvedLink?.href ?? undefined
+          }
+          heading={contact?.contactTitle ?? "Kontakta oss"}
+        >
+          {contact?.contactText && (
+            <p className="font-body">
+              {contact.contactText}
+            </p>
+          )}
+          
+          {contact?.contactCta?.resolvedLink?.href && (
+            <Button
+              href={contact.contactCta.resolvedLink.href}
+              showIcon={contact.contactCta.hasIcon ?? false}
+            >
+              {contact.contactCta.resolvedLink.label ??
+                contact.contactCta.ariaLabel ??
+                "Kontakta oss"}
+            </Button>
+          )}
         </Section>
       </main>
     </>

@@ -1,55 +1,363 @@
 import { defineQuery } from 'next-sanity'
+import { LINK_RESOLVER } from './linkResolver'
+
+export const CONTACT_PAGE_QUERY = defineQuery(`
+  *[_type == "contactPage"][0] {
+    hero {
+      eyebrow,
+      title,
+      image {
+        asset,
+        crop,
+        hotspot,
+        alt
+      }
+    }
+  }
+`);
+
+export const OM_OSS_PAGE_QUERY = defineQuery(`
+  ${LINK_RESOLVER}
+
+  *[
+  _type == "aboutPage" &&
+  _id == "about-page"
+  ][0] {
+    hero {
+      eyebrow,
+      title,
+
+      image {
+        asset,
+        crop,
+        hotspot,
+        alt
+      }
+    },
+
+    benefitsSection {
+      items[] {
+        _key,
+        title,
+        text,
+        icon
+      }
+    },
+
+    teamSection {
+      eyebrow {
+        text,
+        "resolvedLink": wa::resolveLinkRef(link)
+      },
+
+      title,
+      text,
+
+      "teamMembers": teamMembers[]-> {
+        _id,
+        firstName,
+        lastName,
+        "slug": slug.current,
+        excerpt,
+        professionalTitle,
+
+        image {
+          asset,
+          crop,
+          hotspot,
+          alt
+        },
+
+        "roles": roles[]-> {
+          _id,
+          title,
+          "slug": slug.current
+        }
+      },
+
+      cta {
+        variant,
+        hasIcon,
+        icon,
+        ariaLabel,
+        "resolvedLink": wa::resolveNavItem(link)
+      }
+    },
+
+    practiceAreasSection {
+      eyebrow {
+        text,
+        "resolvedLink": wa::resolveLinkRef(link)
+      },
+
+      title,
+      text,
+
+      "services": services[]-> {
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        image {
+          asset,
+          crop,
+          hotspot,
+          alt
+        },
+      },
+
+      cta {
+        variant,
+        hasIcon,
+        icon,
+        ariaLabel,
+        "resolvedLink": wa::resolveNavItem(link)
+      }
+    },
+
+    adviceSection {
+      eyebrow {
+        text,
+        "resolvedLink": wa::resolveLinkRef(link)
+      },
+
+      title,
+      text,
+
+      cta {
+        variant,
+        hasIcon,
+        icon,
+        ariaLabel,
+        "resolvedLink": wa::resolveNavItem(link)
+      }
+    },
+
+    coursesSection {
+      eyebrow {
+        text,
+        "resolvedLink": wa::resolveLinkRef(link)
+      },
+      title,
+      subheading,
+      text,
+    
+      "courseAccordions": courses[]-> {
+        "_key": _id,
+        "title": courseName,
+      
+        "description": coalesce(
+          pt::text(aimCourse),
+          pt::text(aboutCourse)
+        ),
+      
+        "btnHref": select(
+          defined(slug.current) =>
+            "/juridikkurser/" + slug.current,
+          null
+        ),
+      
+        "icon": true,
+
+      },
+    
+      cta {
+        variant,
+        hasIcon,
+        icon,
+        ariaLabel,
+        "resolvedLink": wa::resolveNavItem(link)
+      },
+    },
+
+    contactSection {
+      eyebrow {
+        text,
+        "resolvedLink": wa::resolveLinkRef(link)
+      },
+
+      title,
+      text,
+      showContactForm,
+
+      form {
+        title,
+        nameLabel,
+        emailLabel,
+        phoneLabel,
+        messagePlaceholder,
+        submitLabel
+      }
+    },
+
+    additionalSections[] {
+      ...,
+      eyebrow {
+        text,
+        "resolvedLink": wa::resolveLinkRef(link)
+      },
+
+      blocks[] {
+        ...
+      }
+    },
+
+    seo
+  }
+`);
+
+export const SERVICES_PAGE_QUERY = defineQuery(`
+  *[_type == "tjansterPage"][0] {
+    hero {
+      eyebrow,
+      title,
+      image {
+        asset,
+        crop,
+        hotspot,
+        alt
+      }
+    }
+  }
+`);
 
 export const HOMEPAGE_QUERY = defineQuery(`
-  *[_type == "home"][0]{
+  ${LINK_RESOLVER}
+
+  *[_type == "home"][0] {
     homeTitle,
     homeEyebrow,
+
     introSection {
       introTitle,
-      introText,
+      introText
     },
+
     tjansterSection {
       tjansterTitle,
-      tjansterEyebrow,
+
+      tjansterEyebrow {
+        text,
+        "resolvedLink": wa::resolveLinkRef(link)
+      },
+
       tjansterText,
-    },
-    employeeSection {
-      employeeTitle,
-      employeeEyebrow,
-      employeeText,
-    },
-    servicesCard {
-      descriptionText,
-      hideDescription,
-      hideAccordion,
-      hideImage,
-      hideCardSmall,
+
       accordions[] {
+        _key,
         title,
         description,
         btnHref,
         icon
+      },
+
+      cta {
+        variant,
+        hasIcon,
+        icon,
+        ariaLabel,
+        "resolvedLink": wa::resolveNavItem(link)
       }
     },
+
+    employeeSection {
+      employeeTitle,
+
+      employeeEyebrow {
+        text,
+        "resolvedLink": wa::resolveLinkRef(link)
+      },
+
+      employeeText,
+
+      "employees": *[
+        _type == "employee" &&
+        defined(slug.current)
+      ] | order(lastName asc) {
+        _id,
+        firstName,
+        lastName,
+        "slug": slug.current,
+        excerpt,
+        professionalTitle,
+
+        image {
+          asset,
+          crop,
+          hotspot,
+          alt
+        },
+
+        "roles": roles[]->{
+          _id,
+          title,
+          "slug": slug.current
+        }
+      }
+    },
+
+    contactSection {
+      contactTitle,
+
+      contactEyebrow {
+        text,
+        "resolvedLink": wa::resolveLinkRef(link)
+      },
+
+      contactText,
+
+      contactCta {
+        variant,
+        hasIcon,
+        icon,
+        ariaLabel,
+        "resolvedLink": wa::resolveNavItem(link)
+      }
+    },
+
+    seo
   }
-`)
+`);
 
 export const NAVIGATION_QUERY = defineQuery(`
-  *[_type == "navigation"][0]{
-    headerNavigation[]{
+  ${LINK_RESOLVER}
+
+  *[_type == "navigation"][0] {
+    headerNavigation[] {
       _key,
-      label,
       hasDropdown,
       dropdownSource,
-      "href": link->href,
+
+      "resolvedLink": wa::resolveNavItem(@),
+      "courses": select(
+  dropdownSource == "courses" =>
+    *[_type == "courseCategory"]
+    | order(title asc) {
+      "_key": _id,
+      title,
+
+      "courses": *[
+        _type == "course" &&
+        category._ref == ^._id &&
+        defined(slug.current)
+      ]
+      | order(courseName asc) {
+        _id,
+        "_key": _id,
+        "title": courseName,
+        "href": "/juridikkurser/" + slug.current
+      }
+    },
+
+  []
+),
 
       "dropdownItems": select(
         dropdownSource == "employees" =>
           *[
             _type == "employee" &&
             defined(slug.current)
-          ]
-          | order(lastName asc) {
+          ] | order(lastName asc) {
             _id,
             "title": firstName + " " + lastName,
             "href": "/medarbetare/" + slug.current
@@ -57,82 +365,155 @@ export const NAVIGATION_QUERY = defineQuery(`
 
         dropdownSource == "services" =>
           *[
-            _type == "tjanster" &&
+            _type == "service" &&
             defined(slug.current)
-          ]
-          | order(title asc) {
+          ] | order(title asc) {
             _id,
             title,
             "href": "/tjanster/" + slug.current
           },
 
         dropdownSource == "manual" =>
-          dropdownItems[]->{
-            _id,
-            title,
-            href
+          dropdownItems[] {
+            _key,
+            "resolvedLink": wa::resolveNavItem(@)
           },
-
-        []
-      ),
-
-      "courseGroups": select(
-        dropdownSource == "courses" => [
-          {
-            "_key": "upphandling",
-            "title": "Offentlig upphandling",
-            "items":
-              *[
-                _type == "course" &&
-                category->slug.current == "upphandling" &&
-                defined(slug.current)
-              ]
-              | order(courseName asc) {
-                _id,
-                "title": courseName,
-                "href": "/juridikkurser/" + slug.current
-              }
-          },
-
-          {
-            "_key": "entreprenad",
-            "title": "Entreprenadjuridik",
-            "items":
-              *[
-                _type == "course" &&
-                category->slug.current == "entreprenad" &&
-                defined(slug.current)
-              ]
-              | order(courseName asc) {
-                _id,
-                "title": courseName,
-                "href": "/juridikkurser/" + slug.current
-              }
-          }
-        ],
 
         []
       )
     },
 
-    footerNavigation[]{
+    footerNavigation[] {
       _key,
-      label,
-      hasDropdown,
-      dropdownSource,
-      "href": link->href
+      "resolvedLink": wa::resolveNavItem(@)
+    },
+
+    footerCourseNavigation[] {
+      _key,
+      "resolvedLink": wa::resolveNavItem(@)
+    },
+
+    footerPracticeAreaNavigation[] {
+      _key,
+      "resolvedLink": wa::resolveNavItem(@)
+    },
+
+    legalNavigation[] {
+      _key,
+      "resolvedLink": wa::resolveNavItem(@)
     }
   }
-`)
+`);
 
-export const POSTS_QUERY = defineQuery(`
-  *[_type == "post" && defined(slug.current)] | order(publishedAt desc)[0...12]{
+export const PAGE_BY_PATH_QUERY = defineQuery(`
+  *[
+    _type == "page" &&
+    path.current == $path
+  ][0] {
+    _id,
+    title,
+    "path": path.current,
+
+    sections[] {
+      _key,
+      _type,
+      heading,
+      theme,
+
+      eyebrow {
+        text,
+        link-> {
+          title,
+          linkType,
+          href,
+          internalReference-> {
+            _type,
+            title,
+            courseName,
+            firstName,
+            lastName,
+            "slug": slug.current
+          }
+        }
+      },
+
+      blocks[] {
+        ...,
+
+        _type == "employeeGridBlock" => {
+          ...,
+
+          "employees": select(
+            selectionMode == "all" =>
+              *[
+                _type == "employee" &&
+                defined(slug.current)
+              ] | order(lastName asc) {
+                _id,
+                firstName,
+                lastName,
+                "slug": slug.current,
+                professionalTitle,
+                image {
+                  asset,
+                  crop,
+                  hotspot,
+                  alt
+                },
+                "roles": roles[]->{
+                  title
+                }
+              },
+
+            employees[]-> {
+              _id,
+              firstName,
+              lastName,
+              "slug": slug.current,
+              professionalTitle,
+              image {
+                asset,
+                crop,
+                hotspot,
+                alt
+              },
+              "roles": roles[]->{
+                title
+              }
+            }
+          )
+        },
+
+        _type == "serviceGridBlock" => {
+          ...,
+          "services": services[]-> {
+            _id,
+            title,
+            "slug": slug.current,
+            excerpt,
+            image {
+              asset,
+              crop,
+              hotspot,
+              alt
+            }
+          }
+        }
+      }
+    },
+
+    seo
+  }
+`);
+
+export const ARTICLE_QUERY = defineQuery(`
+  *[_type == "article" && defined(slug.current)] | order(publishedAt desc)[0...12]{
     _id, 
     title, 
     "slug": slug.current, 
     publishedAt
   }
-`)
+`);
 
 export const DATA_QUERY = defineQuery(`
   *[(_type == "post" || _type == "employee") && slug.current == $slug][0]{
@@ -142,7 +523,12 @@ export const DATA_QUERY = defineQuery(`
     firstName,
     lastName,
     role,
-    image,
+    image {
+      asset,
+      crop,
+      hotspot,
+      alt
+    },
     bio,
     body,
     publishedAt,
@@ -151,7 +537,7 @@ export const DATA_QUERY = defineQuery(`
       year
     }
   }
-`)
+`);
 
 export const ALL_COURSES_QUERY = defineQuery(`
   *[_type == "course" && defined(slug.current)] | order(courseName asc){
@@ -163,7 +549,12 @@ export const ALL_COURSES_QUERY = defineQuery(`
       firstName,
       lastName,
       role,
-      image
+      image {
+        asset,
+        crop,
+        hotspot,
+        alt
+      }
     }
   }
 `);
@@ -174,13 +565,13 @@ export const COURSE_CATEGORIES_QUERY = defineQuery(`
     title,
     "slug": slug.current
   } | order(title asc)
-`)
+`);
 
 export const COURSE_CATEGORY_QUERY = defineQuery(`
   *[_type == "course" && defined(category)] | order(category asc) {
     category
   }[0...100]
-`)
+`);
 
 export const COURSE_QUERY = defineQuery(`
   *[_type == "course" && defined(slug.current)] | order(courseName asc) {
@@ -191,10 +582,15 @@ export const COURSE_QUERY = defineQuery(`
       firstName,
       lastName,
       role,
-      image
+      image {
+        asset,
+        crop,
+        hotspot,
+        alt
+      }
     }
   }
-`)
+`);
 
 export const COURSE_BY_CATEGORY_QUERY = defineQuery(`
   *[_type == "courseCategory" && slug.current == $category][0]{
@@ -208,14 +604,18 @@ export const COURSE_BY_CATEGORY_QUERY = defineQuery(`
   }
 `);
 
-
 export const COURSE_DETAIL_PAGE_QUERY = defineQuery(`
   *[_type == "course" && slug.current == $slug][0]{
     courseName,
     aimCourse,
     aboutCourse,
     content,
-    image,
+    image {
+      asset,
+      crop,
+      hotspot,
+      alt
+    },
     length,
     conditionsCourse,
     "categoryTitle": category->title, 
@@ -228,12 +628,17 @@ export const COURSE_DETAIL_PAGE_QUERY = defineQuery(`
       lastName,
       "role": roles[0]->title,
       number, 
-      image,
+      image {
+        asset,
+        crop,
+        hotspot,
+        alt
+      },
       email,
       slug
     }
   }
-`)
+`);
 
 // --- MEDARBETARE & ROLLER ---
 
@@ -246,10 +651,15 @@ export const EMPLOYEES_QUERY = defineQuery(`
     email,
     bio,
     "slug": slug.current,
-    image,
-    "roles": roles[]->{ title, "slug": slug.current }
+    image {
+      asset,
+      crop,
+      hotspot,
+      alt
+    },
+    "roles": roles[]->{ _id, title, "slug": slug.current }
   }
-`)
+`);
 
 export const EMPLOYEE_ROLE_QUERY = defineQuery(`
   {
@@ -262,12 +672,17 @@ export const EMPLOYEE_ROLE_QUERY = defineQuery(`
       _id,
       firstName,
       lastName,
-      "roles": roles[]->{ title, "slug": slug.current },
+      "roles": roles[]->{ _id, title, "slug": slug.current },
       "slug": slug.current,
-      image
+      image {
+        asset,
+        crop,
+        hotspot,
+        alt
+      }
     }
   }
-`)
+`);
 
 export const ROLES_QUERY = defineQuery(`
   *[
@@ -278,10 +693,11 @@ export const ROLES_QUERY = defineQuery(`
     ]) > 0
   ]
   | order(title asc) {
+    _id,
     title,
     "slug": slug.current
   }
-`)
+`);
 
 export const EMPLOYEE_PAGE_QUERY = defineQuery(`
   *[_type == "employee" && slug.current == $slug][0]{
@@ -291,11 +707,13 @@ export const EMPLOYEE_PAGE_QUERY = defineQuery(`
     number,
     email,
     bio,
-    image{
+    image {
       asset,
+      crop,
+      hotspot,
       alt
     },
-    "roles": roles[]->{ title, "slug": slug.current },
+    "roles": roles[]->{ _id, title, "slug": slug.current },
     educationList[]{
       school,
       education,

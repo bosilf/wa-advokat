@@ -11,7 +11,9 @@ import {
   FolderIcon,
   EnvelopeIcon,
   PresentationIcon,
-  AddUserIcon
+  AddUserIcon,
+  TaskIcon,
+  ComposeIcon
 } from "@sanity/icons"
 
 
@@ -44,8 +46,8 @@ export const deskStructure: StructureResolver = (S) =>
                 .icon(UsersIcon)
                 .child(
                   S.document()
-                    .schemaType("employeesPage")
-                    .documentId("employees-page")
+                    .schemaType("aboutPage")
+                    .documentId("about-page")
                 ),
 
               S.listItem()
@@ -62,8 +64,8 @@ export const deskStructure: StructureResolver = (S) =>
                 .icon(PresentationIcon)
                 .child(
                   S.document()
-                    .schemaType("coursesPage")
-                    .documentId("courses-page")
+                    .schemaType("courseMainPage")
+                    .documentId("course-main-page")
                 ),
 
               S.listItem()
@@ -73,6 +75,22 @@ export const deskStructure: StructureResolver = (S) =>
                   S.document()
                     .schemaType("contactPage")
                     .documentId("contact-page")
+                ),
+              S.listItem()
+                .title("Boka kurs")
+                .icon(TaskIcon)
+                .child(
+                  S.document()
+                    .schemaType("bookCoursePage")
+                    .documentId("book-course-page")
+                ),
+              S.listItem()
+                .title("Artiklar samlingssida")
+                .icon(DocumentTextIcon)
+                .child(
+                  S.document()
+                    .schemaType("articleMainPage")
+                    .documentId("article-main-page")
                 ),
             ])
         ),
@@ -90,11 +108,19 @@ export const deskStructure: StructureResolver = (S) =>
         ),
 
       S.listItem()
-        .title("Tjänster")
+        .title("Rättsområden")
         .icon(CaseIcon)
         .child(
-          S.documentTypeList("tjanster")
-            .title("Alla Tjänster")
+          S.documentTypeList("service")
+            .title("Alla Rättsområden")
+        ),
+
+      S.listItem()
+        .title("Sidor")
+        .icon(CaseIcon)
+        .child(
+          S.documentTypeList("page")
+            .title("Alla Sidor")
         ),
 
       S.listItem()
@@ -103,11 +129,18 @@ export const deskStructure: StructureResolver = (S) =>
         .child(
           S.documentTypeList("course")
             .title("Alla Kurser")
+          ),
+          S.listItem()
+          .title("Kurskategorier")
+          .icon(PresentationIcon)
+          .child(
+            S.documentTypeList('courseCategory')
+            .title("Kurskategorier")
         ),
 
       S.listItem()
         .title("Artiklar")
-        .icon(DocumentTextIcon)
+        .icon(ComposeIcon)
         .child(
           S.documentTypeList("article")
             .title("Alla Artiklar")
@@ -137,13 +170,7 @@ export const deskStructure: StructureResolver = (S) =>
             .title("Hantera Yrkestitlar")
         ),
 
-      S.listItem()
-        .title("Dragspel")
-        .icon(StackCompactIcon)
-        .child(
-          S.documentTypeList("accordions")
-            .title("Hantera Dragspel")
-        ),
+
 
       S.listItem()
         .title("Globala Inställningar & Färger")

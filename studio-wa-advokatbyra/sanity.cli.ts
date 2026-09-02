@@ -14,9 +14,8 @@ export default defineCliConfig({
     autoUpdates: true,
   },
   typegen: {
-    // Säg till studion att skanna dina Next.js-filer efter GROQ-queries
+    enabled: true,
     path: '../nextjs-wa-advokatbyra/src/**/*.{ts,tsx}',
-    // Säg till vart den färdiga TypeScript-filen ska sparas
     generates: '../nextjs-wa-advokatbyra/src/sanity/sanity.types.ts',
   }
 })

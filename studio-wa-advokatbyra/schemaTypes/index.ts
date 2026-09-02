@@ -1,51 +1,75 @@
-import { companyInfoType } from './companyInfoType'
-import { courseCategoryType } from './courseCategoryType'
-import { course } from './course'
-import { employees } from './employees'
-import { homePage } from './homePage'
-import { imagePage } from './imagePage'
-import { roles } from './roles'
-import { cardContainer } from '../schemas/objects/cardContainer'
-import { tjanster } from './tjanster'
-import { article } from './articles'
-import { button } from '../schemas/objects/buttonsType'
-import { sections } from '../schemas/objects/sections'
-import { teamSection } from './teamSections'
-import { textObject } from '../schemas/objects/textType'
-import { linkItem } from './documents/linkItem'
-import { navigationItem } from '../schemas/objects/navigationItem'
-import { navigation } from './navigation'
-import { mainPages } from './documents/mainPages'
-import { titleObject } from '../schemas/objects/title'
-import { blockObject } from '../schemas/objects/block'
-import { accordion } from '../schemas/objects/accordion'
-import { seo } from '../schemas/objects/seo'
-import { accordions } from './documents/accordions'
-import { courseMainPage } from '../schemas/documents/courseMainPage'
+import { courseCategory } from './documents/courseCategory'
+import { course } from './documents/course'
+import { homePage } from './singletons/homePage'
+import { cardContainer } from './objects/cardContainer'
+import { article } from './documents/article'
+import { button } from './objects/button'
+import { sections } from './objects/sections'
+import { teamSection } from './objects/teamSection'
+import { textObject } from './objects/textType'
+import { link } from './objects/link'
+import { navigationItem } from './objects/navigationItem'
+import { navigation } from './singletons/navigation'
+import { titleObject } from './objects/title'
+import { blockObject } from './objects/block'
+import { accordionItem } from './objects/accordion'
+import { seo } from './objects/seo'
+import { courseMainPage } from './singletons/courseMainPage'
+import { heroRegular } from './objects/heroRegular'
+import { contactPage } from './singletons/contactPage'
+import { aboutPage } from './singletons/aboutPage'
+import { role } from './documents/role'
+import { service } from './documents/service'
+import { eyebrow } from './objects/eyebrow'
+import { settings } from './singletons/settings'
+import { employee } from './documents/employee'
+import { bookCoursePage } from './singletons/bookCoursePage'
+import { section } from './objects/section'
+import { articleMainPage } from './singletons/articleMainPage'
+import { page } from './documents/page'
+import { pageSection } from './pageSection'
+import { richTextBlock } from './objects/page-builder/richTextBlock'
+import { imageBlock } from './objects/page-builder/imageBlock'
+import { buttonGroupBlock } from './objects/page-builder/buttonGroupBlock'
+import { employeeGridBlock } from './objects/page-builder/employeeGridBlock'
+import { serviceGridBlock } from './objects/page-builder/serviceGridBlock'
+import { accordionBlock } from './objects/page-builder/accordionBlock'
 
 export const schemaTypes = [
-  companyInfoType,
-  courseCategoryType,
-  course,
-  employees,
-  homePage,
-  imagePage,
-  roles,
-  cardContainer,
-  tjanster,
+  accordionItem,
   article,
+  articleMainPage,
   button,
-  sections,
-  teamSection,
-  textObject,
-  linkItem,
+  blockObject,
+  bookCoursePage,
+  cardContainer,
+  contactPage,
+  courseMainPage,
+  courseCategory,
+  course,
+  eyebrow,
+  employee,
+  heroRegular,
+  homePage,
+  link,
   navigationItem,
   navigation,
-  mainPages,
-  titleObject,
-  blockObject,
-  accordion,
-  accordions,
+  page,
+  pageSection,
+  aboutPage,
+  richTextBlock,
+  imageBlock,
+  buttonGroupBlock,
+  employeeGridBlock,
+  serviceGridBlock,
+  accordionBlock,
   seo,
-  courseMainPage,
+  role,
+  sections,
+  section,
+  service,
+  settings,
+  teamSection,
+  textObject,
+  titleObject,
 ]

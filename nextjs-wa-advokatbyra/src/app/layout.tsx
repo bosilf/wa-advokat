@@ -34,7 +34,7 @@ const cursive = Dancing_Script({
 
 export const metadata: Metadata = {
   title: "WA Advokatbyrå",
-  description: "Välkommen till WA Advokatbyrås hemsida",
+  description: "Advokater specialiserade inom entreprenadrätt och offentlig upphandling",
 }
 
 export default function RootLayout({
@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="sv"
-      className={`${serif.variable} ${cursive.variable} ${sans.variable} h-full antialiased`}
+      className={`${serif.variable} ${cursive.variable} ${sans.variable} snap-y snap-proximity motion-reduce:snap-none h-full antialiased`}
     >
       <body className="overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
         <Nav />

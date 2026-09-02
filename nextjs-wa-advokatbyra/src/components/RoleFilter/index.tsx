@@ -7,7 +7,7 @@ export default async function RoleFilter() {
 
   const safeRoles = roles
     .filter(
-      (role): role is { title: string; slug: string } =>
+      (role): role is { title: string; slug: string, _id: string } =>
         Boolean(role.title) && Boolean(role.slug)
     )
 

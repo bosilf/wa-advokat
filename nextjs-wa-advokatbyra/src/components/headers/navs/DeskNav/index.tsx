@@ -1,8 +1,15 @@
-export default function DeskNav() {
+import NavItems, { type NavigationItems } from "../NavItems";
+
+type DeskNavProps = {
+  items: NavigationItems;
+};
+
+export default function DeskNav({ items }: DeskNavProps) {
   return (
-    <header className="z-10000 w-fit p-md font-body hidden md:flex absolute items-center bg-white">
-      <p>test test</p>
-      <p>test test</p>
+    <header className="absolute z-200 hidden h-fit w-full justify-center p-lg md:flex">
+      <nav aria-label="Huvudnavigation">
+        <NavItems items={items} />
+      </nav>
     </header>
-  )
+  );
 }

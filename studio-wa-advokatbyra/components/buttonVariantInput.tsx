@@ -1,44 +1,74 @@
+import type {
+  CSSProperties,
+  ReactNode,
+} from "react";
+
 import {
   Card,
   Flex,
   Stack,
   Text,
-} from "@sanity/ui"
+} from "@sanity/ui";
 
 import {
   set,
-  unset,
   type StringInputProps,
-} from "sanity"
+  useFormValue,
+} from "sanity";
 
 const variants = [
   {
-    title: "Primary",
+    title: "Primär",
     value: "primary",
   },
   {
-    title: "Secondary",
+    title: "Sekundär",
     value: "secondary",
   },
   {
-    title: "Text länk",
+    title: "Enkel textlänk",
     value: "simple",
   },
-] as const
+  {
+    title: "Enkel textlänk – ljus",
+    value: "simpleWhite",
+  },
+] as const;
+
+type ButtonVariant =
+  (typeof variants)[number]["value"];
+
+type ButtonValue = {
+  link?: {
+    label?: string;
+  };
+};
 
 export default function ButtonVariantInput(
-  props: StringInputProps
+  props: StringInputProps,
 ) {
   const {
     value,
     onChange,
     readOnly,
-  } = props
+    path,
+  } = props;
+
+  // The current field is `variant`.
+  // Removing the final path segment gives us the complete button object.
+  const buttonValue = useFormValue(
+    path.slice(0, -1),
+  ) as ButtonValue | undefined;
+
+  const previewLabel =
+    buttonValue?.link?.label?.trim() ||
+    "Läs mer";
 
   return (
     <Stack space={3}>
       {variants.map((variant) => {
-        const selected = value === variant.value
+        const selected =
+          value === variant.value;
 
         return (
           <Card
@@ -46,18 +76,23 @@ export default function ButtonVariantInput(
             padding={4}
             radius={3}
             shadow={selected ? 2 : 1}
-            tone={selected ? "primary" : "default"}
+            tone={
+              selected
+                ? "primary"
+                : "default"
+            }
+            role="radio"
+            aria-checked={selected}
+            aria-disabled={readOnly}
             style={{
-              cursor: readOnly ? "default" : "pointer",
+              cursor: readOnly
+                ? "default"
+                : "pointer",
             }}
             onClick={() => {
-              if (readOnly) return
+              if (readOnly || selected) return;
 
-              onChange(
-                variant.value
-                  ? set(variant.value)
-                  : unset()
-              )
+              onChange(set(variant.value));
             }}
           >
             <Flex
@@ -65,40 +100,43 @@ export default function ButtonVariantInput(
               justify="space-between"
               gap={4}
             >
-              <Text size={1} weight="semibold">
+              <Text
+                size={1}
+                weight="semibold"
+              >
                 {variant.title}
               </Text>
 
               <ButtonPreview
                 variant={variant.value}
               >
-                Läs mer
+                {previewLabel}
               </ButtonPreview>
             </Flex>
           </Card>
-        )
+        );
       })}
     </Stack>
-  )
+  );
 }
 
 function ButtonPreview({
   variant,
   children,
 }: {
-  variant: "primary" | "secondary" | "simple"
-  children: React.ReactNode
+  variant: ButtonVariant;
+  children: ReactNode;
 }) {
   const styles: Record<
-    typeof variant,
-    React.CSSProperties
+    ButtonVariant,
+    CSSProperties
   > = {
     primary: {
       background: "#1A1A1A",
-      color: "#fff",
+      color: "#FFFFFF",
       borderRadius: "999px",
       padding: "10px 18px",
-      border: "1px solid #222",
+      border: "1px solid #222222",
     },
 
     secondary: {
@@ -106,7 +144,7 @@ function ButtonPreview({
       color: "#1A1A1A",
       borderRadius: "999px",
       padding: "10px 18px",
-      border: "1px solid #222",
+      border: "1px solid #222222",
     },
 
     simple: {
@@ -114,13 +152,39 @@ function ButtonPreview({
       color: "#1A1A1A",
       padding: "4px 0",
       border: "none",
-      borderBottom: "2px solid #222",
+      borderBottom: "2px solid #222222",
     },
-  }
+
+    simpleWhite: {
+      background: "transparent",
+      color: "#FFFFFF",
+      padding: "4px 0",
+      border: "none",
+      borderBottom: "2px solid #FFFFFF",
+    },
+  };
+
+  const needsDarkBackground =
+    variant === "simpleWhite";
 
   return (
-    <span style={styles[variant]}>
-      {children}
+    <span
+      style={{
+        display: "inline-flex",
+        background: needsDarkBackground
+          ? "#1A1A1A"
+          : "transparent",
+        borderRadius: needsDarkBackground
+          ? "6px"
+          : undefined,
+        padding: needsDarkBackground
+          ? "10px 14px"
+          : undefined,
+      }}
+    >
+      <span style={styles[variant]}>
+        {children}
+      </span>
     </span>
-  )
+  );
 }

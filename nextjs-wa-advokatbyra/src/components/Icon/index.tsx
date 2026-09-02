@@ -1,10 +1,11 @@
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaCheck } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 
 
 const iconList = {
   arrow: FaArrowRight,
   arrowSimple: IoIosArrowDown,
+  check: FaCheck,
 } as const;
 
 export type IconsProps = {

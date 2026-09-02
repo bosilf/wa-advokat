@@ -4,11 +4,12 @@ import TeamCardSmall from "../TeamCardSmall";
 import Accordion from "../Accordion";
 
 export type AccordionItemData = {
-  title?: string | null
-  description?: string | null
-  btnHref?: string | null
-  icon?: boolean | null
-}
+  _key: string;
+  title?: string | null;
+  description?: string | null;
+  btnHref?: string | null;
+  icon?: boolean | null;
+};
 
 export type CardProps = {
   descriptionText?: string;
@@ -48,12 +49,7 @@ const CardContainer = ({
                 title={item.title ?? ""}
                 btnHref={item.btnHref ?? ""}
                 description={item.description ?? ""}
-                b={{
-                  title: "test",
-                  variant: "secondary",
-                  href: item.btnHref ?? "",
-                  hasIcon: true,
-                }}
+                icon={item.icon ?? true}
               />
             </li>
           ))}
