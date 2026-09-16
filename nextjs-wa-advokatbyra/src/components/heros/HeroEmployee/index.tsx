@@ -45,7 +45,7 @@ export default function HeroEmployee({
       <div className="h-screen overflow-hidden grid grid-cols-2 grid-rows-2">
         <div className="row-start-1 col-start-1 col-span-2 bg-accent flex flex-col justify-end pl-30 pb-xl">
           <p className="font-eyebrow text-white">{eyebrow}</p>
-          <h1 className="font-display text-white">{title}</h1>
+          <h1 className="font-display text-white max-w-[50%]">{title}</h1>
         </div>
         <section className="row-start-2 col-start-1 col-span-2 bg-canvas flex flex-col justify-center pl-30 gap-md">
           <p className="font-eyebrow text-muted">medarbetare</p>
