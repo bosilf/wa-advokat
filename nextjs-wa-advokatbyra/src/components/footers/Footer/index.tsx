@@ -1,9 +1,62 @@
+'use client'
+
 import Button from "@/components/buttons/Button"
 import Link from "next/link"
+import {useRef} from "react";
+import gsap from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {useGSAP} from "@gsap/react";
+
 
 const Footer = () => {
+    const footerRef = useRef<HTMLElement>(null);
+
+    useGSAP(
+      () => {
+        const footer = footerRef.current;
+    
+        if (
+          !footer ||
+          window.matchMedia(
+            "(prefers-reduced-motion: reduce)",
+          ).matches
+        ) {
+          return;
+        }
+    
+        gsap.fromTo(
+          footer,
+          {
+            paddingTop: () =>
+              window.innerWidth >= 1024 ? 280 : 85,
+        
+            paddingBottom: () =>
+              window.innerWidth >= 1024 ? 0 : 0,
+          },
+          {
+            paddingTop: () =>
+              window.innerWidth >= 1024 ? 70 : 64,
+        
+            paddingBottom: () =>
+              window.innerWidth >= 1024 ? 70 : 32,
+        
+            ease: "none",
+        
+            scrollTrigger: {
+              trigger: footer,
+              start: "top bottom",
+              end: "top 10%",
+              scrub: 0.9,
+              invalidateOnRefresh: true,
+            },
+          },
+        );
+      },
+      {scope: footerRef},
+    );
+
     return (
-        <footer className="z-2 overflow-hidden w-full h-screen bg-footer px-xl pt-16 pb-6 bg-blend-soft-light inline-flex flex-col justify-between items-end">
+        <footer ref={footerRef} className="z-2 overflow-hidden w-full h-screen bg-footer px-xl pt-16 pb-6 bg-blend-soft-light inline-flex flex-col justify-between items-end">
             <nav className="grid z-2 grid-cols-2 self-stretch justify-center items-start gap-4">
                 <section className=" inline-flex flex-col justify-start items-start gap-0.5 cursor-default">
                     <h2 className="text-white font-bodybold">Navigering</h2>
@@ -44,6 +97,7 @@ const Footer = () => {
                 </section>
                 <section className="col-span-2 text-white flex flex-col gap-2">
                     <h2 className="flex-1 justify-start text-fill text-base font-semibold font-['Poppins'] cursor-default">Rättsområden</h2>
+                    <ul>
                     <li className="w-40 inline-flex justify-start items-center gap-2.5">
                         <Link href="/" className="border-b-white/0 w-fit border-b hover:border-b-white duration-300 transform-all">Avtalsrätt</Link>
                     </li>
@@ -65,6 +119,7 @@ const Footer = () => {
                     <li className="self-stretch inline-flex justify-start items-center gap-2.5">
                         <Link href="/" className="border-b-white/0 w-fit border-b hover:border-b-white duration-300 transform-all">Övrig juridik</Link>
                     </li>
+                    </ul>
                 </section>
             </nav>
             <section className="size- z-2 flex flex-col justify-start items-end gap-3">

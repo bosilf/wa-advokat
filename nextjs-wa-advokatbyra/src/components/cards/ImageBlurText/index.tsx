@@ -1,20 +1,34 @@
-export type props = {
-  hide: boolean
+export type ImageBlurProps = {
+  src?: string,
+  eyebrow?: string,
+  title?: string,
 }
 
-const ImageBlurText = ({hide}: props) => {
+const ImageBlurText = ({
+  src,
+  eyebrow,
+  title,
+}: ImageBlurProps) => {
   return (
-    <div hidden={hide} className="self-stretch min-h-28 inline-flex flex-col justify-end items-start gap-2.5">
-      <div className="self-stretch h-72 min-h-72 p-6 bg-blend-multiply bg-linear-273 from-colors-accent-accent-3 from 16% to-gray-400/0 to 65% backdrop-blur-[6.85px] flex flex-col justify-end items-start gap-3">
-        <div data-color="Default" className="size- inline-flex justify-center items-center gap-2.5">
-          <div className="justify-center text-fill text-[10px] font-medium font-['Poppins'] uppercase tracking-wider">kursutbud i</div>
-        </div>
-        <div data-type="Section" className="size- max-w-[650px] inline-flex justify-start items-center gap-2.5">
-          <div className="flex-1 justify-center text-fill text-2xl font-semibold font-['Cormorant_Garamond'] leading-7">Offentlig upphandling</div>
-        </div>
+    <div
+      style={{
+        backgroundImage: src
+          ? `url("${src}")`
+          : undefined,
+      }}
+      className="min-h-72 w-full bg-cover bg-center"
+    >
+      <div className="flex min-h-72 flex-col items-start justify-end gap-sm bg-linear-to-t from-black/60 via-black/10 to-transparent p-lg text-white">
+        <p className="font-eyebrow text-white">
+          {eyebrow}
+        </p>
+
+        <h2 className="font-heading text-white">
+          {title}
+        </h2>
       </div>
     </div>
-  )
+  );
 }
 
 export default ImageBlurText

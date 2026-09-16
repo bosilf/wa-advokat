@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
-import Section from "@/components/Section";
+import Section from "@/components/sections/Section";
 
 const subjectOptions = [
   "Rådgivning",
@@ -67,7 +67,7 @@ function CheckboxGroup({
                 className="
                   size-md shrink-0 cursor-pointer
                   appearance-none rounded-sm border border-ink-1 bg-white
-                  checked:bg-ink-1
+                  checked:bg-ink
                   focus-visible:outline-2
                   focus-visible:outline-offset-2
                   focus-visible:outline-ink-1
@@ -83,7 +83,7 @@ function CheckboxGroup({
 
 const inputClasses = `
   h-15 w-full rounded-full bg-white px-lg
-  font-body text-ink-1 placeholder:text-ink-1/50
+  font-body text-ink placeholder:text-ink/50
   outline-none transition-shadow
   focus-visible:ring-2 focus-visible:ring-ink-1
 `;
@@ -128,7 +128,7 @@ export default function Message() {
             type="button"
             onClick={() => setStatus("idle")}
             className="
-              rounded-full bg-ink-1 px-lg py-md
+              rounded-full bg-ink px-lg py-md
               font-body text-white
               transition-opacity hover:opacity-80
             "
@@ -267,9 +267,9 @@ export default function Message() {
             rows={7}
             className="
               w-full resize-y rounded-md bg-white p-lg
-              font-body text-ink-1 placeholder:text-ink-1/50
+              font-body text-ink placeholder:text-ink/50
               outline-none
-              focus-visible:ring-2 focus-visible:ring-ink-1
+              focus-visible:ring-2 focus-visible:ring-ink
             "
           />
         </div>
@@ -281,11 +281,11 @@ export default function Message() {
             required
             className="
               mt-1 size-md shrink-0 cursor-pointer
-              appearance-none rounded-sm border border-ink-1 bg-white
-              checked:bg-ink-1
+              appearance-none rounded-sm border border-ink bg-white
+              checked:bg-ink
               focus-visible:outline-2
               focus-visible:outline-offset-2
-              focus-visible:outline-ink-1
+              focus-visible:outline-ink
             "
           />
 
@@ -302,7 +302,7 @@ export default function Message() {
             type="submit"
             disabled={status === "submitting"}
             className="
-              rounded-full bg-ink-1 px-lg py-md
+              rounded-full bg-ink px-lg py-md
               font-body text-white
               transition-opacity
               hover:opacity-80

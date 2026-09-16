@@ -40,17 +40,15 @@ export const service = defineType({
 
     defineField({
       name: "slug",
-      title: "Webbadress",
-      type: "slug",
+      title: "Länk till rättsområdet",
       group: "content",
       description:
-        'Klicka på "Generate" för att skapa tjänstens webbadress.',
-
+        'Klicka på "Generate" för att skapa länken till kursen.',
+      type: "slug",
       options: {
         source: "title",
         maxLength: 96,
       },
-
       validation: (rule) => rule.required(),
     }),
 

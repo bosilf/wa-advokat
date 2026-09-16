@@ -4,7 +4,8 @@ export const LINK_RESOLVER = /* groq */ `
       title,
       internalReference->courseName,
       internalReference->title,
-      internalReference->firstName + " " + internalReference->lastName
+      internalReference->firstName + " " +
+        internalReference->lastName
     ),
 
     "href": select(
@@ -25,19 +26,31 @@ export const LINK_RESOLVER = /* groq */ `
 
       internalReference->_type == "employee" &&
       defined(internalReference->slug.current) =>
-        "/medarbetare/" + internalReference->slug.current,
+        "/om-oss/" +
+        internalReference->slug.current,
 
       internalReference->_type == "service" &&
       defined(internalReference->slug.current) =>
-        "/tjanster/" + internalReference->slug.current,
+        "/rattsomraden/" +
+        internalReference->slug.current,
+
+      internalReference->_type == "courseCategory" &&
+      defined(internalReference->slug.current) =>
+        "/juridikkurser/" +
+        internalReference->slug.current,
 
       internalReference->_type == "course" &&
+      defined(internalReference->category->slug.current) &&
       defined(internalReference->slug.current) =>
-        "/juridikkurser/" + internalReference->slug.current,
+        "/juridikkurser/" +
+        internalReference->category->slug.current +
+        "/" +
+        internalReference->slug.current,
 
       internalReference->_type == "article" &&
       defined(internalReference->slug.current) =>
-        "/artiklar/" + internalReference->slug.current,
+        "/artiklar/" +
+        internalReference->slug.current,
 
       null
     ),
@@ -74,19 +87,31 @@ export const LINK_RESOLVER = /* groq */ `
 
       link->internalReference->_type == "employee" &&
       defined(link->internalReference->slug.current) =>
-        "/medarbetare/" + link->internalReference->slug.current,
+        "/om-oss/" +
+        link->internalReference->slug.current,
 
       link->internalReference->_type == "service" &&
       defined(link->internalReference->slug.current) =>
-        "/tjanster/" + link->internalReference->slug.current,
+        "/rattsomraden/" +
+        link->internalReference->slug.current,
+
+      link->internalReference->_type == "courseCategory" &&
+      defined(link->internalReference->slug.current) =>
+        "/juridikkurser/" +
+        link->internalReference->slug.current,
 
       link->internalReference->_type == "course" &&
+      defined(link->internalReference->category->slug.current) &&
       defined(link->internalReference->slug.current) =>
-        "/juridikkurser/" + link->internalReference->slug.current,
+        "/juridikkurser/" +
+        link->internalReference->category->slug.current +
+        "/" +
+        link->internalReference->slug.current,
 
       link->internalReference->_type == "article" &&
       defined(link->internalReference->slug.current) =>
-        "/artiklar/" + link->internalReference->slug.current,
+        "/artiklar/" +
+        link->internalReference->slug.current,
 
       null
     ),

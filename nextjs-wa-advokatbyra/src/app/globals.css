@@ -30,9 +30,8 @@
   --spacing-lg: clamp(32px, 1vw, 64px);
   --spacing-xl: clamp(64px, 1vw, 120px);
   --spacing-section-sides: clamp(24px, 1vw, 80px);
+  --spacing-section-tb: clamp(64px, 4vw, 130px);
   --spacing-5xl: clamp(100px, 1vw, 160px);
-
-
 
   --radius-*: initial;
   --radius-sharp: 0px;
@@ -81,11 +80,33 @@
 
 @layer utilities {
 
-  .py-section {
-    padding-top: clamp(64px, 4vw, 130px);
-    padding-bottom: clamp(64px, 4vw, 130px);
+  .selection-brand {
+    &::selection {
+      background-color: var(--color-accent);
+      color: white;
+      text-decoration-skip-ink: none;
+      font-style: italic;
+    }
+  }
+  .desk-nav-slider {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: fit-content;
+    column-gap: var(--spacing-md);
+    row-gap: var(--spacing-md);
+    background: var(--color-surface);
   }
 
+  .max-w-section {
+    max-width: 50rem;
+    margin: auto;
+    /* font-style: italic; */
+  }
+  .section-spacing {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
   .font-display {
     font-size: clamp(2rem, 4vw, 2.3rem);
     font-family: var(--font-serif);
@@ -94,16 +115,24 @@
     /* font-style: italic; */
   }
   .font-heading {
+    cursor: default;
     font-size: clamp(2rem, 4vw, 2.5rem);
     font-family: var(--font-serif);
     line-height: 1.2;
     font-weight: 600;
+  }
+  .font-heading-sm {
+    font-size: clamp(1.6rem, 4vw, 2rem);
+    font-family: var(--font-serif);
+    line-height: 1.2;
+    font-weight: 700;
   }
   .font-subheading {
     font-size: clamp(0.9rem, 4vw, 1.1rem);
     font-family: var(--font-body);
     line-height: 1.5;
     font-weight: 600;
+    margin: var(--spacing-sm) 0 var(--spacing-xs) 0;
   }
   .font-body {
     font-size: clamp(14px, 4vw, 1rem);
@@ -149,8 +178,6 @@
     width: 20px;
   }
 }
-
-
 
 body {
   background: var(--color-canvas);

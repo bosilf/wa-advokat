@@ -2,7 +2,6 @@ import { defineField, defineType } from "sanity";
 
 export const eyebrow = defineType({
   name: "eyebrow",
-  title: "Eyebrow",
   type: "object",
 
   fields: [

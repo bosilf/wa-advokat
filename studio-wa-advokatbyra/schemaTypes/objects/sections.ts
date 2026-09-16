@@ -8,28 +8,19 @@ export const sections = defineType({
   fields: [
     defineField({
       name: "eyebrow",
-      title: "Eyebrow",
-      type: "string",
+      type: "eyebrow",
     }),
 
     defineField({
       name: "title",
-      title: "Title",
-      type: "string",
+      title: ' ',
+      type: "titleObject",
     }),
-
     defineField({
-      name: "content",
-      title: "Lägg till innehåll",
-      type: "array",
-      of: [
-        { type: "textObject" },
-        { type: "button" },
-        { type: "cardContainer" },
-        { type: "image" },
-
-      ],
-    }),
+        type: "blockObject",
+        name: 'text',
+        title: " "
+    })
   ],
 
   preview: {

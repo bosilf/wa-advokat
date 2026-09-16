@@ -14,10 +14,21 @@ export const courseMainPage = defineType({
   ],
   fields: [
     defineField({
-      name: 'image',
-      title: 'Hero bild',
+      type: 'image', 
+      name: 'image', 
+      title: 'Beskrivning',
       group: 'hero',
-      type: 'image',
+        options: {
+          hotspot: true,
+        },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alternativtext",
+          type: "string",
+          validation: (rule) => rule.required(),
+        }),
+      ],
     }),
     defineField({
       name: 'title',
@@ -53,31 +64,26 @@ export const courseMainPage = defineType({
         defineField({
           name: "text",
           title: "Introduktion",
-          type: "array",
-          of: [
-            defineArrayMember({
-              type: "block",
-            }),
-          ],
+          type: "blockObject",
         }),
+      ]
 
-        defineField({
-          name: "courseOpportunities",
-          title: "Kurstillfällen",
-          type: "array",
-          of: [
-            defineArrayMember({
-              type: "block",
-            }),
-            defineArrayMember({
-              name: "cta",
-              title: "Knapp",
-              type: "button",
-            })
-          ],
-          validation: (rule) =>
-            rule.required().min(1).unique(),
-        }),
+    }),
+    defineField({
+      name: "courseOpportunities",
+      title: "Kurstillfällen",
+      group: 'content',
+      type: "object",
+      fields: [
+        {
+          name: "title",
+          title: "Rubrik",
+          type: "string",
+        },
+        {
+          type: "blockObject",
+          name: 'textContent',
+        }
       ],
     }),
     defineField({
@@ -97,14 +103,6 @@ export const courseMainPage = defineType({
             }),
             {type: 'blockObject', name: 'description', title: 'Beskrivning'},
             defineField({
-              name: 'courseExpert',
-              title: 'Kursledare',
-              type: 'reference',
-              to: [
-                {type: 'employee'}
-              ]
-            }),
-            defineField({
               name: 'courseList',
               title: 'Kursutbud',
               type: 'array',
@@ -121,13 +119,13 @@ export const courseMainPage = defineType({
                 "chosenCourseCategory.title",
           
               lecturerFirstName:
-                "courseExpert.firstName",
+                "chosenCourseCategory.courseLecturerSection.lecturer.firstName",
           
               lecturerLastName:
-                "courseExpert.lastName",
+                "chosenCourseCategory.courseLecturerSection.lecturer.lastName",
           
               lecturerImage:
-                "courseExpert.image",
+                "chosenCourseCategory.image",
             },
           
             prepare({

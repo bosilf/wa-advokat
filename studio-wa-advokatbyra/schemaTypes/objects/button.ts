@@ -52,100 +52,136 @@ export const button = defineType({
   fields: [
 
     defineField({
-      name: "link",
-      title: "Länk",
-      type: "navigationItem",
-      validation: (rule) => rule.required(),
+      name: 'hasButton',
+      type: 'boolean',
+      initialValue: false,
+      title: 'länkknapp',
+      
     }),
 
     defineField({
-      name: "variant",
-      title: "Utseende",
-      type: "string",
-      description:
-        "Välj knappens visuella variant.",
+      name: 'btnProps',
+      type: 'object',
+      hidden: ({parent}) => !parent?.hasButton,
 
-      options: {
-        list: [
-          {
-            title: "Primär",
-            value: "primary",
-          },
-          {
-            title: "Sekundär",
-            value: "secondary",
-          },
-          {
-            title: "Enkel textlänk",
-            value: "simple",
-          },
-          {
-            title: "Enkel textlänk – ljus",
-            value: "simpleWhite",
-          },
-        ],
-      },
-
-      components: {
-        input: ButtonVariantInput,
-      },
-
-      initialValue: "primary",
-      validation: (rule) => rule.required(),
-    }),
-
-    defineField({
-      name: "hasIcon",
-      title: "Visa ikon",
-      type: "boolean",
-      initialValue: true,
-    }),
-
-    defineField({
-      name: "icon",
-      title: "Ikon",
-      type: "string",
-      hidden: ({ parent }) => !parent?.hasIcon,
-
-      options: {
-        list: [
-          {
-            title: "Pil",
-            value: "arrow",
-          },
-          {
-            title: "Enkel pil",
-            value: "arrowSimple",
-          },
-        ],
-        layout: "radio",
-      },
-
-      initialValue: "arrow",
-      validation: (rule) =>
-        rule.custom((value, context) => {
-          const parent = context.parent as {
-            hasIcon?: boolean;
-          };
-
-          if (parent?.hasIcon && !value) {
-            return "Välj vilken ikon som ska visas.";
-          }
-
-          return true;
+      fields: [
+        defineField({
+          name: "link",
+          title: "Länk",
+          type: "navigationItem",
+          validation: (rule) => 
+            rule.custom((value, context) => {
+              const parent = context.parent as {
+                hasButton?: boolean
+              }
+    
+              if (!parent?.hasButton) {
+                return true
+              }
+    
+              if (
+                typeof value !== "string" ||
+                !value.trim()
+              ) {
+                return "Välj eller skapa en ny länk.";
+              }
+              return true
+            }),
         }),
+
+        defineField({
+          name: "variant",
+          title: "Utseende",
+          type: "string",
+          description:
+            "Välj knappens visuella variant.",
+    
+          options: {
+            list: [
+              {
+                title: "Primär",
+                value: "primary",
+              },
+              {
+                title: "Sekundär",
+                value: "secondary",
+              },
+              {
+                title: "Enkel textlänk",
+                value: "simple",
+              },
+              {
+                title: "Enkel textlänk – ljus",
+                value: "simpleWhite",
+              },
+            ],
+          },
+    
+          components: {
+            input: ButtonVariantInput,
+          },
+    
+          initialValue: "primary",
+          validation: (rule) => rule.required(),
+        }),
+    
+        defineField({
+          name: "hasIcon",
+          title: "Visa ikon",
+          type: "boolean",
+          initialValue: true,
+        }),
+    
+        defineField({
+          name: "icon",
+          title: "Ikon",
+          type: "string",
+          hidden: ({ parent }) => !parent?.hasIcon,
+    
+          options: {
+            list: [
+              {
+                title: "Pil",
+                value: "arrow",
+              },
+              {
+                title: "Enkel pil",
+                value: "arrowSimple",
+              },
+            ],
+            layout: "radio",
+          },
+    
+          initialValue: "arrow",
+          validation: (rule) =>
+            rule.custom((value, context) => {
+              const parent = context.parent as {
+                hasIcon?: boolean;
+              };
+    
+              if (parent?.hasIcon && !value) {
+                return "Välj vilken ikon som ska visas.";
+              }
+    
+              return true;
+            }),
+        }),
+    
+        defineField({
+          name: "ariaLabel",
+          title: "Förtydligad etikett för skärmläsare",
+          type: "string",
+          description:
+            'Valfritt. Används om knapptexten inte är tillräckligt tydlig, exempelvis om texten bara är "Läs mer".',
+    
+          validation: (rule) => rule.max(120),
+        }),
+      ]
     }),
 
-    defineField({
-      name: "ariaLabel",
-      title: "Förtydligad etikett för skärmläsare",
-      type: "string",
-      description:
-        'Valfritt. Används om knapptexten inte är tillräckligt tydlig, exempelvis om texten bara är "Läs mer".',
 
-      validation: (rule) => rule.max(120),
-    }),
   ],
+  
 
   preview: {
     select: {

@@ -6,7 +6,7 @@ import { OM_OSS_PAGE_QUERY } from "@/sanity/queries";
 
 import type { OM_OSS_PAGE_QUERY_RESULT } from "@/sanity/sanity.types";
 
-import Section from "@/components/Section";
+import Section from "@/components/sections/Section";
 import EmployeeCard from "@/components/cards/EmployeeCard";
 import Button from "@/components/buttons/Button";
 import HeroRegular from "@/components/heros/HeroRegular";
@@ -17,12 +17,99 @@ import { CustomPortableText } from "@/components/common/CustomPortableText";
 import PageBuilder from "@/components/page-builder/PageBuilder";
 import ServiceGridBlock from "@/components/page-builder/blocks/ServiceGridBlock";
 import CardContainer from "@/components/cards/CardContainer";
+import { cache } from "react";
+import type { Metadata } from "next";
+
+import { urlFor } from "@/sanity/image";
+import HeadingIntroGridSection from "@/components/sections/HeadingIntroGridSection";
+import Image from "next/image";
+import ImageSection from "@/components/sections/ImageSection";
+
 
 const options = {
   next: {
     revalidate: 0,
   },
 };
+
+const getAboutPage = cache(() =>
+  client.fetch<OM_OSS_PAGE_QUERY_RESULT>(
+    OM_OSS_PAGE_QUERY,
+    {},
+    options,
+  ),
+);
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getAboutPage();
+  const seo = page?.seo;
+
+  const title =
+    seo?.metaTitle?.trim() ||
+    page?.hero?.title ||
+    "Om oss | WA Advokatbyrå";
+
+  const description =
+    seo?.metaDescription?.trim() ||
+    "Lär känna WA Advokatbyrå och våra jurister inom entreprenadrätt och offentlig upphandling.";
+
+  const socialImageUrl = seo?.socialImage?.asset
+    ? urlFor(seo.socialImage)
+        .width(1200)
+        .height(630)
+        .fit("crop")
+        .url()
+    : undefined;
+
+  return {
+    title: {
+      absolute: title,
+    },
+
+    description,
+
+    alternates: seo?.canonicalUrl
+      ? {
+          canonical: seo.canonicalUrl,
+        }
+      : undefined,
+
+    robots: {
+      index: !seo?.noIndex,
+      follow: true,
+    },
+
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      siteName: "WA Advokatbyrå",
+      images: socialImageUrl
+        ? [
+            {
+              url: socialImageUrl,
+              width: 1200,
+              height: 630,
+              alt:
+                seo?.socialImage?.alt ||
+                title,
+            },
+          ]
+        : undefined,
+    },
+
+    twitter: {
+      card: socialImageUrl
+        ? "summary_large_image"
+        : "summary",
+      title,
+      description,
+      images: socialImageUrl
+        ? [socialImageUrl]
+        : undefined,
+    },
+  };
+}
 
 type CtaData = {
   hasIcon?: boolean | null;
@@ -59,12 +146,7 @@ function SectionCta({
 }
 
 export default async function OmOss() {
-  const page =
-    await client.fetch<OM_OSS_PAGE_QUERY_RESULT>(
-      OM_OSS_PAGE_QUERY,
-      {},
-      options,
-    );
+  const page = await getAboutPage();
 
   if (!page) {
     notFound();
@@ -95,11 +177,10 @@ export default async function OmOss() {
       )}
 
       <main className="relative z-10">
-        {/* Benefits */}
 
         {benefits?.items &&
           benefits.items.length > 0 && (
-            <section className="w-full bg-canvas snap-start snap-normal">
+            <section className="w-full bg-canvas">
               <div className="m-auto flex flex-col p-xl">
                 <ul className="grid gap-lg md:grid-cols-3">
                   {benefits.items.map((item) => (
@@ -110,13 +191,6 @@ export default async function OmOss() {
                       
                       <h2 className="font-subheading text-ink flex w-fit">
                         {item.title}
-                        {/* <Icon
-                          size=""
-                          name={
-                            item.icon ?? "check"
-                          }
-                          className="shrink-0 w-fill"
-                        /> */}
                       </h2>
 
                       {item.text && (
@@ -152,7 +226,7 @@ export default async function OmOss() {
               )}
 
               {teamMembers.length > 0 ? (
-                <ul className="grid grid-cols-2 gap-md md:grid-cols-3">
+                <ul className="grid grid-cols-1 gap-md md:grid-cols-3">
                   {teamMembers.map(
                     (employee) => (
                       <li key={employee._id}>
@@ -168,16 +242,15 @@ export default async function OmOss() {
                   Inga medarbetare har valts.
                 </p>
               )}
-
               <SectionCta cta={team.cta} />
           </Section>
         )}
 
         {practiceAreas && (
           <section
-            className="bg-canvas py-section px-section-sides"
+            className="bg-canvas"
           >
-            <div className="max-w-200 mx-auto">
+            <div className="max-w-200 m-auto py-section-tb px-section-sides">
 
               <ServiceGridBlock
                 block={{
@@ -224,77 +297,38 @@ export default async function OmOss() {
         )}
 
         {/* Courses */}
-
+        {page.hero && (
+          <ImageSection image={page.hero?.image}>test test</ImageSection>
+        )}
         {courses && (
-          <Section
+          <HeadingIntroGridSection
             heading={courses.title ?? ""}
             eyebrow={
               courses.eyebrow?.text ??
               undefined
+            }
+            description={
+              courses.text?.length ? (
+                <CustomPortableText value={courses.text} />
+              ) : undefined
             }
             eyebrowHref={
               courses.eyebrow?.resolvedLink
                 ?.href ?? undefined
             }
             color="bg-canvas"
+            button={courses.cta}
           >
           <CardContainer
+            hasAccordion
             accordions={
               courses?.courseAccordions ?? []
             }
-            hideDescription
-            hideImage
-            hideCardSmall
+            noAccordionPadding={true}
+            bg="lg:bg-white/0 bg-white"
           />
-              {courses.subheading && (
-                <h3 className="font-subheading text-ink">
-                  {courses.subheading}
-                </h3>
-              )}
 
-              {courses.text && (
-                <CustomPortableText
-                  value={courses.text}
-                />
-              )}
-
-              {courses.courseAccordions &&
-                courses.courseAccordions.length > 0 && (
-                  <ul className="grid gap-md md:grid-cols-2">
-                    {courses.courseAccordions.map(
-                      (course) => {
-                        if (!course.btnHref) {
-                          return null;
-                        }
-
-                        return (
-                          <li key={course._key}>
-                            <Link
-                              href={`${course.btnHref}`}
-                              className="flex h-full flex-col gap-sm rounded-md border border-ink/20 p-lg transition-colors hover:bg-surface"
-                            >
-                              <h3 className="font-subheading text-ink">
-                                {course.title ??
-                                  "Namnlös kurs"}
-                              </h3>
-
-                              {course.description && (
-                                <p className="font-body text-muted">
-                                  {
-                                    course.description
-                                  }
-                                </p>
-                              )}
-                            </Link>
-                          </li>
-                        );
-                      },
-                    )}
-                  </ul>
-                )}
-
-              <SectionCta cta={courses.cta} />
-          </Section>
+          </HeadingIntroGridSection>
         )}
 
 

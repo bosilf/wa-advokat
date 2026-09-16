@@ -1,8 +1,8 @@
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export const accordionItem = defineType({
   name: "accordionItem",
-  title: "Accordion-rad",
+  title: "Accordion",
   type: "object",
 
   fields: [
@@ -13,19 +13,24 @@ export const accordionItem = defineType({
       validation: (rule) => rule.required(),
     }),
 
-    defineField({
-      name: "description",
-      title: "Innehåll",
-      type: "array",
-      of: [
-        defineArrayMember({
-          type: 'block'
+  
+        defineField({
+          name: "description",
+          title: "Innehåll",
+          type: "richText",
         }),
-        defineArrayMember({
-          type: 'button'
-        })
-      ]
-    }),
+        defineField({
+          type: 'reference',
+          name: 'list',
+          to: [{ type: 'course'}]
+        }),
+        defineField({
+          name: 'btnHref',
+          type: 'button',
+          title: 'Länk i Dragspelet?'
+        }),
+        
+
   ],
 
   preview: {

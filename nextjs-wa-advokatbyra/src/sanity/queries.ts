@@ -202,7 +202,18 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
       }
     },
 
-    seo
+    seo {
+      metaTitle,
+      metaDescription,
+      canonicalUrl,
+      noIndex,
+      socialImage {
+        asset,
+        crop,
+        hotspot,
+        alt
+      }
+    }
   }
 `);
 
@@ -235,23 +246,32 @@ export const HOMEPAGE_QUERY = defineQuery(`
 
     tjansterSection {
       tjansterTitle,
-
+        
       tjansterEyebrow {
         text,
         "resolvedLink": wa::resolveLinkRef(link)
       },
-
+    
       tjansterText,
-
-      accordions[] {
-        _key,
+    
+      "tjansterAccordions": services[]-> {
+        "_key": _id,
         title,
-        description,
-        btnHref,
-        icon
+        "description": excerpt,
+      
+        "btnHref": select(
+          defined(slug.current) =>
+            "/rattsomraden/" + slug.current,
+          null
+        ),
+      
+        "icon": true
       },
-
-      cta {
+    
+      tjansterCta {
+        _type == "button" => {
+            "resolvedLink": wa::resolveNavItem(link)
+          },
         variant,
         hasIcon,
         icon,
@@ -261,40 +281,37 @@ export const HOMEPAGE_QUERY = defineQuery(`
     },
 
     employeeSection {
-      employeeTitle,
+  employeeTitle,
 
-      employeeEyebrow {
-        text,
-        "resolvedLink": wa::resolveLinkRef(link)
-      },
+  employeeEyebrow {
+    text,
+    "resolvedLink": wa::resolveLinkRef(link)
+  },
 
-      employeeText,
+  employeeText,
 
-      "employees": *[
-        _type == "employee" &&
-        defined(slug.current)
-      ] | order(lastName asc) {
-        _id,
-        firstName,
-        lastName,
-        "slug": slug.current,
-        excerpt,
-        professionalTitle,
+  "employees": teamMembers[]-> {
+    _id,
+    firstName,
+    lastName,
+    "slug": slug.current,
+    excerpt,
+    professionalTitle,
 
-        image {
-          asset,
-          crop,
-          hotspot,
-          alt
-        },
-
-        "roles": roles[]->{
-          _id,
-          title,
-          "slug": slug.current
-        }
-      }
+    image {
+      asset,
+      crop,
+      hotspot,
+      alt
     },
+
+    "roles": roles[]-> {
+      _id,
+      title,
+      "slug": slug.current
+    }
+  }
+},
 
     contactSection {
       contactTitle,
@@ -307,17 +324,34 @@ export const HOMEPAGE_QUERY = defineQuery(`
       contactText,
 
       contactCta {
-        variant,
-        hasIcon,
-        icon,
-        ariaLabel,
-        "resolvedLink": wa::resolveNavItem(link)
+        hasButton,
+        "variant": btnProps.variant,
+        "hasIcon": btnProps.hasIcon,
+        "icon": btnProps.icon,
+        "ariaLabel": btnProps.ariaLabel,
+        
+        "resolvedLink": select(
+          hasButton == false => null,
+          wa::resolveNavItem(btnProps.link)
+        )
       }
     },
 
-    seo
+    seo {
+      metaTitle,
+      metaDescription,
+      canonicalUrl,
+      noIndex,
+      socialImage {
+        asset,
+        crop,
+        hotspot,
+        alt
+      }
+    }
   }
 `);
+
 
 export const NAVIGATION_QUERY = defineQuery(`
   ${LINK_RESOLVER}
@@ -329,12 +363,18 @@ export const NAVIGATION_QUERY = defineQuery(`
       dropdownSource,
 
       "resolvedLink": wa::resolveNavItem(@),
+
       "courses": select(
   dropdownSource == "courses" =>
-    *[_type == "courseCategory"]
+    *[
+      _type == "courseCategory" &&
+      defined(slug.current)
+    ]
     | order(title asc) {
       "_key": _id,
       title,
+      "slug": slug.current,
+      "href": "/juridikkurser/" + slug.current,
 
       "courses": *[
         _type == "course" &&
@@ -345,7 +385,11 @@ export const NAVIGATION_QUERY = defineQuery(`
         _id,
         "_key": _id,
         "title": courseName,
-        "href": "/juridikkurser/" + slug.current
+        "href":
+          "/juridikkurser/" +
+          category->slug.current +
+          "/" +
+          slug.current
       }
     },
 
@@ -357,26 +401,57 @@ export const NAVIGATION_QUERY = defineQuery(`
           *[
             _type == "employee" &&
             defined(slug.current)
-          ] | order(lastName asc) {
+          ]
+          |  {
             _id,
+            firstName,
+            lastName,
+
             "title": firstName + " " + lastName,
-            "href": "/medarbetare/" + slug.current
+            "href":
+              "/om-oss/" +
+              slug.current,
+
+            image {
+              ...,
+              asset-> {
+                _id,
+                _type,
+                url,
+                metadata {
+                  dimensions,
+                  lqip
+                }
+              }
+            },
+
+            "jobTitles": roles[]->title
           },
 
         dropdownSource == "services" =>
           *[
             _type == "service" &&
             defined(slug.current)
-          ] | order(title asc) {
+          ]
+          | order(title asc) {
             _id,
             title,
-            "href": "/tjanster/" + slug.current
+
+            "href":
+              "/rattsomraden/" +
+              slug.current
           },
 
         dropdownSource == "manual" =>
           dropdownItems[] {
+            "_id": _key,
             _key,
-            "resolvedLink": wa::resolveNavItem(@)
+
+            "title":
+              wa::resolveNavItem(@).label,
+
+            "href":
+              wa::resolveNavItem(@).href
           },
 
         []
@@ -535,6 +610,392 @@ export const DATA_QUERY = defineQuery(`
     educationList[]{
       school,
       year
+    }
+  }
+`);
+
+export const COURSE_MAIN_PAGE_QUERY = defineQuery(`
+  *[_type == "courseMainPage"][0] {
+    title,
+    eyebrow,
+
+    image {
+      asset,
+      crop,
+      hotspot,
+      alt
+    },
+
+    introSection {
+      eyebrow {
+        ...
+      },
+      title,
+      text {
+        ...,
+        block[] {
+          ...
+        }
+      }
+    },
+
+    courseOpportunities {
+      title,
+      textContent {
+        ...,
+        block[] {
+          ...
+        }
+      }
+    },
+
+    "cardContainers": courseCategories[] {
+      _key,
+
+      description {
+        ...,
+        block[] {
+          ...
+        }
+      },
+
+      chosenCourseCategory-> {
+        _id,
+        title,
+        slug,
+
+        image {
+          asset,
+          crop,
+          hotspot,
+          alt
+        },
+
+        courseLecturerSection {
+          "lecturer": lecturer-> {
+            _id,
+            firstName,
+            lastName,
+            professionalTitle,
+            slug,
+
+            image {
+              asset,
+              crop,
+              hotspot,
+              alt
+            },
+
+            roles[]-> {
+              _id,
+              title
+            }
+          }
+        }
+      },
+
+      "links": courseList[]-> {
+        _id,
+        "title": courseName,
+
+        "href": select(
+          defined(category->slug.current) &&
+          defined(slug.current) =>
+
+          "/juridikkurser/" +
+          category->slug.current +
+          "/" +
+          slug.current,
+
+          null
+        )
+      }
+    },
+
+    courseInfo {
+      infoEyebrow {
+        ...
+      },
+      info {
+        ...
+      },
+      infoBody {
+        ...,
+        block[] {
+          ...
+        }
+      }
+    },
+
+    courseCategoryBlock {
+      infoEyebrow {
+        ...
+      },
+      info {
+        ...
+      },
+      infoBody {
+        ...,
+        block[] {
+          ...
+        }
+      }
+    },
+
+    slug,
+
+    seo {
+      ...
+    }
+  }
+`);
+
+export const COURSE_CATEGORY_PAGE_QUERY =
+  defineQuery(`
+    ${LINK_RESOLVER}
+
+    *[
+      _type == "courseCategory" &&
+      slug.current == $categorySlug
+    ][0] {
+      _id,
+      _type,
+      title,
+      excerpt,
+
+      "slug": slug.current,
+
+      image {
+        asset,
+        crop,
+        hotspot
+      },
+
+      introTitle,
+
+      introText {
+        ...,
+        block[] {
+          ...
+        }
+      },
+
+      companyCourseSection {
+        title {
+          ...
+        },
+
+        text {
+          ...,
+          block[] {
+            ...
+          }
+        }
+      },
+
+      courseLecturerSection {
+        image {
+          asset,
+          crop,
+          hotspot,
+          alt
+        },
+
+        lecturer-> {
+          _id,
+          _type,
+          firstName,
+          lastName,
+          email,
+          phone,
+          excerpt,
+
+          "slug": slug.current,
+
+          "jobTitles":
+            roles[]->title,
+
+          image {
+            asset,
+            crop,
+            hotspot,
+            alt
+          }
+        },
+
+        text {
+          ...,
+          block[] {
+            ...
+          }
+        },
+
+        cta {
+          ...,
+
+          "resolvedLink":
+            wa::resolveNavItem(link),
+
+          link {
+            ...,
+
+            internalReference-> {
+              _id,
+              _type,
+              title,
+              courseName,
+              firstName,
+              lastName,
+
+              "slug":
+                slug.current,
+
+              "categorySlug":
+                category->slug.current
+            }
+          }
+        }
+      },
+
+      courseListSection {
+        title {
+          ...
+        },
+
+        text {
+          ...,
+          block[] {
+            ...
+          }
+        },
+
+        "accordions":
+          courseList[]-> {
+            "_key": _id,
+            "title": courseName,
+            "description":
+              seo.metaDescription,
+
+            "btnHref":
+              "/juridikkurser/" +
+              category->slug.current +
+              "/" +
+              slug.current,
+
+            "icon": true
+          }
+      },
+
+      courseInfoSection {
+        title {
+          ...
+        },
+
+        text {
+          ...,
+          block[] {
+            ...
+          }
+        },
+
+        "accordions":
+          courseInfo[] {
+            _key,
+            title,
+            description
+          }
+      },
+
+      contactSection {
+        ...
+      },
+
+      courseInfoLongSection {
+        title {
+          ...
+        },
+
+        text {
+          ...,
+          block[] {
+            ...
+          }
+        }
+      },
+
+      courseQuotesSection[] {
+        _key,
+        _type,
+        quote,
+        person,
+
+        courseTaken-> {
+          _id,
+          _type,
+          courseName,
+
+          "slug":
+            slug.current,
+
+          category-> {
+            _id,
+            title,
+
+            "slug":
+              slug.current
+          }
+        }
+      },
+
+      seo {
+        ...
+      }
+    }
+  `);
+
+export const COURSE_PAGE_QUERY = defineQuery(`
+  ${LINK_RESOLVER} 
+  *[_type == "course" &&
+    slug.current == $courseSlug][0] {
+    _id,
+    courseSlug,
+    courseName,
+    intro,
+    aimCourse,
+    aboutCourse,
+    courseSections,
+    length,
+    conditionsCourse,
+    lecturer-> {
+      _id,
+      firstName,
+      lastName,
+      image {
+        hotspot,
+        asset,
+        crop,
+        alt
+      },
+      "slug": slug.current,
+      professionalTitle[],
+      email,
+      phone
+    },
+    category-> {
+      "slug": slug.current,
+      title,
+      courseListSection {
+        ...,
+        courseList[]-> {
+          ...,
+          courseName,
+          "slug": slug.current,
+        }
+      }
+    },
+    seo {
+      metaTitle,
+      metaDescription
     }
   }
 `);
@@ -700,20 +1161,37 @@ export const ROLES_QUERY = defineQuery(`
 `);
 
 export const EMPLOYEE_PAGE_QUERY = defineQuery(`
-  *[_type == "employee" && slug.current == $slug][0]{
+  *[_type == "employee" && slug.current == $employeeSlug][0]{
     firstName,
     lastName,
     "slug": slug.current,
-    number,
+    phone,
     email,
     bio,
+    employeeDescription,
     image {
       asset,
       crop,
       hotspot,
       alt
     },
-    "roles": roles[]->{ _id, title, "slug": slug.current },
+    expertise[] {
+      service-> { _id, title, "slug": slug.current }
+    },
+    hasCourses,
+    courses[]-> {
+      _id,
+      courseName,
+      "slug": slug.current,
+      category-> { _id, title, "slug": slug.current }
+    },
+    jobHistory[] {
+      jobTitle,
+      employer,
+      yearStart,
+      yearEnd
+    },
+    roles[]->{ _id, title, "slug": slug.current },
     educationList[]{
       school,
       education,

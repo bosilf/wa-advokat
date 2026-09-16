@@ -35,7 +35,7 @@ export default function MobileNav({ items }: MobileNavProps) {
     <nav
       aria-label="Mobilnavigation"
       className={`
-        fixed right-0 top-0 z-[900]
+        fixed right-0 top-0 z-900
         flex h-dvh flex-col items-center
         overflow-y-auto bg-canvas text-ink
         transition-[width] duration-500

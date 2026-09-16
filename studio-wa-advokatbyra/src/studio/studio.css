@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: "WA Heading";
+  src: url("./fonts/CormorantGaramond-VariableFont_wght.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+  src: url("./fonts/Poppins-Bold.ttf") format("ttf");
+  font-family: "WA Subheading";
+  font-style: normal;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+@font-face {
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
+  src: url("./fonts/Poppins-Bold.ttf") format("ttf");
+  font-family: "WA Body";
+  font-style: normal;
+  line-height: 2;
+  font-weight: 400;
+}
+
+:root {
+  --wa-heading-font: "WA Heading", Georgia, serif;
+  --wa-subheading-font: "WA Subheading", Arial, sans-serif;
+  --wa-body-font: "Poppins", Arial, sans-serif;
+}

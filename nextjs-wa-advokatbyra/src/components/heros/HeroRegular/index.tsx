@@ -55,6 +55,7 @@ export default function HeroRegular({
         src={urlFor(image).url()}
         alt={image.alt ?? ""}
         fill
+        loading="eager"
         preload
         quality={90}
         sizes="(max-width: 767px) 250vw, 100vw"
@@ -75,7 +76,7 @@ export default function HeroRegular({
           bg-footer md:bg-accent shrink-0 py-lg pr-lg
           shadow-[inset_0px_20px_15px_-11px_rgba(0,0,0,0.10)]
           transition-[border-radius] duration-500 ease-out
-          ${hasScrolled ? "rounded-b-lg" : "rounded-b-none"}
+          ${hasScrolled ? "rounded-b-xl" : "rounded-b-none"}
         `}
       >
         <h1 className="flex flex-col gap-sm p-lg md:pl-0 text-white">

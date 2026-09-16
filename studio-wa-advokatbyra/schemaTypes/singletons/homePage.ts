@@ -1,4 +1,4 @@
-import { defineType, defineField } from 'sanity'
+import { defineType, defineField, defineArrayMember } from 'sanity'
 
 
 export const homePage = defineType({
@@ -86,20 +86,25 @@ export const homePage = defineType({
           of: [{type: 'block'}],
         },
         {
-          name: 'accordions',
-          type: 'array',
-          title: 'Dragspel',
-          of: [
-            {
-              type: 'accordionItem',
-            }
-          ],
-        },
-        {
-          name: 'cta',
+          name: 'tjansterCta',
           title: 'Tjänster CTA knapp',
           type: 'button'
-        }
+        },
+        defineField({
+          name: "services",
+          title: "Utvalda Rättsområden",
+          type: "array",
+          of: [
+            {
+              type: "reference",
+              to: [{ type: "service" }],
+              options: {
+                disableNew: true,
+              },
+            },
+          ],
+          validation: (rule) => rule.unique(),
+        }),
       ],
     }),
     defineField({ 
@@ -124,6 +129,24 @@ export const homePage = defineType({
           title: 'Medarbetare text',
           type: 'text'
         },
+        defineField({
+          name: "teamMembers",
+          title: "Medarbetare",
+          type: "array",
+          description:
+            "Välj vilka medarbetare som ska visas och dra dem till önskad ordning.",
+          of: [
+            defineArrayMember({
+              type: "reference",
+              to: [{ type: "employee" }],
+              options: {
+                disableNew: true,
+              },
+            }),
+          ],
+          validation: (rule) =>
+            rule.required().min(1).unique(),
+        }),
       ],
     }),
     defineField({ 

@@ -1,4 +1,4 @@
-import Section from "@/components/Section";
+import Section from "@/components/sections/Section";
 import RichTextBlock from "../blocks/RichTextBlock";
 import ImageBlock from "../blocks/ImageBlock";
 import ButtonGroupBlock from "../blocks/ButtonGroupBlock";

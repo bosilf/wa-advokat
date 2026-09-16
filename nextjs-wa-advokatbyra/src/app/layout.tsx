@@ -47,7 +47,7 @@ export default function RootLayout({
       lang="sv"
       className={`${serif.variable} ${cursive.variable} ${sans.variable} snap-y snap-proximity motion-reduce:snap-none h-full antialiased`}
     >
-      <body className="overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
+      <body className="selection-brand overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
         <Nav />
         {children}
         <Footer />

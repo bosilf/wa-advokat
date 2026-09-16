@@ -34,15 +34,16 @@ export default function Button({
   download = false,
   target = "_self",
 }: ButtonProps) {
+
   const variantClasses: Record<ButtonVariant, string> = {
     primary:
-      "py-sm px-md bg-ink text-white rounded-full font-subheading hover:bg-accent",
+      "py-sm px-md bg-ink text-white rounded-full font-subheading hover:bg-accent active:bg-accent",
 
     secondary:
-      "py-sm px-md text-ink rounded-full outline outline-1 outline-ink outline-offset-[-1px] font-subheading hover:bg-ink hover:text-white",
+      "py-sm px-md text-ink rounded-full outline outline-1 outline-ink outline-offset-[-1px] font-subheading active:bg-ink active:text-white hover:bg-ink hover:text-white",
 
     simple:
-      "text-ink font-bodybold underline",
+      "text-ink hover:text-accent first-letter:uppercase font-body underline underline-offset-3",
 
     simpleWhite:
       "text-white font-bodybold border-b-2 border-current",
@@ -65,16 +66,18 @@ export default function Button({
         gap-sm
         transition-all
         duration-300
+        active:gap-md
         hover:gap-md
+        
       `}
     >
-      <span>{children}</span>
+      <span className="lowercase ">{children}</span>
 
       {showIcon && (
         <Icon
           name={icon}
           size={15}
-          className="transition-transform duration-300 group-hover:translate-x-1"
+          className="transition-transform duration-300 group-active:translate-x-1 group-hover:translate-x-1"
         />
       )}
     </Link>

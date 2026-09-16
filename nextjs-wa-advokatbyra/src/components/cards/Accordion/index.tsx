@@ -1,101 +1,56 @@
-// "use client"
-
-// import { useState } from "react";
-// import Icon from "@/components/Icon";
-// import Button from "@/components/buttons/Button";
-// import { ButtonData } from "@/sanity/types";
-
-// export type AccordionData = {
-//   title: string,
-//   description: string,
-//   b: ButtonData,
-//   icon?: boolean,
-//   btnHref: string,
-// };
-
-// export default function Accordion({ title, btnHref, description, icon = true, }: AccordionData) {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     <div className="self-stretc w-full inline-flex flex-col justify-start items-start">
-//       <div 
-//         onClick={() => setIsOpen(!isOpen)} 
-//         className="text-left w-full flex items-center gap-6 cursor-pointer select-none py-2"
-//       >
-//         <h3 className="text-left flex-1 justify-start font-subheading text-ink">{title}</h3>
-//         <figure className={`align-self-center transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
-//           <Icon name="arrowSimple" />
-//         </figure>
-//       </div>
-//       <div 
-//         className={`w-full grid transition-all duration-600 ${
-//           isOpen ? 'opacity-100 mt-4' : 'h-0 opacity-0 mt-0'
-//         }`}
-//       >
-//         <div className="overflow-hidden">
-//           <div className="w-full flex flex-col gap-md pb-2">
-//             <p className="font-body">{description}</p>
-//             { btnHref && 
-//               <Button 
-//                 href=""
-//                 showIcon
-//                 variant="primary"
-//               >
-//                 {title}
-//               </Button>
-//             }
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 "use client";
 
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 
 import Icon from "@/components/Icon";
 import Button from "@/components/buttons/Button";
+import { CustomPortableText } from "@/components/common/CustomPortableText";
 
 export type AccordionData = {
   title: string;
-  description: string;
+  description?: ReactNode | string;
   icon?: boolean;
   btnHref?: string;
+  noAccordionPadding?: boolean;
+  linkList?: ReactNode,
 };
 
 export default function Accordion({
   title,
   btnHref,
   description,
+  linkList,
+  noAccordionPadding = false,
   icon = true,
 }: AccordionData) {
   const [isOpen, setIsOpen] =
     useState(false);
 
   return (
-    <div className="inline-flex w-full flex-col items-start justify-start self-stretch">
+    <div className={`${noAccordionPadding ? "lg:-mt-sm lg:-pt-sm lg:px-sm" : ""} inline-flex w-full flex-col items-start justify-start self-stretch`}>
       <button
         type="button"
         onClick={() =>
           setIsOpen((current) => !current)
         }
         aria-expanded={isOpen}
-        className="flex w-full cursor-pointer select-none items-center gap-6 py-2 text-left"
+        className="flex w-full group cursor-pointer select-none items-center gap-md py-sm text-left"
       >
-        <h3 className="flex-1 font-subheading text-ink">
+        <h3 className="group-active:text-accent group-hover:text-accent transform-all duration-100 flex-1 font-subheading text-ink">
           {title}
         </h3>
-
-        <span
-          className={`transition-transform duration-300 ${
-            isOpen
-              ? "rotate-180"
-              : "rotate-0"
-          }`}
-        >
-          <Icon name="arrowSimple" />
-        </span>
+        <Icon 
+          className={`
+            group-hover:text-accent 
+            group-active:text-accent 
+            transform-all 
+            duration-100
+            ${isOpen
+            ? "rotate-180 group-hover:mb-sm"
+            : "rotate-0 group-hover:mt-sm"}
+          `} 
+          name="arrowSimple" 
+        />
       </button>
 
       <div
@@ -105,20 +60,21 @@ export default function Accordion({
             : "h-0 opacity-0"
         }`}
       >
-        <div className="overflow-hidden">
-          <div className="flex w-full flex-col gap-md pb-2">
-            <p className="font-body">
-              {description}
-            </p>
-
+        <div className="overflow-hidden mb-md">
+          <div className="section-spacing">
+            {description && (
+              <div className="font-body text-body">
+                {description}
+              </div>
+            )}
+            {linkList}
             {btnHref && (
               <Button
                 href={btnHref}
                 variant="simple"
-                icon="arrow"
-                showIcon={icon}
+                showIcon={false}
               >
-                Mer om: {title}
+                Till {title}
               </Button>
             )}
           </div>

@@ -12,6 +12,11 @@ export const titleObject = defineType({
       name: "title",
       type: "string",
     }),
+    defineField({
+      description: 'Valfritt, bör vara kort för att beskriva sektionen. Info, Kontakt, etc.',
+      name: "eyebrow",
+      type: "eyebrow",
+    }),
   ],
 
 })

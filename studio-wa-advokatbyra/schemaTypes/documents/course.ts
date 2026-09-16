@@ -1,5 +1,6 @@
-import {defineType, defineField} from 'sanity'
+import {defineType, defineField, defineArrayMember} from 'sanity'
 import {LinkIcon} from '@sanity/icons'
+import { courseCategory } from './courseCategory';
 
 export const course = defineType({
   name: 'course',
@@ -22,29 +23,48 @@ export const course = defineType({
       group: 'content',
       validation: (rule) => rule.required()
     }),
+    { type: 'heroRegular', name: 'hero' },
     defineField({
-      name: 'aimCourse',
-      title: 'Inriktning Utbilnding',
+      name: 'intro',
       type: 'array',
       group: 'content',
-
+      title: 'Introduktion',
+      of: [
+        defineArrayMember({ type: 'block'})
+      ]
+    }),
+    defineField({
+      name: 'aimCourse',
+      title: 'Inriktning Utbildning',
+      type: 'array',
+      group: 'content',
         of: [
           {
+            type: 'titleObject',
+          },
+          {
+            type: 'button',
+          },
+          {
             type: 'block',
-            styles: [{title: 'Normal', value: 'normal'}] 
           }
         ]
     }),
     defineField({
       name: 'aboutCourse',
-      title: 'Om Utbilndingen',
+      title: 'Om Utbildningen',
       group: 'content',
       type: 'array',
         of: [
           {
+            type: 'titleObject',
+          },
+          {
+            type: 'button',
+          },
+          {
             type: 'block',
-            styles: [{title: 'Normal', value: 'normal'}] 
-          }
+          },
         ]
     }),
     defineField({
@@ -53,7 +73,7 @@ export const course = defineType({
       group: 'content',
       type: "array",
       of: [
-        { type: "section", title: 'Text-sektion' },
+        { type: "sections", title: 'Text-sektion' },
         { type: "image", title: 'Bild-avdelare' },
       ]
     }),
@@ -72,7 +92,6 @@ export const course = defineType({
         of: [
           {
             type: 'block',
-            styles: [{title: 'Normal', value: 'normal'}] 
           }
         ]
     }),
@@ -98,30 +117,38 @@ export const course = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'slugLabel',
+      type: 'string',
+      title: 'Namn på länk',
+      group: 'content',
+    }),
+    defineField({
       name: 'category', 
       group: 'content',
       title: 'Kategori',
       type: 'reference',
       to: [{ type: 'courseCategory' }],
+      validation: (rule) => rule.required(),
     }),
     defineField({
       type: 'seo',
       name: 'seo',
       group: 'seo',
       title: 'SEO'
-    })
+    }),
   ],
   
   preview: {
     select: {
       title: "courseName",
       slug: "slug.current",
+      category: "category.slug.current"
     },
-    prepare({ title, slug }) {
+    prepare({ title, slug, category }) {
       return {
         title: title ?? "Namnlös kurs",
         subtitle: slug
-          ? `/juridikkurser/${slug}`
+          ? `/juridikkurser/${category}/${slug}`
           : "Slug saknas",
       };
     },

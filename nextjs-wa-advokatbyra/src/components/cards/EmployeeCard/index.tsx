@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -31,6 +31,12 @@ export default function EmployeeCard({
   const cardRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
+  const [isPressed, setIsPressed] = useState(false)
+
+  const handlePress = () => {
+    setIsPressed(!isPressed)
+  }
+
   const firstName = employee.firstName ?? "";
   const lastName = employee.lastName ?? "";
   const employeeName =
@@ -47,53 +53,90 @@ export default function EmployeeCard({
   const roles =
     employee.roles?.filter((role) => Boolean(role.title)) ?? [];
 
-  useGSAP(
-    () => {
-      if (!imageRef.current || !cardRef.current) return;
-
-      const media = gsap.matchMedia();
-
-      media.add(
-        "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
-        () => {
-          gsap.fromTo(
-            imageRef.current,
-            {
-              yPercent: -4,
-            },
-            {
-              yPercent: 4,
-              ease: "none",
-              scrollTrigger: {
-                trigger: cardRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 0.5,
-                invalidateOnRefresh: true,
+    useGSAP(
+      () => {
+        const card = cardRef.current;
+        const image = imageRef.current;
+    
+        if (!card) return;
+    
+        const media = gsap.matchMedia();
+    
+        media.add(
+          "(max-width: 767px) and (prefers-reduced-motion: no-preference)",
+          () => {
+            gsap.fromTo(
+              card,
+              {
+                marginBottom: 0,
+                marginTop: 0,
+                
               },
-            },
-          );
-        },
-      );
-
-      return () => media.revert();
-    },
-    {
-      scope: cardRef,
-    }
-  )
+              {
+                marginBottom: -50,
+                marginTop: -50,
+                ease: "none",
+    
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top bottom",
+                  end: "bottom top",
+    
+                  scrub: 1.2,
+    
+                  invalidateOnRefresh: true,
+                },
+              },
+            );
+          },
+        );
+    
+        media.add(
+          "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
+          () => {
+            if (!image) return;
+    
+            gsap.fromTo(
+              image,
+              {
+                yPercent: -4,
+              },
+              {
+                yPercent: 4,
+                ease: "none",
+    
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 0.5,
+                  invalidateOnRefresh: true,
+                },
+              },
+            );
+          },
+        );
+    
+        return () => {
+          media.revert();
+        };
+      },
+      {
+        scope: cardRef,
+      },
+    );
 
   if (!employee.slug) {
     return null;
   }
 
-  const employeeHref = `/medarbetare/${employee.slug}`;
+  const employeeHref = `/om-oss/${employee.slug}`;
 
   return (
     <article
       ref={cardRef}
       className="
-        group relative overflow-hidden rounded-lg bg-white shadow-sm
+        group relative overflow-hidden rounded-lg bg-white
         transition-shadow duration-300
         hover:shadow-lg
         focus-within:ring-2 focus-within:ring-accent
@@ -153,59 +196,53 @@ export default function EmployeeCard({
           </span>
         </div>
       </div>
-
-      <div className="relative p-lg">
-        <h3 className="font-subheading text-ink">
-          <Link
-            href={employeeHref}
-            aria-label={`Läs mer om ${employeeName}`}
-            className="
+      <div className="grid grid-cols-[1fr_auto] p-lg md:grid-cols-1">
+        <div className="relative w-full">
+          <h3 className="font-subheading text-ink">
+            <Link
+              href={employeeHref}
+              aria-label={`Läs mer om ${employeeName}`}
+              className="
               transition-colors
               after:absolute after:inset-0 after:z-20
               after:content-['']
               group-hover:text-accent
               focus-visible:outline-none
-            "
-          >
-            {employeeName}
-          </Link>
-        </h3>
+              "
+              >
+              {employeeName}
+            </Link>
+          </h3>
 
-        {roles.length > 0 && (
-          <ul
+          {roles.length > 0 && (
+            <ul
             aria-label={`Yrkesroller för ${employeeName}`}
             className="
-              relative z-30 mt-sm flex flex-wrap
-              divide-x divide-ink/20
-              font-caption text-body
+            relative z-30 mt-sm flex flex-wrap
+            divide-x divide-body
+            font-caption text-body
             "
-          >
-            {roles.map((role) => (
-              <li
+            >
+              {roles.map((role) => (
+                <li
                 key={role._id}
                 className="px-xs first:pl-0 last:pr-0"
-              >
-                {role.slug ? (
-                  <Link
-                    href={`/medarbetare/yrkesroll/${role.slug}`}
-                    className="
-                      transition-colors
-                      hover:text-accent hover:underline
-                      focus-visible:text-accent
-                      focus-visible:outline-2
-                      focus-visible:outline-offset-2
-                      focus-visible:outline-accent
-                    "
-                  >
-                    {role.title}
-                  </Link>
-                ) : (
-                  <span>{role.title}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
+                >
+                  {role.slug ? (
+                    <p
+                    className="text-body font-caption"
+                    >
+                      {role.title}
+                    </p>
+                  ) : (
+                    <span>{role.title}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+        <Link className="md:hidden inline-flex my-auto justify-center p-xs h-min w-min rounded-full bg-accent hover:bg-footer transition-all duration-100 active:bg-footer aspect-square" href={employeeHref}><Icon className="m-auto inline-flex justify-self-center text-white -rotate-90" name="arrowSimple" /></Link>
       </div>
     </article>
   )

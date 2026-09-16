@@ -53,7 +53,6 @@ export const navigationItem = defineType({
       type: "boolean",
       initialValue: false,
     
-      // Only show this setting in headerNavigation
       hidden: ({ path }) =>
         path?.[0] !== "headerNavigation",
     }),

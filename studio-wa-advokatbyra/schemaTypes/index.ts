@@ -34,6 +34,7 @@ import { buttonGroupBlock } from './objects/page-builder/buttonGroupBlock'
 import { employeeGridBlock } from './objects/page-builder/employeeGridBlock'
 import { serviceGridBlock } from './objects/page-builder/serviceGridBlock'
 import { accordionBlock } from './objects/page-builder/accordionBlock'
+import { richText } from './objects/richText'
 
 export const schemaTypes = [
   accordionItem,
@@ -58,6 +59,7 @@ export const schemaTypes = [
   pageSection,
   aboutPage,
   richTextBlock,
+  richText,
   imageBlock,
   buttonGroupBlock,
   employeeGridBlock,

@@ -30,6 +30,10 @@ export const article = defineType({
       validation: (rule) =>
         rule.required().min(5).max(120),
     }),
+    defineField({
+      type: 'cardContainer',
+      name: 'card'
+    }),
 
     defineField({
       name: "slug",

@@ -1,5 +1,5 @@
 import { BookIcon, LinkIcon } from "@sanity/icons";
-import { defineField, defineType } from "sanity";
+import { defineField, defineType, defineArrayMember } from "sanity";
 
 export const courseCategory = defineType({
   name: "courseCategory",
@@ -11,38 +11,10 @@ export const courseCategory = defineType({
     {
       name: "content",
       title: "Innehåll",
-      default: true,
-    },
-    {
-      name: "appearance",
-      title: "Utseende",
-    },
-    {
-      name: "settings",
-      title: "Inställningar",
     },
     {
       name: "seo",
       title: "SEO",
-    },
-  ],
-
-  fieldsets: [
-    {
-      name: "basicInformation",
-      title: "Grundinformation",
-      options: {
-        collapsible: true,
-        collapsed: false,
-      },
-    },
-    {
-      name: "texts",
-      title: "Texter",
-      options: {
-        collapsible: true,
-        collapsed: false,
-      },
     },
   ],
 
@@ -52,17 +24,24 @@ export const courseCategory = defineType({
       title: "Kategorinamn",
       type: "string",
       group: "content",
-      fieldset: "basicInformation",
       validation: (rule) =>
         rule.required().min(3).max(100),
     }),
     defineField({
-      name: "link",
-      title: "Länk till kurskategorin",
+      name: "image",
+      title: "Kategoribild",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: "slug",
+      title: "Länk",
+      type: "slug",
       group: "content",
       description:
-        'Klicka på "Generate" för att skapa länken till kursen.',
-      type: "link",
+        'Klicka på "Generate" för att skapa länken till kurskategorin.',
       icon: LinkIcon,
       options: {
         source: "title",
@@ -70,76 +49,187 @@ export const courseCategory = defineType({
       },
       validation: (rule) => rule.required(),
     }),
-    // defineField({
-    //   name: "slug",
-    //   title: "Webbadress",
-    //   type: "slug",
-    //   group: "content",
-    //   fieldset: "basicInformation",
-    //   options: {
-    //     source: "title",
-    //     maxLength: 96,
-    //   },
-    //   validation: (rule) => rule.required(),
-    // }),
+    defineField({
+      name: "introTitle",
+      title: "Intro Rubrik",
+      type: "string",
+      group: "content",
+    }),
+    
+    defineField({
+      name: "introText",
+      title: "Intro text",
+      type: "blockObject",
+      group: "content",
+    }),
+    
+    defineField({
+      name: 'companyCourseSection',
+      title: 'Företagsanpassad kurs innehåll:',
+      group: "content",
+      type: 'object',
+      fields: [
+        {
+          type: 'titleObject',
+          name: 'title'
+        },
+        {
+          type: 'blockObject',
+          name: 'text'
+        }
+      ]
+    }),
 
+    defineField({
+      name: 'courseLecturerSection',
+      title: 'Kursledare innehåll:',
+      group: "content",
+      type: 'object',
+      fields: [
+        {
+          type: 'image',
+          name: 'image',
+          title: 'Bild Kursledare',
+          options: {
+            hotspot: true
+          },
+          fields: [
+            defineField({
+              name: "alt",
+              title: "Alternativtext",
+              type: "string",
+              validation: (rule) => rule.required(),
+            }),
+          ],
+          validation: (rule) => rule.required(),
+        },
+        {
+          type: 'reference',
+          name: 'lecturer',
+          to: [
+            { type: 'employee' }
+          ]
+        },
+        {
+          type: 'blockObject',
+          title: 'Beskrivning',
+          name: 'text'
+        },
+        {
+          type: 'button',
+          title: 'Kursbokning, knapp',
+          name: 'cta'
+        }
+      ]
+    }),
+
+    defineField({
+      name: "courseListSection",
+      title: "Kursutbud innehåll",
+      group: "content",
+      type: "object",
+      fields: [
+        defineField({
+          name: "title",
+          title: "Rubrik",
+          type: "titleObject",
+        }),
+    
+        defineField({
+          name: "text",
+          title: "Beskrivning",
+          type: "blockObject",
+        }),
+    
+        defineField({
+          name: "courseList",
+          title: "Kurser",
+          type: "array",
+          of: [
+            defineArrayMember({
+              type: "reference",
+              to: [{type: "course"}],
+            }),
+          ],
+          validation: (rule) =>
+            rule.required().unique().min(1),
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'courseInfoSection',
+      title: 'Kursinfo innehåll:',
+      group: "content",
+      type: 'object',
+      fields: [
+        {
+          type: 'titleObject',
+          name: 'title'
+        },
+        {
+          type: 'blockObject',
+          name: 'text'
+        },
+        {
+          type: 'array',
+          name: 'courseInfo',
+          title: 'Kursinfo', 
+          of: [
+            { type: 'accordionItem' },
+          ]
+        }
+      ]
+    }),
+
+    defineField({
+      group: 'content',
+      name: 'contactSection',
+      title: 'Kontakt sektion:',
+      type: 'titleObject',
+    }),
+
+    defineField({
+      group: 'content',
+      name: 'courseInfoLongSection',
+      title: 'Kursinfo längre text:',
+      type: 'object',
+      fields: [
+        { type: 'titleObject', name: 'title', title: 'Rubrik' },
+        { type: 'blockObject', name: 'text', title: 'Beskrivning' }
+      ]
+    }),
+    defineField({
+      group: 'content',
+      name: 'courseQuotesSection',
+      title: 'Omdömen:',
+      type: 'array',
+      of: [
+        { type: 'object', 
+          name: 'quotes', 
+          title: 'Lägg till citat', 
+          fields: [
+            { type: 'text', name: 'quote', description: "Utan citattecken", title: 'Citat:' },
+            { type: 'string', name: 'person', title: 'Namn, person:' },
+            { 
+              type: 'reference', 
+              name: 'courseTaken', 
+              title: 'Om kurs:', 
+              to: [{type: 'course'}] 
+            },
+          ]
+        }
+      ]
+    }),
+    
     defineField({
       name: "excerpt",
       title: "Kort beskrivning",
       type: "text",
       rows: 3,
       group: "content",
-      fieldset: "texts",
       validation: (rule) =>
         rule.required().min(40).max(220),
-    }),
-
-    defineField({
-      name: "description",
-      title: "Längre beskrivning",
-      type: "array",
-      group: "content",
-      fieldset: "texts",
-      of: [{ type: "block" }],
-    }),
-
-    defineField({
-      name: "image",
-      title: "Kategoribild",
-      type: "image",
-      group: "appearance",
-      options: {
-        hotspot: true,
-      },
-    }),
-
-    defineField({
-      name: "theme",
-      title: "Färgtema",
-      type: "string",
-      group: "appearance",
-      options: {
-        layout: "radio",
-        list: [
-          { title: "Blå", value: "blue" },
-          { title: "Grön", value: "green" },
-          { title: "Ljus", value: "light" },
-          { title: "Mörk", value: "dark" },
-          { title: "Neutral", value: "neutral" },
-        ],
-      },
-      initialValue: "neutral",
-      validation: (rule) => rule.required(),
-    }),
-
-    defineField({
-      name: "sortOrder",
-      title: "Sorteringsordning",
-      type: "number",
-      group: "settings",
-      initialValue: 100,
-      validation: (rule) =>
-        rule.required().integer().min(0),
     }),
 
     defineField({
@@ -149,4 +239,20 @@ export const courseCategory = defineType({
       group: "seo",
     }),
   ],
+  preview: {
+    select: {
+      slug: 'slug.current',
+      title: 'title',
+      media: 'image'
+    },
+    prepare({ title, slug, media }) {
+      return {
+        title: title ?? "Namnlös kurskategori",
+        subtitle: slug
+          ? `/juridikkurser/${slug}/`
+          : "Slug saknas",
+        media: media,
+      };
+    },
+  }
 });
