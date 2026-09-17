@@ -10,6 +10,7 @@ import HeroEmployee from "@/components/heros/HeroEmployee";
 import SectionTwo from "@/components/sections/SectionTwo";
 import HeadingIntroGridSection from "@/components/sections/HeadingIntroGridSection";
 import EmployeeMessage from "@/components/messages/EmployeeMessage";
+import ColumnSection from "@/components/sections/ColumnSection";
 
 type PageProps = {
   params: Promise<{
@@ -46,13 +47,8 @@ export default async function EmployeePage({params}: PageProps) {
     }  />
 
       <main>
-        <section className="bg-surface">
-          <div className="max-w-200 py-xl m-auto flex gap-lg">
-            <div className="flex-2 flex flex-col">
-              <p className="font-eyebrow text-muted">Bakgrund</p>
-              <h2 className="font-heading text-ink">Erfarenhet & utbildning</h2>
-            </div>
-            <div className="flex-3 flex flex-col gap-lg">
+        <ColumnSection heading="Erfarenhet & utbildning" color="bg-surface" eyebrow="bakgrund" >
+        <div className="flex-3 flex flex-col gap-lg">
               <div className="flex flex-col gap-md">
                 <p className="font-eyebrow text-muted">Yrkesbakgrund</p>
                 <div className="border-b border-border" />
@@ -84,8 +80,7 @@ export default async function EmployeePage({params}: PageProps) {
                 </ul>
               </div>
             </div>
-          </div>
-        </section>
+        </ColumnSection>
         <Section color="bg-canvas" eyebrow="bio" heading={`Om ${employee?.firstName}`}>
           <CustomPortableText value={employee?.bio} />
         </Section>

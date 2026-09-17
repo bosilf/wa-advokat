@@ -3,13 +3,10 @@
 import { useRef } from "react";
 import type { ReactNode } from "react";
 
-import Link from "next/link";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import SanityButton, { SanityButtonData } from "@/components/buttons/SanityButton";
-import { CustomPortableText } from "@/components/common/CustomPortableText";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(
@@ -20,24 +17,14 @@ if (typeof window !== "undefined") {
 export type SectionProps = {
   children: ReactNode;
   color?: string;
-  hideEyebrow?: boolean;
   eyebrow?: string;
-  eyebrowHref?: string;
-  button?: SanityButtonData | null,
-  eyebrowOpenInNewTab?: boolean;
   heading: string;
-  description?: ReactNode | null
 };
 
 export default function ColumnSection({
   heading,
   eyebrow,
-  eyebrowHref,
-  eyebrowOpenInNewTab = false,
-  hideEyebrow = false,
   children,
-  button,
-  description,
   color = "bg-canvas",
 }: SectionProps) {
 
@@ -151,33 +138,9 @@ useGSAP(
 
   return (
     <section ref={sectionRef} className={`${color} h-fit w-full`}>
-      <div className="px-section-sides py-section-tb max-w-section gap-x-xl grid grid-rows-auto gap-md lg:grid-rows-[auto_auto] grid-cols-1 lg:grid-cols-2">
-        <div className="mb-md flex flex-col">
-          {!hideEyebrow && eyebrow && (
-            <>
-              {eyebrowHref ? (
-                <Link
-                href={eyebrowHref}
-                target={
-                  eyebrowOpenInNewTab
-                  ? "_blank"
-                  : undefined
-                }
-                rel={
-                  eyebrowOpenInNewTab
-                  ? "noopener noreferrer"
-                  : undefined
-                }
-                className="w-fit"
-                >
-                  {eyebrowContent}
-                </Link>
-              ) : (
-                eyebrowContent
-              )}
-            </>
-          )}
-
+      <div className="max-w-200 py-section-tb px-section-sides m-auto flex flex-col md:flex-row gap-lg">
+        <div className="flex-2 flex flex-col">
+          <p hidden={eyebrow === undefined} className="font-eyebrow text-muted">{eyebrow}</p>
           <h2 
             ref={headingRef}
             className="font-heading text-ink text-pretty"
@@ -185,15 +148,7 @@ useGSAP(
             {heading}
           </h2>
         </div>
-        <div ref={contentRef} className="col-start-1 section-spacing">
-          {description && (
-            <CustomPortableText value={description as ReactNode} />
-          )}
-          { button && (
-            <SanityButton button={button} />
-          )}
-        </div>
-        <div className="col-start-2 row-span-2" ref={contentRef}>
+        <div ref={contentRef} className="flex-3 flex flex-col gap-lg">
           {children}
         </div>
       </div>
