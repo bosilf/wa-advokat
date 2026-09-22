@@ -91,22 +91,22 @@ function AnimatedStrong({
 const components = {
   list: {
     bullet: ({ children }: any) => (
-      <ul className="mb-4 ml-6 list-disc space-y-2 font-body text-body marker:text-blue-500">
+      <ul className="my-4 ml-6 list-disc space-y-2 font-body text-body marker:text-body">
         {children}
       </ul>
     ),
 
     number: ({ children }: any) => (
-      <ol className="mb-4 ml-6 list-decimal space-y-2 text-body marker:font-bold marker:text-blue-500">
+      <ol className="mb-4 ml-6 list-decimal space-y-2 text-body marker:font-thin marker:text-body">
         {children}
       </ol>
     ),
 
     check: ({ children }: any) => (
-      <ol className="mb-4 ml-6 list-item space-y-2 text-body marker:font-bold marker:text-blue-500">
+      <ol className="mb-4 ml-6 list-item space-y-2 text-body marker:font-bold marker:text-body">
         {children}
       </ol>
-    ),
+    )
   },
 
   block: {
@@ -123,7 +123,7 @@ const components = {
     ),
 
     h3: ({ children }: any) => (
-      <h3 className="font-subheading text-ink">
+      <h3 className="font-sans text-lg first-of-type:mt-0 font-semibold mt-6 mb-3 text-ink">
         {children}
       </h3>
     ),
@@ -152,7 +152,7 @@ const components = {
     }: any) => (
       <a
         href={value.href}
-        className="font-bodybold text-ink transition-colors hover:text-blue-300"
+        className="font-bodybold text-ink transition-colors hover:text-accent"
       >
         {children}
       </a>

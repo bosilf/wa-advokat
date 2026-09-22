@@ -56,7 +56,6 @@ export const button = defineType({
       type: 'boolean',
       initialValue: false,
       title: 'länkknapp',
-      
     }),
 
     defineField({
@@ -87,6 +86,12 @@ export const button = defineType({
               }
               return true
             }),
+        }),
+        defineField({
+          name: 'target',
+          title: 'Öppnar länk i nytt fönster?',
+          type: 'boolean',
+          initialValue: false
         }),
 
         defineField({
@@ -185,6 +190,8 @@ export const button = defineType({
 
   preview: {
     select: {
+      hasButton: "hasButton",
+      
       linkLabel: "link.label",
       variant: "variant",
       linkType: "link.linkType",

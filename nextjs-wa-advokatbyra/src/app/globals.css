@@ -17,6 +17,7 @@
   --color-border: #D9DBE0;
   --color-footer: #51616B;
 
+  --color-red: #FF142B;
   --color-ink: #1A1A1A;
   --color-body: #4A4A4A;
   --color-muted: #928F8E;
@@ -158,10 +159,8 @@
   }
   .font-caption {
     font-size: clamp(0.5rem, 4vw, 0.8rem);
-    font-family: var(--font-body);
-    line-height: 1;
+    line-height: 1.2;
     font-weight: 500;
-    text-transform: capitalize;
   }
 }
 

@@ -1,6 +1,6 @@
 import {defineType, defineField, defineArrayMember} from 'sanity'
 import {LinkIcon} from '@sanity/icons'
-import { courseCategory } from './courseCategory';
+import { text } from 'node:stream/consumers';
 
 export const course = defineType({
   name: 'course',
@@ -68,16 +68,53 @@ export const course = defineType({
         ]
     }),
     defineField({
-      name: 'courseSections',
-      title: 'Kursinnehåll (Sektioner)',
-      group: 'content',
+      name: "courseSections",
+      title: "Kursinnehåll (sektioner)",
+      group: "content",
       type: "array",
       of: [
-        { type: "sections", title: 'Text-sektion' },
-        { type: "image", title: 'Bild-avdelare' },
-      ]
-    }),
+        defineArrayMember({
+          name: "courseTextSection",
+          title: "Textsektion",
+          type: "object",
+          fields: [
+            defineField({
+              name: "sectionTitle",
+              title: "Titel på sektion",
+              description:
+                'Till exempel "Kursinnehåll" eller "Kursupplägg". Lämna tomt om du inte vill ha en titel.',
+              type: "string",
+            }),
+            defineField({
+              name: "sectionContent",
+              title: "Innehåll i sektion",
+              type: "array",
+              of: [
+                defineArrayMember({
+                  type: "block",
+                }),
+              ],
+            }),
+          ],
+        }),
     
+        defineArrayMember({
+          type: "image",
+          title: "Bildavdelare",
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            defineField({
+              name: "alt",
+              title: "Alternativtext",
+              type: "string",
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        }),
+      ],
+    }),
     defineField({
       name: 'length',
       title: 'Längd på Utbildning',

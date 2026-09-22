@@ -6,7 +6,7 @@ import type { SanityImageSource } from "@sanity/image-url";
 
 import { urlFor } from "@/sanity/image";
 
-type ImageType = SanityImageSource & {
+export type ImageType = SanityImageSource & {
   alt?: string | null;
   hotspot?: {
     x?: number;
@@ -14,13 +14,13 @@ type ImageType = SanityImageSource & {
   } | null;
 };
 
-type ImageProps = {
+export type ImageCompProps = {
   image?: ImageType | null;
 };
 
 export default function ImageComponent({
   image,
-}: ImageProps) {
+}: ImageCompProps) {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {

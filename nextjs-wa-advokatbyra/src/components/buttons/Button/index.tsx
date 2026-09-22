@@ -21,10 +21,11 @@ export type ButtonProps = {
   showIcon?: boolean;
   ariaLabel?: string;
   download?: boolean;
+  className?: string;
   target?: "_self" | "_blank";
 };
 
-export default function Button({
+export default function ButtonComp({
   href,
   children,
   variant = "primary",
@@ -33,6 +34,7 @@ export default function Button({
   ariaLabel,
   download = false,
   target = "_self",
+  className,
 }: ButtonProps) {
 
   const variantClasses: Record<ButtonVariant, string> = {
@@ -40,7 +42,7 @@ export default function Button({
       "py-sm px-md bg-ink text-white rounded-full font-subheading hover:bg-accent active:bg-accent",
 
     secondary:
-      "py-sm px-md text-ink rounded-full outline outline-1 outline-ink outline-offset-[-1px] font-subheading active:bg-ink active:text-white hover:bg-ink hover:text-white",
+      "py-sm px-md text-ink rounded-full outline outline-2 outline-ink outline-offset-[-1px] font-subheading active:bg-ink active:text-white hover:bg-ink hover:text-white",
 
     simple:
       "text-ink hover:text-accent first-letter:uppercase font-body underline underline-offset-3",
@@ -58,6 +60,7 @@ export default function Button({
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
       className={`
         ${variantClasses[variant]}
+        ${className}
         group
         inline-flex
         w-fit
@@ -71,7 +74,7 @@ export default function Button({
         
       `}
     >
-      <span className="lowercase ">{children}</span>
+      <span className="lowercase first-letter:uppercase">{children}</span>
 
       {showIcon && (
         <Icon

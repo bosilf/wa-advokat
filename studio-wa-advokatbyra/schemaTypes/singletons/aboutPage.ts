@@ -180,6 +180,24 @@ export const aboutPage = defineType({
           validation: (rule) =>
             rule.required().min(1).unique(),
         }),
+        defineField({
+          name: "students",
+          title: "Studentpoolen",
+          type: "array",
+          description:
+            "Välj vilka i studentpoolen som ska visas och dra dem till önskad ordning.",
+          of: [
+            defineArrayMember({
+              type: "reference",
+              to: [{ type: "studentPool" }],
+              options: {
+                disableNew: true,
+              },
+            }),
+          ],
+          validation: (rule) =>
+            rule.required().min(1).unique(),
+        }),
 
         defineField({
           name: "cta",
@@ -462,6 +480,11 @@ export const aboutPage = defineType({
       type: "seo",
       group: "seo",
     }),
+    defineField({
+      name: 'slug',
+      type: 'slug',
+      group: 'seo'
+    })
   ],
 
   preview: {

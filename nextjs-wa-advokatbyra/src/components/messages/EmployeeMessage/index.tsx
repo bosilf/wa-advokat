@@ -21,6 +21,7 @@ if (typeof window !== "undefined") {
 type EmployeeMessageProps = {
   name: string;
   email: string;
+  isStudent?: boolean,
 };
 
 type FormStatus =
@@ -50,6 +51,7 @@ const inputClasses = `
 export default function EmployeeMessage({
   name,
   email,
+  isStudent = false
 }: EmployeeMessageProps) {
   const [status, setStatus] =
     useState<FormStatus>("idle");
@@ -98,7 +100,7 @@ export default function EmployeeMessage({
 
               scrollTrigger: {
                 trigger: section,
-                start: "top 95%",
+                start: "top bottom",
                 end: "top 10%",
                 scrub: 0.8,
                 invalidateOnRefresh: true,
@@ -223,12 +225,22 @@ export default function EmployeeMessage({
             id={`${formId}-heading`}
             className="font-heading text-ink"
           >
-            Skicka ett meddelande!
+            <span className={`${isStudent ? 'block' : 'hidden'}`}>
+              Kontakt
+            </span>
+            <span className={`${isStudent ? 'hidden' : 'block'}`}>
+              Skicka ett meddelande!
+            </span>
           </h2>
 
           <p className="font-body text-body">
-            Fyll i formuläret nedan för att kontakta{" "}
-            {name}.
+            <span className={`${isStudent ? 'block' : 'hidden'}`}>
+              Vill du veta mer om Studentpoolen på WA Advokatbyrå? Då kan du fylla i formuläret så återkommer vi.
+            </span>
+            <span className={`${isStudent ? 'hidden' : 'block'}`}>
+              Fyll i formuläret <span className="md:hidden">nedan </span>för att kontakta{" "}
+              {name}.
+            </span>
           </p>
 
           <p
@@ -258,7 +270,7 @@ export default function EmployeeMessage({
               htmlFor={`${formId}-name`}
               className="sr-only"
             >
-              För- och efternamn
+              Namn
             </label>
 
             <input
@@ -266,7 +278,7 @@ export default function EmployeeMessage({
               type="text"
               name="name"
               autoComplete="name"
-              placeholder="För- och efternamn"
+              placeholder="Namn"
               required
               className={inputClasses}
             />

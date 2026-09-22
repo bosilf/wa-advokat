@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, ComponentProps } from "react";
 import ImageBlurText, { ImageBlurProps } from "../ImageBlurText";
 import Accordion from "../Accordion";
 import Link from "next/link";
@@ -28,8 +28,11 @@ type Links = {
   href: string;
 };
 
+type PortableTextValue =
+  ComponentProps<typeof CustomPortableText>["value"];
+
 export type CardProps = {
-  description?: string | ReactNode;
+  description?: PortableTextValue | string | null;
   accordions?: AccordionItemData[];
   hasAccordion?: boolean;
   noAccordionPadding?: boolean;
@@ -90,7 +93,7 @@ const CardContainer = ({
             </Link>
   
             {employee.role && (
-              <p className="font-caption text-body">
+              <p className="font-caption capitalize text-body">
                 {employee.role}
               </p>
             )}

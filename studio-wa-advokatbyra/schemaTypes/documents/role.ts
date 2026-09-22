@@ -19,20 +19,20 @@ export const role = defineType({
         rule.required().min(2).max(80),
     }),
 
-    defineField({
-      name: "slug",
-      title: "Webbadress",
-      type: "slug",
-      description:
-        'Klicka på "Generate" för att skapa adressen till yrkestitelns sida.',
+    // defineField({
+    //   name: "slug",
+    //   title: "Webbadress",
+    //   type: "slug",
+    //   description:
+    //     'Klicka på "Generate" för att skapa adressen till yrkestitelns sida.',
 
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
+    //   options: {
+    //     source: "title",
+    //     maxLength: 96,
+    //   },
 
-      validation: (rule) => rule.required(),
-    }),
+    //   validation: (rule) => rule.required(),
+    // }),
 
     defineField({
       name: "description",

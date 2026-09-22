@@ -24,6 +24,9 @@ import { urlFor } from "@/sanity/image";
 import HeadingIntroGridSection from "@/components/sections/HeadingIntroGridSection";
 import Image from "next/image";
 import ImageSection from "@/components/sections/ImageSection";
+import StudentCard from "@/components/cards/StudentCard";
+import ButtonComp from "@/components/buttons/Button";
+import HomeEmployeeGridSection from "@/components/pages/HomeEmployeeGridSection";
 
 
 const options = {
@@ -162,6 +165,8 @@ export default async function OmOss() {
 
   const teamMembers =
     team?.teamMembers ?? [];
+  
+  const students = team?.students ?? [];
 
   const additionalSections =
     page.additionalSections ?? [];
@@ -194,7 +199,7 @@ export default async function OmOss() {
                       </h2>
 
                       {item.text && (
-                        <p className="font-body text-body">
+                        <p className="font-body text-body text-pretty md:text-balance">
                           {item.text}
                         </p>
                       )}
@@ -213,10 +218,6 @@ export default async function OmOss() {
             eyebrow={
               team.eyebrow?.text ?? undefined
             }
-            eyebrowHref={
-              team.eyebrow?.resolvedLink
-                ?.href ?? undefined
-            }
             color="bg-surface"
           >
               {team.text && (
@@ -226,13 +227,48 @@ export default async function OmOss() {
               )}
 
               {teamMembers.length > 0 ? (
-                <ul className="grid grid-cols-1 gap-md md:grid-cols-3">
+                <HomeEmployeeGridSection>
+                  
                   {teamMembers.map(
-                    (employee) => (
-                      <li key={employee._id}>
+                    (employee, index) => (
+                      <li
+                      style={{
+                        zIndex: index + 1,
+                      }}
+                      className="
+                    relative
+                    col-span-3
+                    odd:col-start-2
+                    md:col-span-1
+                    md:odd:col-start-auto
+                  "
+                      key={employee._id}>
                         <EmployeeCard
                           employee={employee}
-                        />
+                          />
+                      </li>
+                    ),
+                  )}
+                  </HomeEmployeeGridSection>
+              ) : (
+                <p className="font-body text-muted">
+                  Inga medarbetare har valts.
+                </p>
+              )}
+              {/* <div className="flex flex-col gap-md mt-xl">
+              <p className="font-eyebrow text-muted">studentpoolen</p>
+              <h3 className="font-heading text-ink text-pretty max-w-150">En möjlighet att komma närmare juridiken i praktiken</h3>
+              <p className="font-body text-balance">
+              Studentpoolen är en del av WA Advokatbyrå och ger juridikstudenter möjlighet att få en närmare inblick i arbetet på en affärsjuridisk advokatbyrå. Här får studenter möjlighet att möta den praktiska juridiken och få erfarenhet från en verksamhet där juridisk precision kombineras med förståelse för klientens affär och bransch.
+                </p>
+              {students.length > 0 ? (
+                <ul className="grid grid-cols-1 gap-md md:grid-cols-3">
+                  {students.map(
+                    (student) => (
+                      <li key={student._id}>
+                        <StudentCard
+                          student={student}
+                          />
                       </li>
                     ),
                   )}
@@ -242,13 +278,37 @@ export default async function OmOss() {
                   Inga medarbetare har valts.
                 </p>
               )}
-              <SectionCta cta={team.cta} />
+              <ButtonComp variant="primary" showIcon href="/studentpoolen" >Läs om studentpoolen</ButtonComp>
+              </div> */}
           </Section>
         )}
+        <Section eyebrow="studentpoolen" eyebrowHref="/studentpoolen" heading="Möt våra studenter">
+        <p className="font-body text-balance">
+              <Link className="font-semibold hover:text-accent" href="/studentpoolen">Studentpoolen</Link> är en del av WA Advokatbyrå och ger juridikstudenter möjlighet att få en närmare inblick i arbetet på en affärsjuridisk advokatbyrå. Nedan kan du lära känna de juridikstudenter som just nu är en del av WA Advokatbyrås studentpool.
+                </p>
+              {students.length > 0 ? (
+                <ul className="grid grid-cols-1 gap-md md:grid-cols-3">
+                  {students.map(
+                    (student) => (
+                      <li key={student._id}>
+                        <StudentCard
+                          student={student}
+                          />
+                      </li>
+                    ),
+                  )}
+                </ul>
+              ) : (
+                <p className="font-body text-muted">
+                  Inga medarbetare har valts.
+                </p>
+              )}
+              <ButtonComp variant="primary" showIcon href="/studentpoolen" >Läs mer om studentpoolen</ButtonComp>
+        </Section>
 
         {practiceAreas && (
           <section
-            className="bg-canvas"
+            className="bg-surface"
           >
             <div className="max-w-200 m-auto py-section-tb px-section-sides">
 
@@ -276,15 +336,9 @@ export default async function OmOss() {
         {advice && (
           <Section
             heading={advice.title ?? ""}
-            eyebrow={
-              advice.eyebrow?.text ??
-              undefined
-            }
-            eyebrowHref={
-              advice.eyebrow?.resolvedLink
-                ?.href ?? undefined
-            }
-            color="bg-surface"
+            eyebrow="rådgivning"
+            eyebrowHref="/rattsomraden"
+            color="bg-canvas"
           >
               {advice.text && (
                 <CustomPortableText
@@ -313,8 +367,7 @@ export default async function OmOss() {
               ) : undefined
             }
             eyebrowHref={
-              courses.eyebrow?.resolvedLink
-                ?.href ?? undefined
+              courses.eyebrow?.resolvedLink ?? "/juridikkurser"
             }
             color="bg-canvas"
             button={courses.cta}
@@ -347,8 +400,7 @@ export default async function OmOss() {
               undefined
             }
             eyebrowHref={
-              contact.eyebrow?.resolvedLink
-                ?.href ?? undefined
+              contact.eyebrow?.resolvedLink || "/kontakt"
             }
             color="bg-surface"
           >

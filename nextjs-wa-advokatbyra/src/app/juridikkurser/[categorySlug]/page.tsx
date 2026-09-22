@@ -14,9 +14,11 @@ import { CustomPortableText } from "@/components/common/CustomPortableText";
 import CardContainer from "@/components/cards/CardContainer";
 import ArticleCard from "@/components/cards/ArticleCard";
 import ArticleSlideSection from "@/components/sections/ArticleSlideSection";
-import SanityButton from "@/components/buttons/SanityButton";
 import HeadingIntroGridSection from "@/components/sections/HeadingIntroGridSection";
 import Section from "@/components/sections/Section";
+import ImageGridSection from "@/components/sections/ImageGridSection";
+import ButtonComp from "@/components/buttons/Button";
+import ColumnSection from "@/components/sections/ColumnSection";
 
 type PageProps = {
   params: Promise<{
@@ -109,6 +111,7 @@ export default async function CourseCategoryPage({
     lecturer?.slug
       ? `/medarbetare/${lecturer.slug}`
       : undefined;
+    
 
   const courseListSection =
     category.courseListSection;
@@ -181,65 +184,19 @@ export default async function CourseCategoryPage({
           </div>
         </section>
 
-        {/* Kursledare */}
-        {lecturerSection && (
-          <section className="px-section-sides py-section-tb">
-            <div className="m-auto max-w-section">
-              <CardContainer
-                hasImage={Boolean(
-                  categoryLecturerImageSrc,
-                )}
-                image={{
-                  src:
-                    categoryLecturerImageSrc,
-                  eyebrow: "Kursledare",
-                  title:
-                    lecturerName ||
-                    "Kursledare",
-                }}
-                hasCardSmall={Boolean(
-                  lecturer,
-                )}
-                employee={
-                  lecturer
-                    ? {
-                        name:
-                          lecturerName ||
-                          "Ingen kursledare vald",
+        <ImageGridSection eyebrow="kursledare" heading={`${lecturerSection?.lecturer?.firstName} ${lecturerSection?.lecturer?.lastName}`}  image={{
+          asset: lecturerSection?.image?.asset,
+          alt: lecturerSection?.image?.alt,
+          crop: lecturerSection?.image?.crop,
+          hotspot: lecturerSection?.image?.hotspot,
+          }}
+        >
+          <CustomPortableText value={lecturerSection?.text?.block} />
+          <ButtonComp href={`/om-oss/${lecturerSection?.lecturer?.slug}`} variant="secondary" >Mer om kursledaren</ButtonComp>
+        </ImageGridSection>
 
-                        role:
-                          lecturerRole,
-
-                        imageSrc:
-                          lecturerImageSrc,
-
-                        slug:
-                          lecturerHref,
-                      }
-                    : undefined
-                }
-                hasDescription={lecturerDescription.length > 0}
-                description={
-                  lecturerDescription.length > 0 ? (
-                    <CustomPortableText value={lecturerDescription} />
-                  ) : undefined
-                }
-              />
-
-              {lecturerSection.cta && (
-                <div className="mt-md">
-                  <SanityButton
-                    button={
-                      lecturerSection.cta
-                    }
-                  />
-                </div>
-              )}
-            </div>
-          </section>
-        )}
-
-        <HeadingIntroGridSection
+        <ColumnSection
+          largeLeft
           color="bg-surface"
           heading={
             courseListSection?.title
@@ -252,8 +209,10 @@ export default async function CourseCategoryPage({
           }
           description={
             courseListIntro.length > 0 ? (
-              <CustomPortableText value={courseListIntro} />
-            ) : undefined
+              <CustomPortableText
+                value={courseListIntro}
+              />
+            ) : <></>
           }
         >
           {courseAccordions.length >
@@ -272,7 +231,7 @@ export default async function CourseCategoryPage({
               Sanity.
             </p>
           )}
-        </HeadingIntroGridSection>
+        </ColumnSection>
 
         {infoSection && (
           <HeadingIntroGridSection
@@ -310,7 +269,7 @@ export default async function CourseCategoryPage({
                 har lagts till.
               </p>
             )}
-            <ArticleSlideSection articles={[
+            {/* <ArticleSlideSection articles={[
               { title: "title till tiel jnhökjh jkhökjh ", 
                 lead: "lorum ipådoij piuh uy gyt yt fgytf iyt fkuysöih pisau hpiuoiajdoi  o8tgtuyg uo o uytu oyouy  rdey54 75d ui oiuhkhj fcdxskjgty", 
                 link: "/" },
@@ -321,7 +280,7 @@ export default async function CourseCategoryPage({
                 lead: "lorum ipådoij piuh uy gyt yt fgytf iyt fkuysöih pisau hpiuoiajdoi  o8tgtuyg uo o uytu oyouy  rdey54 75d ui oiuhkhj fcdxskjgty", 
                 link: "/" },
             ]} />
-            <ArticleCard title="title till tiel jnhökjh jkhökjh " lead="lorum ipådoij piuh uy gyt yt fgytf iyt fkuysöih pisau hpiuoiajdoi  o8tgtuyg uo o uytu oyouy  rdey54 75d ui oiuhkhj fcdxskjgty" link="/" />
+            <ArticleCard title="title till tiel jnhökjh jkhökjh " lead="lorum ipådoij piuh uy gyt yt fgytf iyt fkuysöih pisau hpiuoiajdoi  o8tgtuyg uo o uytu oyouy  rdey54 75d ui oiuhkhj fcdxskjgty" link="/" /> */}
           </HeadingIntroGridSection>
         )}
       </main>

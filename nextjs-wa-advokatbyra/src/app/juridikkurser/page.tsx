@@ -11,6 +11,9 @@ import CardContainer from "@/components/cards/CardContainer";
 import { urlFor } from "@/sanity/image";
 import Link from "next/link";
 import Button from "@/components/buttons/Button";
+import ButtonComp from "@/components/buttons/Button";
+import ImageGridSection from "@/components/sections/ImageGridSection";
+import ImageGridSectionRight from "@/components/sections/ImageGridSectionRight";
 
 
 export const revalidate = 30;
@@ -51,113 +54,155 @@ if (!page) {
               <CustomPortableText value={ page.introSection?.text?.block || 'text saknas' } />
             </div>
           </section>
-          <section className="grid grid-cols-1 gap-lg bg-surface p-section-sides py-section lg:order-3 lg:col-span-2 lg:grid-cols-2">
-  {page.cardContainers?.map((category) => {
-    const chosenCategory =
-      category.chosenCourseCategory;
+          <section className="col-span-full hidden lg:block lg:order-3 lg:col-span-2 lg:grid-cols-2">
 
-    const expert =
-      chosenCategory?.courseLecturerSection
-        ?.lecturer;
+          {page.cardContainers?.map((category, index) => {
+            const chosenCategory = category.chosenCourseCategory;
 
-    const categoryTitle =
-      chosenCategory?.title ??
-      "Namnlös kurskategori";
-
-    const categoryDescription =
-      category.description?.block ?? [];
-
-    const categoryImageSrc =
-      chosenCategory?.image
-        ? urlFor(chosenCategory.image)
-            .width(1200)
-            .height(650)
-            .fit("crop")
-            .url()
-        : "";
-
-    const lecturerName = [
-      expert?.firstName,
-      expert?.lastName,
-    ]
-      .filter(Boolean)
-      .join(" ");
-
-    const lecturerRole =
-      expert?.roles
-        ?.map((role) => role.title)
-        .filter(Boolean)
-        .join(" | ") ||
-      expert?.professionalTitle ||
-      "";
-
-    const lecturerImageSrc =
-      expert?.image
-        ? urlFor(expert.image)
-            .width(200)
-            .height(200)
-            .fit("crop")
-            .url()
-        : "";
-
-    const links = (
-      category.links ?? []
-    ).flatMap((link) => {
-      if (!link.href) {
-        return [];
-      }
-
-      return [
-        {
-          _id: link._id,
-          title:
-            link.title ??
-            "Namnlös kurs",
-          href: link.href,
-        },
-      ];
-    });
-
-    return (
-      <CardContainer
-        key={category._key}
-        hasImage={Boolean(categoryImageSrc)}
-        image={{
-          src: categoryImageSrc,
-          eyebrow: "Kursutbud i",
-          title: categoryTitle,
-        }}
-        hasCardSmall={Boolean(expert)}
-        employee={
-          expert
-            ? {
-                name:
-                  lecturerName ||
-                  "Ingen kursledare vald",
-
-                role: lecturerRole,
-
-                imageSrc:
-                  lecturerImageSrc,
-
-                slug:
-                  expert.slug?.current
-                    ? `/medarbetare/${expert.slug.current}`
-                    : undefined,
+            const links = (
+              category.links ?? []
+            ).flatMap((link) => {
+              if (!link.href) {
+                return [];
               }
-            : undefined
-        }
-        hasDescription={categoryDescription.length > 0}
-        description={
-          categoryDescription.length > 0 ? (
-            <CustomPortableText value={categoryDescription} />
-          ) : undefined
-        }
-        links={links}
-      />
-    );
-  })}
-</section>
+        
+              return [
+                {
+                  _id: link._id,
+                  title:
+                    link.title ??
+                    "Namnlös kurs",
+                  href: link.href,
+                },
+              ];
+            });
+            
+            if (!chosenCategory?.image) {
+              return null;
+            }
+            
+            return (
+              <ImageGridSection
+              color="bg-surface"
+              key={category._key}
+              image={chosenCategory.image}
+              imagePosition={index % 2 === 0 ? "left" : "right"}
+              heading={chosenCategory.title ?? ""}
+              eyebrow="Kursutbud"
+              >
+                <CustomPortableText
+                  value={category.description?.block}
+                />
+                <ButtonComp href={`/juridikkurser/${category.chosenCourseCategory?.slug?.current}`}>{category.chosenCourseCategory?.title} kursutbud</ButtonComp>
+              </ImageGridSection>
+            );
+          })}
+          </section>
+          <section className="grid grid-cols-1 gap-lg bg-surface p-section-sides py-section lg:hidden">
+            {page.cardContainers?.map((category) => {
+              const chosenCategory =
+                category.chosenCourseCategory;
+            
+              const expert =
+                chosenCategory?.courseLecturerSection
+                  ?.lecturer;
+            
+              const categoryTitle =
+                chosenCategory?.title ??
+                "Namnlös kurskategori";
+            
+              const categoryDescription =
+                category.description?.block ?? [];
+            
+              const categoryImageSrc =
+                chosenCategory?.image
+                  ? urlFor(chosenCategory.image)
+                      .width(1200)
+                      .height(650)
+                      .fit("crop")
+                      .url()
+                  : "";
+            
+              const lecturerName = [
+                expert?.firstName,
+                expert?.lastName,
+              ]
+                .filter(Boolean)
+                .join(" ");
+            
+              const lecturerRole =
+                expert?.roles
+                  ?.map((role) => role.title)
+                  .filter(Boolean)
+                  .join(" | ") ||
+                expert?.professionalTitle ||
+                "";
+            
+              const lecturerImageSrc =
+                expert?.image
+                  ? urlFor(expert.image)
+                      .width(200)
+                      .height(200)
+                      .fit("crop")
+                      .url()
+                  : "";
+            
+              const links = (
+                category.links ?? []
+              ).flatMap((link) => {
+                if (!link.href) {
+                  return [];
+                }
+              
+                return [
+                  {
+                    _id: link._id,
+                    title:
+                      link.title ??
+                      "Namnlös kurs",
+                    href: link.href,
+                  },
+                ];
+              });
+            
+              return (
+                <CardContainer
+                  key={category._key}
+                  hasImage={Boolean(categoryImageSrc)}
+                  image={{
+                    src: categoryImageSrc,
+                    eyebrow: "Kursutbud i",
+                    title: categoryTitle,
+                  }}
+                  hasCardSmall={Boolean(expert)}
+                  employee={
+                    expert
+                      ? {
+                          name:
+                            lecturerName ||
+                            "Ingen kursledare vald",
+                      
+                          role: lecturerRole,
+                      
+                          imageSrc:
+                            lecturerImageSrc,
+                      
+                          slug:
+                            expert.slug?.current
+                              ? `/medarbetare/${expert.slug.current}`
+                              : undefined,
+                        }
+                      : undefined
+                  }
+                  hasDescription={categoryDescription.length > 0}
+                  description={categoryDescription}
+                  hasButton
+                  button={{href: `juridikkurser/${category.chosenCourseCategory?.slug?.current}` || "#", children: `Till kurssidan ${category.chosenCourseCategory?.title}`, variant: 'simple' }}
+                  links={links}
+                />
+              );
+            })}
+          </section>
           <section className="lg:bg-white bg-surface flex lg:order-2">
             <div className="max-w-200 m-auto lg:max-w-90 section-spacing pb-section-tb pt-md lg:pt-section-tb px-section-sides">
               <h3 className="font-heading-sm mb-md text-ink">{page.courseOpportunities?.title}</h3>

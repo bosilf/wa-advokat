@@ -315,7 +315,7 @@ export default function Message() {
           </button>
 
           {status === "error" && (
-            <p role="alert" className="mt-sm font-body text-red-600">
+            <p role="alert" className="mt-sm font-body text-red">
               Misslyckades att skicka meddelandet. Kontrollera att du har fyllt
               i alla obligatoriska fält.
             </p>

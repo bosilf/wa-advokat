@@ -106,6 +106,36 @@ export const deskStructure: StructureResolver = (S) =>
           S.documentTypeList("employee")
             .title("Alla Medarbetare")
         ),
+        S.listItem()
+        .title("Studentpoolen")
+        .icon(AddUserIcon)
+        .child(
+          S.list()
+            .title("Studentpoolen")
+            .items([
+              // Studentpoolens huvudsida
+              S.listItem()
+                .title("Studentpoolens sida")
+                .icon(HomeIcon)
+                .child(
+                  S.document()
+                    .schemaType("studentPoolPage")
+                    .documentId("student-pool-page")
+                    .title("Studentpoolens sida")
+                ),
+      
+              S.divider(),
+      
+              // Studenter
+              S.listItem()
+                .title("Alla studenter")
+                .icon(AddUserIcon)
+                .child(
+                  S.documentTypeList("studentPool")
+                    .title("Alla studenter")
+                ),
+            ])
+        ),
 
       S.listItem()
         .title("Rättsområden")

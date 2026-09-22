@@ -35,6 +35,8 @@ import { employeeGridBlock } from './objects/page-builder/employeeGridBlock'
 import { serviceGridBlock } from './objects/page-builder/serviceGridBlock'
 import { accordionBlock } from './objects/page-builder/accordionBlock'
 import { richText } from './objects/richText'
+import { studentPool } from './documents/studentPool'
+import { studentPoolPage } from './singletons/studentPoolPage'
 
 export const schemaTypes = [
   accordionItem,
@@ -71,6 +73,8 @@ export const schemaTypes = [
   section,
   service,
   settings,
+  studentPool,
+  studentPoolPage,
   teamSection,
   textObject,
   titleObject,

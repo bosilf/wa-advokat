@@ -114,20 +114,25 @@ export const homePage = defineType({
       type: 'object',
       fields: [
         {
-          name: 'employeeTitle', 
+          name: 'title', 
           title: 'Rubrik',
           type: 'string',
           validation: Rule => Rule.required(),
         },
         {
-          name: 'employeeEyebrow', 
+          name: 'eyebrow', 
           title: 'ögonbryn',
           type: 'eyebrow',
         },
         {
-          name: 'employeeText', 
+          name: 'description', 
           title: 'Medarbetare text',
           type: 'text'
+        },
+        {
+          name: 'cta', 
+          title: 'Knapp',
+          type: 'button',
         },
         defineField({
           name: "teamMembers",

@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import type { ReactNode } from "react";
+import type { ReactNode, ComponentProps } from "react";
 
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { CustomPortableText } from "@/components/common/CustomPortableText";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(
@@ -14,15 +15,23 @@ if (typeof window !== "undefined") {
     useGSAP,
   );
 }
+
+type PortableTextValue =
+  ComponentProps<typeof CustomPortableText>["value"];
+
 export type SectionProps = {
   children: ReactNode;
+  description?: PortableTextValue,
   color?: string;
   eyebrow?: string;
   heading: string;
+  largeLeft?: boolean
 };
 
 export default function ColumnSection({
   heading,
+  description,
+  largeLeft = false,
   eyebrow,
   children,
   color = "bg-canvas",
@@ -138,17 +147,18 @@ useGSAP(
 
   return (
     <section ref={sectionRef} className={`${color} h-fit w-full`}>
-      <div className="max-w-200 py-section-tb px-section-sides m-auto flex flex-col md:flex-row gap-lg">
-        <div className="flex-2 flex flex-col">
-          <p hidden={eyebrow === undefined} className="font-eyebrow text-muted">{eyebrow}</p>
+      <div className="max-w-200 py-section-tb px-section-sides m-auto grid grid-cols-1 md:grid-cols-2 gap-lg gap-y-md">
+        <p hidden={eyebrow === undefined} className="font-eyebrow col-span-full text-muted">{eyebrow}</p>
+        <div className={`${largeLeft ? "flex-1 mr-md" : "flex-2"} flex flex-col gap-lg`}>
           <h2 
             ref={headingRef}
             className="font-heading text-ink text-pretty"
           >
             {heading}
           </h2>
+          <CustomPortableText value={description} />
         </div>
-        <div ref={contentRef} className="flex-3 flex flex-col gap-lg">
+        <div ref={contentRef} className={`${largeLeft ? "flex-1" : "flex-3"} flex flex-col gap-lg`}>
           {children}
         </div>
       </div>

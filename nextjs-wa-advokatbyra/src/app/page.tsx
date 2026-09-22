@@ -2,15 +2,17 @@ import { client } from "@/sanity/client";
 import { HOMEPAGE_QUERY } from "@/sanity/queries";
 import type { HOMEPAGE_QUERY_RESULT } from "@/sanity/sanity.types";
 import CardContainer from "@/components/cards/CardContainer";
-import Button from "@/components/buttons/Button";
+import ButtonComp from "@/components/buttons/Button";
 import EmployeeCard from "@/components/cards/EmployeeCard";
 import Section from "@/components/sections/Section";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
 import HeroHome from "@/components/heros/HeroHome";
 import HeadingIntroGridSection from "@/components/sections/HeadingIntroGridSection";
 import HomeEmployeeGridSection from "@/components/pages/HomeEmployeeGridSection";
+import SanityButton from "@/components/buttons/SanityButton";
 
 const options = { next: { revalidate: 30 } };
+
 
 export default async function IndexPage() {
 
@@ -24,11 +26,17 @@ export default async function IndexPage() {
   const services = page?.tjansterSection;
   const team = page?.employeeSection;
   const contact = page?.contactSection;
+  const contactEyebrow = contact?.contactEyebrow ?? [];
 
-  const employees = team?.employees ?? [];
-  const accordions = services?.tjansterAccordions ?? [];
-  const serviceIntro = services?.tjansterText ?? [];
-  const serviceCta = services?.tjansterCta || null
+  const employees = team?.teamMembers ?? [];
+  const teamCta = team?.cta ?? [];
+  const accordions = services?.AccordionItemData ?? []
+  const serviceIntro = services?.tjansterText;
+  const serviceEyebrow = services?.tjansterEyebrow ?? [];
+  const serviceCta = services?.tjansterCta ?? null
+
+  console.log(services)
+
 
   return (
     <>
@@ -47,13 +55,16 @@ export default async function IndexPage() {
         </Section>
         {
           services && (
-            <HeadingIntroGridSection button={serviceCta} 
+            <HeadingIntroGridSection 
+              button={serviceCta}
               description={
-                serviceIntro?.length ? (
-                  <CustomPortableText value={serviceIntro} />
-                ) : undefined
+                services?.tjansterText ? (
+                  <CustomPortableText value={services.tjansterText} />
+                ) : (
+                  <p className="font-body text-gray-400">Text saknas i Sanity.</p>
+                )
               }
-            heading={services?.tjansterTitle || 'text saknas'} eyebrow={services?.tjansterEyebrow?.text || 'Rättsområden'} eyebrowHref={services?.tjansterEyebrow?.resolvedLink?.href || "/"}>
+            heading={services?.tjansterTitle || 'text saknas'} eyebrow={services?.tjansterEyebrow?.text || 'Rättsområden'} eyebrowHref={services?.tjansterEyebrow?.link || "/"}>
               {accordions.length > 0 ? (
                 <CardContainer
                   hasAccordion
@@ -71,18 +82,18 @@ export default async function IndexPage() {
         }
 
         <Section 
-          eyebrow={team?.employeeEyebrow?.text ?? "Medarbetare"}
+          eyebrow={team?.eyebrow?.text || "Medarbetare"}
           eyebrowHref={
-            team?.employeeEyebrow?.resolvedLink?.href ?? undefined
+            team?.eyebrow?.link ?? undefined
           }
-          heading={team?.employeeTitle ?? "Title saknas"}
+          heading={team?.title ?? "Title saknas"}
           color="bg-surface" 
         >
-          <p className="font-body text-balance">
+          {/* <p className="font-body text-balance">
           Vi är lösningsorienterade och vi strävar efter att inte enbart peka på risker utan att försöka hitta lösningar och möjligheter på olika problem och frågor.
-          </p>
-          {team?.employeeText ? (
-            <CustomPortableText value={team.employeeText} />
+          </p> */}
+          {team?.description ? (
+            <CustomPortableText value={team.description} />
           ) : (
             <p className="font-body text-gray-400">Text saknas i Sanity.</p>
           )}
@@ -109,12 +120,11 @@ export default async function IndexPage() {
               ),
             )}
           </HomeEmployeeGridSection>
+          <SanityButton button={team?.cta} />
         </Section>
         <Section
-          eyebrow={contact?.contactEyebrow?.text ?? undefined}
-          eyebrowHref={
-            contact?.contactEyebrow?.resolvedLink?.href ?? undefined
-          }
+          eyebrow={contact?.contactEyebrow?.text ?? "Kontakt"}
+          eyebrowHref={contact?.contactEyebrow?.link ?? "/kontakt"}
           heading={contact?.contactTitle ?? "Kontakta oss"}
         >
           {contact?.contactText ? (
@@ -122,16 +132,14 @@ export default async function IndexPage() {
           ) : (
             <p className="font-body text-gray-400">Text saknas i Sanity.</p>
           )}
-          {contact?.contactCta?.resolvedLink?.href && (
-            <Button
-              href={contact.contactCta.resolvedLink.href || '/kontakt'}
-              showIcon={contact.contactCta.hasIcon ?? false}
-            >
-              {contact.contactCta.resolvedLink.label ??
-                contact.contactCta.ariaLabel ??
-                "Kontakta oss"}
-            </Button>
-          )}
+          <ButtonComp
+            variant="primary"
+            showIcon
+            icon="arrow"
+            href="/kontakt"
+          >
+            Kontakta oss
+          </ButtonComp>
         </Section>
       </main>
     </>

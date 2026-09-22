@@ -1,6 +1,69 @@
 import { defineQuery } from 'next-sanity'
 import { LINK_RESOLVER } from './linkResolver'
 
+export const BUTTON_QUERY = `
+  _type,
+
+  "hasButton": coalesce(hasButton, false),
+
+  btnProps {
+    link {
+      _type,
+      label,
+
+      link-> {
+        _id,
+        _type,
+        title,
+        linkType,
+        externalUrl,
+
+        internalReference-> {
+          _id,
+          _type,
+          title,
+          courseName,
+          firstName,
+          lastName,
+          "slug": slug.current
+        }
+      }
+    },
+
+    "target": coalesce(target, false),
+
+    variant,
+
+    "hasIcon": coalesce(hasIcon, true),
+
+    icon,
+    ariaLabel
+  }
+`;
+
+export const EYEBROW_QUERY = `
+  _type,
+  text,
+  target,
+  link-> {
+    href,
+    _id,
+    _type,
+    title,
+    linkType,
+    externalUrl,
+    internalReference-> {
+      _id,
+      _type,
+      title,
+      courseName,
+      firstName,
+      lastName,
+      "slug": slug.current
+    }
+  }
+`;
+
 export const CONTACT_PAGE_QUERY = defineQuery(`
   *[_type == "contactPage"][0] {
     hero {
@@ -53,6 +116,18 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
       title,
       text,
 
+      students[]-> {
+        _id,
+        name,
+        "slug": "/studentpoolen",
+
+        image {
+          asset,
+          crop,
+          hotspot,
+          alt
+        },
+      },
       "teamMembers": teamMembers[]-> {
         _id,
         firstName,
@@ -162,11 +237,7 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
       },
     
       cta {
-        variant,
-        hasIcon,
-        icon,
-        ariaLabel,
-        "resolvedLink": wa::resolveNavItem(link)
+        ${BUTTON_QUERY}
       },
     },
 
@@ -232,10 +303,10 @@ export const SERVICES_PAGE_QUERY = defineQuery(`
   }
 `);
 
-export const HOMEPAGE_QUERY = defineQuery(`
-  ${LINK_RESOLVER}
 
+export const HOMEPAGE_QUERY = defineQuery(`
   *[_type == "home"][0] {
+    _id,
     homeTitle,
     homeEyebrow,
 
@@ -246,108 +317,73 @@ export const HOMEPAGE_QUERY = defineQuery(`
 
     tjansterSection {
       tjansterTitle,
-        
+
       tjansterEyebrow {
-        text,
-        "resolvedLink": wa::resolveLinkRef(link)
+        ${EYEBROW_QUERY}
       },
-    
+
       tjansterText,
-    
-      "tjansterAccordions": services[]-> {
-        "_key": _id,
-        title,
-        "description": excerpt,
-      
-        "btnHref": select(
-          defined(slug.current) =>
-            "/rattsomraden/" + slug.current,
-          null
-        ),
-      
-        "icon": true
-      },
-    
+
       tjansterCta {
-        _type == "button" => {
-            "resolvedLink": wa::resolveNavItem(link)
-          },
-        variant,
-        hasIcon,
-        icon,
-        ariaLabel,
-        "resolvedLink": wa::resolveNavItem(link)
+        ${BUTTON_QUERY}
+      },
+
+      "AccordionItemData": services[]-> {
+        "_key": _id,
+        "title": title,
+        "description": excerpt,
+        "btnHref": slug.current
       }
     },
 
     employeeSection {
-  employeeTitle,
 
-  employeeEyebrow {
-    text,
-    "resolvedLink": wa::resolveLinkRef(link)
-  },
-
-  employeeText,
-
-  "employees": teamMembers[]-> {
-    _id,
-    firstName,
-    lastName,
-    "slug": slug.current,
-    excerpt,
-    professionalTitle,
-
-    image {
-      asset,
-      crop,
-      hotspot,
-      alt
-    },
-
-    "roles": roles[]-> {
-      _id,
+      cta {
+        ${BUTTON_QUERY}
+      },
       title,
-      "slug": slug.current
-    }
-  }
-},
+
+      eyebrow {
+        ${EYEBROW_QUERY}
+      },
+
+      description,
+
+      teamMembers[]-> {
+        _id,
+        firstName,
+        lastName,
+        image {
+          alt,
+          crop,
+          hotspot,
+          asset,
+        },
+        roles[]-> {
+          _id,
+          title
+        },
+        excerpt,
+        "slug": slug.current
+      }
+    },
 
     contactSection {
       contactTitle,
 
       contactEyebrow {
-        text,
-        "resolvedLink": wa::resolveLinkRef(link)
+        ${EYEBROW_QUERY}
       },
 
       contactText,
 
       contactCta {
-        hasButton,
-        "variant": btnProps.variant,
-        "hasIcon": btnProps.hasIcon,
-        "icon": btnProps.icon,
-        "ariaLabel": btnProps.ariaLabel,
-        
-        "resolvedLink": select(
-          hasButton == false => null,
-          wa::resolveNavItem(btnProps.link)
-        )
+        ${BUTTON_QUERY}
       }
     },
 
     seo {
-      metaTitle,
-      metaDescription,
-      canonicalUrl,
-      noIndex,
-      socialImage {
-        asset,
-        crop,
-        hotspot,
-        alt
-      }
+      ...
     }
   }
 `);
@@ -954,149 +990,80 @@ export const COURSE_CATEGORY_PAGE_QUERY =
   `);
 
 export const COURSE_PAGE_QUERY = defineQuery(`
-  ${LINK_RESOLVER} 
-  *[_type == "course" &&
-    slug.current == $courseSlug][0] {
+  ${LINK_RESOLVER}
+
+  *[
+    _type == "course" &&
+    slug.current == $courseSlug &&
+    category->slug.current == $categorySlug
+  ][0] {
     _id,
-    courseSlug,
+    "courseSlug": slug.current,
     courseName,
+    hero,
     intro,
     aimCourse,
     aboutCourse,
-    courseSections,
+    days,
+
+    courseSections[]{
+      _key,
+      _type,
+
+      _type == "courseTextSection" => {
+        sectionTitle,
+        sectionContent
+      },
+
+      _type == "image" => {
+        asset,
+        alt,
+        crop,
+        hotspot
+      }
+    },
+
     length,
     conditionsCourse,
-    lecturer-> {
+
+    lecturer->{
       _id,
       firstName,
       lastName,
+      "roles": roles[]->title,
+
       image {
-        hotspot,
         asset,
         crop,
+        hotspot,
         alt
       },
+
       "slug": slug.current,
-      professionalTitle[],
+      professionalTitle,
       email,
       phone
     },
-    category-> {
-      "slug": slug.current,
+
+    category->{
+      _id,
       title,
+      "slug": slug.current,
       courseListSection {
-        ...,
-        courseList[]-> {
-          ...,
+        title,
+        text,
+        courseList[]->{
+          _id,
           courseName,
           "slug": slug.current,
+          length
         }
       }
     },
+  
     seo {
       metaTitle,
       metaDescription
-    }
-  }
-`);
-
-export const ALL_COURSES_QUERY = defineQuery(`
-  *[_type == "course" && defined(slug.current)] | order(courseName asc){
-    _id,
-    courseName,
-    "slug": slug.current,
-    "categoryTitle": category->title,
-    "lecturer": lecturer->{
-      firstName,
-      lastName,
-      role,
-      image {
-        asset,
-        crop,
-        hotspot,
-        alt
-      }
-    }
-  }
-`);
-
-export const COURSE_CATEGORIES_QUERY = defineQuery(`
-  *[_type == "courseCategory"]{
-    _id,
-    title,
-    "slug": slug.current
-  } | order(title asc)
-`);
-
-export const COURSE_CATEGORY_QUERY = defineQuery(`
-  *[_type == "course" && defined(category)] | order(category asc) {
-    category
-  }[0...100]
-`);
-
-export const COURSE_QUERY = defineQuery(`
-  *[_type == "course" && defined(slug.current)] | order(courseName asc) {
-    _id,
-    courseName,
-    "slug": slug.current,
-    "lecturer": lecturer->{
-      firstName,
-      lastName,
-      role,
-      image {
-        asset,
-        crop,
-        hotspot,
-        alt
-      }
-    }
-  }
-`);
-
-export const COURSE_BY_CATEGORY_QUERY = defineQuery(`
-  *[_type == "courseCategory" && slug.current == $category][0]{
-    title,
-    description,
-    "courses": *[_type == "course" && category._ref == ^._id] | order(courseName asc) {
-      _id,
-      courseName,
-      "slug": slug.current
-    }
-  }
-`);
-
-export const COURSE_DETAIL_PAGE_QUERY = defineQuery(`
-  *[_type == "course" && slug.current == $slug][0]{
-    courseName,
-    aimCourse,
-    aboutCourse,
-    content,
-    image {
-      asset,
-      crop,
-      hotspot,
-      alt
-    },
-    length,
-    conditionsCourse,
-    "categoryTitle": category->title, 
-    courseSections[]{
-      sectionTitle,
-      sectionText
-    },
-    "lecturer": lecturer->{
-      firstName,
-      lastName,
-      "role": roles[0]->title,
-      number, 
-      image {
-        asset,
-        crop,
-        hotspot,
-        alt
-      },
-      email,
-      slug
     }
   }
 `);
@@ -1118,7 +1085,7 @@ export const EMPLOYEES_QUERY = defineQuery(`
       hotspot,
       alt
     },
-    "roles": roles[]->{ _id, title, "slug": slug.current }
+    "roles": roles[]->{ _id, title }
   }
 `);
 
@@ -1199,4 +1166,91 @@ export const EMPLOYEE_PAGE_QUERY = defineQuery(`
       yearEnd
     }
   }
-`)
+`);
+
+export const STUDENT_PAGE_QUERY = defineQuery(`
+  *[_type == "studentPoolPage"][0] {
+    _id,
+    title,
+    eyebrow,
+    intro,
+    image {
+      alt,
+      hotspot,
+      crop,
+      asset
+    }
+  }
+`);
+
+export const STUDENT_QUERY = defineQuery(`
+  *[_type == "studentPool"][0] {
+    _id,
+    name,
+    image {
+      alt,
+      hotspot,
+      crop,
+      asset
+    }
+  }
+`);
+
+export const ARTICLES_QUERY = defineQuery(`
+  *[_type == "article"] | order(_createdAt desc) {
+    _id,
+    title,
+    writers[]-> {
+      firstName,
+      lastName,
+      slug,
+      image {
+        crop,
+        asset,
+        alt,
+        hotspot
+      }
+    },
+    "slug": slug.current,
+    excerpt,
+    image {
+      asset,
+      alt,
+      crop,
+      hotspot
+    },
+    category-> {
+      title,
+      "slug": slug.current
+    },
+    _createdAt
+  }
+`);
+
+export const ARTICLE_PAGE_QUERY = defineQuery(`
+  *[_type == "article" && slug.current == $articleSlug][0]{
+    title,
+    "slug": slug.current,
+    writers[]-> {
+      firstName,
+      lastName,
+      slug,
+      image {
+        crop,
+        asset,
+        alt,
+        hotspot
+      }
+    },
+    image {
+      asset,
+      crop,
+      hotspot,
+      alt
+    },
+    seo {
+      metaTitle,
+      metaDescription
+    }
+  }
+`);

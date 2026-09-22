@@ -49,7 +49,9 @@ export default function RootLayout({
     >
       <body className="selection-brand overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
         <Nav />
-        {children}
+        <div className="relative z-20 drop-shadow-5xl bg-canvas min-h-screen">
+          {children}
+        </div>
         <Footer />
         <Analytics />
         <SpeedInsights />

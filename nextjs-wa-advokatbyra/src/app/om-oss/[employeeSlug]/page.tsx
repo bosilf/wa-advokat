@@ -54,8 +54,8 @@ export default async function EmployeePage({params}: PageProps) {
                 <div className="border-b border-border" />
                 <ul>
                   {employee?.jobHistory?.map((item, index) => (
-                    <li key={index} className="font-body text-ink flex gap-md justify-start">
-                      <div className="font-caption mt-4 w-20">{item.yearStart}-{item.yearEnd || 'nu'}</div>
+                    <li key={index} className="font-body text-ink grid grid-cols-[1fr_6fr] gap-md justify-start">
+                      <div className="font-caption mt-4 w-20">{item.yearStart} - {item.yearEnd || 'nu'}</div>
                       <div>
                         <h3 className="font-subheading text-ink">{item.jobTitle}</h3>
                         <p className="font-body text-body">{item.employer}</p>
@@ -69,8 +69,8 @@ export default async function EmployeePage({params}: PageProps) {
                 <div className="border-b border-border" />
                 <ul>
                   {employee?.educationList?.map((item, index) => (
-                    <li key={index} className="font-body text-ink flex gap-md justify-start">
-                      <div className="font-caption mt-4 w-20">{item.yearStart}-{item.yearEnd}</div>
+                    <li key={index} className="font-body text-ink grid grid-cols-[1fr_6fr] gap-md justify-start">
+                      <div className="font-caption mt-4 w-20">{item.yearStart} - {item.yearEnd}</div>
                       <div>
                         <h3 className="font-subheading text-ink">{item.education}</h3>
                         <p className="font-body text-body">{item.school}</p>

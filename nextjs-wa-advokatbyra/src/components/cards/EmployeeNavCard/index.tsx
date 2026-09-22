@@ -61,7 +61,7 @@ export default function EmployeeNavCard({
       href={employee.href ?? "#"}
       tabIndex={isActive ? undefined : -1}
       onClick={onNavigate}
-      className="grid grid-cols-[1fr_4fr] h-fit gap-sm  p-sm hover:bg-canvas rounded-md overflow-hidden transition-colors
+      className="grid aspect-5/1 grid-cols-[auto_1fr] h-fit gap-3  p-sm hover:bg-canvas rounded-md overflow-hidden transition-colors
       "
     >
       <div className="rounded-full relative aspect-square overflow-hidden bg-muted">
@@ -87,13 +87,13 @@ export default function EmployeeNavCard({
         )}
       </div>
 
-      <div className="">
-        <p className="font-subheading text-ink">
+      <div className="flex flex-col">
+        <p className="font-sans text-lg font-semibold text-ink">
           {name}
         </p>
 
         {jobTitles && (
-          <p className="font-caption">
+          <p className="font-caption capitalize">
             {jobTitles}
           </p>
         )}

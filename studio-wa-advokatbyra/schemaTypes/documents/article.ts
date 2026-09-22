@@ -78,16 +78,6 @@ export const article = defineType({
       validation: (rule) =>
         rule.required().min(1).unique(),
     }),
-
-    defineField({
-      name: "publishedAt",
-      title: "Publiceringsdatum",
-      type: "datetime",
-      group: "content",
-      initialValue: () => new Date().toISOString(),
-      validation: (rule) => rule.required(),
-    }),
-
     defineField({
       name: "image",
       title: "Huvudbild",
@@ -105,14 +95,6 @@ export const article = defineType({
             "Beskriv bildens innehåll för besökare som använder skärmläsare.",
           validation: (rule) => rule.required().max(160),
         }),
-
-        defineField({
-          name: "caption",
-          title: "Bildtext",
-          type: "string",
-          description: "Valfritt. Visas under bilden.",
-        }),
-
         defineField({
           name: "credit",
           title: "Fotograf/bildkälla",

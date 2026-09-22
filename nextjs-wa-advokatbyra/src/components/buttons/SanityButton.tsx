@@ -1,51 +1,156 @@
-import Button, {
-  type ButtonIcon,
-  type ButtonVariant,
-} from "./Button";
+import ButtonComp from "./Button";
 
-export type SanityButtonData = {
-  variant?: ButtonVariant | null;
-  icon?: ButtonIcon | null;
-  hasIcon?: boolean | null;
-  ariaLabel?: string | null;
+type SanityNavigationItem = {
+  _type?: "navigationItem";
 
-  resolvedLink?: {
-    label?: string | null;
-    href?: string | null;
-    openInNewTab?: boolean | null;
+  label?: string | null;
+
+  link?: {
+    _id?: string;
+    _type?: string;
+    title?: string | null;
+
+    linkType?:
+      | "internal"
+      | "external"
+      | null;
+
+    externalUrl?: string | null;
+
+    internalReference?: {
+      _id?: string;
+      _type?: string;
+      title?: string | null;
+      courseName?: string | null;
+      firstName?: string | null;
+      lastName?: string | null;
+      slug?: string | null;
+    } | null;
   } | null;
 };
 
-type SanityButtonProps = {
+export type SanityButtonData = {
+  _type: "button";
+
+  hasButton?: boolean | null;
+
+  btnProps?: {
+    link?: SanityNavigationItem | null;
+
+    target?: boolean | null;
+
+    variant?:
+      | "primary"
+      | "secondary"
+      | "simple"
+      | "simpleWhite"
+      | null;
+
+    hasIcon?: boolean | null;
+
+    icon?:
+      | "arrow"
+      | "arrowSimple"
+      | null;
+
+    ariaLabel?: string | null;
+  } | null;
+};
+
+export type SanityButtonProps = {
   button?: SanityButtonData | null;
 };
+
+function resolveHref(
+  navigationItem?: SanityNavigationItem | null,
+): string {
+  const link = navigationItem?.link;
+
+  if (!link) return "#";
+
+  if (
+    link.linkType === "external" &&
+    link.externalUrl
+  ) {
+    return link.externalUrl;
+  }
+
+  const reference = link.internalReference;
+
+  if (!reference?._type) {
+    return "#";
+  }
+
+  switch (reference._type) {
+    case "home":
+      return "/";
+
+    case "contactPage":
+      return "/kontakt";
+
+    case "aboutPage":
+      return "/om-oss";
+
+    case "courseMainPage":
+      return "/juridikkurser";
+
+    case "employee":
+      return reference.slug
+        ? `/medarbetare/${reference.slug}`
+        : "#";
+
+    case "service":
+      return reference.slug
+        ? `/tjanster/${reference.slug}`
+        : "#";
+
+    case "course":
+      return reference.slug
+        ? `/juridikkurser/${reference.slug}`
+        : "#";
+
+    case "article":
+      return reference.slug
+        ? `/artiklar/${reference.slug}`
+        : "#";
+
+    default:
+      return "#";
+  }
+}
 
 export default function SanityButton({
   button,
 }: SanityButtonProps) {
-  const resolvedLink = button?.resolvedLink;
-
-  if (!resolvedLink?.href || !resolvedLink.label) {
+  if (
+    !button?.hasButton ||
+    !button.btnProps
+  ) {
     return null;
   }
 
+  const btn = button.btnProps;
+
+  const href = resolveHref(btn.link);
+
   return (
-    <Button
-      href={resolvedLink.href}
-      variant={button?.variant ?? "primary"}
-      icon={button?.icon ?? "arrow"}
-      showIcon={button?.hasIcon ?? true}
+    <ButtonComp
+      href={href}
+      variant={btn.variant ?? "primary"}
+      icon={btn.icon ?? "arrow"}
+      showIcon={btn.hasIcon ?? true}
       ariaLabel={
-        button?.ariaLabel ??
-        resolvedLink.label
+        btn.ariaLabel ?? undefined
       }
       target={
-        resolvedLink.openInNewTab
+        btn.target
           ? "_blank"
           : "_self"
       }
     >
-      {resolvedLink.label}
-    </Button>
+      {btn.link?.label ??
+        btn.link?.link?.title ??
+        "Läs mer"}
+    </ButtonComp>
   );
 }

@@ -1,34 +1,47 @@
-import Image from "next/image"
+import ImageComponent from "@/components/common/Image"
+import Link from "next/link";
 
 export type TeamCardSmallType = {
+  hoverEffect?: boolean,
   hide?: boolean,
   name?: string,
-  caption?: string,
-  image?: string
+  link?: string,
+  caption?: string[] | string,
+  image?: {
+    alt?: string | null;
+    hotspot?: {
+      x?: number;
+      y?: number;
+    } | null;
+  } | null;
 }
 
-const TeamCardSmall = ({hide, name, caption, image}: TeamCardSmallType) => {
+
+const TeamCardSmall = ({hoverEffect = false, hide, name, caption, image, link}: TeamCardSmallType) => {
   return (
-    <div hidden={hide} className="w-96 p-5 inline-flex flex-col justify-start items-start gap-2.5 overflow-hidden">
-      <div className="self-stretch inline-flex justify-start items-center gap-3">
-        <Image className="size-10 p-2.5 rounded-full" src={image || "no image sr"} alt="" />
-        <div className="w-72 h-10 inline-flex flex-col justify-center items-start">
-          <div className="self-stretch inline-flex justify-start items-center gap-1">
-            <div className="justify-center text-black text-sm font-normal font-['Poppins'] leading-8">Av:</div>
-            <div className="size- flex justify-start items-center gap-0.5">
-              <div data-typografi="Default" className="size- flex justify-center items-center gap-2.5">
-                <div className="font-subheading text-ink">{name}</div>
-              </div>
-            </div>
-          </div>
-          <div data-hassecondtitle="true" className="size- inline-flex justify-start items-center gap-1">
-            <div className="size- flex justify-center items-center gap-2.5">
-              <div className="font-caption text-body">{caption}</div>
-            </div>
-          </div>
-        </div>
+    <Link className="group" href={link || '#'}>
+    <article hidden={hide} className="aspect-5/1 w-full max-h-20 grid grid-cols-[auto_1fr] gap-sm lg:gap-3 p-sm pr-md -mx-sm rounded-md transition-all duration-200 group-hover:bg-surface">
+      <div className="aspect-square h-full my-auto w-full overflow-hidden rounded-full" >
+        {hoverEffect 
+          ? <ImageComponent image={image} />
+          : <ImageComponent image={image} />
+        }
+        
       </div>
-    </div>
+      <div className="flex flex-col justify-center gap-xs">
+        <h3 className={`font-bold text-normal  transition-all duration-200 
+          ${
+            hoverEffect ? "text-ink/0 group-hover:text-ink" : "text-ink group-hover:text-footer"
+          }
+          `}>{name}</h3>
+        <p className={`font-caption transition-all capitalize duration-200
+          ${
+            hoverEffect ? "text-body/0 group-hover:text-body" : "text-body group-hover:text-accent"
+          }
+          `}>{caption}</p>
+      </div>
+    </article>
+    </Link>
   )
 }
 

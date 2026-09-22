@@ -31,12 +31,6 @@ export default function EmployeeCard({
   const cardRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
 
-  const [isPressed, setIsPressed] = useState(false)
-
-  const handlePress = () => {
-    setIsPressed(!isPressed)
-  }
-
   const firstName = employee.firstName ?? "";
   const lastName = employee.lastName ?? "";
   const employeeName =
@@ -228,7 +222,7 @@ export default function EmployeeCard({
                 key={role._id}
                 className="px-xs first:pl-0 last:pr-0"
                 >
-                  {role.slug ? (
+                  {role.title ? (
                     <p
                     className="text-body font-caption"
                     >

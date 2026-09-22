@@ -99,7 +99,7 @@ export default function HeroEmployeeMobile({
           )}
 
           {title && (
-            <span className="font-display md:text-white  md:py-md md:pl-xl md:pr-xl w-fit max-w-[80%] px-lg">
+            <span className="font-display md:text-white  md:py-md md:pl-xl md:pr-xl w-fit px-lg">
               {title}
             </span>
           )}
