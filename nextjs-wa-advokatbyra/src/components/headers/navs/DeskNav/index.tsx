@@ -27,7 +27,7 @@ export default function DeskNav({
   }
 
   return (
-    <header className="absolute z-200 hidden h-fit w-full justify-center p-lg md:flex">
+    <header className="absolute z-2000 hidden h-fit w-full justify-center p-lg md:flex">
       <nav
         aria-label="Huvudnavigation"
         className="relative z-150"

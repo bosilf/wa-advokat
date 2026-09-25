@@ -40,11 +40,15 @@ export default async function EmployeePage({params}: PageProps) {
 
   return (
     <>
-    <HeroEmployee title={employee?.employeeDescription || 'Erfaren jurist'} eyebrow="wa advokatbyrå" image={employee?.image} employee={
-      {
-      email: employee?.email || 'epost saknas', firstName: employee?.firstName || 'namn saknas', lastName: employee?.lastName || 'namn saknas', phone: employee?.phone || 'nummer saknas', roles: roleTitles
-    }
-    }  />
+      <HeroEmployee title={employee?.employeeDescription || 'Erfaren jurist'} eyebrow="wa advokatbyrå" image={employee?.image} 
+        employee={{
+          email: employee?.email || 'epost saknas', 
+          firstName: employee?.firstName || 'namn saknas', 
+          lastName: employee?.lastName || 'namn saknas', 
+          phone: employee?.phone || 'nummer saknas', 
+          roles: roleTitles
+        }}  
+      />
 
       <main>
         <ColumnSection heading="Erfarenhet & utbildning" color="bg-surface" eyebrow="bakgrund" >

@@ -77,6 +77,7 @@ export default function NavItems({
                   : undefined
               }
               className={`
+                ${!item.hasDropdown ? "relative group" : ""}
                 relative block
                 font-subheading text-ink
                 transition-colors duration-300
@@ -88,6 +89,9 @@ export default function NavItems({
                 ${isActive ? "text-muted" : ""}
               `}
             >
+              {!item.hasDropdown &&
+                <div className="absolute w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-white top-full left-0 " />
+              }
               {label}
 
               {!mobile && item.hasDropdown && (

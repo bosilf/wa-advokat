@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import EmployeeNavCard from "@/components/cards/EmployeeNavCard";
 import type { NavigationItems } from "../NavItems";
+import ButtonComp from "@/components/buttons/Button";
 
 type DeskNavSliderProps = {
   items: NavigationItems;
@@ -83,7 +84,7 @@ export default function DeskNavSlider({
                   </div>
                 ) : item.dropdownSource ===
                   "courses" ? (
-                  <div className="grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-lg">
+                  <div className="grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))]">
                     {item.courses?.map(
                       (group) => (
                         <div key={group._key}>
@@ -96,7 +97,7 @@ export default function DeskNavSlider({
                             {group.title}
                           </Link>
 
-                          <div className="flex flex-col gap-xs">
+                          <div className="flex flex-col">
                             {group.courses?.map(
                               (course) => (
                                 <Link
@@ -117,6 +118,7 @@ export default function DeskNavSlider({
                                   }
                                   className="
                                     rounded-sm
+                                    text-md
                                     p-xs
                                     transition-colors
                                     hover:bg-surface
@@ -133,9 +135,10 @@ export default function DeskNavSlider({
                         </div>
                       ),
                     )}
+                    <ButtonComp variant="primary" href="/boka-kurs">Boka kurs</ButtonComp>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-2 gap-xs">
+                  <div className="grid grid-cols-1 gap-xs">
                     {item.dropdownItems?.map(
                       (dropdownItem) => (
                         <Link
@@ -157,7 +160,7 @@ export default function DeskNavSlider({
                           className="
                             rounded-sm
                             px-sm py-sm
-                            font-body
+                            font-subheading
                             transition-colors
                             hover:bg-surface
                             hover:text-accent
