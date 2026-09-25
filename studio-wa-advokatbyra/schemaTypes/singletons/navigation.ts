@@ -28,7 +28,7 @@ export const navigation = defineType({
       type: "array",
       group: "header",
       description:
-        "Länkarna används i både desktop- och mobilmenyn. Dra dem för att ändra ordningen.",
+        "Länkarna används i både desktop- och mobilmenyn. Dra dem för att ändra ordningen. *Rättsområden, juridikkurser och medarbetare måste vara bredvid varandra*",
 
       of: [
         {

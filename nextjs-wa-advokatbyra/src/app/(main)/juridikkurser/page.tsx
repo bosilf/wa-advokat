@@ -213,7 +213,7 @@ if (!page) {
                 }
                 />
               )}
-              <Button variant="primary" href="/boka-burs" showIcon={false} >Önska datum</Button>
+              <Button variant="primary" href="/boka-kurs" showIcon={false} >Önska datum</Button>
             </div>
             <div className=" bg-white hidden lg:block flex-1"/>
           </section>
