@@ -398,7 +398,23 @@ export const NAVIGATION_QUERY = defineQuery(`
       hasDropdown,
       dropdownSource,
 
-      "resolvedLink": wa::resolveNavItem(@),
+      "resolvedLink": {
+        "label": wa::resolveNavItem(@).label,
+        
+        "href": coalesce(
+          wa::resolveNavItem(@).href,
+        
+          select(
+            dropdownSource == "employees" => "/om-oss",
+            dropdownSource == "services" => "/rattsomraden",
+            dropdownSource == "courses" => "/juridikkurser",
+            null
+          )
+        ),
+      
+        "linkType": wa::resolveNavItem(@).linkType,
+        "referenceType": wa::resolveNavItem(@).referenceType
+      },
 
       "courses": select(
   dropdownSource == "courses" =>

@@ -54,6 +54,6 @@ export const contactPage = defineType({
           },
         },
       ],
-    }),
+    })
   ],
 })

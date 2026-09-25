@@ -15,13 +15,10 @@ const Footer = () => {
     >
       <div
         className="
-          fixed inset-x-0 bottom-0
           h-svh
           bg-footer
           px-lg pt-16 pb-6
           flex flex-col justify-between
-          scroll-m-11
-          md:static
           md:h-auto
           md:min-h-150
         "

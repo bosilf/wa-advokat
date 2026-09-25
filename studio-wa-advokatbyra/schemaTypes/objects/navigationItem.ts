@@ -9,8 +9,8 @@ const fixedRoutes: Record<string, string> = {
 };
 
 const dynamicRoutes: Record<string, string> = {
-  employee: "/medarbetare",
-  service: "/tjanster",
+  employee: "/om-oss",
+  service: "/rattsomraden",
   course: "/juridikkurser",
   article: "/artiklar",
 };

@@ -480,11 +480,6 @@ export const aboutPage = defineType({
       type: "seo",
       group: "seo",
     }),
-    defineField({
-      name: 'slug',
-      type: 'slug',
-      group: 'seo'
-    })
   ],
 
   preview: {

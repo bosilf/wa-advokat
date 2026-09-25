@@ -47,16 +47,12 @@ export type TeamSection = {
   eyebrow?: string;
   title?: string;
   text?: string;
-  teamMembers?: Array<
-    {
-      _key: string;
-    } & EmployeeReference
-  >;
-  buttons?: Array<
-    {
-      _key: string;
-    } & Button
-  >;
+  teamMembers?: Array<{
+    _key: string;
+  } & EmployeeReference>;
+  buttons?: Array<{
+    _key: string;
+  } & Button>;
 };
 
 export type SanityImageAssetReference = {
@@ -103,29 +99,26 @@ export type SanityImageHotspot = {
 
 export type BlockObject = {
   _type: "blockObject";
-  block?: Array<
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "normal" | "display" | "h2" | "h3" | "eyebrow" | "blockquote";
-        listItem?: "bullet" | "number" | "check";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-    | ({
-        _key: string;
-      } & Button)
-  >;
+  block?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "display" | "h2" | "h3" | "eyebrow" | "blockquote";
+    listItem?: "bullet" | "number" | "check";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    _key: string;
+  } & Button>;
 };
 
 export type StudentPool = {
@@ -269,16 +262,7 @@ export type Eyebrow = {
   eyebrowLink?: {
     title?: string;
     linkType?: "internal" | "external";
-    internalReference?:
-      | HomeReference
-      | PageReference
-      | ContactPageReference
-      | AboutPageReference
-      | CourseMainPageReference
-      | EmployeeReference
-      | ServiceReference
-      | CourseReference
-      | ArticleReference;
+    internalReference?: HomeReference | PageReference | ContactPageReference | AboutPageReference | CourseMainPageReference | EmployeeReference | ServiceReference | CourseReference | ArticleReference;
     href?: string;
     _type: "link";
   };
@@ -316,52 +300,37 @@ export type Role = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  slug?: Slug;
   description?: string;
   seo?: Seo;
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
 export type AccordionBlock = {
   _type: "accordionBlock";
-  items?: Array<
-    {
-      _key: string;
-    } & AccordionItem
-  >;
+  items?: Array<{
+    _key: string;
+  } & AccordionItem>;
 };
 
 export type ServiceGridBlock = {
   _type: "serviceGridBlock";
-  services?: Array<
-    {
-      _key: string;
-    } & ServiceReference
-  >;
+  services?: Array<{
+    _key: string;
+  } & ServiceReference>;
 };
 
 export type EmployeeGridBlock = {
   _type: "employeeGridBlock";
   selectionMode?: "all" | "manual";
-  employees?: Array<
-    {
-      _key: string;
-    } & EmployeeReference
-  >;
+  employees?: Array<{
+    _key: string;
+  } & EmployeeReference>;
 };
 
 export type ButtonGroupBlock = {
   _type: "buttonGroupBlock";
-  buttons?: Array<
-    {
-      _key: string;
-    } & Button
-  >;
+  buttons?: Array<{
+    _key: string;
+  } & Button>;
 };
 
 export type ImageBlock = {
@@ -423,26 +392,19 @@ export type PageSection = {
   eyebrow?: Eyebrow;
   heading?: string;
   theme?: "canvas" | "surface" | "dark";
-  blocks?: Array<
-    | ({
-        _key: string;
-      } & RichTextBlock)
-    | ({
-        _key: string;
-      } & ImageBlock)
-    | ({
-        _key: string;
-      } & ButtonGroupBlock)
-    | ({
-        _key: string;
-      } & EmployeeGridBlock)
-    | ({
-        _key: string;
-      } & ServiceGridBlock)
-    | ({
-        _key: string;
-      } & AccordionBlock)
-  >;
+  blocks?: Array<{
+    _key: string;
+  } & RichTextBlock | {
+    _key: string;
+  } & ImageBlock | {
+    _key: string;
+  } & ButtonGroupBlock | {
+    _key: string;
+  } & EmployeeGridBlock | {
+    _key: string;
+  } & ServiceGridBlock | {
+    _key: string;
+  } & AccordionBlock>;
 };
 
 export type Navigation = {
@@ -451,35 +413,25 @@ export type Navigation = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  headerNavigation?: Array<
-    {
-      _key: string;
-    } & NavigationItem
-  >;
+  headerNavigation?: Array<{
+    _key: string;
+  } & NavigationItem>;
   footerNavigationTitle?: string;
-  footerNavigation?: Array<
-    {
-      _key: string;
-    } & NavigationItem
-  >;
+  footerNavigation?: Array<{
+    _key: string;
+  } & NavigationItem>;
   footerCoursesTitle?: string;
-  footerCourseNavigation?: Array<
-    {
-      _key: string;
-    } & NavigationItem
-  >;
+  footerCourseNavigation?: Array<{
+    _key: string;
+  } & NavigationItem>;
   footerCourseCta?: Button;
   footerPracticeAreasTitle?: string;
-  footerPracticeAreaNavigation?: Array<
-    {
-      _key: string;
-    } & NavigationItem
-  >;
-  legalNavigation?: Array<
-    {
-      _key: string;
-    } & NavigationItem
-  >;
+  footerPracticeAreaNavigation?: Array<{
+    _key: string;
+  } & NavigationItem>;
+  legalNavigation?: Array<{
+    _key: string;
+  } & NavigationItem>;
 };
 
 export type LinkReference = {
@@ -505,16 +457,7 @@ export type Link = {
   _rev: string;
   title?: string;
   linkType?: "internal" | "external";
-  internalReference?:
-    | HomeReference
-    | PageReference
-    | ContactPageReference
-    | AboutPageReference
-    | CourseMainPageReference
-    | EmployeeReference
-    | ServiceReference
-    | CourseReference
-    | ArticleReference;
+  internalReference?: HomeReference | PageReference | ContactPageReference | AboutPageReference | CourseMainPageReference | EmployeeReference | ServiceReference | CourseReference | ArticleReference;
   href?: string;
 };
 
@@ -538,62 +481,57 @@ export type Service = {
     credit?: string;
     _type: "image";
   };
-  body?: Array<
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "normal" | "h2" | "h3" | "blockquote";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          openInNewTab?: boolean;
-          _type: "externalLink";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-    | {
-        asset?: SanityImageAssetReference;
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        caption?: string;
-        credit?: string;
-        _type: "image";
-        _key: string;
-      }
-  >;
-  sections?: Array<
-    | ({
-        _key: string;
-      } & Section)
-    | ({
-        _key: string;
-      } & CardContainer)
-    | ({
-        _key: string;
-      } & TeamSection)
-  >;
-  experts?: Array<
-    {
+  body?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
       _key: string;
-    } & EmployeeReference
-  >;
-  relatedCourses?: Array<
-    {
+    }>;
+    style?: "normal" | "h2" | "h3" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      openInNewTab?: boolean;
+      _type: "externalLink";
       _key: string;
-    } & CourseReference
-  >;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    caption?: string;
+    credit?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  sections?: Array<{
+    _key: string;
+  } & Section | {
+    _key: string;
+  } & CardContainer | {
+    _key: string;
+  } & TeamSection>;
+  experts?: Array<{
+    _key: string;
+  } & EmployeeReference>;
+  relatedCourses?: Array<{
+    _key: string;
+  } & CourseReference>;
   cta?: Button;
   sortOrder?: number;
   seo?: Seo;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
 };
 
 export type StudentPoolReference = {
@@ -623,16 +561,12 @@ export type AboutPage = {
     eyebrow?: Eyebrow;
     title?: string;
     text?: string;
-    teamMembers?: Array<
-      {
-        _key: string;
-      } & EmployeeReference
-    >;
-    students?: Array<
-      {
-        _key: string;
-      } & StudentPoolReference
-    >;
+    teamMembers?: Array<{
+      _key: string;
+    } & EmployeeReference>;
+    students?: Array<{
+      _key: string;
+    } & StudentPoolReference>;
     cta?: Button;
   };
   practiceAreasSection?: {
@@ -656,11 +590,9 @@ export type AboutPage = {
       _type: "block";
       _key: string;
     }>;
-    services?: Array<
-      {
-        _key: string;
-      } & ServiceReference
-    >;
+    services?: Array<{
+      _key: string;
+    } & ServiceReference>;
     cta?: Button;
   };
   adviceSection?: {
@@ -708,11 +640,9 @@ export type AboutPage = {
       _type: "block";
       _key: string;
     }>;
-    courses?: Array<
-      {
-        _key: string;
-      } & CourseReference
-    >;
+    courses?: Array<{
+      _key: string;
+    } & CourseReference>;
     cta?: Button;
   };
   contactSection?: {
@@ -729,11 +659,9 @@ export type AboutPage = {
       submitLabel?: string;
     };
   };
-  additionalSections?: Array<
-    {
-      _key: string;
-    } & PageSection
-  >;
+  additionalSections?: Array<{
+    _key: string;
+  } & PageSection>;
   seo?: Seo;
   slug?: Slug;
 };
@@ -760,11 +688,9 @@ export type Page = {
   _rev: string;
   title?: string;
   path?: Slug;
-  sections?: Array<
-    {
-      _key: string;
-    } & PageSection
-  >;
+  sections?: Array<{
+    _key: string;
+  } & PageSection>;
   seo?: Seo;
 };
 
@@ -819,22 +745,18 @@ export type Home = {
       _key: string;
     }>;
     tjansterCta?: Button;
-    services?: Array<
-      {
-        _key: string;
-      } & ServiceReference
-    >;
+    services?: Array<{
+      _key: string;
+    } & ServiceReference>;
   };
   employeeSection?: {
     title?: string;
     eyebrow?: Eyebrow;
     description?: string;
     cta?: Button;
-    teamMembers?: Array<
-      {
-        _key: string;
-      } & EmployeeReference
-    >;
+    teamMembers?: Array<{
+      _key: string;
+    } & EmployeeReference>;
   };
   contactSection?: {
     contactTitle?: string;
@@ -880,11 +802,9 @@ export type CourseMainPage = {
   courseCategories?: Array<{
     chosenCourseCategory?: CourseCategoryReference;
     description?: BlockObject;
-    courseList?: Array<
-      {
-        _key: string;
-      } & CourseReference
-    >;
+    courseList?: Array<{
+      _key: string;
+    } & CourseReference>;
     _type: "courseExperts";
     _key: string;
   }>;
@@ -901,16 +821,7 @@ export type CourseMainPage = {
   slug?: {
     title?: string;
     linkType?: "internal" | "external";
-    internalReference?:
-      | HomeReference
-      | PageReference
-      | ContactPageReference
-      | AboutPageReference
-      | CourseMainPageReference
-      | EmployeeReference
-      | ServiceReference
-      | CourseReference
-      | ArticleReference;
+    internalReference?: HomeReference | PageReference | ContactPageReference | AboutPageReference | CourseMainPageReference | EmployeeReference | ServiceReference | CourseReference | ArticleReference;
     href?: string;
     _type: "link";
   };
@@ -966,15 +877,9 @@ export type CardContainer = {
   hasDescription?: boolean;
   description?: string;
   hasAccordion?: boolean;
-  accordionItems?: Array<
-    | CourseReference
-    | CourseCategoryReference
-    | EmployeeReference
-    | ArticleReference
-    | ({
-        _key: string;
-      } & AccordionItem)
-  >;
+  accordionItems?: Array<CourseReference | CourseCategoryReference | EmployeeReference | ArticleReference | {
+    _key: string;
+  } & AccordionItem>;
 };
 
 export type SectionReference = {
@@ -991,11 +896,9 @@ export type BookCoursePage = {
   _updatedAt: string;
   _rev: string;
   hero?: HeroRegular;
-  content?: Array<
-    {
-      _key: string;
-    } & SectionReference
-  >;
+  content?: Array<{
+    _key: string;
+  } & SectionReference>;
   bookCourselink?: NavigationItem;
   educationList?: Array<{
     school?: string;
@@ -1035,11 +938,9 @@ export type Article = {
   card?: CardContainer;
   slug?: Slug;
   excerpt?: string;
-  writers?: Array<
-    {
-      _key: string;
-    } & EmployeeReference
-  >;
+  writers?: Array<{
+    _key: string;
+  } & EmployeeReference>;
   image?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -1049,47 +950,40 @@ export type Article = {
     credit?: string;
     _type: "image";
   };
-  body?: Array<
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?: "normal" | "h2" | "h3" | "blockquote";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-    | {
-        asset?: SanityImageAssetReference;
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        caption?: string;
-        credit?: string;
-        _type: "image";
-        _key: string;
-      }
-  >;
-  relatedServices?: Array<
-    {
+  body?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
       _key: string;
-    } & ServiceReference
-  >;
-  relatedCourses?: Array<
-    {
+    }>;
+    style?: "normal" | "h2" | "h3" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
       _key: string;
-    } & CourseReference
-  >;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    caption?: string;
+    credit?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  relatedServices?: Array<{
+    _key: string;
+  } & ServiceReference>;
+  relatedCourses?: Array<{
+    _key: string;
+  } & CourseReference>;
   seo?: Seo;
 };
 
@@ -1127,116 +1021,81 @@ export type Course = {
     _type: "block";
     _key: string;
   }>;
-  aimCourse?: Array<
-    | ({
+  aimCourse?: Array<{
+    _key: string;
+  } & TitleObject | {
+    _key: string;
+  } & Button | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  aboutCourse?: Array<{
+    _key: string;
+  } & TitleObject | {
+    _key: string;
+  } & Button | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  courseSections?: Array<{
+    sectionTitle?: string;
+    sectionContent?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
         _key: string;
-      } & TitleObject)
-    | ({
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
         _key: string;
-      } & Button)
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?:
-          | "normal"
-          | "h1"
-          | "h2"
-          | "h3"
-          | "h4"
-          | "h5"
-          | "h6"
-          | "blockquote";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-  >;
-  aboutCourse?: Array<
-    | ({
-        _key: string;
-      } & TitleObject)
-    | ({
-        _key: string;
-      } & Button)
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?:
-          | "normal"
-          | "h1"
-          | "h2"
-          | "h3"
-          | "h4"
-          | "h5"
-          | "h6"
-          | "blockquote";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-  >;
-  courseSections?: Array<
-    | {
-        sectionTitle?: string;
-        sectionContent?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?:
-            | "normal"
-            | "h1"
-            | "h2"
-            | "h3"
-            | "h4"
-            | "h5"
-            | "h6"
-            | "blockquote";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
-        _type: "courseTextSection";
-        _key: string;
-      }
-    | {
-        asset?: SanityImageAssetReference;
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: "image";
-        _key: string;
-      }
-  >;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    _type: "courseTextSection";
+    _key: string;
+  } | {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
   length?: string;
   conditionsCourse?: Array<{
     children?: Array<{
@@ -1300,20 +1159,16 @@ export type CourseCategory = {
   courseListSection?: {
     title?: TitleObject;
     text?: BlockObject;
-    courseList?: Array<
-      {
-        _key: string;
-      } & CourseReference
-    >;
+    courseList?: Array<{
+      _key: string;
+    } & CourseReference>;
   };
   courseInfoSection?: {
     title?: TitleObject;
     text?: BlockObject;
-    courseInfo?: Array<
-      {
-        _key: string;
-      } & AccordionItem
-    >;
+    courseInfo?: Array<{
+      _key: string;
+    } & AccordionItem>;
   };
   contactSection?: TitleObject;
   courseInfoLongSection?: {
@@ -1348,11 +1203,9 @@ export type Employee = {
   lastName?: string;
   slug?: Slug;
   professionalTitle?: "advokat" | "jurist" | "other";
-  roles?: Array<
-    {
-      _key: string;
-    } & RoleReference
-  >;
+  roles?: Array<{
+    _key: string;
+  } & RoleReference>;
   image?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -1384,17 +1237,13 @@ export type Employee = {
   phone?: string;
   email?: string;
   linkedInUrl?: string;
-  expertise?: Array<
-    {
-      _key: string;
-    } & ServiceReference
-  >;
+  expertise?: Array<{
+    _key: string;
+  } & ServiceReference>;
   hasCourses?: boolean;
-  courses?: Array<
-    {
-      _key: string;
-    } & CourseReference
-  >;
+  courses?: Array<{
+    _key: string;
+  } & CourseReference>;
   educationList?: Array<{
     education?: string;
     school?: string;
@@ -1556,78 +1405,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes =
-  | BtnProps
-  | TitleObject
-  | TextObject
-  | EmployeeReference
-  | TeamSection
-  | SanityImageAssetReference
-  | StudentPoolPage
-  | SanityImageCrop
-  | SanityImageHotspot
-  | BlockObject
-  | StudentPool
-  | Settings
-  | Seo
-  | Button
-  | HomeReference
-  | PageReference
-  | ContactPageReference
-  | AboutPageReference
-  | CourseMainPageReference
-  | ServiceReference
-  | CourseReference
-  | ArticleReference
-  | Eyebrow
-  | Section
-  | Sections
-  | Role
-  | Slug
-  | AccordionBlock
-  | ServiceGridBlock
-  | EmployeeGridBlock
-  | ButtonGroupBlock
-  | ImageBlock
-  | RichText
-  | RichTextBlock
-  | PageSection
-  | Navigation
-  | LinkReference
-  | NavigationItem
-  | Link
-  | Service
-  | StudentPoolReference
-  | AboutPage
-  | HeroRegular
-  | Page
-  | Home
-  | CourseCategoryReference
-  | CourseMainPage
-  | ContactPage
-  | CardContainer
-  | SectionReference
-  | BookCoursePage
-  | ArticleMainPage
-  | Article
-  | AccordionItem
-  | Course
-  | CourseCategory
-  | RoleReference
-  | Employee
-  | MediaTag
-  | Color
-  | RgbaColor
-  | HsvaColor
-  | HslaColor
-  | SanityImagePaletteSwatch
-  | SanityImagePalette
-  | SanityImageDimensions
-  | SanityImageMetadata
-  | SanityFileAsset
-  | SanityAssetSourceData
-  | SanityImageAsset
-  | Geopoint;
+export type AllSanitySchemaTypes = BtnProps | TitleObject | TextObject | EmployeeReference | TeamSection | SanityImageAssetReference | StudentPoolPage | SanityImageCrop | SanityImageHotspot | BlockObject | StudentPool | Settings | Seo | Button | HomeReference | PageReference | ContactPageReference | AboutPageReference | CourseMainPageReference | ServiceReference | CourseReference | ArticleReference | Eyebrow | Section | Sections | Role | AccordionBlock | ServiceGridBlock | EmployeeGridBlock | ButtonGroupBlock | ImageBlock | RichText | RichTextBlock | PageSection | Navigation | LinkReference | NavigationItem | Link | Service | Slug | StudentPoolReference | AboutPage | HeroRegular | Page | Home | CourseCategoryReference | CourseMainPage | ContactPage | CardContainer | SectionReference | BookCoursePage | ArticleMainPage | Article | AccordionItem | Course | CourseCategory | RoleReference | Employee | MediaTag | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: CONTACT_PAGE_QUERY
@@ -1701,7 +1479,7 @@ export type OM_OSS_PAGE_QUERY_RESULT = {
       roles: Array<{
         _id: string;
         title: string | null;
-        slug: string | null;
+        slug: null;
       }> | null;
     }> | null;
     cta: {
@@ -1833,89 +1611,79 @@ export type OM_OSS_PAGE_QUERY_RESULT = {
             title: string | null;
             linkType: "external" | "internal" | null;
             externalUrl: null;
-            internalReference:
-              | {
-                  _id: string;
-                  _type: "aboutPage";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "article";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "contactPage";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "course";
-                  title: null;
-                  courseName: string | null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "courseMainPage";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "employee";
-                  title: null;
-                  courseName: null;
-                  firstName: string | null;
-                  lastName: string | null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "home";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "page";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "service";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | null;
+            internalReference: {
+              _id: string;
+              _type: "aboutPage";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "article";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "contactPage";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "course";
+              title: null;
+              courseName: string | null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "courseMainPage";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "employee";
+              title: null;
+              courseName: null;
+              firstName: string | null;
+              lastName: string | null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "home";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "page";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "service";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | null;
           } | null;
         } | null;
         target: boolean | false;
@@ -1952,88 +1720,65 @@ export type OM_OSS_PAGE_QUERY_RESULT = {
     } | null;
     heading?: string;
     theme?: "canvas" | "dark" | "surface";
-    blocks: Array<
-      | {
+    blocks: Array<{
+      _key: string;
+      _type: "accordionBlock";
+      items?: Array<{
+        _key: string;
+      } & AccordionItem>;
+    } | {
+      _key: string;
+      _type: "buttonGroupBlock";
+      buttons?: Array<{
+        _key: string;
+      } & Button>;
+    } | {
+      _key: string;
+      _type: "employeeGridBlock";
+      selectionMode?: "all" | "manual";
+      employees?: Array<{
+        _key: string;
+      } & EmployeeReference>;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image?: {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      caption?: string;
+    } | {
+      _key: string;
+      _type: "richTextBlock";
+      content?: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
           _key: string;
-          _type: "accordionBlock";
-          items?: Array<
-            {
-              _key: string;
-            } & AccordionItem
-          >;
-        }
-      | {
+        }>;
+        style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
           _key: string;
-          _type: "buttonGroupBlock";
-          buttons?: Array<
-            {
-              _key: string;
-            } & Button
-          >;
-        }
-      | {
-          _key: string;
-          _type: "employeeGridBlock";
-          selectionMode?: "all" | "manual";
-          employees?: Array<
-            {
-              _key: string;
-            } & EmployeeReference
-          >;
-        }
-      | {
-          _key: string;
-          _type: "imageBlock";
-          image?: {
-            asset?: SanityImageAssetReference;
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
-          caption?: string;
-        }
-      | {
-          _key: string;
-          _type: "richTextBlock";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "h1"
-              | "h2"
-              | "h3"
-              | "h4"
-              | "h5"
-              | "h6"
-              | "normal";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
-        }
-      | {
-          _key: string;
-          _type: "serviceGridBlock";
-          services?: Array<
-            {
-              _key: string;
-            } & ServiceReference
-          >;
-        }
-    > | null;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }>;
+    } | {
+      _key: string;
+      _type: "serviceGridBlock";
+      services?: Array<{
+        _key: string;
+      } & ServiceReference>;
+    }> | null;
   }> | null;
   seo: {
     metaTitle: string | null;
@@ -2121,89 +1866,79 @@ export type HOMEPAGE_QUERY_RESULT = {
             title: string | null;
             linkType: "external" | "internal" | null;
             externalUrl: null;
-            internalReference:
-              | {
-                  _id: string;
-                  _type: "aboutPage";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "article";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "contactPage";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "course";
-                  title: null;
-                  courseName: string | null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "courseMainPage";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "employee";
-                  title: null;
-                  courseName: null;
-                  firstName: string | null;
-                  lastName: string | null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "home";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "page";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "service";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | null;
+            internalReference: {
+              _id: string;
+              _type: "aboutPage";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "article";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "contactPage";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "course";
+              title: null;
+              courseName: string | null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "courseMainPage";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "employee";
+              title: null;
+              courseName: null;
+              firstName: string | null;
+              lastName: string | null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "home";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "page";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "service";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | null;
           } | null;
         } | null;
         target: boolean | false;
@@ -2234,89 +1969,79 @@ export type HOMEPAGE_QUERY_RESULT = {
             title: string | null;
             linkType: "external" | "internal" | null;
             externalUrl: null;
-            internalReference:
-              | {
-                  _id: string;
-                  _type: "aboutPage";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "article";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "contactPage";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "course";
-                  title: null;
-                  courseName: string | null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "courseMainPage";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "employee";
-                  title: null;
-                  courseName: null;
-                  firstName: string | null;
-                  lastName: string | null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "home";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "page";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "service";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | null;
+            internalReference: {
+              _id: string;
+              _type: "aboutPage";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "article";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "contactPage";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "course";
+              title: null;
+              courseName: string | null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "courseMainPage";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "employee";
+              title: null;
+              courseName: null;
+              firstName: string | null;
+              lastName: string | null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "home";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "page";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "service";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | null;
           } | null;
         } | null;
         target: boolean | false;
@@ -2374,89 +2099,79 @@ export type HOMEPAGE_QUERY_RESULT = {
             title: string | null;
             linkType: "external" | "internal" | null;
             externalUrl: null;
-            internalReference:
-              | {
-                  _id: string;
-                  _type: "aboutPage";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "article";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "contactPage";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "course";
-                  title: null;
-                  courseName: string | null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "courseMainPage";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "employee";
-                  title: null;
-                  courseName: null;
-                  firstName: string | null;
-                  lastName: string | null;
-                  slug: string | null;
-                }
-              | {
-                  _id: string;
-                  _type: "home";
-                  title: null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "page";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: null;
-                }
-              | {
-                  _id: string;
-                  _type: "service";
-                  title: string | null;
-                  courseName: null;
-                  firstName: null;
-                  lastName: null;
-                  slug: string | null;
-                }
-              | null;
+            internalReference: {
+              _id: string;
+              _type: "aboutPage";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "article";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "contactPage";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "course";
+              title: null;
+              courseName: string | null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "courseMainPage";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "employee";
+              title: null;
+              courseName: null;
+              firstName: string | null;
+              lastName: string | null;
+              slug: string | null;
+            } | {
+              _id: string;
+              _type: "home";
+              title: null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "page";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: null;
+            } | {
+              _id: string;
+              _type: "service";
+              title: string | null;
+              courseName: null;
+              firstName: null;
+              lastName: null;
+              slug: string | null;
+            } | null;
           } | null;
         } | null;
         target: boolean | false;
@@ -2486,7 +2201,7 @@ export type HOMEPAGE_QUERY_RESULT = {
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: NAVIGATION_QUERY
-// Query: fn wa::resolveLinkRef($linkRef) = $linkRef->{    "label": coalesce(      title,      internalReference->courseName,      internalReference->title,      internalReference->firstName + " " +        internalReference->lastName    ),    "href": select(      linkType == "external" =>        href,      internalReference->_type == "home" =>        "/",      internalReference->_type == "contactPage" =>        "/kontakt",      internalReference->_type == "aboutPage" =>        "/om-oss",      internalReference->_type == "courseMainPage" =>        "/juridikkurser",      internalReference->_type == "employee" &&      defined(internalReference->slug.current) =>        "/om-oss/" +        internalReference->slug.current,      internalReference->_type == "service" &&      defined(internalReference->slug.current) =>        "/rattsomraden/" +        internalReference->slug.current,      internalReference->_type == "courseCategory" &&      defined(internalReference->slug.current) =>        "/juridikkurser/" +        internalReference->slug.current,      internalReference->_type == "course" &&      defined(internalReference->category->slug.current) &&      defined(internalReference->slug.current) =>        "/juridikkurser/" +        internalReference->category->slug.current +        "/" +        internalReference->slug.current,      internalReference->_type == "article" &&      defined(internalReference->slug.current) =>        "/artiklar/" +        internalReference->slug.current,      null    ),    linkType,    "referenceType": internalReference->_type  };  fn wa::resolveNavItem($item) = $item {    "label": coalesce(      label,      link->title,      link->internalReference->courseName,      link->internalReference->title,      link->internalReference->firstName + " " +        link->internalReference->lastName    ),    "href": select(      link->linkType == "external" =>        link->href,      link->internalReference->_type == "home" =>        "/",      link->internalReference->_type == "contactPage" =>        "/kontakt",      link->internalReference->_type == "aboutPage" =>        "/om-oss",      link->internalReference->_type == "courseMainPage" =>        "/juridikkurser",      link->internalReference->_type == "employee" &&      defined(link->internalReference->slug.current) =>        "/om-oss/" +        link->internalReference->slug.current,      link->internalReference->_type == "service" &&      defined(link->internalReference->slug.current) =>        "/rattsomraden/" +        link->internalReference->slug.current,      link->internalReference->_type == "courseCategory" &&      defined(link->internalReference->slug.current) =>        "/juridikkurser/" +        link->internalReference->slug.current,      link->internalReference->_type == "course" &&      defined(link->internalReference->category->slug.current) &&      defined(link->internalReference->slug.current) =>        "/juridikkurser/" +        link->internalReference->category->slug.current +        "/" +        link->internalReference->slug.current,      link->internalReference->_type == "article" &&      defined(link->internalReference->slug.current) =>        "/artiklar/" +        link->internalReference->slug.current,      null    ),    "linkType": link->linkType,    "referenceType": link->internalReference->_type  };  *[_type == "navigation"][0] {    headerNavigation[] {      _key,      hasDropdown,      dropdownSource,      "resolvedLink": wa::resolveNavItem(@),      "courses": select(  dropdownSource == "courses" =>    *[      _type == "courseCategory" &&      defined(slug.current)    ]    | order(title asc) {      "_key": _id,      title,      "slug": slug.current,      "href": "/juridikkurser/" + slug.current,      "courses": *[        _type == "course" &&        category._ref == ^._id &&        defined(slug.current)      ]      | order(courseName asc) {        _id,        "_key": _id,        "title": courseName,        "href":          "/juridikkurser/" +          category->slug.current +          "/" +          slug.current      }    },  []),      "dropdownItems": select(        dropdownSource == "employees" =>          *[            _type == "employee" &&            defined(slug.current)          ]          |  {            _id,            firstName,            lastName,            "title": firstName + " " + lastName,            "href":              "/om-oss/" +              slug.current,            image {              ...,              asset-> {                _id,                _type,                url,                metadata {                  dimensions,                  lqip                }              }            },            "jobTitles": roles[]->title          },        dropdownSource == "services" =>          *[            _type == "service" &&            defined(slug.current)          ]          | order(title asc) {            _id,            title,            "href":              "/rattsomraden/" +              slug.current          },        dropdownSource == "manual" =>          dropdownItems[] {            "_id": _key,            _key,            "title":              wa::resolveNavItem(@).label,            "href":              wa::resolveNavItem(@).href          },        []      )    },    footerNavigation[] {      _key,      "resolvedLink": wa::resolveNavItem(@)    },    footerCourseNavigation[] {      _key,      "resolvedLink": wa::resolveNavItem(@)    },    footerPracticeAreaNavigation[] {      _key,      "resolvedLink": wa::resolveNavItem(@)    },    legalNavigation[] {      _key,      "resolvedLink": wa::resolveNavItem(@)    }  }
+// Query: fn wa::resolveLinkRef($linkRef) = $linkRef->{    "label": coalesce(      title,      internalReference->courseName,      internalReference->title,      internalReference->firstName + " " +        internalReference->lastName    ),    "href": select(      linkType == "external" =>        href,      internalReference->_type == "home" =>        "/",      internalReference->_type == "contactPage" =>        "/kontakt",      internalReference->_type == "aboutPage" =>        "/om-oss",      internalReference->_type == "courseMainPage" =>        "/juridikkurser",      internalReference->_type == "employee" &&      defined(internalReference->slug.current) =>        "/om-oss/" +        internalReference->slug.current,      internalReference->_type == "service" &&      defined(internalReference->slug.current) =>        "/rattsomraden/" +        internalReference->slug.current,      internalReference->_type == "courseCategory" &&      defined(internalReference->slug.current) =>        "/juridikkurser/" +        internalReference->slug.current,      internalReference->_type == "course" &&      defined(internalReference->category->slug.current) &&      defined(internalReference->slug.current) =>        "/juridikkurser/" +        internalReference->category->slug.current +        "/" +        internalReference->slug.current,      internalReference->_type == "article" &&      defined(internalReference->slug.current) =>        "/artiklar/" +        internalReference->slug.current,      null    ),    linkType,    "referenceType": internalReference->_type  };  fn wa::resolveNavItem($item) = $item {    "label": coalesce(      label,      link->title,      link->internalReference->courseName,      link->internalReference->title,      link->internalReference->firstName + " " +        link->internalReference->lastName    ),    "href": select(      link->linkType == "external" =>        link->href,      link->internalReference->_type == "home" =>        "/",      link->internalReference->_type == "contactPage" =>        "/kontakt",      link->internalReference->_type == "aboutPage" =>        "/om-oss",      link->internalReference->_type == "courseMainPage" =>        "/juridikkurser",      link->internalReference->_type == "employee" &&      defined(link->internalReference->slug.current) =>        "/om-oss/" +        link->internalReference->slug.current,      link->internalReference->_type == "service" &&      defined(link->internalReference->slug.current) =>        "/rattsomraden/" +        link->internalReference->slug.current,      link->internalReference->_type == "courseCategory" &&      defined(link->internalReference->slug.current) =>        "/juridikkurser/" +        link->internalReference->slug.current,      link->internalReference->_type == "course" &&      defined(link->internalReference->category->slug.current) &&      defined(link->internalReference->slug.current) =>        "/juridikkurser/" +        link->internalReference->category->slug.current +        "/" +        link->internalReference->slug.current,      link->internalReference->_type == "article" &&      defined(link->internalReference->slug.current) =>        "/artiklar/" +        link->internalReference->slug.current,      null    ),    "linkType": link->linkType,    "referenceType": link->internalReference->_type  };  *[_type == "navigation"][0] {    headerNavigation[] {      _key,      hasDropdown,      dropdownSource,      "resolvedLink": {  "label": wa::resolveNavItem(@).label,  "href": coalesce(    wa::resolveNavItem(@).href,    select(      dropdownSource == "employees" => "/om-oss",      dropdownSource == "services" => "/rattsomraden",      dropdownSource == "courses" => "/juridikkurser",      null    )  ),  "linkType": wa::resolveNavItem(@).linkType,  "referenceType": wa::resolveNavItem(@).referenceType},      "courses": select(  dropdownSource == "courses" =>    *[      _type == "courseCategory" &&      defined(slug.current)    ]    | order(title asc) {      "_key": _id,      title,      "slug": slug.current,      "href": "/juridikkurser/" + slug.current,      "courses": *[        _type == "course" &&        category._ref == ^._id &&        defined(slug.current)      ]      | order(courseName asc) {        _id,        "_key": _id,        "title": courseName,        "href":          "/juridikkurser/" +          category->slug.current +          "/" +          slug.current      }    },  []),      "dropdownItems": select(        dropdownSource == "employees" =>          *[            _type == "employee" &&            defined(slug.current)          ]          |  {            _id,            firstName,            lastName,            "title": firstName + " " + lastName,            "href":              "/om-oss/" +              slug.current,            image {              ...,              asset-> {                _id,                _type,                url,                metadata {                  dimensions,                  lqip                }              }            },            "jobTitles": roles[]->title          },        dropdownSource == "services" =>          *[            _type == "service" &&            defined(slug.current)          ]          | order(title asc) {            _id,            title,            "href":              "/rattsomraden/" +              slug.current          },        dropdownSource == "manual" =>          dropdownItems[] {            "_id": _key,            _key,            "title":              wa::resolveNavItem(@).label,            "href":              wa::resolveNavItem(@).href          },        []      )    },    footerNavigation[] {      _key,      "resolvedLink": wa::resolveNavItem(@)    },    footerCourseNavigation[] {      _key,      "resolvedLink": wa::resolveNavItem(@)    },    footerPracticeAreaNavigation[] {      _key,      "resolvedLink": wa::resolveNavItem(@)    },    legalNavigation[] {      _key,      "resolvedLink": wa::resolveNavItem(@)    }  }
 export type NAVIGATION_QUERY_RESULT = {
   headerNavigation: Array<{
     _key: string;
@@ -2494,66 +2209,51 @@ export type NAVIGATION_QUERY_RESULT = {
     dropdownSource: "courses" | "employees" | "services" | null;
     resolvedLink: {
       label: string | null;
-      href: string | "/" | "/juridikkurser" | "/kontakt" | "/om-oss" | null;
+      href: string | "/" | "/juridikkurser" | "/kontakt" | "/om-oss" | "/rattsomraden" | null;
       linkType: "external" | "internal" | null;
-      referenceType:
-        | "aboutPage"
-        | "article"
-        | "contactPage"
-        | "course"
-        | "courseMainPage"
-        | "employee"
-        | "home"
-        | "page"
-        | "service"
-        | null;
+      referenceType: "aboutPage" | "article" | "contactPage" | "course" | "courseMainPage" | "employee" | "home" | "page" | "service" | null;
     };
-    courses:
-      | Array<{
-          _key: string;
-          title: string | null;
-          slug: string | null;
-          href: string | null;
-          courses: Array<{
-            _id: string;
-            _key: string;
-            title: string | null;
-            href: string | null;
-          }>;
-        }>
-      | Array<never>;
-    dropdownItems:
-      | Array<{
+    courses: Array<{
+      _key: string;
+      title: string | null;
+      slug: string | null;
+      href: string | null;
+      courses: Array<{
+        _id: string;
+        _key: string;
+        title: string | null;
+        href: string | null;
+      }>;
+    }> | Array<never>;
+    dropdownItems: Array<{
+      _id: string;
+      firstName: string | null;
+      lastName: string | null;
+      title: string | null;
+      href: string | null;
+      image: {
+        asset: {
           _id: string;
-          firstName: string | null;
-          lastName: string | null;
-          title: string | null;
-          href: string | null;
-          image: {
-            asset: {
-              _id: string;
-              _type: "sanity.imageAsset";
-              url: string | null;
-              metadata: {
-                dimensions: SanityImageDimensions | null;
-                lqip: string | null;
-              } | null;
-            } | null;
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            credit?: string;
-            _type: "image";
+          _type: "sanity.imageAsset";
+          url: string | null;
+          metadata: {
+            dimensions: SanityImageDimensions | null;
+            lqip: string | null;
           } | null;
-          jobTitles: Array<string | null> | null;
-        }>
-      | Array<{
-          _id: string;
-          title: string | null;
-          href: string | null;
-        }>
-      | Array<never>;
+        } | null;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        credit?: string;
+        _type: "image";
+      } | null;
+      jobTitles: Array<string | null> | null;
+    }> | Array<{
+      _id: string;
+      title: string | null;
+      href: string | null;
+    }> | Array<never>;
   }> | null;
   footerNavigation: Array<{
     _key: string;
@@ -2561,17 +2261,7 @@ export type NAVIGATION_QUERY_RESULT = {
       label: string | null;
       href: string | "/" | "/juridikkurser" | "/kontakt" | "/om-oss" | null;
       linkType: "external" | "internal" | null;
-      referenceType:
-        | "aboutPage"
-        | "article"
-        | "contactPage"
-        | "course"
-        | "courseMainPage"
-        | "employee"
-        | "home"
-        | "page"
-        | "service"
-        | null;
+      referenceType: "aboutPage" | "article" | "contactPage" | "course" | "courseMainPage" | "employee" | "home" | "page" | "service" | null;
     };
   }> | null;
   footerCourseNavigation: Array<{
@@ -2580,17 +2270,7 @@ export type NAVIGATION_QUERY_RESULT = {
       label: string | null;
       href: string | "/" | "/juridikkurser" | "/kontakt" | "/om-oss" | null;
       linkType: "external" | "internal" | null;
-      referenceType:
-        | "aboutPage"
-        | "article"
-        | "contactPage"
-        | "course"
-        | "courseMainPage"
-        | "employee"
-        | "home"
-        | "page"
-        | "service"
-        | null;
+      referenceType: "aboutPage" | "article" | "contactPage" | "course" | "courseMainPage" | "employee" | "home" | "page" | "service" | null;
     };
   }> | null;
   footerPracticeAreaNavigation: Array<{
@@ -2599,17 +2279,7 @@ export type NAVIGATION_QUERY_RESULT = {
       label: string | null;
       href: string | "/" | "/juridikkurser" | "/kontakt" | "/om-oss" | null;
       linkType: "external" | "internal" | null;
-      referenceType:
-        | "aboutPage"
-        | "article"
-        | "contactPage"
-        | "course"
-        | "courseMainPage"
-        | "employee"
-        | "home"
-        | "page"
-        | "service"
-        | null;
+      referenceType: "aboutPage" | "article" | "contactPage" | "course" | "courseMainPage" | "employee" | "home" | "page" | "service" | null;
     };
   }> | null;
   legalNavigation: Array<{
@@ -2618,17 +2288,7 @@ export type NAVIGATION_QUERY_RESULT = {
       label: string | null;
       href: string | "/" | "/juridikkurser" | "/kontakt" | "/om-oss" | null;
       linkType: "external" | "internal" | null;
-      referenceType:
-        | "aboutPage"
-        | "article"
-        | "contactPage"
-        | "course"
-        | "courseMainPage"
-        | "employee"
-        | "home"
-        | "page"
-        | "service"
-        | null;
+      referenceType: "aboutPage" | "article" | "contactPage" | "course" | "courseMainPage" | "employee" | "home" | "page" | "service" | null;
     };
   }> | null;
 } | null;
@@ -2649,106 +2309,87 @@ export type PAGE_BY_PATH_QUERY_RESULT = {
       text: string | null;
       link: null;
     } | null;
-    blocks: Array<
-      | {
+    blocks: Array<{
+      _key: string;
+      _type: "accordionBlock";
+      items?: Array<{
+        _key: string;
+      } & AccordionItem>;
+    } | {
+      _key: string;
+      _type: "buttonGroupBlock";
+      buttons?: Array<{
+        _key: string;
+      } & Button>;
+    } | {
+      _key: string;
+      _type: "employeeGridBlock";
+      selectionMode?: "all" | "manual";
+      employees: Array<{
+        _id: string;
+        firstName: string | null;
+        lastName: string | null;
+        slug: string | null;
+        professionalTitle: "advokat" | "jurist" | "other" | null;
+        image: {
+          asset: SanityImageAssetReference | null;
+          crop: SanityImageCrop | null;
+          hotspot: SanityImageHotspot | null;
+          alt: string | null;
+        } | null;
+        roles: Array<{
+          title: string | null;
+        }> | null;
+      }> | null;
+    } | {
+      _key: string;
+      _type: "imageBlock";
+      image?: {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        _type: "image";
+      };
+      caption?: string;
+    } | {
+      _key: string;
+      _type: "richTextBlock";
+      content?: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
           _key: string;
-          _type: "accordionBlock";
-          items?: Array<
-            {
-              _key: string;
-            } & AccordionItem
-          >;
-        }
-      | {
+        }>;
+        style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
           _key: string;
-          _type: "buttonGroupBlock";
-          buttons?: Array<
-            {
-              _key: string;
-            } & Button
-          >;
-        }
-      | {
-          _key: string;
-          _type: "employeeGridBlock";
-          selectionMode?: "all" | "manual";
-          employees: Array<{
-            _id: string;
-            firstName: string | null;
-            lastName: string | null;
-            slug: string | null;
-            professionalTitle: "advokat" | "jurist" | "other" | null;
-            image: {
-              asset: SanityImageAssetReference | null;
-              crop: SanityImageCrop | null;
-              hotspot: SanityImageHotspot | null;
-              alt: string | null;
-            } | null;
-            roles: Array<{
-              title: string | null;
-            }> | null;
-          }> | null;
-        }
-      | {
-          _key: string;
-          _type: "imageBlock";
-          image?: {
-            asset?: SanityImageAssetReference;
-            media?: unknown;
-            hotspot?: SanityImageHotspot;
-            crop?: SanityImageCrop;
-            alt?: string;
-            _type: "image";
-          };
-          caption?: string;
-        }
-      | {
-          _key: string;
-          _type: "richTextBlock";
-          content?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "h1"
-              | "h2"
-              | "h3"
-              | "h4"
-              | "h5"
-              | "h6"
-              | "normal";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
-        }
-      | {
-          _key: string;
-          _type: "serviceGridBlock";
-          services: Array<{
-            _id: string;
-            title: string | null;
-            slug: string | null;
-            excerpt: string | null;
-            image: {
-              asset: SanityImageAssetReference | null;
-              crop: SanityImageCrop | null;
-              hotspot: SanityImageHotspot | null;
-              alt: string | null;
-            } | null;
-          }> | null;
-        }
-    > | null;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }>;
+    } | {
+      _key: string;
+      _type: "serviceGridBlock";
+      services: Array<{
+        _id: string;
+        title: string | null;
+        slug: string | null;
+        excerpt: string | null;
+        image: {
+          asset: SanityImageAssetReference | null;
+          crop: SanityImageCrop | null;
+          hotspot: SanityImageHotspot | null;
+          alt: string | null;
+        } | null;
+      }> | null;
+    }> | null;
   }> | null;
   seo: Seo | null;
 } | null;
@@ -2826,16 +2467,7 @@ export type COURSE_MAIN_PAGE_QUERY_RESULT = {
       eyebrowLink?: {
         title?: string;
         linkType?: "external" | "internal";
-        internalReference?:
-          | AboutPageReference
-          | ArticleReference
-          | ContactPageReference
-          | CourseReference
-          | CourseMainPageReference
-          | EmployeeReference
-          | HomeReference
-          | PageReference
-          | ServiceReference;
+        internalReference?: AboutPageReference | ArticleReference | ContactPageReference | CourseReference | CourseMainPageReference | EmployeeReference | HomeReference | PageReference | ServiceReference;
         href?: string;
         _type: "link";
       };
@@ -2843,114 +2475,87 @@ export type COURSE_MAIN_PAGE_QUERY_RESULT = {
     title: string | null;
     text: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
   } | null;
   courseOpportunities: {
     title: string | null;
     textContent: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
   } | null;
   cardContainers: Array<{
     _key: string;
     description: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
     chosenCourseCategory: {
       _id: string;
@@ -2996,16 +2601,7 @@ export type COURSE_MAIN_PAGE_QUERY_RESULT = {
       eyebrowLink?: {
         title?: string;
         linkType?: "external" | "internal";
-        internalReference?:
-          | AboutPageReference
-          | ArticleReference
-          | ContactPageReference
-          | CourseReference
-          | CourseMainPageReference
-          | EmployeeReference
-          | HomeReference
-          | PageReference
-          | ServiceReference;
+        internalReference?: AboutPageReference | ArticleReference | ContactPageReference | CourseReference | CourseMainPageReference | EmployeeReference | HomeReference | PageReference | ServiceReference;
         href?: string;
         _type: "link";
       };
@@ -3017,38 +2613,29 @@ export type COURSE_MAIN_PAGE_QUERY_RESULT = {
     } | null;
     infoBody: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
   } | null;
   courseCategoryBlock: {
@@ -3059,16 +2646,7 @@ export type COURSE_MAIN_PAGE_QUERY_RESULT = {
       eyebrowLink?: {
         title?: string;
         linkType?: "external" | "internal";
-        internalReference?:
-          | AboutPageReference
-          | ArticleReference
-          | ContactPageReference
-          | CourseReference
-          | CourseMainPageReference
-          | EmployeeReference
-          | HomeReference
-          | PageReference
-          | ServiceReference;
+        internalReference?: AboutPageReference | ArticleReference | ContactPageReference | CourseReference | CourseMainPageReference | EmployeeReference | HomeReference | PageReference | ServiceReference;
         href?: string;
         _type: "link";
       };
@@ -3080,53 +2658,35 @@ export type COURSE_MAIN_PAGE_QUERY_RESULT = {
     } | null;
     infoBody: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
   } | null;
   slug: {
     title?: string;
     linkType?: "external" | "internal";
-    internalReference?:
-      | AboutPageReference
-      | ArticleReference
-      | ContactPageReference
-      | CourseReference
-      | CourseMainPageReference
-      | EmployeeReference
-      | HomeReference
-      | PageReference
-      | ServiceReference;
+    internalReference?: AboutPageReference | ArticleReference | ContactPageReference | CourseReference | CourseMainPageReference | EmployeeReference | HomeReference | PageReference | ServiceReference;
     href?: string;
     _type: "link";
   } | null;
@@ -3164,32 +2724,29 @@ export type COURSE_CATEGORY_PAGE_QUERY_RESULT = {
   introTitle: string | null;
   introText: {
     _type: "blockObject";
-    block: Array<
-      | {
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
-          listItem?: "bullet" | "check" | "number";
-          markDefs?: Array<{
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }
-      | {
-          _key: string;
-          _type: "button";
-          hasButton?: boolean;
-          btnProps?: BtnProps;
-        }
-    > | null;
+    block: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+      listItem?: "bullet" | "check" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    } | {
+      _key: string;
+      _type: "button";
+      hasButton?: boolean;
+      btnProps?: BtnProps;
+    }> | null;
   } | null;
   companyCourseSection: {
     title: {
@@ -3199,38 +2756,29 @@ export type COURSE_CATEGORY_PAGE_QUERY_RESULT = {
     } | null;
     text: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
   } | null;
   courseLecturerSection: {
@@ -3259,38 +2807,29 @@ export type COURSE_CATEGORY_PAGE_QUERY_RESULT = {
     } | null;
     text: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
     cta: {
       _type: "button";
@@ -3308,38 +2847,29 @@ export type COURSE_CATEGORY_PAGE_QUERY_RESULT = {
     } | null;
     text: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
     accordions: Array<{
       _key: string;
@@ -3357,38 +2887,29 @@ export type COURSE_CATEGORY_PAGE_QUERY_RESULT = {
     } | null;
     text: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
     accordions: Array<{
       _key: string;
@@ -3409,38 +2930,29 @@ export type COURSE_CATEGORY_PAGE_QUERY_RESULT = {
     } | null;
     text: {
       _type: "blockObject";
-      block: Array<
-        | {
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "display"
-              | "eyebrow"
-              | "h2"
-              | "h3"
-              | "normal";
-            listItem?: "bullet" | "check" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }
-        | {
-            _key: string;
-            _type: "button";
-            hasButton?: boolean;
-            btnProps?: BtnProps;
-          }
-      > | null;
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
     } | null;
   } | null;
   courseQuotesSection: Array<{
@@ -3503,116 +3015,81 @@ export type COURSE_PAGE_QUERY_RESULT = {
     _type: "block";
     _key: string;
   }> | null;
-  aimCourse: Array<
-    | ({
-        _key: string;
-      } & Button)
-    | ({
-        _key: string;
-      } & TitleObject)
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?:
-          | "blockquote"
-          | "h1"
-          | "h2"
-          | "h3"
-          | "h4"
-          | "h5"
-          | "h6"
-          | "normal";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-  > | null;
-  aboutCourse: Array<
-    | ({
-        _key: string;
-      } & Button)
-    | ({
-        _key: string;
-      } & TitleObject)
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: "span";
-          _key: string;
-        }>;
-        style?:
-          | "blockquote"
-          | "h1"
-          | "h2"
-          | "h3"
-          | "h4"
-          | "h5"
-          | "h6"
-          | "normal";
-        listItem?: "bullet" | "number";
-        markDefs?: Array<{
-          href?: string;
-          _type: "link";
-          _key: string;
-        }>;
-        level?: number;
-        _type: "block";
-        _key: string;
-      }
-  > | null;
+  aimCourse: Array<{
+    _key: string;
+  } & Button | {
+    _key: string;
+  } & TitleObject | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  aboutCourse: Array<{
+    _key: string;
+  } & Button | {
+    _key: string;
+  } & TitleObject | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
   days: null;
-  courseSections: Array<
-    | {
+  courseSections: Array<{
+    _key: string;
+    _type: "courseTextSection";
+    sectionTitle: string | null;
+    sectionContent: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
         _key: string;
-        _type: "courseTextSection";
-        sectionTitle: string | null;
-        sectionContent: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?:
-            | "blockquote"
-            | "h1"
-            | "h2"
-            | "h3"
-            | "h4"
-            | "h5"
-            | "h6"
-            | "normal";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }> | null;
-      }
-    | {
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
         _key: string;
-        _type: "image";
-        asset: SanityImageAssetReference | null;
-        alt: string | null;
-        crop: SanityImageCrop | null;
-        hotspot: SanityImageHotspot | null;
-      }
-  > | null;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "image";
+    asset: SanityImageAssetReference | null;
+    alt: string | null;
+    crop: SanityImageCrop | null;
+    hotspot: SanityImageHotspot | null;
+  }> | null;
   length: string | null;
   conditionsCourse: Array<{
     children?: Array<{
@@ -3724,7 +3201,7 @@ export type EMPLOYEE_ROLE_QUERY_RESULT = {
     roles: Array<{
       _id: string;
       title: string | null;
-      slug: string | null;
+      slug: null;
     }> | null;
     slug: string | null;
     image: {
@@ -3742,7 +3219,7 @@ export type EMPLOYEE_ROLE_QUERY_RESULT = {
 export type ROLES_QUERY_RESULT = Array<{
   _id: string;
   title: string | null;
-  slug: string | null;
+  slug: null;
 }>;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
@@ -3803,7 +3280,7 @@ export type EMPLOYEE_PAGE_QUERY_RESULT = {
   roles: Array<{
     _id: string;
     title: string | null;
-    slug: string | null;
+    slug: null;
   }> | null;
   educationList: Array<{
     school: string | null;
@@ -3901,28 +3378,3 @@ export type ARTICLE_PAGE_QUERY_RESULT = {
   } | null;
 } | null;
 
-// Query TypeMap
-import "@sanity/client";
-declare module "@sanity/client" {
-  interface SanityQueries {
-    '\n  *[_type == "contactPage"][0] {\n    hero {\n      eyebrow,\n      title,\n      image {\n        asset,\n        crop,\n        hotspot,\n        alt\n      }\n    }\n  }\n': CONTACT_PAGE_QUERY_RESULT;
-    '\n  \n  fn wa::resolveLinkRef($linkRef) = $linkRef->{\n    "label": coalesce(\n      title,\n      internalReference->courseName,\n      internalReference->title,\n      internalReference->firstName + " " +\n        internalReference->lastName\n    ),\n\n    "href": select(\n      linkType == "external" =>\n        href,\n\n      internalReference->_type == "home" =>\n        "/",\n\n      internalReference->_type == "contactPage" =>\n        "/kontakt",\n\n      internalReference->_type == "aboutPage" =>\n        "/om-oss",\n\n      internalReference->_type == "courseMainPage" =>\n        "/juridikkurser",\n\n      internalReference->_type == "employee" &&\n      defined(internalReference->slug.current) =>\n        "/om-oss/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "service" &&\n      defined(internalReference->slug.current) =>\n        "/rattsomraden/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "courseCategory" &&\n      defined(internalReference->slug.current) =>\n        "/juridikkurser/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "course" &&\n      defined(internalReference->category->slug.current) &&\n      defined(internalReference->slug.current) =>\n        "/juridikkurser/" +\n        internalReference->category->slug.current +\n        "/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "article" &&\n      defined(internalReference->slug.current) =>\n        "/artiklar/" +\n        internalReference->slug.current,\n\n      null\n    ),\n\n    linkType,\n    "referenceType": internalReference->_type\n  };\n\n  fn wa::resolveNavItem($item) = $item {\n    "label": coalesce(\n      label,\n      link->title,\n      link->internalReference->courseName,\n      link->internalReference->title,\n      link->internalReference->firstName + " " +\n        link->internalReference->lastName\n    ),\n\n    "href": select(\n      link->linkType == "external" =>\n        link->href,\n\n      link->internalReference->_type == "home" =>\n        "/",\n\n      link->internalReference->_type == "contactPage" =>\n        "/kontakt",\n\n      link->internalReference->_type == "aboutPage" =>\n        "/om-oss",\n\n      link->internalReference->_type == "courseMainPage" =>\n        "/juridikkurser",\n\n      link->internalReference->_type == "employee" &&\n      defined(link->internalReference->slug.current) =>\n        "/om-oss/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "service" &&\n      defined(link->internalReference->slug.current) =>\n        "/rattsomraden/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "courseCategory" &&\n      defined(link->internalReference->slug.current) =>\n        "/juridikkurser/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "course" &&\n      defined(link->internalReference->category->slug.current) &&\n      defined(link->internalReference->slug.current) =>\n        "/juridikkurser/" +\n        link->internalReference->category->slug.current +\n        "/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "article" &&\n      defined(link->internalReference->slug.current) =>\n        "/artiklar/" +\n        link->internalReference->slug.current,\n\n      null\n    ),\n\n    "linkType": link->linkType,\n    "referenceType": link->internalReference->_type\n  };\n\n\n  *[\n  _type == "aboutPage" &&\n  _id == "about-page"\n  ][0] {\n    hero {\n      eyebrow,\n      title,\n\n      image {\n        asset,\n        crop,\n        hotspot,\n        alt\n      }\n    },\n\n    benefitsSection {\n      items[] {\n        _key,\n        title,\n        text,\n        icon\n      }\n    },\n\n    teamSection {\n      eyebrow {\n        text,\n        "resolvedLink": wa::resolveLinkRef(link)\n      },\n\n      title,\n      text,\n\n      students[]-> {\n        _id,\n        name,\n        "slug": "/studentpoolen",\n\n        image {\n          asset,\n          crop,\n          hotspot,\n          alt\n        },\n      },\n      "teamMembers": teamMembers[]-> {\n        _id,\n        firstName,\n        lastName,\n        "slug": slug.current,\n        excerpt,\n        professionalTitle,\n\n        image {\n          asset,\n          crop,\n          hotspot,\n          alt\n        },\n\n        "roles": roles[]-> {\n          _id,\n          title,\n          "slug": slug.current\n        }\n      },\n\n      cta {\n        variant,\n        hasIcon,\n        icon,\n        ariaLabel,\n        "resolvedLink": wa::resolveNavItem(link)\n      }\n    },\n\n    practiceAreasSection {\n      eyebrow {\n        text,\n        "resolvedLink": wa::resolveLinkRef(link)\n      },\n\n      title,\n      text,\n\n      "services": services[]-> {\n        _id,\n        title,\n        "slug": slug.current,\n        excerpt,\n        image {\n          asset,\n          crop,\n          hotspot,\n          alt\n        },\n      },\n\n      cta {\n        variant,\n        hasIcon,\n        icon,\n        ariaLabel,\n        "resolvedLink": wa::resolveNavItem(link)\n      }\n    },\n\n    adviceSection {\n      eyebrow {\n        text,\n        "resolvedLink": wa::resolveLinkRef(link)\n      },\n\n      title,\n      text,\n\n      cta {\n        variant,\n        hasIcon,\n        icon,\n        ariaLabel,\n        "resolvedLink": wa::resolveNavItem(link)\n      }\n    },\n\n    coursesSection {\n      eyebrow {\n        text,\n        "resolvedLink": wa::resolveLinkRef(link)\n      },\n      title,\n      subheading,\n      text,\n    \n      "courseAccordions": courses[]-> {\n        "_key": _id,\n        "title": courseName,\n      \n        "description": coalesce(\n          pt::text(aimCourse),\n          pt::text(aboutCourse)\n        ),\n      \n        "btnHref": select(\n          defined(slug.current) =>\n            "/juridikkurser/" + slug.current,\n          null\n        ),\n      \n        "icon": true,\n\n      },\n    \n      cta {\n        \n  _type,\n\n  "hasButton": coalesce(hasButton, false),\n\n  btnProps {\n    link {\n      _type,\n      label,\n\n      link-> {\n        _id,\n        _type,\n        title,\n        linkType,\n        externalUrl,\n\n        internalReference-> {\n          _id,\n          _type,\n          title,\n          courseName,\n          firstName,\n          lastName,\n          "slug": slug.current\n        }\n      }\n    },\n\n    "target": coalesce(target, false),\n\n    variant,\n\n    "hasIcon": coalesce(hasIcon, true),\n\n    icon,\n    ariaLabel\n  }\n\n      },\n    },\n\n    contactSection {\n      eyebrow {\n        text,\n        "resolvedLink": wa::resolveLinkRef(link)\n      },\n\n      title,\n      text,\n      showContactForm,\n\n      form {\n        title,\n        nameLabel,\n        emailLabel,\n        phoneLabel,\n        messagePlaceholder,\n        submitLabel\n      }\n    },\n\n    additionalSections[] {\n      ...,\n      eyebrow {\n        text,\n        "resolvedLink": wa::resolveLinkRef(link)\n      },\n\n      blocks[] {\n        ...\n      }\n    },\n\n    seo {\n      metaTitle,\n      metaDescription,\n      canonicalUrl,\n      noIndex,\n      socialImage {\n        asset,\n        crop,\n        hotspot,\n        alt\n      }\n    }\n  }\n': OM_OSS_PAGE_QUERY_RESULT;
-    '\n  *[_type == "tjansterPage"][0] {\n    hero {\n      eyebrow,\n      title,\n      image {\n        asset,\n        crop,\n        hotspot,\n        alt\n      }\n    }\n  }\n': SERVICES_PAGE_QUERY_RESULT;
-    '\n  *[_type == "home"][0] {\n    _id,\n    homeTitle,\n    homeEyebrow,\n\n    introSection {\n      introTitle,\n      introText\n    },\n\n    tjansterSection {\n      tjansterTitle,\n\n      tjansterEyebrow {\n        \n  _type,\n  text,\n  target,\n  link-> {\n    href,\n    _id,\n    _type,\n    title,\n    linkType,\n    externalUrl,\n    internalReference-> {\n      _id,\n      _type,\n      title,\n      courseName,\n      firstName,\n      lastName,\n      "slug": slug.current\n    }\n  }\n\n      },\n\n      tjansterText,\n\n      tjansterCta {\n        \n  _type,\n\n  "hasButton": coalesce(hasButton, false),\n\n  btnProps {\n    link {\n      _type,\n      label,\n\n      link-> {\n        _id,\n        _type,\n        title,\n        linkType,\n        externalUrl,\n\n        internalReference-> {\n          _id,\n          _type,\n          title,\n          courseName,\n          firstName,\n          lastName,\n          "slug": slug.current\n        }\n      }\n    },\n\n    "target": coalesce(target, false),\n\n    variant,\n\n    "hasIcon": coalesce(hasIcon, true),\n\n    icon,\n    ariaLabel\n  }\n\n      },\n\n      "AccordionItemData": services[]-> {\n        "_key": _id,\n        "title": title,\n        "description": excerpt,\n        "btnHref": slug.current\n      }\n    },\n\n    employeeSection {\n\n      cta {\n        \n  _type,\n\n  "hasButton": coalesce(hasButton, false),\n\n  btnProps {\n    link {\n      _type,\n      label,\n\n      link-> {\n        _id,\n        _type,\n        title,\n        linkType,\n        externalUrl,\n\n        internalReference-> {\n          _id,\n          _type,\n          title,\n          courseName,\n          firstName,\n          lastName,\n          "slug": slug.current\n        }\n      }\n    },\n\n    "target": coalesce(target, false),\n\n    variant,\n\n    "hasIcon": coalesce(hasIcon, true),\n\n    icon,\n    ariaLabel\n  }\n\n      },\n      title,\n\n      eyebrow {\n        \n  _type,\n  text,\n  target,\n  link-> {\n    href,\n    _id,\n    _type,\n    title,\n    linkType,\n    externalUrl,\n    internalReference-> {\n      _id,\n      _type,\n      title,\n      courseName,\n      firstName,\n      lastName,\n      "slug": slug.current\n    }\n  }\n\n      },\n\n      description,\n\n      teamMembers[]-> {\n        _id,\n        firstName,\n        lastName,\n        image {\n          alt,\n          crop,\n          hotspot,\n          asset,\n        },\n        roles[]-> {\n          _id,\n          title\n        },\n        excerpt,\n        "slug": slug.current\n      }\n    },\n\n    contactSection {\n      contactTitle,\n\n      contactEyebrow {\n        \n  _type,\n  text,\n  target,\n  link-> {\n    href,\n    _id,\n    _type,\n    title,\n    linkType,\n    externalUrl,\n    internalReference-> {\n      _id,\n      _type,\n      title,\n      courseName,\n      firstName,\n      lastName,\n      "slug": slug.current\n    }\n  }\n\n      },\n\n      contactText,\n\n      contactCta {\n        \n  _type,\n\n  "hasButton": coalesce(hasButton, false),\n\n  btnProps {\n    link {\n      _type,\n      label,\n\n      link-> {\n        _id,\n        _type,\n        title,\n        linkType,\n        externalUrl,\n\n        internalReference-> {\n          _id,\n          _type,\n          title,\n          courseName,\n          firstName,\n          lastName,\n          "slug": slug.current\n        }\n      }\n    },\n\n    "target": coalesce(target, false),\n\n    variant,\n\n    "hasIcon": coalesce(hasIcon, true),\n\n    icon,\n    ariaLabel\n  }\n\n      }\n    },\n\n    seo {\n      ...\n    }\n  }\n': HOMEPAGE_QUERY_RESULT;
-    '\n  \n  fn wa::resolveLinkRef($linkRef) = $linkRef->{\n    "label": coalesce(\n      title,\n      internalReference->courseName,\n      internalReference->title,\n      internalReference->firstName + " " +\n        internalReference->lastName\n    ),\n\n    "href": select(\n      linkType == "external" =>\n        href,\n\n      internalReference->_type == "home" =>\n        "/",\n\n      internalReference->_type == "contactPage" =>\n        "/kontakt",\n\n      internalReference->_type == "aboutPage" =>\n        "/om-oss",\n\n      internalReference->_type == "courseMainPage" =>\n        "/juridikkurser",\n\n      internalReference->_type == "employee" &&\n      defined(internalReference->slug.current) =>\n        "/om-oss/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "service" &&\n      defined(internalReference->slug.current) =>\n        "/rattsomraden/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "courseCategory" &&\n      defined(internalReference->slug.current) =>\n        "/juridikkurser/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "course" &&\n      defined(internalReference->category->slug.current) &&\n      defined(internalReference->slug.current) =>\n        "/juridikkurser/" +\n        internalReference->category->slug.current +\n        "/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "article" &&\n      defined(internalReference->slug.current) =>\n        "/artiklar/" +\n        internalReference->slug.current,\n\n      null\n    ),\n\n    linkType,\n    "referenceType": internalReference->_type\n  };\n\n  fn wa::resolveNavItem($item) = $item {\n    "label": coalesce(\n      label,\n      link->title,\n      link->internalReference->courseName,\n      link->internalReference->title,\n      link->internalReference->firstName + " " +\n        link->internalReference->lastName\n    ),\n\n    "href": select(\n      link->linkType == "external" =>\n        link->href,\n\n      link->internalReference->_type == "home" =>\n        "/",\n\n      link->internalReference->_type == "contactPage" =>\n        "/kontakt",\n\n      link->internalReference->_type == "aboutPage" =>\n        "/om-oss",\n\n      link->internalReference->_type == "courseMainPage" =>\n        "/juridikkurser",\n\n      link->internalReference->_type == "employee" &&\n      defined(link->internalReference->slug.current) =>\n        "/om-oss/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "service" &&\n      defined(link->internalReference->slug.current) =>\n        "/rattsomraden/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "courseCategory" &&\n      defined(link->internalReference->slug.current) =>\n        "/juridikkurser/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "course" &&\n      defined(link->internalReference->category->slug.current) &&\n      defined(link->internalReference->slug.current) =>\n        "/juridikkurser/" +\n        link->internalReference->category->slug.current +\n        "/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "article" &&\n      defined(link->internalReference->slug.current) =>\n        "/artiklar/" +\n        link->internalReference->slug.current,\n\n      null\n    ),\n\n    "linkType": link->linkType,\n    "referenceType": link->internalReference->_type\n  };\n\n\n  *[_type == "navigation"][0] {\n    headerNavigation[] {\n      _key,\n      hasDropdown,\n      dropdownSource,\n\n      "resolvedLink": wa::resolveNavItem(@),\n\n      "courses": select(\n  dropdownSource == "courses" =>\n    *[\n      _type == "courseCategory" &&\n      defined(slug.current)\n    ]\n    | order(title asc) {\n      "_key": _id,\n      title,\n      "slug": slug.current,\n      "href": "/juridikkurser/" + slug.current,\n\n      "courses": *[\n        _type == "course" &&\n        category._ref == ^._id &&\n        defined(slug.current)\n      ]\n      | order(courseName asc) {\n        _id,\n        "_key": _id,\n        "title": courseName,\n        "href":\n          "/juridikkurser/" +\n          category->slug.current +\n          "/" +\n          slug.current\n      }\n    },\n\n  []\n),\n\n      "dropdownItems": select(\n        dropdownSource == "employees" =>\n          *[\n            _type == "employee" &&\n            defined(slug.current)\n          ]\n          |  {\n            _id,\n            firstName,\n            lastName,\n\n            "title": firstName + " " + lastName,\n            "href":\n              "/om-oss/" +\n              slug.current,\n\n            image {\n              ...,\n              asset-> {\n                _id,\n                _type,\n                url,\n                metadata {\n                  dimensions,\n                  lqip\n                }\n              }\n            },\n\n            "jobTitles": roles[]->title\n          },\n\n        dropdownSource == "services" =>\n          *[\n            _type == "service" &&\n            defined(slug.current)\n          ]\n          | order(title asc) {\n            _id,\n            title,\n\n            "href":\n              "/rattsomraden/" +\n              slug.current\n          },\n\n        dropdownSource == "manual" =>\n          dropdownItems[] {\n            "_id": _key,\n            _key,\n\n            "title":\n              wa::resolveNavItem(@).label,\n\n            "href":\n              wa::resolveNavItem(@).href\n          },\n\n        []\n      )\n    },\n\n    footerNavigation[] {\n      _key,\n      "resolvedLink": wa::resolveNavItem(@)\n    },\n\n    footerCourseNavigation[] {\n      _key,\n      "resolvedLink": wa::resolveNavItem(@)\n    },\n\n    footerPracticeAreaNavigation[] {\n      _key,\n      "resolvedLink": wa::resolveNavItem(@)\n    },\n\n    legalNavigation[] {\n      _key,\n      "resolvedLink": wa::resolveNavItem(@)\n    }\n  }\n': NAVIGATION_QUERY_RESULT;
-    '\n  *[\n    _type == "page" &&\n    path.current == $path\n  ][0] {\n    _id,\n    title,\n    "path": path.current,\n\n    sections[] {\n      _key,\n      _type,\n      heading,\n      theme,\n\n      eyebrow {\n        text,\n        link-> {\n          title,\n          linkType,\n          href,\n          internalReference-> {\n            _type,\n            title,\n            courseName,\n            firstName,\n            lastName,\n            "slug": slug.current\n          }\n        }\n      },\n\n      blocks[] {\n        ...,\n\n        _type == "employeeGridBlock" => {\n          ...,\n\n          "employees": select(\n            selectionMode == "all" =>\n              *[\n                _type == "employee" &&\n                defined(slug.current)\n              ] | order(lastName asc) {\n                _id,\n                firstName,\n                lastName,\n                "slug": slug.current,\n                professionalTitle,\n                image {\n                  asset,\n                  crop,\n                  hotspot,\n                  alt\n                },\n                "roles": roles[]->{\n                  title\n                }\n              },\n\n            employees[]-> {\n              _id,\n              firstName,\n              lastName,\n              "slug": slug.current,\n              professionalTitle,\n              image {\n                asset,\n                crop,\n                hotspot,\n                alt\n              },\n              "roles": roles[]->{\n                title\n              }\n            }\n          )\n        },\n\n        _type == "serviceGridBlock" => {\n          ...,\n          "services": services[]-> {\n            _id,\n            title,\n            "slug": slug.current,\n            excerpt,\n            image {\n              asset,\n              crop,\n              hotspot,\n              alt\n            }\n          }\n        }\n      }\n    },\n\n    seo\n  }\n': PAGE_BY_PATH_QUERY_RESULT;
-    '\n  *[_type == "article" && defined(slug.current)] | order(publishedAt desc)[0...12]{\n    _id, \n    title, \n    "slug": slug.current, \n    publishedAt\n  }\n': ARTICLE_QUERY_RESULT;
-    '\n  *[(_type == "post" || _type == "employee") && slug.current == $slug][0]{\n    _type,\n    _id,\n    title,\n    firstName,\n    lastName,\n    role,\n    image {\n      asset,\n      crop,\n      hotspot,\n      alt\n    },\n    bio,\n    body,\n    publishedAt,\n    educationList[]{\n      school,\n      year\n    }\n  }\n': DATA_QUERY_RESULT;
-    '\n  *[_type == "courseMainPage"][0] {\n    title,\n    eyebrow,\n\n    image {\n      asset,\n      crop,\n      hotspot,\n      alt\n    },\n\n    introSection {\n      eyebrow {\n        ...\n      },\n      title,\n      text {\n        ...,\n        block[] {\n          ...\n        }\n      }\n    },\n\n    courseOpportunities {\n      title,\n      textContent {\n        ...,\n        block[] {\n          ...\n        }\n      }\n    },\n\n    "cardContainers": courseCategories[] {\n      _key,\n\n      description {\n        ...,\n        block[] {\n          ...\n        }\n      },\n\n      chosenCourseCategory-> {\n        _id,\n        title,\n        slug,\n\n        image {\n          asset,\n          crop,\n          hotspot,\n          alt\n        },\n\n        courseLecturerSection {\n          "lecturer": lecturer-> {\n            _id,\n            firstName,\n            lastName,\n            professionalTitle,\n            slug,\n\n            image {\n              asset,\n              crop,\n              hotspot,\n              alt\n            },\n\n            roles[]-> {\n              _id,\n              title\n            }\n          }\n        }\n      },\n\n      "links": courseList[]-> {\n        _id,\n        "title": courseName,\n\n        "href": select(\n          defined(category->slug.current) &&\n          defined(slug.current) =>\n\n          "/juridikkurser/" +\n          category->slug.current +\n          "/" +\n          slug.current,\n\n          null\n        )\n      }\n    },\n\n    courseInfo {\n      infoEyebrow {\n        ...\n      },\n      info {\n        ...\n      },\n      infoBody {\n        ...,\n        block[] {\n          ...\n        }\n      }\n    },\n\n    courseCategoryBlock {\n      infoEyebrow {\n        ...\n      },\n      info {\n        ...\n      },\n      infoBody {\n        ...,\n        block[] {\n          ...\n        }\n      }\n    },\n\n    slug,\n\n    seo {\n      ...\n    }\n  }\n': COURSE_MAIN_PAGE_QUERY_RESULT;
-    '\n    \n  fn wa::resolveLinkRef($linkRef) = $linkRef->{\n    "label": coalesce(\n      title,\n      internalReference->courseName,\n      internalReference->title,\n      internalReference->firstName + " " +\n        internalReference->lastName\n    ),\n\n    "href": select(\n      linkType == "external" =>\n        href,\n\n      internalReference->_type == "home" =>\n        "/",\n\n      internalReference->_type == "contactPage" =>\n        "/kontakt",\n\n      internalReference->_type == "aboutPage" =>\n        "/om-oss",\n\n      internalReference->_type == "courseMainPage" =>\n        "/juridikkurser",\n\n      internalReference->_type == "employee" &&\n      defined(internalReference->slug.current) =>\n        "/om-oss/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "service" &&\n      defined(internalReference->slug.current) =>\n        "/rattsomraden/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "courseCategory" &&\n      defined(internalReference->slug.current) =>\n        "/juridikkurser/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "course" &&\n      defined(internalReference->category->slug.current) &&\n      defined(internalReference->slug.current) =>\n        "/juridikkurser/" +\n        internalReference->category->slug.current +\n        "/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "article" &&\n      defined(internalReference->slug.current) =>\n        "/artiklar/" +\n        internalReference->slug.current,\n\n      null\n    ),\n\n    linkType,\n    "referenceType": internalReference->_type\n  };\n\n  fn wa::resolveNavItem($item) = $item {\n    "label": coalesce(\n      label,\n      link->title,\n      link->internalReference->courseName,\n      link->internalReference->title,\n      link->internalReference->firstName + " " +\n        link->internalReference->lastName\n    ),\n\n    "href": select(\n      link->linkType == "external" =>\n        link->href,\n\n      link->internalReference->_type == "home" =>\n        "/",\n\n      link->internalReference->_type == "contactPage" =>\n        "/kontakt",\n\n      link->internalReference->_type == "aboutPage" =>\n        "/om-oss",\n\n      link->internalReference->_type == "courseMainPage" =>\n        "/juridikkurser",\n\n      link->internalReference->_type == "employee" &&\n      defined(link->internalReference->slug.current) =>\n        "/om-oss/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "service" &&\n      defined(link->internalReference->slug.current) =>\n        "/rattsomraden/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "courseCategory" &&\n      defined(link->internalReference->slug.current) =>\n        "/juridikkurser/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "course" &&\n      defined(link->internalReference->category->slug.current) &&\n      defined(link->internalReference->slug.current) =>\n        "/juridikkurser/" +\n        link->internalReference->category->slug.current +\n        "/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "article" &&\n      defined(link->internalReference->slug.current) =>\n        "/artiklar/" +\n        link->internalReference->slug.current,\n\n      null\n    ),\n\n    "linkType": link->linkType,\n    "referenceType": link->internalReference->_type\n  };\n\n\n    *[\n      _type == "courseCategory" &&\n      slug.current == $categorySlug\n    ][0] {\n      _id,\n      _type,\n      title,\n      excerpt,\n\n      "slug": slug.current,\n\n      image {\n        asset,\n        crop,\n        hotspot\n      },\n\n      introTitle,\n\n      introText {\n        ...,\n        block[] {\n          ...\n        }\n      },\n\n      companyCourseSection {\n        title {\n          ...\n        },\n\n        text {\n          ...,\n          block[] {\n            ...\n          }\n        }\n      },\n\n      courseLecturerSection {\n        image {\n          asset,\n          crop,\n          hotspot,\n          alt\n        },\n\n        lecturer-> {\n          _id,\n          _type,\n          firstName,\n          lastName,\n          email,\n          phone,\n          excerpt,\n\n          "slug": slug.current,\n\n          "jobTitles":\n            roles[]->title,\n\n          image {\n            asset,\n            crop,\n            hotspot,\n            alt\n          }\n        },\n\n        text {\n          ...,\n          block[] {\n            ...\n          }\n        },\n\n        cta {\n          ...,\n\n          "resolvedLink":\n            wa::resolveNavItem(link),\n\n          link {\n            ...,\n\n            internalReference-> {\n              _id,\n              _type,\n              title,\n              courseName,\n              firstName,\n              lastName,\n\n              "slug":\n                slug.current,\n\n              "categorySlug":\n                category->slug.current\n            }\n          }\n        }\n      },\n\n      courseListSection {\n        title {\n          ...\n        },\n\n        text {\n          ...,\n          block[] {\n            ...\n          }\n        },\n\n        "accordions":\n          courseList[]-> {\n            "_key": _id,\n            "title": courseName,\n            "description":\n              seo.metaDescription,\n\n            "btnHref":\n              "/juridikkurser/" +\n              category->slug.current +\n              "/" +\n              slug.current,\n\n            "icon": true\n          }\n      },\n\n      courseInfoSection {\n        title {\n          ...\n        },\n\n        text {\n          ...,\n          block[] {\n            ...\n          }\n        },\n\n        "accordions":\n          courseInfo[] {\n            _key,\n            title,\n            description\n          }\n      },\n\n      contactSection {\n        ...\n      },\n\n      courseInfoLongSection {\n        title {\n          ...\n        },\n\n        text {\n          ...,\n          block[] {\n            ...\n          }\n        }\n      },\n\n      courseQuotesSection[] {\n        _key,\n        _type,\n        quote,\n        person,\n\n        courseTaken-> {\n          _id,\n          _type,\n          courseName,\n\n          "slug":\n            slug.current,\n\n          category-> {\n            _id,\n            title,\n\n            "slug":\n              slug.current\n          }\n        }\n      },\n\n      seo {\n        ...\n      }\n    }\n  ': COURSE_CATEGORY_PAGE_QUERY_RESULT;
-    '\n  \n  fn wa::resolveLinkRef($linkRef) = $linkRef->{\n    "label": coalesce(\n      title,\n      internalReference->courseName,\n      internalReference->title,\n      internalReference->firstName + " " +\n        internalReference->lastName\n    ),\n\n    "href": select(\n      linkType == "external" =>\n        href,\n\n      internalReference->_type == "home" =>\n        "/",\n\n      internalReference->_type == "contactPage" =>\n        "/kontakt",\n\n      internalReference->_type == "aboutPage" =>\n        "/om-oss",\n\n      internalReference->_type == "courseMainPage" =>\n        "/juridikkurser",\n\n      internalReference->_type == "employee" &&\n      defined(internalReference->slug.current) =>\n        "/om-oss/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "service" &&\n      defined(internalReference->slug.current) =>\n        "/rattsomraden/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "courseCategory" &&\n      defined(internalReference->slug.current) =>\n        "/juridikkurser/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "course" &&\n      defined(internalReference->category->slug.current) &&\n      defined(internalReference->slug.current) =>\n        "/juridikkurser/" +\n        internalReference->category->slug.current +\n        "/" +\n        internalReference->slug.current,\n\n      internalReference->_type == "article" &&\n      defined(internalReference->slug.current) =>\n        "/artiklar/" +\n        internalReference->slug.current,\n\n      null\n    ),\n\n    linkType,\n    "referenceType": internalReference->_type\n  };\n\n  fn wa::resolveNavItem($item) = $item {\n    "label": coalesce(\n      label,\n      link->title,\n      link->internalReference->courseName,\n      link->internalReference->title,\n      link->internalReference->firstName + " " +\n        link->internalReference->lastName\n    ),\n\n    "href": select(\n      link->linkType == "external" =>\n        link->href,\n\n      link->internalReference->_type == "home" =>\n        "/",\n\n      link->internalReference->_type == "contactPage" =>\n        "/kontakt",\n\n      link->internalReference->_type == "aboutPage" =>\n        "/om-oss",\n\n      link->internalReference->_type == "courseMainPage" =>\n        "/juridikkurser",\n\n      link->internalReference->_type == "employee" &&\n      defined(link->internalReference->slug.current) =>\n        "/om-oss/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "service" &&\n      defined(link->internalReference->slug.current) =>\n        "/rattsomraden/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "courseCategory" &&\n      defined(link->internalReference->slug.current) =>\n        "/juridikkurser/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "course" &&\n      defined(link->internalReference->category->slug.current) &&\n      defined(link->internalReference->slug.current) =>\n        "/juridikkurser/" +\n        link->internalReference->category->slug.current +\n        "/" +\n        link->internalReference->slug.current,\n\n      link->internalReference->_type == "article" &&\n      defined(link->internalReference->slug.current) =>\n        "/artiklar/" +\n        link->internalReference->slug.current,\n\n      null\n    ),\n\n    "linkType": link->linkType,\n    "referenceType": link->internalReference->_type\n  };\n\n\n  *[\n    _type == "course" &&\n    slug.current == $courseSlug &&\n    category->slug.current == $categorySlug\n  ][0] {\n    _id,\n    "courseSlug": slug.current,\n    courseName,\n    hero,\n    intro,\n    aimCourse,\n    aboutCourse,\n    days,\n\n    courseSections[]{\n      _key,\n      _type,\n\n      _type == "courseTextSection" => {\n        sectionTitle,\n        sectionContent\n      },\n\n      _type == "image" => {\n        asset,\n        alt,\n        crop,\n        hotspot\n      }\n    },\n\n    length,\n    conditionsCourse,\n\n    lecturer->{\n      _id,\n      firstName,\n      lastName,\n      "roles": roles[]->title,\n\n      image {\n        asset,\n        crop,\n        hotspot,\n        alt\n      },\n\n      "slug": slug.current,\n      professionalTitle,\n      email,\n      phone\n    },\n\n    category->{\n      _id,\n      title,\n      "slug": slug.current,\n      courseListSection {\n        title,\n        text,\n        courseList[]->{\n          _id,\n          courseName,\n          "slug": slug.current,\n          length\n        }\n      }\n    },\n  \n    seo {\n      metaTitle,\n      metaDescription\n    }\n  }\n': COURSE_PAGE_QUERY_RESULT;
-    '\n  *[_type == "employee" && defined(slug.current)] | order(lastName asc){\n    _id,\n    firstName,\n    lastName,\n    number,\n    email,\n    bio,\n    "slug": slug.current,\n    image {\n      asset,\n      crop,\n      hotspot,\n      alt\n    },\n    "roles": roles[]->{ _id, title }\n  }\n': EMPLOYEES_QUERY_RESULT;
-    '\n  {\n    "role": *[_type == "role" && slug.current == $role][0] { title },\n    "employees": *[\n      _type == "employee" &&\n      $role in roles[]->slug.current &&\n      defined(slug.current)\n    ] | order(lastName asc) {\n      _id,\n      firstName,\n      lastName,\n      "roles": roles[]->{ _id, title, "slug": slug.current },\n      "slug": slug.current,\n      image {\n        asset,\n        crop,\n        hotspot,\n        alt\n      }\n    }\n  }\n': EMPLOYEE_ROLE_QUERY_RESULT;
-    '\n  *[\n    _type == "role" &&\n    count(*[\n      _type == "employee" &&\n      references(^._id)\n    ]) > 0\n  ]\n  | order(title asc) {\n    _id,\n    title,\n    "slug": slug.current\n  }\n': ROLES_QUERY_RESULT;
-    '\n  *[_type == "employee" && slug.current == $employeeSlug][0]{\n    firstName,\n    lastName,\n    "slug": slug.current,\n    phone,\n    email,\n    bio,\n    employeeDescription,\n    image {\n      asset,\n      crop,\n      hotspot,\n      alt\n    },\n    expertise[] {\n      service-> { _id, title, "slug": slug.current }\n    },\n    hasCourses,\n    courses[]-> {\n      _id,\n      courseName,\n      "slug": slug.current,\n      category-> { _id, title, "slug": slug.current }\n    },\n    jobHistory[] {\n      jobTitle,\n      employer,\n      yearStart,\n      yearEnd\n    },\n    roles[]->{ _id, title, "slug": slug.current },\n    educationList[]{\n      school,\n      education,\n      yearStart,\n      yearEnd\n    }\n  }\n': EMPLOYEE_PAGE_QUERY_RESULT;
-    '\n  *[_type == "studentPoolPage"][0] {\n    _id,\n    title,\n    eyebrow,\n    intro,\n    image {\n      alt,\n      hotspot,\n      crop,\n      asset\n    }\n  }\n': STUDENT_PAGE_QUERY_RESULT;
-    '\n  *[_type == "studentPool"][0] {\n    _id,\n    name,\n    image {\n      alt,\n      hotspot,\n      crop,\n      asset\n    }\n  }\n': STUDENT_QUERY_RESULT;
-    '\n  *[_type == "article"] | order(_createdAt desc) {\n    _id,\n    title,\n    writers[]-> {\n      firstName,\n      lastName,\n      slug,\n      image {\n        crop,\n        asset,\n        alt,\n        hotspot\n      }\n    },\n    "slug": slug.current,\n    excerpt,\n    image {\n      asset,\n      alt,\n      crop,\n      hotspot\n    },\n    category-> {\n      title,\n      "slug": slug.current\n    },\n    _createdAt\n  }\n': ARTICLES_QUERY_RESULT;
-    '\n  *[_type == "article" && slug.current == $articleSlug][0]{\n    title,\n    "slug": slug.current,\n    writers[]-> {\n      firstName,\n      lastName,\n      slug,\n      image {\n        crop,\n        asset,\n        alt,\n        hotspot\n      }\n    },\n    image {\n      asset,\n      crop,\n      hotspot,\n      alt\n    },\n    seo {\n      metaTitle,\n      metaDescription\n    }\n  }\n': ARTICLE_PAGE_QUERY_RESULT;
-  }
-}

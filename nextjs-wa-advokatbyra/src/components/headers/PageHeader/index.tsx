@@ -28,4 +28,3 @@ export default async function PageHeader({ pageName }: { pageName: string }) {
     </header>
   );
 }
-

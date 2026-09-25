@@ -137,8 +137,8 @@ export default async function CoursePage({
           { href: `/juridikkurser/${course?.category?.slug}` || '#', label: course?.category?.title || 'Kategori saknas' },
         ]}
       >
-        <CustomPortableText value={introtext || 'text saknas'} />
-        <h3 className="font-heading text-ink mt-md">Om utbildningen</h3>
+        {/* <CustomPortableText value={introtext || 'text saknas'} /> */}
+        {/* <h3 className="font-heading text-ink mt-md">Om utbildningen</h3> */}
         <CustomPortableText value={course?.aboutCourse} />
       </CourseSection>
       <div className="block lg:hidden">

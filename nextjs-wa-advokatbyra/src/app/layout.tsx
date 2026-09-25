@@ -10,8 +10,6 @@ import "./globals.css"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-import Footer from "@/components/footers/Footer"
-import Nav from "@/components/headers/navs/Nav"
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -48,11 +46,7 @@ export default function RootLayout({
       className={`${serif.variable} ${cursive.variable} ${sans.variable} snap-y snap-proximity motion-reduce:snap-none h-full antialiased`}
     >
       <body className="selection-brand overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
-        <Nav />
-        <div className="relative z-20 drop-shadow-5xl bg-canvas min-h-screen">
-          {children}
-        </div>
-        <Footer />
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>

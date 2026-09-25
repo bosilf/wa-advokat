@@ -8,6 +8,7 @@ export default async function Nav() {
   const navigation = await client.fetch(NAVIGATION_QUERY);
   const items = navigation?.headerNavigation ?? [];
 
+  console.log(JSON.stringify(items, null, 2));
   return (
     <>
       <MobileNav items={items} />
