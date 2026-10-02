@@ -1,12 +1,12 @@
 import { client } from "@/sanity/client";
 import { HOMEPAGE_QUERY } from "@/sanity/queries";
-import type { HOMEPAGE_QUERY_RESULT } from "@/sanity/sanity.types";
+import type { HOMEPAGE_QUERY_RESULT, internalGroqTypeReferenceTo } from "@/sanity/sanity.types";
 import CardContainer from "@/components/cards/CardContainer";
 import ButtonComp from "@/components/buttons/Button";
 import EmployeeCard from "@/components/cards/EmployeeCard";
 import Section from "@/components/sections/Section";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
-import HeroHome from "@/components/heros/HeroHome";
+import HeroHome from "@/components/heroes/HeroHome";
 import HeadingIntroGridSection from "@/components/sections/HeadingIntroGridSection";
 import HomeEmployeeGridSection from "@/components/pages/HomeEmployeeGridSection";
 import SanityButton from "@/components/buttons/SanityButton";
@@ -24,18 +24,18 @@ export default async function IndexPage() {
 
   const intro = page?.introSection;
   const services = page?.tjansterSection;
+
   const team = page?.employeeSection;
   const contact = page?.contactSection;
-  const contactEyebrow = contact?.contactEyebrow ?? [];
 
   const employees = team?.teamMembers ?? [];
   const teamCta = team?.cta ?? [];
   const accordions = services?.AccordionItemData ?? []
   const serviceIntro = services?.tjansterText;
-  const serviceEyebrow = services?.tjansterEyebrow ?? [];
-  const serviceCta = services?.tjansterCta ?? null
+  const serviceCta = services?.tjansterCta
+  const serviceBtnProps = serviceCta?.btnProps
 
-  console.log(services)
+  console.log(page?.employeeSection?.description)
 
 
   return (
@@ -56,15 +56,14 @@ export default async function IndexPage() {
         {
           services && (
             <HeadingIntroGridSection 
-              button={serviceCta}
-              description={
-                services?.tjansterText ? (
-                  <CustomPortableText value={services.tjansterText} />
-                ) : (
-                  <p className="font-body text-gray-400">Text saknas i Sanity.</p>
-                )
-              }
-            heading={services?.tjansterTitle || 'text saknas'} eyebrow={services?.tjansterEyebrow?.text || 'Rättsområden'} eyebrowHref={services?.tjansterEyebrow?.link || "/"}>
+              button={{
+                _type: serviceCta?._type || 'button',
+                btnProps: serviceBtnProps,
+                hasButton: serviceCta?.hasButton
+              }}
+              description={ serviceIntro }
+              
+              heading={services?.tjansterTitle || 'text saknas'} eyebrow={services?.eyebrow?.text || 'Rättsområden'} eyebrowHref={services.eyebrow?.link?.href || "/"}>
               {accordions.length > 0 ? (
                 <CardContainer
                   hasAccordion
@@ -84,19 +83,12 @@ export default async function IndexPage() {
         <Section 
           eyebrow={team?.eyebrow?.text || "Medarbetare"}
           eyebrowHref={
-            team?.eyebrow?.link ?? undefined
+            team?.eyebrow?.link?.href ?? undefined
           }
           heading={team?.title ?? "Title saknas"}
           color="bg-surface" 
         >
-          {/* <p className="font-body text-balance">
-          Vi är lösningsorienterade och vi strävar efter att inte enbart peka på risker utan att försöka hitta lösningar och möjligheter på olika problem och frågor.
-          </p> */}
-          {team?.description ? (
-            <CustomPortableText value={team.description} />
-          ) : (
-            <p className="font-body text-gray-400">Text saknas i Sanity.</p>
-          )}
+          <CustomPortableText value={page?.employeeSection?.description} />
           <HomeEmployeeGridSection>
             {employees.map(
               (employee, index) => (
@@ -123,8 +115,8 @@ export default async function IndexPage() {
           <SanityButton button={team?.cta} />
         </Section>
         <Section
-          eyebrow={contact?.contactEyebrow?.text ?? "Kontakt"}
-          eyebrowHref={contact?.contactEyebrow?.link ?? "/kontakt"}
+          eyebrow={contact?.eyebrow?.text || "testing"}
+          eyebrowHref={contact?.eyebrow?.link?.href || "/boll"}
           heading={contact?.contactTitle ?? "Kontakta oss"}
         >
           {contact?.contactText ? (

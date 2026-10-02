@@ -6,7 +6,7 @@ import { client } from "@/sanity/client";
 import { ARTICLE_PAGE_QUERY } from "@/sanity/queries";
 import type { ARTICLE_PAGE_QUERY_RESULT } from "@/sanity/sanity.types";
 
-import HeroRegular from "@/components/heros/HeroRegular";
+import HeroRegular from "@/components/heroes/HeroRegular";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
 
 type PageProps = {

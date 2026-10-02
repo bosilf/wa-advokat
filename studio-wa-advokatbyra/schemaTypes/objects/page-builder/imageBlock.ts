@@ -23,22 +23,28 @@ export const imageBlock = defineType({
       ],
       validation: (rule) => rule.required(),
     }),
-
     defineField({
-      name: "caption",
-      title: "Bildtext",
-      type: "string",
+      name: 'title',
+      type: 'string'
     }),
+    defineField({
+      name: 'eyebrow',
+      type: 'string'
+    }),
+    defineField({
+      name: 'text',
+      type: 'blockObject'
+    })
   ],
 
   preview: {
     select: {
       media: "image",
-      caption: "caption",
+      title: "title",
     },
-    prepare({ media, caption }) {
+    prepare({ media, title }) {
       return {
-        title: caption || "Bild",
+        title: title || "Bild",
         media,
       };
     },

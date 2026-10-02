@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import HeroRegular from "@/components/heros/HeroRegular";
+import HeroRegular from "@/components/heroes/HeroRegular";
 import Section from "@/components/sections/Section";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
 
@@ -170,7 +170,12 @@ if (!page) {
                   key={category._key}
                   hasImage={Boolean(categoryImageSrc)}
                   image={{
-                    src: categoryImageSrc,
+                    image: {
+                      asset: category.chosenCourseCategory?.image?.asset,
+                      alt: category.chosenCourseCategory?.image?.alt,
+                      crop: category.chosenCourseCategory?.image?.crop,
+                      hotspot: category.chosenCourseCategory?.image?.hotspot,
+                    },
                     eyebrow: "Kursutbud i",
                     title: categoryTitle,
                   }}

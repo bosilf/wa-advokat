@@ -22,6 +22,8 @@ export type EyebrowCrumb = {
   openInNewTab?: boolean;
 };
 
+
+
 export type SectionProps = {
   children: ReactNode;
   color?: string;
@@ -94,38 +96,37 @@ export default function Section({
           paddingTop: () =>
             window.innerWidth >= 1024
               ? 12
-              : 2,
+              : 0,
 
           paddingBottom: () =>
             window.innerWidth >= 1024
               ? 12
-              : 2,
+              : 0,
 
           ease: "none",
 
           scrollTrigger: {
             trigger: section,
-            start: "top bottom",
-            end: "bottom top",
+            start: "top 95%",
+            end: "top",
             scrub: 0.8,
             invalidateOnRefresh: true,
           },
         },
       );
-
-      const revealTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top 85%",
-
-          once: true,
-        },
-      });
+      const revealTimeline =
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 78%",
+            once: true,
+          },
+        });
 
       revealTimeline
         .from(headingElement, {
           autoAlpha: 0,
-          y: 32,
+          y: 50,
           duration: 0.8,
           ease: "power3.out",
         })
@@ -139,6 +140,33 @@ export default function Section({
           },
           "-=0.5",
         );
+
+      // const revealTimeline = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: section,
+      //     start: "top 95%",
+
+      //     once: true,
+      //   },
+      // });
+
+      // revealTimeline
+      //   .from(headingElement, {
+      //     autoAlpha: 0,
+      //     y: 32,
+      //     duration: 0.8,
+      //     ease: "power3.out",
+      //   })
+      //   .from(
+      //     contentElement,
+      //     {
+      //       autoAlpha: 0,
+      //       y: 32,
+      //       duration: 0.8,
+      //       ease: "power3.out",
+      //     },
+      //     "-=0.5",
+      //   );
     },
     {
       scope: sectionRef,
@@ -152,117 +180,116 @@ export default function Section({
     >
       <div className="z-10 m-auto flex max-w-200 flex-col gap-md px-section-sides py-section-tb">
       <div
-  ref={headingRef}
-  className="mb-md"
->
-  {!hideEyebrow && (
-    <>
-      {eyebrowCrumbs.length > 0 ? (
-        <nav
-          aria-label="Brödsmulor"
-          className="mb-xs"
-        >
-          <ol className="flex flex-wrap items-center gap-xs font-eyebrow">
-            {eyebrowCrumbs.map(
-              (crumb, index) => {
-                const isLast =
-                  index ===
-                  eyebrowCrumbs.length - 1;
+        ref={headingRef}
+      >
+        {!hideEyebrow && (
+          <>
+            {eyebrowCrumbs.length > 0 ? (
+              <nav
+                aria-label="Brödsmulor"
+                className="mb-xs"
+              >
+                <ol className="flex flex-wrap items-center gap-xs font-eyebrow">
+                  {eyebrowCrumbs.map(
+                    (crumb, index) => {
+                      const isLast =
+                        index ===
+                        eyebrowCrumbs.length - 1;
+                    
+                      return (
+                        <li
+                          key={`${crumb.label}-${index}`}
+                          className="flex items-center gap-xs"
+                        >
+                          {crumb.href ? (
+                            <Link
+                              href={crumb.href}
+                              target={
+                                crumb.openInNewTab
+                                  ? "_blank"
+                                  : undefined
+                              }
+                              rel={
+                                crumb.openInNewTab
+                                  ? "noopener noreferrer"
+                                  : undefined
+                              }
+                              className="
+                                text-muted
+                                transition-colors
+                                hover:text-ink
+                                hover:underline
+                                focus-visible:outline-2
+                                focus-visible:outline-offset-4
+                                focus-visible:outline-ink
+                              "
+                            >
+                              {crumb.label}
+                            </Link>
+                          ) : (
+                            <span
+                              aria-current={
+                                isLast
+                                  ? "page"
+                                  : undefined
+                              }
+                              className={
+                                isLast
+                                  ? "text-accent"
+                                  : "text-muted"
+                              }
+                            >
+                              {crumb.label}
+                            </span>
+                          )}
 
-                return (
-                  <li
-                    key={`${crumb.label}-${index}`}
-                    className="flex items-center gap-xs"
+                          {!isLast && (
+                            <span
+                              aria-hidden="true"
+                              className="text-muted"
+                            >
+                              /
+                            </span>
+                          )}
+                        </li>
+                      );
+                    },
+                  )}
+                </ol>
+              </nav>
+            ) : eyebrow ? (
+              <div className="mb-xs">
+                {eyebrowHref ? (
+                  <Link
+                    href={eyebrowHref}
+                    target={
+                      eyebrowOpenInNewTab
+                        ? "_blank"
+                        : undefined
+                    }
+                    rel={
+                      eyebrowOpenInNewTab
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="w-fit font-eyebrow text-muted hover:text-ink"
                   >
-                    {crumb.href ? (
-                      <Link
-                        href={crumb.href}
-                        target={
-                          crumb.openInNewTab
-                            ? "_blank"
-                            : undefined
-                        }
-                        rel={
-                          crumb.openInNewTab
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
-                        className="
-                          text-muted
-                          transition-colors
-                          hover:text-ink
-                          hover:underline
-                          focus-visible:outline-2
-                          focus-visible:outline-offset-4
-                          focus-visible:outline-ink
-                        "
-                      >
-                        {crumb.label}
-                      </Link>
-                    ) : (
-                      <span
-                        aria-current={
-                          isLast
-                            ? "page"
-                            : undefined
-                        }
-                        className={
-                          isLast
-                            ? "text-accent"
-                            : "text-muted"
-                        }
-                      >
-                        {crumb.label}
-                      </span>
-                    )}
+                    {eyebrow}
+                  </Link>
+                ) : (
+                  <span className="font-eyebrow text-muted">
+                    {eyebrow}
+                  </span>
+                )}
+              </div>
+            ) : null}
+          </>
+        )}
 
-                    {!isLast && (
-                      <span
-                        aria-hidden="true"
-                        className="text-muted"
-                      >
-                        /
-                      </span>
-                    )}
-                  </li>
-                );
-              },
-            )}
-          </ol>
-        </nav>
-      ) : eyebrow ? (
-        <div className="mb-xs">
-          {eyebrowHref ? (
-            <Link
-              href={eyebrowHref}
-              target={
-                eyebrowOpenInNewTab
-                  ? "_blank"
-                  : undefined
-              }
-              rel={
-                eyebrowOpenInNewTab
-                  ? "noopener noreferrer"
-                  : undefined
-              }
-              className="w-fit font-eyebrow text-muted hover:text-ink"
-            >
-              {eyebrow}
-            </Link>
-          ) : (
-            <span className="font-eyebrow text-muted">
-              {eyebrow}
-            </span>
-          )}
+          <h2 className="font-heading text-ink text-balance">
+            {heading}
+          </h2>
         </div>
-      ) : null}
-    </>
-  )}
-
-  <h2 className="font-heading text-ink text-balance">
-    {heading}
-  </h2>
-</div>
 
         <div className="flex flex-col gap-md" ref={contentRef}>
           {children}

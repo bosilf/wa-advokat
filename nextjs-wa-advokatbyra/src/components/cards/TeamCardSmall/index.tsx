@@ -1,4 +1,4 @@
-import ImageComponent from "@/components/common/Image"
+import ImageComponent, { ImageCompProps } from "@/components/common/Image"
 import Link from "next/link";
 
 export type TeamCardSmallType = {
@@ -7,13 +7,7 @@ export type TeamCardSmallType = {
   name?: string,
   link?: string,
   caption?: string[] | string,
-  image?: {
-    alt?: string | null;
-    hotspot?: {
-      x?: number;
-      y?: number;
-    } | null;
-  } | null;
+  image?: ImageCompProps["image"]
 }
 
 
@@ -22,11 +16,7 @@ const TeamCardSmall = ({hoverEffect = false, hide, name, caption, image, link}: 
     <Link className="group" href={link || '#'}>
     <article hidden={hide} className="aspect-5/1 w-full max-h-20 grid grid-cols-[auto_1fr] gap-sm lg:gap-3 p-sm pr-md -mx-sm rounded-md transition-all duration-200 group-hover:bg-surface">
       <div className="aspect-square h-full my-auto w-full overflow-hidden rounded-full" >
-        {hoverEffect 
-          ? <ImageComponent image={image} />
-          : <ImageComponent image={image} />
-        }
-        
+        <ImageComponent image={image} sizes="56px" />
       </div>
       <div className="flex flex-col justify-center gap-xs">
         <h3 className={`font-bold text-normal  transition-all duration-200 
@@ -38,7 +28,9 @@ const TeamCardSmall = ({hoverEffect = false, hide, name, caption, image, link}: 
           ${
             hoverEffect ? "text-body/0 group-hover:text-body" : "text-body group-hover:text-accent"
           }
-          `}>{caption}</p>
+          `}>
+            {Array.isArray(caption) ? caption.join(" | ") : caption}
+          </p>
       </div>
     </article>
     </Link>

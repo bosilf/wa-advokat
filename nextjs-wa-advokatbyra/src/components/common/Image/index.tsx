@@ -16,10 +16,12 @@ export type ImageType = SanityImageSource & {
 
 export type ImageCompProps = {
   image?: ImageType | null;
+  sizes?: string;
 };
 
 export default function ImageComponent({
   image,
+  sizes = "100vw",
 }: ImageCompProps) {
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -49,11 +51,10 @@ export default function ImageComponent({
       <Image
         src={urlFor(image).url()}
         alt={image.alt ?? ""}
+        loading="lazy"
         fill
-        loading="eager"
-        preload
-        quality={90}
-        sizes="(max-width: 767px) 250vw, 100vw"
+        quality={75}
+        sizes={sizes}
         className="object-cover"
         style={{
           objectPosition: `${hotspotX * 100}% ${hotspotY * 100}%`,

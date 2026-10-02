@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { client } from "@/sanity/client";
 import { PAGE_BY_PATH_QUERY } from "@/sanity/queries";
 import PageBuilder from "@/components/page-builder/PageBuilder";
-import HeroRegular from "@/components/heros/HeroRegular";
+import HeroRegular from "@/components/heroes/HeroRegular";
 
 const options = {
   next: {

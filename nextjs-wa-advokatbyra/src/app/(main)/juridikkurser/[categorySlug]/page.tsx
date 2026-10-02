@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { client } from "@/sanity/client";
@@ -9,11 +8,9 @@ import type {
   COURSE_CATEGORY_PAGE_QUERY_RESULT,
 } from "@/sanity/sanity.types";
 
-import HeroRegular from "@/components/heros/HeroRegular";
+import HeroRegular from "@/components/heroes/HeroRegular";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
 import CardContainer from "@/components/cards/CardContainer";
-import ArticleCard from "@/components/cards/ArticleCard";
-import ArticleSlideSection from "@/components/sections/ArticleSlideSection";
 import HeadingIntroGridSection from "@/components/sections/HeadingIntroGridSection";
 import Section from "@/components/sections/Section";
 import ImageGridSection from "@/components/sections/ImageGridSection";
@@ -89,14 +86,7 @@ export default async function CourseCategoryPage({
       )
       .join(" | ") ?? "";
 
-  const lecturerImageSrc =
-    lecturer?.image
-      ? urlFor(lecturer.image)
-          .width(300)
-          .height(300)
-          .fit("crop")
-          .url()
-      : "";
+
 
   const categoryLecturerImageSrc =
     lecturerSection?.image
@@ -109,7 +99,7 @@ export default async function CourseCategoryPage({
 
   const lecturerHref =
     lecturer?.slug
-      ? `/medarbetare/${lecturer.slug}`
+      ? `/om-oss/${lecturer.slug}`
       : undefined;
     
 
@@ -160,9 +150,7 @@ export default async function CourseCategoryPage({
               value={introBlocks || 'introtext saknas'}
             />
         </Section>
-        {/* Introduktion */}
 
-        {/* Företagsanpassad kurs */}
         <section className="bg-surface">
           <div className="section-spacing m-auto max-w-section px-section-sides py-section-tb">
             <p className="font-eyebrow text-muted">

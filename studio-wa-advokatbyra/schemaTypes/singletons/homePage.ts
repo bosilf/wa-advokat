@@ -75,7 +75,7 @@ export const homePage = defineType({
           validation: Rule => Rule.required(),
         },
         {
-          name: 'tjansterEyebrow', 
+          name: 'eyebrow', 
           title: 'ögonbryn',
           type: 'eyebrow',
         },
@@ -127,7 +127,8 @@ export const homePage = defineType({
         {
           name: 'description', 
           title: 'Medarbetare text',
-          type: 'text'
+          type: 'array',
+          of: [{type: 'block'}],
         },
         {
           name: 'cta', 
@@ -167,7 +168,7 @@ export const homePage = defineType({
           validation: Rule => Rule.required(),
         },
         {
-          name: 'contactEyebrow', 
+          name: 'eyebrow', 
           title: 'ögonbryn',
           type: 'eyebrow',
         },

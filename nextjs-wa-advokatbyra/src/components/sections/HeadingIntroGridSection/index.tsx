@@ -1,13 +1,14 @@
 "use client";
 
 import { useRef } from "react";
-import type { ReactNode } from "react";
+import type { ReactNode, ComponentProps } from "react";
 
 import Link from "next/link";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { CustomPortableText } from "@/components/common/CustomPortableText";
 
 import SanityButton, { SanityButtonData } from "@/components/buttons/SanityButton";
 
@@ -17,6 +18,9 @@ if (typeof window !== "undefined") {
     useGSAP,
   );
 }
+
+type PortableTextValue =
+  ComponentProps<typeof CustomPortableText>["value"];
 
 export type SectionProps = {
   children: ReactNode;
@@ -35,7 +39,7 @@ export type SectionProps = {
 
   heading: string;
 
-  description?: ReactNode | null;
+  description?: PortableTextValue | ReactNode | null;
 };
 
 export default function HeadingIntroGridSection({
@@ -224,7 +228,8 @@ export default function HeadingIntroGridSection({
             gap-md
           "
         >
-          {description}
+          <CustomPortableText value={description} />
+          {/* {description} */}
 
           {button?.hasButton && (
             <SanityButton

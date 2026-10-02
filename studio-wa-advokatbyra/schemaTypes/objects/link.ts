@@ -45,6 +45,7 @@ export const link = defineType({
         { type: "page" },
         { type: "contactPage" },
         { type: "aboutPage" },
+        { type: "serviceMainPage" },
         { type: "courseMainPage" },
         { type: "employee" },
         { type: "service" },

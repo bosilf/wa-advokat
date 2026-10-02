@@ -9,7 +9,7 @@ import type { OM_OSS_PAGE_QUERY_RESULT } from "@/sanity/sanity.types";
 import Section from "@/components/sections/Section";
 import EmployeeCard from "@/components/cards/EmployeeCard";
 import Button from "@/components/buttons/Button";
-import HeroRegular from "@/components/heros/HeroRegular";
+import HeroRegular from "@/components/heroes/HeroRegular";
 import Icon from "@/components/Icon";
 
 import { CustomPortableText } from "@/components/common/CustomPortableText";
@@ -237,7 +237,8 @@ export default async function OmOss() {
                       }}
                       className="
                     relative
-                    col-span-3
+                    col-span-5
+                    col-start-1
                     odd:col-start-2
                     md:col-span-1
                     md:odd:col-start-auto
@@ -255,31 +256,7 @@ export default async function OmOss() {
                   Inga medarbetare har valts.
                 </p>
               )}
-              {/* <div className="flex flex-col gap-md mt-xl">
-              <p className="font-eyebrow text-muted">studentpoolen</p>
-              <h3 className="font-heading text-ink text-pretty max-w-150">En möjlighet att komma närmare juridiken i praktiken</h3>
-              <p className="font-body text-balance">
-              Studentpoolen är en del av WA Advokatbyrå och ger juridikstudenter möjlighet att få en närmare inblick i arbetet på en affärsjuridisk advokatbyrå. Här får studenter möjlighet att möta den praktiska juridiken och få erfarenhet från en verksamhet där juridisk precision kombineras med förståelse för klientens affär och bransch.
-                </p>
-              {students.length > 0 ? (
-                <ul className="grid grid-cols-1 gap-md md:grid-cols-3">
-                  {students.map(
-                    (student) => (
-                      <li key={student._id}>
-                        <StudentCard
-                          student={student}
-                          />
-                      </li>
-                    ),
-                  )}
-                </ul>
-              ) : (
-                <p className="font-body text-muted">
-                  Inga medarbetare har valts.
-                </p>
-              )}
-              <ButtonComp variant="primary" showIcon href="/studentpoolen" >Läs om studentpoolen</ButtonComp>
-              </div> */}
+              
           </Section>
         )}
         <Section eyebrow="studentpoolen" eyebrowHref="/studentpoolen" heading="Möt våra studenter">

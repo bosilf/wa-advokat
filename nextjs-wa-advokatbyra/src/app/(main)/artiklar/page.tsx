@@ -5,7 +5,7 @@ import { client } from "@/sanity/client";
 import { ARTICLES_QUERY } from "@/sanity/queries";
 import type { ARTICLES_QUERY_RESULT } from "@/sanity/sanity.types";
 
-import HeroRegular from "@/components/heros/HeroRegular";
+import HeroRegular from "@/components/heroes/HeroRegular";
 import ImageComponent from "@/components/common/Image";
 
 export const revalidate = 30;

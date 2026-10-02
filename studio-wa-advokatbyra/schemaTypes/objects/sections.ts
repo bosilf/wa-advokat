@@ -18,7 +18,7 @@ export const sections = defineType({
     }),
     defineField({
         type: "blockObject",
-        name: 'text',
+        name: 'textObject',
         title: " "
     })
   ],

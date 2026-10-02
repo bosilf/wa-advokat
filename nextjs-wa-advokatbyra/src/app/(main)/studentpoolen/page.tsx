@@ -1,6 +1,6 @@
 import {client} from "@/sanity/client"
 
-import HeroRegular from "@/components/heros/HeroRegular";
+import HeroRegular from "@/components/heroes/HeroRegular";
 import { STUDENT_PAGE_QUERY } from "@/sanity/queries";
 import type { STUDENT_PAGE_QUERY_RESULT } from "@/sanity/sanity.types";
 import Section from "@/components/sections/Section";
@@ -21,7 +21,7 @@ export default async function StudentPage() {
 
   const intro = page?.intro?.block ?? []
 
-  console.log(page)
+  // console.log(page)
 
   return (
     <>

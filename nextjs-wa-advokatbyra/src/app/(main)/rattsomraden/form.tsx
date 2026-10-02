@@ -1,23 +1,15 @@
 "use client";
 
-import Icon from "@/components/Icon";
-import Section from "@/components/sections/Section";
-import Link from "next/link";
 import { FormEvent, useState } from "react";
 
-const constructionCourses = [
-  "Grundkurs i entreprenadjuridik",
-  "Fortsättningskurs i entreprenadjuridik",
-  "Konsulträtt (ABK09)",
-  "Avtalsskrivning och avtalsgranskning",
-  "Företagsanpassad kurs",
-];
+import Section from "@/components/sections/Section";
 
-const procurementCourses = [
-  "Offentlig upphandling för leverantörer",
-  "Offentlig upphandling för beställare",
-  "Fördjupningskurs i offentlig upphandling",
-  "Företagsanpassad kurs",
+const subjectOptions = [
+  "Rådgivning",
+  "Utbildning/kurs",
+  "Entreprenadjuridik",
+  "Offentlig upphandling",
+  "Annat",
 ];
 
 type CheckboxGroupProps = {
@@ -32,14 +24,12 @@ function CheckboxGroup({
   options,
 }: CheckboxGroupProps) {
   return (
-    <fieldset>
-      <div className="flex flex-col gap-md">
-
-      <legend className="mb-lg font-subheading text-ink">
+    <fieldset className="space-y-md">
+      <legend className="mb-md font-subheading font-semibold">
         {legend}
       </legend>
 
-      <div className="flex flex-col gap-xs">
+      <div className="flex flex-col gap-sm">
         {options.map((option) => {
           const id = `${name}-${option}`
             .toLowerCase()
@@ -72,17 +62,12 @@ function CheckboxGroup({
           );
         })}
       </div>
-      </div>
     </fieldset>
   );
 }
 
 const inputClasses = `
-  w-full rounded-full bg-white px-md py-sm
-  font-body text-ink
-  focus-visible:outline-2
-  focus-visible:outline-offset-2
-  focus-visible:outline-footer
+  input-field
 `;
 
 export default function Message() {
@@ -98,7 +83,7 @@ export default function Message() {
     const formData = new FormData(form);
 
     try {
-      // console.log(Object.fromEntries(formData.entries()));
+      console.log(Object.fromEntries(formData.entries()));
 
       setStatus("success");
       form.reset();
@@ -110,8 +95,9 @@ export default function Message() {
   if (status === "success") {
     return (
       <Section
+        color="bg-surface"
         heading="Tack för ditt meddelande!"
-        eyebrow="Formulär skickat"
+        eyebrow="Meddelande skickat"
       >
         <div className="flex flex-col items-start gap-lg font-body">
           <p>
@@ -125,16 +111,12 @@ export default function Message() {
             type="button"
             onClick={() => setStatus("idle")}
             className="
-              group inline-flex w-fit items-center justify-center gap-sm
-              rounded-full bg-ink px-md py-sm
-              font-subheading text-white
-              transition-all duration-300
-              hover:gap-md hover:bg-accent
-              active:gap-md active:bg-accent
-              disabled:cursor-wait disabled:opacity-60
+              rounded-full bg-ink px-lg py-md
+              font-body text-white
+              transition-opacity hover:opacity-80
             "
           >
-            Skicka nytt meddelande <Icon name="arrow" className="text-white" size="" />
+            Skicka nytt meddelande →
           </button>
         </div>
       </Section>
@@ -142,34 +124,26 @@ export default function Message() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="py-section-tb px-4 max-w-300 relative grid w-full grid-cols-1 lg:grid-cols-2 gap-x-xl gap-y-md"
+    <Section
+      color="bg-surface"
+      heading="Skicka ett meddelande!"
+      eyebrow="Kontakt"
     >
-      <p className="col-span-1 lg:col-span-2 font-eyebrow text-muted">kursbokning</p>
-      <section className="col-span-1 md:col-span-2 lg:col-span-1">
-        <h1 className="font-heading mb-md text-ink">Boka en kurs med WA Advokatbyrå</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="flex w-full flex-col gap-lg"
+      >
         <p className="font-body">
           Fyll i formuläret så återkommer vi till dig så snart som möjligt.
         </p>
-        <div className="grid mt-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-md">
 
-          <CheckboxGroup
-            legend="Välj kurser inom entreprenadjuridik"
-            name="constructionCourses"
-            options={constructionCourses}
-            />
+        <CheckboxGroup
+          legend="Ärende ämne"
+          name="subjects"
+          options={subjectOptions}
+        />
 
-          <CheckboxGroup
-            legend="Välj kurser inom offentlig upphandling"
-            name="procurementCourses"
-            options={procurementCourses}
-          />
-        </div>
-      </section>
-      <section className="col-span-1 md:col-span-2 lg:col-span-1">
-        <h2 className="font-heading-sm my-md lg:sr-only">Formulär</h2>
-        <fieldset className="flex flex-col gap-sm">
+        <fieldset className="flex flex-col gap-md">
           <legend className="mb-md font-eyebrow text-muted">
             Kontaktuppgifter
           </legend>
@@ -182,9 +156,9 @@ export default function Message() {
             name="fullName"
             type="text"
             autoComplete="name"
-            placeholder="För- och efternamn *"
+            placeholder="För- och efternamn"
             required
-            className={inputClasses}
+            className="input-field"
           />
 
           <label className="sr-only" htmlFor="email">
@@ -195,7 +169,7 @@ export default function Message() {
             name="email"
             type="email"
             autoComplete="email"
-            placeholder="E-post *"
+            placeholder="E-post"
             required
             className={inputClasses}
           />
@@ -213,7 +187,7 @@ export default function Message() {
           />
         </fieldset>
 
-        <fieldset className="flex flex-col gap-sm mt-md">
+        <fieldset className="flex flex-col gap-md">
           <legend className="mb-md font-eyebrow text-muted">
             Företagsuppgifter
           </legend>
@@ -221,9 +195,8 @@ export default function Message() {
           <input
             name="companyName"
             type="text"
-            required
             autoComplete="organization"
-            placeholder="Företagsnamn *"
+            placeholder="Företagsnamn"
             aria-label="Företagsnamn"
             className={inputClasses}
           />
@@ -262,17 +235,18 @@ export default function Message() {
             id="message"
             name="message"
             placeholder="Skriv ditt meddelande"
-            rows={3}
+            required
+            rows={7}
             className="
-              w-full rounded-md bg-white px-md py-sm
-              font-body text-ink
-              focus-visible:outline-2
-              focus-visible:outline-offset-2
-            focus-visible:outline-footer"
+              w-full mt-md resize-y rounded-md bg-white p-md
+              font-body text-ink placeholder:text-ink/50
+              outline-none
+              focus-visible:ring-2 focus-visible:ring-ink
+            "
           />
         </div>
 
-        <label className="flex cursor-pointer items-start gap-sm font-caption my-sm">
+        <label className="flex cursor-pointer items-start gap-sm font-body text-sm">
           <input
             type="checkbox"
             name="privacyAccepted"
@@ -287,9 +261,9 @@ export default function Message() {
             "
           />
 
-          <span>
+          <span className="font-caption">
             Jag har tagit del av hur WA Advokatbyrå behandlar mina
-            personuppgifter i enlighet med <Link href="/integritetspolicy" className="underline hover:cursor-pointer hover:text-accent">integritetspolicyn</Link> och accepterar
+            personuppgifter i enlighet med integritetspolicyn och accepterar
             de allmänna villkoren.
           </span>
         </label>
@@ -300,13 +274,7 @@ export default function Message() {
             type="submit"
             disabled={status === "submitting"}
             className="
-              group inline-flex w-fit items-center justify-center gap-sm
-              rounded-full bg-ink px-md py-sm
-              font-subheading text-white
-              transition-all duration-300
-              hover:gap-md hover:bg-accent
-              active:gap-md active:bg-accent
-              disabled:cursor-wait disabled:opacity-60
+              btn-styles
             "
           >
             {status === "submitting"
@@ -321,8 +289,7 @@ export default function Message() {
             </p>
           )}
         </div>
-
-        </section>
       </form>
+    </Section>
   )
 }

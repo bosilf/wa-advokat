@@ -9,19 +9,16 @@ export const eyebrow = defineType({
       name: "text",
       title: "Text",
       type: "string",
-      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'target',
+      name: 'hasLink',
       type: 'boolean',
       initialValue: false,
-      description: 'Öpnnar länk i nytt fönster?'
     }),
-
     defineField({
-      name: 'eyebrowLink',
+      hidden: ({ parent }) => !parent?.hasLink,
+      name: 'link',
       type: "link",
-      description: "Valfritt. Lämna tomt om eyebrow inte ska vara en länk.",
     }),
   ],
 

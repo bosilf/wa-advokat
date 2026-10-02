@@ -20,31 +20,6 @@ export const pageSection = defineType({
       name: "heading",
       title: "Rubrik",
       type: "string",
-      validation: (rule) => rule.required(),
-    }),
-
-    defineField({
-      name: "theme",
-      title: "Bakgrund",
-      type: "string",
-      options: {
-        list: [
-          {
-            title: "Ljus",
-            value: "canvas",
-          },
-          {
-            title: "Tonad",
-            value: "surface",
-          },
-          {
-            title: "Mörk",
-            value: "dark",
-          },
-        ],
-        layout: "radio",
-      },
-      initialValue: "canvas",
     }),
 
     defineField({

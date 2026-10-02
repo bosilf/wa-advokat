@@ -37,6 +37,9 @@ import { accordionBlock } from './objects/page-builder/accordionBlock'
 import { richText } from './objects/richText'
 import { studentPool } from './documents/studentPool'
 import { studentPoolPage } from './singletons/studentPoolPage'
+import { redirects } from './objects/redirects'
+import { filterLinks } from './objects/filterLinks'
+import { serviceMainPage } from './singletons/serviceMainPage'
 
 export const schemaTypes = [
   accordionItem,
@@ -52,6 +55,7 @@ export const schemaTypes = [
   course,
   eyebrow,
   employee,
+  filterLinks,
   heroRegular,
   homePage,
   link,
@@ -72,10 +76,12 @@ export const schemaTypes = [
   sections,
   section,
   service,
+  serviceMainPage,
   settings,
   studentPool,
   studentPoolPage,
   teamSection,
   textObject,
   titleObject,
+  redirects,
 ]

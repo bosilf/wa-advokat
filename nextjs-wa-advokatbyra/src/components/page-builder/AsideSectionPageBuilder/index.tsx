@@ -1,20 +1,20 @@
-import Section from "@/components/sections/Section";
 import RichTextBlock from "../blocks/RichTextBlock";
 import ImageBlock from "../blocks/ImageBlock";
 import ButtonGroupBlock from "../blocks/ButtonGroupBlock";
 import EmployeeGridBlock from "../blocks/EmployeeGridBlock";
 import ServiceGridBlock from "../blocks/ServiceGridBlock";
 import AccordionBlock from "../blocks/AccordionBlock";
+import CourseSection from "@/components/sections/CourseSection";
 
 type PageBuilderProps = {
   sections: Array<any>;
 };
 
-export default function PageBuilder({
+export default function AsideSectionPageBuilder({
   sections,
 }: PageBuilderProps) {
   return sections.map((section, index) => (
-    <Section
+    <CourseSection
       key={section._key}
       heading={section.heading ?? ""}
       eyebrow={section.eyebrow?.text}
@@ -74,6 +74,6 @@ export default function PageBuilder({
             return null;
         }
       })}
-    </Section>
+    </CourseSection>
   ));
 }

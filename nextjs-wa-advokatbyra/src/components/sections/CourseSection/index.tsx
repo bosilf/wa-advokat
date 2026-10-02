@@ -153,7 +153,7 @@ export default function CourseSection({
       ref={sectionRef}
       className={`${color} h-fit w-full`}
     >
-      <div className="z-10 md:mr-full flex max-w-200 flex-col gap-md px-section-sides md:pl-xl md:pr-section-sides py-section-tb">
+      <div className="ml-auto mr-auto lg:ml-0 lg:mr-auto z-10 lg:mr-full flex max-w-200 flex-col gap-md px-section-sides lg:pl-xl lg:pr-section-sides py-section-tb">
       <div ref={headingRef} className="mb-md">
   {!hideEyebrow && (
     <>

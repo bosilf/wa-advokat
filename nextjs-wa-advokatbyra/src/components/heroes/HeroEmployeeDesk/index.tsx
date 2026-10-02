@@ -70,7 +70,7 @@ export default function HeroEmployeeDesk({
               fill
               loading="eager"
               preload
-              quality={90}
+              quality={75}
               sizes="(max-width: 767px) 250vw, 100vw"
               className="object-cover"
               style={{

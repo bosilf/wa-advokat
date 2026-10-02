@@ -79,6 +79,29 @@
 
 }
 
+.input-field {@apply 
+  w-full 
+  rounded-full 
+  bg-white 
+  px-md 
+  py-sm 
+  font-body 
+  text-ink 
+  focus-visible:outline-2
+  focus-visible:outline-offset-2
+  focus-visible:outline-footer
+}
+
+.btn-styles {@apply
+  inline-flex w-fit items-center justify-center gap-sm
+  rounded-full bg-ink px-md py-sm
+  font-sans font-semibold text-white
+  transition-all duration-300
+  hover:gap-md hover:bg-accent
+  active:gap-md active:bg-accent
+  disabled:cursor-wait disabled:opacity-60
+}
+
 @layer utilities {
 
   .selection-brand {

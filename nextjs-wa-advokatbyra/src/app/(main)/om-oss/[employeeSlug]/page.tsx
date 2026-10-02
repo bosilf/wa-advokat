@@ -1,12 +1,12 @@
 import {client} from "@/sanity/client"
-import HeroRegular from "@/components/heros/HeroRegular"
+import HeroRegular from "@/components/heroes/HeroRegular"
 import { EMPLOYEE_PAGE_QUERY } from "@/sanity/queries";
 import { EMPLOYEE_PAGE_QUERY_RESULT } from "@/sanity/sanity.types";
 import Section from "@/components/sections/Section";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
 import Message from "@/components/messages/Message";
 import { link } from "fs";
-import HeroEmployee from "@/components/heros/HeroEmployee";
+import HeroEmployee from "@/components/heroes/HeroEmployee";
 import SectionTwo from "@/components/sections/SectionTwo";
 import HeadingIntroGridSection from "@/components/sections/HeadingIntroGridSection";
 import EmployeeMessage from "@/components/messages/EmployeeMessage";

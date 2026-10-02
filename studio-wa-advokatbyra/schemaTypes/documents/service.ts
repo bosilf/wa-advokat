@@ -1,4 +1,5 @@
 import { CaseIcon } from "@sanity/icons";
+import { defineArrayMember } from "sanity";
 import { defineField, defineType } from "sanity";
 
 export const service = defineType({
@@ -37,6 +38,14 @@ export const service = defineType({
       validation: (rule) =>
         rule.required().min(3).max(120),
     }),
+    defineField({
+      name: "eyebrow",
+      title: "Eyebrow",
+      type: "eyebrow",
+      group: "content",
+      description:
+        "Den mindre texten ovanför tjänstens huvudrubrik. Kan innehålla en valfri länk.",
+    }),
 
     defineField({
       name: "slug",
@@ -51,14 +60,11 @@ export const service = defineType({
       },
       validation: (rule) => rule.required(),
     }),
-
     defineField({
-      name: "eyebrow",
-      title: "Eyebrow",
-      type: "eyebrow",
-      group: "content",
-      description:
-        "Den mindre texten ovanför tjänstens huvudrubrik. Kan innehålla en valfri länk.",
+      group: 'content',
+      type: 'array',
+      name: 'intro',
+      of: [{type: 'block'}]
     }),
 
     defineField({
@@ -163,6 +169,25 @@ export const service = defineType({
                   }),
                 ],
               },
+              {
+                name: "internallLink",
+                title: "Intern länk",
+                type: "object",
+
+                fields: [
+                  defineField({
+                    name: "href",
+                    title: "Webbadress",
+                    type: "filterLinks",
+                  }),
+                  defineField({
+                    name: "openInNewTab",
+                    title: "Öppna i ny flik",
+                    type: "boolean",
+                    initialValue: false,
+                  }),
+                ],
+              },
             ],
           },
         },
@@ -203,22 +228,15 @@ export const service = defineType({
 
     defineField({
       name: "sections",
-      title: "Ytterligare sektioner",
+      title: "Sektioner",
       type: "array",
       group: "content",
-      description:
-        "Lägg till och sortera de sektioner som ska visas efter introduktionen.",
-
       of: [
-        { type: "section" },
-        { type: "cardContainer" },
-        { type: "teamSection" },
-
-        // Lägg till dessa när respektive schema är skapat
-        // och registrerat:
-        // { type: "imageDivider" },
-        // { type: "quote" },
+        defineArrayMember({
+          type: "pageSection",
+        }),
       ],
+      validation: (rule) => rule.required().min(1),
     }),
 
     defineField({
@@ -295,6 +313,11 @@ export const service = defineType({
       type: "seo",
       group: "seo",
     }),
+    defineField({
+      name: 'redirects',
+      type: 'redirects',
+      group: 'seo'
+    })
   ],
 
   orderings: [

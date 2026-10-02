@@ -28,6 +28,14 @@ type Links = {
   href: string;
 };
 
+type ContactProps = {
+  email?: string,
+  phone?: string,
+  name?: string,
+  role?: string,
+  slug?: string,
+}
+
 type PortableTextValue =
   ComponentProps<typeof CustomPortableText>["value"];
 
@@ -45,6 +53,7 @@ export type CardProps = {
   hasButton?: boolean,
   button?: ButtonProps | null,
   bg?: string,
+  contact?: ContactProps,
 };
 
 const CardContainer = ({
@@ -61,13 +70,16 @@ const CardContainer = ({
   hasButton = false,
   button,
   bg,
+  contact,
 }: CardProps) => {
+
 
   return (
     <article className={`flex w-full h-fit flex-col overflow-hidden ${noAccordionPadding ? "rounded-lg lg:rounded-0" : "rounded-lg"}  ${bg || 'bg-white'}`}>
-      {hasImage && image?.src && (
+      {hasImage && image?.image && (
         <ImageBlurText
-          src={image.src}
+          link={image.link}
+          image={image.image}
           eyebrow={image.eyebrow}
           title={image.title}
         />
@@ -100,7 +112,14 @@ const CardContainer = ({
           </div>
         </div>
       )}
-
+      {contact && 
+        <div className="gap-3 p-lg font-body">
+          <h3 className="font-subheading text-ink">{contact.name}</h3>
+          <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+          <p><a href={`tel:${contact.phone}`}>{contact.phone}</a></p>
+          <Link className="group font-semibold mt-3 flex gap-3 items-center focus:text-accent text-ink" href={contact.slug || "#"}>Mer om {contact.name} <Icon size="" className="group-focus:text-accent" name="arrow" /></Link>
+        </div>
+      }
       {hasDescription && description && (
         <div className="section-spacing p-md">
           <CustomPortableText value={description} />

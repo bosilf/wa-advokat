@@ -55,8 +55,8 @@ export const deskStructure: StructureResolver = (S) =>
                 .icon(CaseIcon)
                 .child(
                   S.document()
-                    .schemaType("servicesPage")
-                    .documentId("services-page")
+                    .schemaType("serviceMainPage")
+                    .documentId("service-main-page")
                 ),
 
               S.listItem()

@@ -42,26 +42,59 @@ export const BUTTON_QUERY = `
 `;
 
 export const EYEBROW_QUERY = `
-  _type,
-  text,
-  target,
-  link-> {
-    href,
-    _id,
-    _type,
-    title,
-    linkType,
-    externalUrl,
-    internalReference-> {
-      _id,
-      _type,
-      title,
-      courseName,
-      firstName,
-      lastName,
-      "slug": slug.current
+    ...,
+    link {
+      ...,
+      "href": select(
+        linkType == "external" =>
+          href,
+
+        internalReference->_type == "home" =>
+          "/",
+
+        internalReference->_type == "contactPage" =>
+          "/kontakt",
+
+        internalReference->_type == "aboutPage" =>
+          "/om-oss",
+
+        internalReference->_type == "courseMainPage" =>
+          "/juridikkurser",
+        
+        internalReference->_type == "serviceMainPage" =>
+          "/rattsomraden",
+
+        internalReference->_type == "employee" &&
+        defined(internalReference->slug.current) =>
+        "/om-oss/" +
+        internalReference->slug.current,
+        
+        internalReference->_type == "service" &&
+        defined(internalReference->slug.current) =>
+          "/rattsomraden/" +
+          internalReference->slug.current,
+
+        internalReference->_type == "courseCategory" &&
+        defined(internalReference->slug.current) =>
+          "/juridikkurser/" +
+          internalReference->slug.current,
+
+        internalReference->_type == "course" &&
+        defined(internalReference->category->slug.current) &&
+        defined(internalReference->slug.current) =>
+          "/juridikkurser/" +
+          internalReference->category->slug.current +
+          "/" +
+          internalReference->slug.current,
+
+        internalReference->_type == "article" &&
+        defined(internalReference->slug.current) =>
+          "/artiklar/" +
+          internalReference->slug.current,
+
+        null
+      ),
     }
-  }
 `;
 
 export const CONTACT_PAGE_QUERY = defineQuery(`
@@ -318,7 +351,7 @@ export const HOMEPAGE_QUERY = defineQuery(`
     tjansterSection {
       tjansterTitle,
 
-      tjansterEyebrow {
+      eyebrow {
         ${EYEBROW_QUERY}
       },
 
@@ -371,9 +404,17 @@ export const HOMEPAGE_QUERY = defineQuery(`
     contactSection {
       contactTitle,
 
-      contactEyebrow {
-        ${EYEBROW_QUERY}
-      },
+      eyebrow {
+    ...,
+    link {
+      ...,
+      "href": select(
+        linkType == "internal" &&
+        internalReference._ref == "contact-page" => "/kontakt",
+        null
+      )
+    }
+  },
 
       contactText,
 
@@ -663,6 +704,230 @@ export const DATA_QUERY = defineQuery(`
       school,
       year
     }
+  }
+`);
+export const SERVICE_MAIN_PAGE_QUERY = defineQuery(`
+  *[_type == "serviceMainPage"][0]{
+    title,
+    eyebrow,
+    image {
+      asset, 
+      alt, 
+      crop, 
+      hotspot
+    },
+
+    introSection {
+      eyebrow,
+      title,
+      text {
+        ...,
+        block[] {
+          ...
+        }
+      }
+    },
+
+    experts[]-> {
+      firstName,
+      lastName,
+      slug,
+      roles[]-> {
+        _id,
+        title
+      },
+      image {
+        alt, asset, crop, hotspot
+      }
+    },
+    
+    "AccordionItemData": services[]-> {
+        "_key": _id,
+        "title": title,
+        "description": excerpt,
+        "btnHref": '/rattsomraden/' + slug.current
+    },
+
+    seo {
+      metaTitle,
+      metaDescription
+    },
+
+    redirects {
+      oldLinks[]-> {
+        redirectItem
+      }
+    }
+  }
+`);
+
+export const SERVICE_PAGE_QUERY = defineQuery(`
+  ${LINK_RESOLVER}
+  *[
+    _type == "service" &&
+    slug.current == $serviceSlug
+  ][0] {
+    _id,
+    title,
+    eyebrow,
+    slug,
+    intro[] {
+      ...,
+      block[]
+    },
+    excerpt,
+    image {
+      hotspot,
+      alt,
+      asset,
+      crop,
+      caption,
+      credit,
+    },
+    body[] {
+      ...,
+      image {
+        hotspot,
+        alt,
+        caption,
+        credit,
+        asset,
+        crop,
+      },
+      block[]
+    },
+    sections[] {
+      _key,
+      _type,
+      heading,
+      theme,
+
+      eyebrow {
+        text,
+        link-> {
+          title,
+          linkType,
+          href,
+          internalReference-> {
+            _type,
+            title,
+            courseName,
+            firstName,
+            lastName,
+            "slug": slug.current
+          }
+        }
+      },
+
+      blocks[] {
+        ...,
+
+        _type == "richTextBlock" => {
+          ...,
+          content[] {
+            ...,
+            block[] {
+              ...
+            }
+          }
+        },
+
+        _type == "employeeGridBlock" => {
+          ...,
+
+          "employees": select(
+            selectionMode == "all" =>
+              *[
+                _type == "employee" &&
+                defined(slug.current)
+              ] | order(lastName asc) {
+                _id,
+                firstName,
+                lastName,
+                "slug": slug.current,
+                professionalTitle,
+                image {
+                  asset,
+                  crop,
+                  hotspot,
+                  alt
+                },
+                "roles": roles[]->{
+                  title
+                }
+              },
+
+            employees[]-> {
+              _id,
+              firstName,
+              lastName,
+              "slug": slug.current,
+              professionalTitle,
+              image {
+                asset,
+                crop,
+                hotspot,
+                alt
+              },
+              "roles": roles[]->{
+                title
+              }
+            }
+          )
+        },
+
+        _type == "serviceGridBlock" => {
+          ...,
+          "services": services[]-> {
+            _id,
+            title,
+            "slug": slug.current,
+            excerpt,
+            image {
+              asset,
+              crop,
+              hotspot,
+              alt
+            }
+          }
+        }
+      }
+    },
+
+    experts[]-> {
+      _id,
+      phone,
+      email,
+      firstName,
+      lastName,
+      image {
+        hotspot,
+        alt,
+        asset,
+        crop
+      },
+      slug,
+      roles[]-> {
+        _id,
+        title
+      },
+    },
+    relatedCourses[] {
+      _id,
+      course[]-> {
+        _id,
+
+      }
+    },
+    cta {
+      hasButton,
+      btnProps
+    },
+    seo {
+      metaTitle,
+      metaDescription
+    },
+    redirects
   }
 `);
 

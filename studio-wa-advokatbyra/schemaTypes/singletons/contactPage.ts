@@ -46,12 +46,7 @@ export const contactPage = defineType({
             }),
           ],
 
-          preview: {
-            select: {
-              title: 'school',
-              subtitle: 'yearStart',
-            },
-          },
+          
         },
       ],
     })

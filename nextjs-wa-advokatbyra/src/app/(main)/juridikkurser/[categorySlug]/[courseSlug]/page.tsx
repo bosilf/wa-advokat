@@ -10,7 +10,7 @@ import CourseSection from "@/components/sections/CourseSection";
 import AsideCourse from "@/components/asides/AsideCourse"
 import ButtonComp from "@/components/buttons/Button"
 import CourseMessage from "@/components/messages/CourseMessage"
-import HeroCourse from "@/components/heros/HeroCourse"
+import HeroCourse from "@/components/heroes/HeroCourse"
 
 type PageProps = {
   params: Promise<{
