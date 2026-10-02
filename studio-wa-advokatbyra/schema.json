@@ -1739,7 +1739,7 @@
           },
           "optional": true
         },
-        "text": {
+        "textObject": {
           "type": "objectAttribute",
           "value": {
             "type": "inline",
@@ -2465,27 +2465,6 @@
           "type": "objectAttribute",
           "value": {
             "type": "string"
-          },
-          "optional": true
-        },
-        "theme": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "union",
-            "of": [
-              {
-                "type": "string",
-                "value": "canvas"
-              },
-              {
-                "type": "string",
-                "value": "surface"
-              },
-              {
-                "type": "string",
-                "value": "dark"
-              }
-            ]
           },
           "optional": true
         },

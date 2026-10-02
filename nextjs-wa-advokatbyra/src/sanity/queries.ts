@@ -931,6 +931,28 @@ export const SERVICE_PAGE_QUERY = defineQuery(`
   }
 `);
 
+export const COURSE_BOOKING_QUERY = defineQuery(`
+  *[
+    _type == "courseCategory" &&
+    defined(slug.current) &&
+    (
+      !defined($courseBookingCategorySlug) ||
+      slug.current == $courseBookingCategorySlug
+    )
+  ] | order(title asc) {
+    _id,
+    "title": coalesce(title, "Kurskategori"),
+    "slug": slug.current,
+    "courses": *[
+      _type == "course" &&
+      category._ref == ^._id
+    ] | order(courseName asc) {
+      _id,
+      "title": coalesce(courseName, "Namnlös kurs")
+    }
+  }
+`);
+
 export const COURSE_MAIN_PAGE_QUERY = defineQuery(`
   *[_type == "courseMainPage"][0] {
     title,

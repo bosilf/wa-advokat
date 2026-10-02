@@ -4,7 +4,7 @@ import Icon, { IconsProps } from "@/components/Icon"
 import { useRouter } from "next/navigation"
 
 type BackButtonTypes = {
-  text: string,
+  text?: string,
   className?: string,
   icon?: IconsProps,
 }

@@ -8,7 +8,7 @@ import Icon from "@/components/Icon";
 
 import Link from "next/link";
 
-type AsideCourseProps = {
+type AsideLargeProps = {
   courseName: string;
   categoryName: string;
   length: string;
@@ -19,17 +19,16 @@ type AsideCourseProps = {
   bg?: string
 };
 
-export default function AsideCourse({
+export default function AsideLarge({
   teamCard,
   courseName,
   length,
   cost,
   date,
   bg
-
-}: AsideCourseProps) {
+}: AsideLargeProps) {
   return (
-    <aside
+    <section
       className={`
         ${bg || 'bg-white'}
         
@@ -46,17 +45,8 @@ export default function AsideCourse({
         gap-xl
       `}
     >
-      <div className="flex flex-col gap-lg">
-        <div>
-          <p className="font-eyebrow text-muted">
-            kursinfo
-          </p>
-
-          <h2 className="font-serif text-2xl lg:font-sans lg:text-xl font-semibold text-ink">
-            {courseName}
-          </h2>
-        </div>
-
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-lg">
+        <div className="flex flex-col gap-md">
         <div>
           <p className="font-eyebrow text-muted mb-sm">
             Kursledare
@@ -67,8 +57,19 @@ export default function AsideCourse({
             image={teamCard.image}
             caption={teamCard.caption}
             name={teamCard.name}
-          />
+            />
         </div>
+          <div className="hidden md:block">
+          <p className="font-eyebrow text-muted">
+            kursnamn
+          </p>
+
+          <h2 className="font-serif text-2xl lg:font-sans lg:text-xl font-semibold text-ink">
+            {courseName}
+          </h2>
+          </div>
+
+          </div>
         <div className="flex flex-col gap-md">
 
         <div>
@@ -98,23 +99,18 @@ export default function AsideCourse({
             {cost}
           </p>
         </div>
-        <div className="grid grid-cols-[auto_1fr] gap-y-0 gap-sm grid-rows-[auto_auto] lg:grid-rows-[auto_auto_auto]">
+        </div>
+        <div className="grid md:col-span-2 grid-cols-[auto_1fr] gap-y-0 gap-sm grid-rows-[auto_auto] lg:grid-rows-[auto_auto_auto]">
           <p className="font-eyebrow text-muted mb-sm col-span-2">
             bokning
           </p>
-        <ButtonComp variant="primary" className="lg:col-span-2" href="#bokning" showIcon={false} >Önska datum</ButtonComp>
-        <ButtonComp variant="secondary" className="lg:col-span-2" href="/boka-kurs" showIcon>Fler kurser</ButtonComp>
-        </div>
+          <ButtonComp variant="primary" className="col-span-2" href="#bokning" showIcon={false} >Gör intresseanmälan</ButtonComp>
+          <ButtonComp variant="secondary" className="col-span-2" href="/boka-kurs" showIcon>Boka fler kurser</ButtonComp>
         </div>
 
         {/* <div className="border-b border-border w-full" /> */}
       </div>
 
-      <div className="flex-col gap-md mt-auto hidden lg:flex">
-        <Link href="/juridikkurser" className="group font-serif text-xl font-semibold hover:underline">
-          <Icon name="arrowSerifLeft" size={15} /> Tillbaka till <span className="italic text-ink">juridikkurssidan</span>
-        </Link>
-      </div>
-    </aside>
+    </section>
   );
 }

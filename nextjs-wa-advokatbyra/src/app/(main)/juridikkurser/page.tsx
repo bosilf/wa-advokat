@@ -93,7 +93,11 @@ if (!page) {
                 <CustomPortableText
                   value={category.description?.block}
                 />
-                <ButtonComp href={`/juridikkurser/${category.chosenCourseCategory?.slug?.current}`}>{category.chosenCourseCategory?.title} kursutbud</ButtonComp>
+                <div className="flex gap-md">
+
+                <ButtonComp showIcon={false} href={`/boka-kurs/${category.chosenCourseCategory?.slug?.current}`}>Boka kurs i {category.chosenCourseCategory?.title}</ButtonComp>
+                <ButtonComp variant="secondary" href={`/juridikkurser/${category.chosenCourseCategory?.slug?.current}`}>kursutbud</ButtonComp>
+                </div>
               </ImageGridSection>
             );
           })}

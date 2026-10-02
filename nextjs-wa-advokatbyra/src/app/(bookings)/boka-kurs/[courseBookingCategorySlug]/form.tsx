@@ -5,73 +5,66 @@ import Section from "@/components/sections/Section";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 
-const constructionCourses = [
-  "Grundkurs i entreprenadjuridik",
-  "Fortsättningskurs i entreprenadjuridik",
-  "Konsulträtt (ABK09)",
-  "Avtalsskrivning och avtalsgranskning",
-  "Företagsanpassad kurs",
-];
+type CourseOption = {
+  _id: string;
+  title: string;
+};
 
-const procurementCourses = [
-  "Offentlig upphandling för leverantörer",
-  "Offentlig upphandling för beställare",
-  "Fördjupningskurs i offentlig upphandling",
-  "Företagsanpassad kurs",
-];
+export type BookingCategory = {
+  _id: string;
+  title: string;
+  slug: string;
+  courses: CourseOption[];
+};
+
+type FormProps = {
+  categories: BookingCategory[];
+  title: BookingCategory["title"] | string,
+};
 
 type CheckboxGroupProps = {
   legend: string;
-  name: string;
-  options: string[];
+  options: CourseOption[];
 };
 
 function CheckboxGroup({
   legend,
-  name,
   options,
 }: CheckboxGroupProps) {
   return (
     <fieldset>
-      <div className="flex flex-col gap-md">
-
       <legend className="mb-lg font-subheading text-ink">
         {legend}
       </legend>
 
       <div className="flex flex-col gap-xs">
-        {options.map((option) => {
-          const id = `${name}-${option}`
-            .toLowerCase()
-            .replaceAll(" ", "-")
-            .replaceAll("/", "-");
+        {options.map((course) => {
+          const id = `course-${course._id}`;
 
           return (
             <label
-              key={option}
+              key={course._id}
               htmlFor={id}
               className="flex w-fit cursor-pointer items-center gap-sm font-body"
             >
-              <span>{option}</span>
+              <span>{course.title}</span>
 
               <input
                 id={id}
                 type="checkbox"
-                name={name}
-                value={option}
-                className="
-                  size-md shrink-0 cursor-pointer
-                  appearance-none rounded-sm border border-ink-1 bg-white
-                  checked:bg-ink
-                  focus-visible:outline-2
-                  focus-visible:outline-offset-2
-                  focus-visible:outline-ink-1
-                "
+                name="courses"
+                value={course._id}
+                className="size-md shrink-0 cursor-pointer appearance-none rounded-sm border border-ink-1 bg-white checked:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink-1"
               />
             </label>
           );
         })}
-      </div>
+
+        {options.length === 0 && (
+          <p className="font-body text-muted">
+            Det finns inga kurser i den här kategorin ännu.
+          </p>
+        )}
       </div>
     </fieldset>
   );
@@ -85,7 +78,7 @@ const inputClasses = `
   focus-visible:outline-footer
 `;
 
-export default function Form() {
+export default function Form({ categories, title }: FormProps) {
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -110,7 +103,7 @@ export default function Form() {
   if (status === "success") {
     return (
       <Section
-        heading="Tack för ditt meddelande!"
+        heading="Tack för din intresseanmälan!"
         eyebrow="Formulär skickat"
       >
         <div className="flex flex-col items-start gap-lg font-body">
@@ -148,23 +141,21 @@ export default function Form() {
     >
       <p className="col-span-1 lg:col-span-2 font-eyebrow text-muted">kursbokning</p>
       <section className="col-span-1 md:col-span-2 lg:col-span-1">
-        <h1 className="font-heading mb-md text-ink">Boka en kurs med WA Advokatbyrå</h1>
+        {title && (
+          <h1 className="font-heading mb-md text-ink">Boka en kurs i {title}</h1>
+        )}
         <p className="font-body">
           Fyll i formuläret så återkommer vi till dig så snart som möjligt.
         </p>
         <div className="grid mt-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-md">
 
+        {categories.map((category) => (
           <CheckboxGroup
-            legend="Välj kurser inom entreprenadjuridik"
-            name="constructionCourses"
-            options={constructionCourses}
-            />
-
-          <CheckboxGroup
-            legend="Välj kurser inom offentlig upphandling"
-            name="procurementCourses"
-            options={procurementCourses}
+            key={category._id}
+            legend={`Välj kurser inom ${category.title}`}
+            options={category.courses}
           />
+        ))}
         </div>
       </section>
       <section className="col-span-1 md:col-span-2 lg:col-span-1">

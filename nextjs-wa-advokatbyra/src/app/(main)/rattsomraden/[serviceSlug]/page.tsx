@@ -1,8 +1,10 @@
+import HeroRegular from "@/components/heroes/HeroRegular"
 import { SERVICE_PAGE_QUERY } from "@/sanity/queries";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/client";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
 import { SERVICE_PAGE_QUERY_RESULT } from "@/sanity/sanity.types";
+import Section from "@/components/sections/Section";
 import type { Metadata } from "next";
 import { createPageMetadata } from "@/lib/createPageMetadata";
 import { cache } from "react";

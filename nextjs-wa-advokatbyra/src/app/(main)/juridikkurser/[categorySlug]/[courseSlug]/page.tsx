@@ -11,6 +11,8 @@ import AsideCourse from "@/components/asides/AsideCourse"
 import ButtonComp from "@/components/buttons/Button"
 import CourseMessage from "@/components/messages/CourseMessage"
 import HeroCourse from "@/components/heroes/HeroCourse"
+import AsideLarge from "@/components/asides/AsideLarge";
+import AsideIntroSection from "@/components/sections/AsideIntroSection";
 
 type PageProps = {
   params: Promise<{
@@ -109,55 +111,57 @@ export default async function CoursePage({
         eyebrow={`kurser i ${course?.category?.title}`}
         image={course?.lecturer?.image}
       />
-      <div className="grid lg:grid-cols-[1fr_4fr]">
+      <div className="grid lg:grid-cols-[2fr_5fr]">
         <div className="hidden lg:block">
-      <AsideCourse
-        teamCard={{
-          link: `/om-oss/${lecturer?.slug}`,
-          image: lecturerImg,
-          caption: roles,
-          name: fullName,
-        }}
-        link={`/juridikkurser/${course?.category?.slug}` || "#"}
-        courseName={course?.courseName ?? ""}
-        categoryName={course?.category?.title ?? ""}
-        length={course?.length ?? ""}
-        date="Som passar dig."
-        cost="Enligt överenskommelse."
-        />
-      </div>
-      
+          <AsideCourse
+            teamCard={{
+              link: `/om-oss/${lecturer?.slug}`,
+              image: lecturerImg,
+              caption: roles,
+              name: fullName,
+            }}
+            link={`/juridikkurser/${course?.category?.slug}` || "#"}
+            courseName={course?.courseName ?? ""}
+            categoryName={course?.category?.title ?? ""}
+            length={course?.length ?? ""}
+            date="Som passar dig."
+            cost="Enligt överenskommelse."
+            />
+          </div>
       <main>
-      <CourseSection 
-        color="bg-canvas" 
-        heading={course?.courseName || 'Kursnamn saknas'}
-        eyebrowCrumbs={[
-          { href: '/', label: 'Hem' },
-          { href: '/juridikkurser', label: 'juridikkurser' },
-          { href: `/juridikkurser/${course?.category?.slug}` || '#', label: course?.category?.title || 'Kategori saknas' },
-        ]}
-      >
-        {/* <CustomPortableText value={introtext || 'text saknas'} /> */}
-        {/* <h3 className="font-heading text-ink mt-md">Om utbildningen</h3> */}
-        <CustomPortableText value={course?.aboutCourse} />
-      </CourseSection>
-      <div className="block lg:hidden">
-      <AsideCourse
-      bg="bg-canvas"
-        teamCard={{
-          link: `/om-oss/${lecturer?.slug}`,
-          image: lecturerImg,
-          caption: roles,
-          name: fullName,
-        }}
-        link={`/juridikkurser/${course?.category?.slug}` || "#"}
-        courseName={course?.courseName ?? ""}
-        categoryName={course?.category?.title ?? ""}
-        length={course?.length ?? ""}
-        date="Som passar dig."
-        cost="Enligt överenskommelse."
-        />
-      </div>
+        <div className="hidden lg:block">
+          <CourseSection 
+            color="bg-canvas" 
+            heading={course?.courseName || 'Kursnamn saknas'}
+            eyebrowCrumbs={[
+              { href: '/', label: 'Hem' },
+              { href: '/juridikkurser', label: 'juridikkurser' },
+              { href: `/juridikkurser/${course?.category?.slug}` || '#', label: course?.category?.title || 'Kategori saknas' },
+            ]}
+            >
+            <CustomPortableText value={course?.aboutCourse} />
+          </CourseSection>
+        </div>
+        <AsideIntroSection color="bg-canvas">
+          <AsideLarge
+            bg="bg-canvas"
+            teamCard={{
+              link: `/om-oss/${lecturer?.slug}`,
+              image: lecturerImg,
+              caption: roles,
+              name: fullName,
+            }}
+            link={`/juridikkurser/${course?.category?.slug}` || "#"}
+            courseName={course?.courseName ?? ""}
+            categoryName={course?.category?.title ?? ""}
+            length={course?.length ?? ""}
+            date="Som passar dig."
+            cost="Enligt överenskommelse llll."
+            />
+            <p className="font-eyebrow text-muted">Introduktion</p>
+            <h3 className="font-heading text-ink">{course?.courseName}</h3>
+          <CustomPortableText value={course?.aboutCourse} />
+        </AsideIntroSection>
       <CourseSection 
         color="bg-surface" 
         heading="Förutsättningar"

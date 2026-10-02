@@ -16,6 +16,7 @@ import Section from "@/components/sections/Section";
 import ImageGridSection from "@/components/sections/ImageGridSection";
 import ButtonComp from "@/components/buttons/Button";
 import ColumnSection from "@/components/sections/ColumnSection";
+import HeroCta from "@/components/heroes/HeroCta";
 
 type PageProps = {
   params: Promise<{
@@ -123,7 +124,12 @@ export default async function CourseCategoryPage({
 
   return (
     <>
-      <HeroRegular
+      <HeroCta
+        button={{
+          href: `/boka-kurs/${categorySlug}`,
+          children: "Se kursutbud",
+          
+        }}
         eyebrow="Juridikkurser"
         title={categoryTitle}
         image={category.image}

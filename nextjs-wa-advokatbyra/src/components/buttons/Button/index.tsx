@@ -39,10 +39,10 @@ export default function ButtonComp({
 
   const variantClasses: Record<ButtonVariant, string> = {
     primary:
-      "py-sm px-md bg-ink text-white rounded-full font-subheading hover:bg-accent active:bg-accent",
+      "py-sm px-md min-w-max bg-ink text-white rounded-full font-subheading hover:bg-accent active:bg-accent",
 
     secondary:
-      "py-sm px-md text-ink rounded-full outline outline-2 outline-ink outline-offset-[-1px] font-subheading active:bg-ink active:text-white hover:bg-ink hover:text-white",
+      "py-sm  px-md min-w-max text-ink rounded-full outline outline-2 outline-ink outline-offset-[-1px] font-subheading active:bg-ink active:text-white hover:bg-ink hover:text-white",
 
     simple:
       "text-ink hover:text-accent first-letter:uppercase font-body underline underline-offset-3",

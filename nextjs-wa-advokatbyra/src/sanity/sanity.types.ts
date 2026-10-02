@@ -302,7 +302,7 @@ export type Sections = {
   _type: "sections";
   eyebrow?: Eyebrow;
   title?: TitleObject;
-  text?: BlockObject;
+  textObject?: BlockObject;
 };
 
 export type Role = {
@@ -405,7 +405,6 @@ export type PageSection = {
   _type: "pageSection";
   eyebrow?: Eyebrow;
   heading?: string;
-  theme?: "canvas" | "surface" | "dark";
   blocks?: Array<{
     _key: string;
   } & RichTextBlock | {
@@ -1825,7 +1824,6 @@ export type OM_OSS_PAGE_QUERY_RESULT = {
       resolvedLink: null;
     } | null;
     heading?: string;
-    theme?: "canvas" | "dark" | "surface";
     blocks: Array<{
       _key: string;
       _type: "accordionBlock";
@@ -2471,7 +2469,7 @@ export type PAGE_BY_PATH_QUERY_RESULT = {
     _key: string;
     _type: "pageSection";
     heading: string | null;
-    theme: "canvas" | "dark" | "surface" | null;
+    theme: null;
     eyebrow: {
       text: string | null;
       link: null;
@@ -2752,7 +2750,7 @@ export type SERVICE_PAGE_QUERY_RESULT = {
     _key: string;
     _type: "pageSection";
     heading: string | null;
-    theme: "canvas" | "dark" | "surface" | null;
+    theme: null;
     eyebrow: {
       text: string | null;
       link: null;
@@ -2874,6 +2872,19 @@ export type SERVICE_PAGE_QUERY_RESULT = {
   } | null;
   redirects: Redirects | null;
 } | null;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: COURSE_BOOKING_QUERY
+// Query: *[    _type == "courseCategory" &&    defined(slug.current) &&    (      !defined($courseBookingCategorySlug) ||      slug.current == $courseCategorySlug    )  ] | order(title asc) {    _id,    "title": coalesce(title, "Kurskategori"),    "slug": slug.current,    "courses": *[      _type == "course" &&      category._ref == ^._id    ] | order(courseName asc) {      _id,      "title": coalesce(courseName, "Namnlös kurs")    }  }
+export type COURSE_BOOKING_QUERY_RESULT = Array<{
+  _id: string;
+  title: string | "Kurskategori";
+  slug: string | null;
+  courses: Array<{
+    _id: string;
+    title: string | "Namnl\xF6s kurs";
+  }>;
+}>;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: COURSE_MAIN_PAGE_QUERY
