@@ -55,9 +55,9 @@ export default async function CoursePage() {
       />
 
       <main id="main">
-        <div className="z-10 m-auto grid grid-cols-1 lg:grid-cols-[3fr_2fr]">
-          <section className="flex px-section-sides m-auto py-section-tb max-w-200 lg:max-w-full">
-            <div className="lg:max-w-120 section-spacing">
+        <div className="z-10 m-auto">
+          <section className="flex px-section-sides m-auto py-section-tb max-w-200">
+            <div className="max-w-300 m-auto section-spacing">
               <div className="flex gap-sm">
                 <Link
                   className="font-eyebrow text-body hover:text-ink hover:underline"
@@ -76,6 +76,38 @@ export default async function CoursePage() {
               <CustomPortableText
                 value={page.introSection?.text?.block || "text saknas"}
               />
+            </div>
+          </section>
+          <section className="w-full bg-surface min-w-0  col-span-full lg:row-start-2 ">
+            <div className="max-w-300 m-auto flex flex-col section-spacing pb-section-tb pt-md lg:pt-section-tb px-section-sides">
+              <h2 className="text-center font-heading text-ink col-span-full">
+                {page.courseOpportunities?.title}
+              </h2>
+              <div className="m-auto max-w-120 text-center">
+
+              {page.courseOpportunities?.textContent?.block && (
+                <CustomPortableText
+                value={page.courseOpportunities.textContent.block}
+                />
+              )}
+              </div>
+              <div className="grid grid-cols-3 gap-md">
+
+                {courses.map((course) => (
+                  <CourseCard key={course._id} {...course} />
+                ))}
+                </div>
+              <div className="max-w-200 m-auto px-section-sides py-section-tb gap-4 p-4">
+                <h3 className="font-heading-sm">{page.companyCourse?.title}</h3>
+                {page.companyCourse?.textContent?.block && (
+                  <CustomPortableText
+                    value={page.companyCourse.textContent.block}
+                  />
+                )}
+                <Button variant="secondary" href="/boka-kurs" showIcon={false}>
+                  Önska datum
+                </Button>
+              </div>
             </div>
           </section>
           <section className="col-span-full hidden lg:block lg:order-3 lg:col-span-2 lg:grid-cols-2">
@@ -128,35 +160,7 @@ export default async function CoursePage() {
               );
             })}
           </section>
-          <section className="w-full bg-surface min-w-0  col-span-full lg:row-start-2 ">
-            <div className="max-w-300 m-auto flex flex-col section-spacing pb-section-tb pt-md lg:pt-section-tb px-section-sides">
-              <h2 className="font-heading text-ink col-span-full">
-                {page.courseOpportunities?.title}
-              </h2>
-              {page.courseOpportunities?.textContent?.block && (
-                <CustomPortableText
-                  value={page.courseOpportunities.textContent.block}
-                />
-              )}
-              <div className="grid grid-cols-3 gap-md">
 
-                {courses.map((course) => (
-                  <CourseCard key={course._id} {...course} />
-                ))}
-                </div>
-              <div className="max-w-200 m-auto px-section-sides py-section-tb gap-4 p-4">
-                <h3 className="font-heading-sm">{page.companyCourse?.title}</h3>
-                {page.companyCourse?.textContent?.block && (
-                  <CustomPortableText
-                    value={page.companyCourse.textContent.block}
-                  />
-                )}
-                <Button variant="secondary" href="/boka-kurs" showIcon={false}>
-                  Önska datum
-                </Button>
-              </div>
-            </div>
-          </section>
 
           <section className="grid grid-cols-1 gap-lg bg-canvas p-section-sides py-section lg:hidden">
             {page.cardContainers?.map((category) => {
@@ -252,22 +256,7 @@ export default async function CoursePage() {
               );
             })}
           </section>
-          <section className="lg:bg-white row-start-2 flex lg:col-start-2 lg:row-start-1">
-            <div className="max-w-200 m-auto lg:max-w-90 section-spacing pb-section-tb pt-md lg:pt-section-tb px-section-sides">
-              <h3 className="font-heading-sm text-ink">
-                {page.courseOpportunities?.title}
-              </h3>
-              {page.courseOpportunities?.textContent?.block && (
-                <CustomPortableText
-                  value={page.courseOpportunities.textContent.block}
-                />
-              )}
-              <Button variant="secondary" href="/boka-kurs" showIcon={false}>
-                Önska datum
-              </Button>
-            </div>
-            <div className=" bg-white hidden lg:block flex-1" />
-          </section>
+
         </div>
         <Section
           eyebrow={page.courseInfo?.infoEyebrow?.text || ""}
