@@ -15,7 +15,7 @@ const CourseLecturerCard = ({
 }: CourseLecturerCardType) => {
   return (
     <Link
-      href={e.employee.slug ? `/om-oss/${e.employee.slug}` : "/om-oss"}
+      href={e.employee.slug ? `/team/${e.employee.slug}` : "/om-oss"}
     >
       <article
         hidden={hide}

@@ -26,7 +26,7 @@ export const LINK_RESOLVER = /* groq */ `
 
       internalReference->_type == "employee" &&
       defined(internalReference->slug.current) =>
-        "/om-oss/" +
+        "/team/" +
         internalReference->slug.current,
 
       internalReference->_type == "service" &&
@@ -36,13 +36,13 @@ export const LINK_RESOLVER = /* groq */ `
 
       internalReference->_type == "courseCategory" &&
       defined(internalReference->slug.current) =>
-        "/juridikkurser/" +
+        "/" +
         internalReference->slug.current,
 
       internalReference->_type == "course" &&
       defined(internalReference->category->slug.current) &&
       defined(internalReference->slug.current) =>
-        "/juridikkurser/" +
+        "/" +
         internalReference->category->slug.current +
         "/" +
         internalReference->slug.current,
@@ -87,7 +87,7 @@ export const LINK_RESOLVER = /* groq */ `
 
       link->internalReference->_type == "employee" &&
       defined(link->internalReference->slug.current) =>
-        "/om-oss/" +
+        "/team/" +
         link->internalReference->slug.current,
 
       link->internalReference->_type == "service" &&
@@ -97,13 +97,13 @@ export const LINK_RESOLVER = /* groq */ `
 
       link->internalReference->_type == "courseCategory" &&
       defined(link->internalReference->slug.current) =>
-        "/juridikkurser/" +
+        "/" +
         link->internalReference->slug.current,
 
       link->internalReference->_type == "course" &&
       defined(link->internalReference->category->slug.current) &&
       defined(link->internalReference->slug.current) =>
-        "/juridikkurser/" +
+        "/" +
         link->internalReference->category->slug.current +
         "/" +
         link->internalReference->slug.current,

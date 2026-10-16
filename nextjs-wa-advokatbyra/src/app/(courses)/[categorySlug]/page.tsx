@@ -1,14 +1,11 @@
-import { notFound } from "next/navigation";
-
 import { client } from "@/sanity/client";
-import { urlFor } from "@/sanity/image";
 import { COURSE_CATEGORY_PAGE_QUERY } from "@/sanity/queries";
+import ContentPage from "@/components/pages/ContentPage";
 
 import type {
   COURSE_CATEGORY_PAGE_QUERY_RESULT,
 } from "@/sanity/sanity.types";
 
-import HeroRegular from "@/components/heroes/HeroRegular";
 import { CustomPortableText } from "@/components/common/CustomPortableText";
 import CardContainer from "@/components/cards/CardContainer";
 import HeadingIntroGridSection from "@/components/sections/HeadingIntroGridSection";
@@ -19,34 +16,20 @@ import ColumnSection from "@/components/sections/ColumnSection";
 import HeroCta from "@/components/heroes/HeroCta";
 
 type PageProps = {
-  params: Promise<{
-    categorySlug: string;
-  }>;
+  params: Promise<{ categorySlug: string }>;
 };
 
 export const revalidate = 30;
 
-export default async function CourseCategoryPage({
-  params,
-}: PageProps) {
+export default async function CourseCategoryPage({ params }: PageProps) {
   const { categorySlug } = await params;
+  const category = await client.fetch<COURSE_CATEGORY_PAGE_QUERY_RESULT>(
+    COURSE_CATEGORY_PAGE_QUERY,
+    { categorySlug },
+    { next: { revalidate } },
+  );
 
-  const category =
-    await client.fetch<COURSE_CATEGORY_PAGE_QUERY_RESULT>(
-      COURSE_CATEGORY_PAGE_QUERY,
-      {
-        categorySlug,
-      },
-      {
-        next: {
-          revalidate,
-        },
-      },
-    );
-
-  if (!category) {
-    notFound();
-  }
+  if (!category) return <ContentPage path={categorySlug} />;
 
   const categoryTitle =
     category.title ?? "Namnlös kurskategori";
@@ -62,47 +45,6 @@ export default async function CourseCategoryPage({
 
   const lecturerSection =
     category.courseLecturerSection;
-
-  const lecturer =
-    lecturerSection?.lecturer;
-
-  const lecturerDescription =
-    lecturerSection?.text?.block ?? [];
-
-  const lecturerName = [
-    lecturer?.firstName,
-    lecturer?.lastName,
-  ]
-    .filter(
-      (name): name is string =>
-        Boolean(name),
-    )
-    .join(" ");
-
-  const lecturerRole =
-    lecturer?.jobTitles
-      ?.filter(
-        (title): title is string =>
-          Boolean(title),
-      )
-      .join(" | ") ?? "";
-
-
-
-  const categoryLecturerImageSrc =
-    lecturerSection?.image
-      ? urlFor(lecturerSection.image)
-          .width(1200)
-          .height(650)
-          .fit("crop")
-          .url()
-      : "";
-
-  const lecturerHref =
-    lecturer?.slug
-      ? `/om-oss/${lecturer.slug}`
-      : undefined;
-    
 
   const courseListSection =
     category.courseListSection;
@@ -189,7 +131,7 @@ export default async function CourseCategoryPage({
           <div className="flex gap-2 flex-col lg:flex-row">
 
           <ButtonComp href={`/boka-kurs/${categorySlug}`} showIcon={false} variant="primary"  >Boka kurs i {categoryTitle}</ButtonComp>
-          <ButtonComp href={`/om-oss/${lecturerSection?.lecturer?.slug}`} variant="secondary" >Om kursledaren</ButtonComp>
+          <ButtonComp href={`/team/${lecturerSection?.lecturer?.slug}`} variant="secondary" >Om kursledaren</ButtonComp>
           </div>
         </ImageGridSection>
 

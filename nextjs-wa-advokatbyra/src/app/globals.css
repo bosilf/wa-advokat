@@ -15,6 +15,11 @@
   --color-surface: #EAEDF2;
   --color-white: #FFF;
   --color-border: #D9DBE0;
+  --color-procurement: #AAB59A;
+  --color-procurement-dark: #575F4B;
+  --color-procurement-light: #D2DDC1;
+  --color-contract-light: #C1C9DE;
+  --color-contract-dark: #29385E;
   --color-footer: #51616B;
   --color-booking: #223A47;
 
@@ -80,8 +85,10 @@
 
 
 }
+
+
 .save-btn {
-  @apply flex gap-2 items-center justify-center w-max
+  @apply flex gap-2 mr-auto items-center w-max
 }
 
 .input-field {@apply 

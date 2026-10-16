@@ -14,7 +14,7 @@ export type ButtonVariant =
   | "booking"
   | "bookingSecondary";
 
-export type ButtonIcon = "arrow" | "arrowSimple" | "heart" | "heartEmpty";
+export type ButtonIcon = "arrow" | "arrowSimple" | "heart" | "heartEmpty" | "share";
 
 export type ButtonProps = {
   href: string;

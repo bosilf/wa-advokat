@@ -24,14 +24,15 @@ export default function NavItems({
   onDropdownChange,
   onNavigate,
 }: NavItemsProps) {
-  const isHomepage = usePathname() === "/";
+  const pathname = usePathname();
+  const useWhiteNavigation = pathname === "/" || /^\/team\/[^/]+\/?$/.test(pathname);
 
   return (
     <ul
       className={
         mobile
           ? "flex flex-col items-start gap-md"
-          : `relative z-2000 flex items-center gap-lg ${isHomepage ? "" : "mix-blend-difference"}`
+          : `relative z-2000 flex items-center gap-lg ${useWhiteNavigation ? "" : "mix-blend-difference"}`
       }
     >
       {items.map((item) => {

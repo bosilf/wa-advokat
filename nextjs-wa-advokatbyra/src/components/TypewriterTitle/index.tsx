@@ -141,7 +141,7 @@ export default function TypewriterTitle({
         aria-hidden="true"
         className="col-start-1 row-start-1"
       >
-        <Link className="hover:bg-footer/70 -ml-sm pl-sm animate-bounce transition-all duration-100" href={currentWord === "offentlig upphandling" ? "/juridikkurser/offentlig-upphandling" : "/juridikkurser/entreprenadjuridik/" }>
+        <Link className="hover:bg-footer/70 -ml-sm pl-sm animate-bounce transition-all duration-100" href={currentWord === "offentlig upphandling" ? "/offentlig-upphandling" : "/entreprenadjuridik/" }>
         {displayedText}
 
         <span

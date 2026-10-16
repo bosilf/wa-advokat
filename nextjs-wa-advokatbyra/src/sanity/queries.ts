@@ -25,7 +25,8 @@ export const BUTTON_QUERY = `
           courseName,
           firstName,
           lastName,
-          "slug": slug.current
+          "slug": slug.current,
+          "categorySlug": category->slug.current
         }
       }
     },
@@ -66,7 +67,7 @@ export const EYEBROW_QUERY = `
 
         internalReference->_type == "employee" &&
         defined(internalReference->slug.current) =>
-        "/om-oss/" +
+        "/team/" +
         internalReference->slug.current,
         
         internalReference->_type == "service" &&
@@ -76,13 +77,13 @@ export const EYEBROW_QUERY = `
 
         internalReference->_type == "courseCategory" &&
         defined(internalReference->slug.current) =>
-          "/juridikkurser/" +
+          "/" +
           internalReference->slug.current,
 
         internalReference->_type == "course" &&
         defined(internalReference->category->slug.current) &&
         defined(internalReference->slug.current) =>
-          "/juridikkurser/" +
+          "/" +
           internalReference->category->slug.current +
           "/" +
           internalReference->slug.current,
@@ -179,7 +180,8 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
         "roles": roles[]-> {
           _id,
           title,
-          "slug": slug.current
+          "slug": slug.current,
+          "categorySlug": category->slug.current
         }
       },
 
@@ -260,8 +262,8 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
         ),
       
         "btnHref": select(
-          defined(slug.current) =>
-            "/juridikkurser/" + slug.current,
+          defined(category->slug.current) && defined(slug.current) =>
+            "/" + category->slug.current + "/" + slug.current,
           null
         ),
       
@@ -467,7 +469,7 @@ export const NAVIGATION_QUERY = defineQuery(`
       "_key": _id,
       title,
       "slug": slug.current,
-      "href": "/juridikkurser/" + slug.current,
+      "href": "/" + slug.current,
 
       "courses": *[
         _type == "course" &&
@@ -479,7 +481,7 @@ export const NAVIGATION_QUERY = defineQuery(`
         "_key": _id,
         "title": courseName,
         "href":
-          "/juridikkurser/" +
+          "/" +
           category->slug.current +
           "/" +
           slug.current
@@ -502,7 +504,7 @@ export const NAVIGATION_QUERY = defineQuery(`
 
             "title": firstName + " " + lastName,
             "href":
-              "/om-oss/" +
+              "/team/" +
               slug.current,
 
             image {
@@ -957,8 +959,37 @@ export const COURSE_CARD_QUERY = defineQuery(`
       "roles": roles[]->{ _id, title }
     },
     "slug": coursePick->slug.current,
-    "categorySlug": coursePick->category->slug.current
+    "categorySlug": coursePick->category->slug.current,
+    "categoryTitle": coursePick->category->title
   }
+`);
+
+export const EMPLOYEE_ACTIVE_COURSES_QUERY = defineQuery(`
+  *[
+    _type == "futureCourse" &&
+    defined(coursePick->._id) &&
+    count(dates[@ >= $today]) > 0 &&
+    (
+      coursePick->lecturer->slug.current == $employeeSlug ||
+      coursePick._ref in coalesce(
+        *[_type == "employee" && slug.current == $employeeSlug][0].courses[]._ref,
+        []
+      )
+    )
+  ] {
+    _id,
+    location,
+    cost,
+    "dates": (dates[@ >= $today] | order(@ asc)),
+    type,
+    aim,
+    "name": coalesce(coursePick->courseName, "Namnlös kurs"),
+    "description": pt::text(coursePick->intro),
+    "length": coursePick->length,
+    "slug": coursePick->slug.current,
+    "categorySlug": coursePick->category->slug.current,
+    "categoryTitle": coursePick->category->title
+  } | order(dates[0] asc, name asc)
 `);
 
 export const COURSE_BOOKING_QUERY = defineQuery(`
@@ -1081,7 +1112,7 @@ export const COURSE_MAIN_PAGE_QUERY = defineQuery(`
           defined(category->slug.current) &&
           defined(slug.current) =>
 
-          "/juridikkurser/" +
+          "/" +
           category->slug.current +
           "/" +
           slug.current,
@@ -1256,7 +1287,7 @@ export const COURSE_CATEGORY_PAGE_QUERY =
               seo.metaDescription,
 
             "btnHref":
-              "/juridikkurser/" +
+              "/" +
               category->slug.current +
               "/" +
               slug.current,
@@ -1614,9 +1645,9 @@ export const SEARCH_QUERY = defineQuery(`
     "title": coalesce(courseName, title, firstName + " " + lastName),
     "description": coalesce(pt::text(intro), pt::text(employeeDescription), ""),
     "href": select(
-      _type == "course" => "/juridikkurser/" + category->slug.current + "/" + slug.current,
-      _type == "courseCategory" => "/juridikkurser/" + slug.current,
-      _type == "employee" => "/om-oss/" + slug.current,
+      _type == "course" => "/" + category->slug.current + "/" + slug.current,
+      _type == "courseCategory" => "/" + slug.current,
+      _type == "employee" => "/team/" + slug.current,
       _type == "article" => "/artiklar/" + slug.current,
       _type == "service" => "/rattsomraden/" + slug.current
     )

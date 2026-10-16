@@ -25,6 +25,7 @@ type SanityNavigationItem = {
       firstName?: string | null;
       lastName?: string | null;
       slug?: string | null;
+      categorySlug?: string | null;
     } | null;
   } | null;
 };
@@ -96,7 +97,7 @@ function resolveHref(
 
     case "employee":
       return reference.slug
-        ? `/medarbetare/${reference.slug}`
+        ? `/team/${reference.slug}`
         : "#";
 
     case "service":
@@ -104,9 +105,12 @@ function resolveHref(
         ? `/tjanster/${reference.slug}`
         : "#";
 
+    case "courseCategory":
+      return reference.slug ? `/${reference.slug}` : "#";
+
     case "course":
-      return reference.slug
-        ? `/juridikkurser/${reference.slug}`
+      return reference.slug && reference.categorySlug
+        ? `/${reference.categorySlug}/${reference.slug}`
         : "#";
 
     case "article":

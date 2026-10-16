@@ -77,7 +77,7 @@ export default async function ServicePage({
       .filter(Boolean)
       .join(" "),
     link: expert.slug?.current
-      ? `/om-oss/${expert.slug.current}`
+      ? `/team/${expert.slug.current}`
       : undefined,
     image: expert.image,
     caption: (expert.roles ?? [])
@@ -122,7 +122,7 @@ export default async function ServicePage({
                 hasImage
                 key={_id}
                 image={{  
-                  link: `/om-oss/${expert.slug?.current}/`,
+                  link: `/team/${expert.slug?.current}/`,
                   image: {
                     asset: expert.image?.asset,
                     hotspot: expert.image?.hotspot,
@@ -136,7 +136,7 @@ export default async function ServicePage({
                   email: expert.email || '',
                   phone: expert.phone || '',
                   name: `${expert.firstName} ${expert.lastName}` || '',
-                  slug: `/om-oss/${expert.slug?.current}/`
+                  slug: `/team/${expert.slug?.current}/`
                 }}
               />
             )}

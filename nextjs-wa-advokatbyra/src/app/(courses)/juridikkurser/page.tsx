@@ -42,6 +42,23 @@ export default async function CoursePage() {
   if (!page) {
     notFound();
   }
+
+  const today = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Europe/Stockholm",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+
+  const sortedCourses = courses
+    .map((course) => ({
+      course,
+      nextDate:
+        course.dates?.filter((date) => date >= today).sort()[0] ?? "9999-12-31",
+    }))
+    .sort((a, b) => a.nextDate.localeCompare(b.nextDate))
+    .map(({ course }) => course);
+
   return (
     <>
       <HeroCta
@@ -78,38 +95,37 @@ export default async function CoursePage() {
               />
             </div>
           </section>
-          <section className="w-full bg-surface min-w-0  col-span-full lg:row-start-2 ">
-            <div className="max-w-300 m-auto flex flex-col section-spacing pb-section-tb pt-md lg:pt-section-tb px-section-sides">
-              <h2 className="text-center font-heading text-ink col-span-full">
-                {page.courseOpportunities?.title}
-              </h2>
-              <div className="m-auto max-w-120 text-center">
-
+          <Section
+            eyebrow="aktiva kurser"
+            color="bg-surface"
+            heading={page.courseOpportunities?.title || "text saknas"}
+          >
+            <div className="text-balance">
               {page.courseOpportunities?.textContent?.block && (
                 <CustomPortableText
-                value={page.courseOpportunities.textContent.block}
+                  value={page.courseOpportunities.textContent.block}
                 />
               )}
-              </div>
-              <div className="grid grid-cols-3 gap-md">
-
-                {courses.map((course) => (
-                  <CourseCard key={course._id} {...course} />
-                ))}
-                </div>
-              <div className="max-w-200 m-auto px-section-sides py-section-tb gap-4 p-4">
-                <h3 className="font-heading-sm">{page.companyCourse?.title}</h3>
-                {page.companyCourse?.textContent?.block && (
-                  <CustomPortableText
-                    value={page.companyCourse.textContent.block}
-                  />
-                )}
-                <Button variant="secondary" href="/boka-kurs" showIcon={false}>
-                  Önska datum
-                </Button>
-              </div>
             </div>
-          </section>
+            <div className="grid lg:grid-cols-2 gap-md">
+              {sortedCourses.map((course) => (
+                <CourseCard key={course._id} {...course} />
+              ))}
+            </div>
+            <div className="max-w-200 m-auto px-section-sides gap-4 p-4">
+              <h3 className="font-heading-sm">{page.companyCourse?.title}</h3>
+              {page.companyCourse?.textContent?.block && (
+                <CustomPortableText
+                  value={page.companyCourse.textContent.block}
+                />
+              )}
+              <div className="h-md" />
+              <Button variant="secondary" href="/boka-kurs" showIcon={false}>
+                Önska datum
+              </Button>
+            </div>
+          </Section>
+
           <section className="col-span-full hidden lg:block lg:order-3 lg:col-span-2 lg:grid-cols-2">
             {page.cardContainers?.map((category, index) => {
               const chosenCategory = category.chosenCourseCategory;
@@ -151,7 +167,7 @@ export default async function CoursePage() {
                     </ButtonComp>
                     <ButtonComp
                       variant="secondary"
-                      href={`/juridikkurser/${category.chosenCourseCategory?.slug?.current}`}
+                      href={`/${category.chosenCourseCategory?.slug?.current}`}
                     >
                       kursutbud
                     </ButtonComp>
@@ -160,7 +176,6 @@ export default async function CoursePage() {
               );
             })}
           </section>
-
 
           <section className="grid grid-cols-1 gap-lg bg-canvas p-section-sides py-section lg:hidden">
             {page.cardContainers?.map((category) => {
@@ -236,7 +251,7 @@ export default async function CoursePage() {
                           imageSrc: lecturerImageSrc,
 
                           slug: expert.slug?.current
-                            ? `/medarbetare/${expert.slug.current}`
+                            ? `/team/${expert.slug.current}`
                             : undefined,
                         }
                       : undefined
@@ -246,8 +261,7 @@ export default async function CoursePage() {
                   hasButton
                   button={{
                     href:
-                      `juridikkurser/${category.chosenCourseCategory?.slug?.current}` ||
-                      "#",
+                      `/${category.chosenCourseCategory?.slug?.current}` || "#",
                     children: `Till kurssidan ${category.chosenCourseCategory?.title}`,
                     variant: "simple",
                   }}
@@ -256,7 +270,6 @@ export default async function CoursePage() {
               );
             })}
           </section>
-
         </div>
         <Section
           eyebrow={page.courseInfo?.infoEyebrow?.text || ""}

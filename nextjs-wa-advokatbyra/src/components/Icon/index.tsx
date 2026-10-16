@@ -1,5 +1,5 @@
 import { FaArrowRight, FaCheck } from "react-icons/fa";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoMdBook, IoMdLaptop } from "react-icons/io";
 import { RiArrowLeftLongFill } from "react-icons/ri";
 import { IoLocationOutline } from "react-icons/io5";
 import { FaLaptopHouse } from "react-icons/fa";
@@ -8,6 +8,7 @@ import { IoPricetagOutline } from "react-icons/io5";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
+import { IoMdShare } from "react-icons/io";
 
 const iconList = {
   arrow: FaArrowRight,
@@ -20,21 +21,28 @@ const iconList = {
   pricetag: IoPricetagOutline,
   calendar: FaRegCalendarCheck,
   heartEmpty: IoMdHeartEmpty,
-  heart: IoMdHeart
+  heart: IoMdHeart,
+  share: IoMdShare,
+  laptop: IoMdLaptop,
+  book: IoMdBook,
 } as const;
 
 export type IconsProps = {
-  name: keyof typeof iconList | string,
-  size?: number | string,
-  className?: string
-}
+  name: keyof typeof iconList | string;
+  size?: number | string;
+  className?: string;
+};
 
-export default function Icon({ name, size = 24, className = "text-ink" }: IconsProps) {
+export default function Icon({
+  name,
+  size = 24,
+  className = "text-ink",
+}: IconsProps) {
   const IconComponent = iconList[name as keyof typeof iconList] || null;
 
   return (
     <figure className="inline-grid place-items-center w-auto h-full">
       <IconComponent size={size} className={className} />
     </figure>
-  )
+  );
 }

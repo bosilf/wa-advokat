@@ -66,7 +66,7 @@ export default function TeamCard({ employee }: teamCardProps) {
   return (
       <article ref={containerRef} className="w-72 bg-muted rounded-2xl inline-flex flex-col justify-start items-center overflow-hidden">
     {employee.image && (
-          <Link href={`/medarbetare/${employeeSlug}`}>
+          <Link href={`/team/${employeeSlug}`}>
             {/* Ramen måste ha scale-105 eller h-[110%] på bilden så att det finns utrymme att flytta den utan att kanterna syns */}
             <div className="rounded-xl md:rounded-xl overflow-hidden w-full sm:min-w-60 aspect-4/5 relative ">
               <div className="z-10 absolute inset-0 bg-[#8AA2BD]/60 backdrop-blur-xs opacity-0 transition-all duration-300 hover:opacity-100 flex flex-col items-center justify-center text-white p-4 gap-1 select-none">

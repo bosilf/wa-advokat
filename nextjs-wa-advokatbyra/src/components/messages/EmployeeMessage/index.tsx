@@ -22,6 +22,7 @@ type EmployeeMessageProps = {
   name: string;
   email: string;
   isStudent?: boolean,
+  color?: string
 };
 
 type FormStatus =
@@ -51,6 +52,7 @@ const inputClasses = `
 export default function EmployeeMessage({
   name,
   email,
+  color,
   isStudent = false
 }: EmployeeMessageProps) {
   const [status, setStatus] =
@@ -112,25 +114,25 @@ export default function EmployeeMessage({
             .timeline({
               scrollTrigger: {
                 trigger: section,
-                start: "top 78%",
+                start: "top 95%",
                 once: true,
               },
             })
             .from(heading, {
               autoAlpha: 0,
-              y: 32,
-              duration: 0.8,
+              y: 20,
+              duration: 0.45,
               ease: "power3.out",
             })
             .from(
               content,
               {
                 autoAlpha: 0,
-                y: 32,
-                duration: 0.8,
+                y: 20,
+                duration: 0.45,
                 ease: "power3.out",
               },
-              "-=0.5",
+              0,
             );
         },
       );
@@ -176,7 +178,7 @@ export default function EmployeeMessage({
   if (isSuccess) {
     return (
       <Section
-        color="bg-surface"
+        color={color}
         heading="Formuläret har testats!"
         eyebrow="Test genomfört"
       >
@@ -207,7 +209,7 @@ export default function EmployeeMessage({
   return (
     <section
       ref={sectionRef}
-      className="bg-surface"
+      className={color}
       aria-labelledby={`${formId}-heading`}
     >
       <div

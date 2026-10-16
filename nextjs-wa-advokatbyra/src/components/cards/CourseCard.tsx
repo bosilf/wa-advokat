@@ -1,7 +1,18 @@
 import ButtonComp from "../buttons/Button";
+import ShareCourseButton from "../buttons/ShareCourseButton";
 import type { EMPLOYEES_QUERY_RESULT } from "@/sanity/sanity.types";
 import Link from "next/link";
 import Icon from "../Icon";
+
+const categoryStyles: Record<string, string> = {
+  entreprenadjuridik: "bg-contract-light max-h-min text-contract-dark hover:outline-2 outline-offset-1 hover:outline-accent",
+  "offentlig-upphandling": "bg-procurement-light max-h-min text-procurement-dark hover:outline-2 outline-offset-1 hover:outline-procurement",
+};
+
+const categoryButtonStyles: Record<string, string> = {
+  entreprenadjuridik: "hover:bg-contract-light! hover:text-contract-dark",
+  "offentlig-upphandling": "hover:bg-procurement-light! hover:text-procurement-dark",
+};
 
 export type CourseCardProps = {
   name: string;
@@ -18,6 +29,7 @@ export type CourseCardProps = {
   aim?: "company" | "open" | null;
   slug?: string | null;
   categorySlug?: string | null;
+  categoryTitle?: string | null;
 };
 
 export default function CourseCard({
@@ -28,21 +40,22 @@ export default function CourseCard({
   dates,
   length,
   type,
-  aim,
   slug,
   categorySlug,
+  categoryTitle,
 }: CourseCardProps) {
+  const sortedDates = [...(dates ?? [])].sort();
+  const categoryTagClassName = `col-span-full w-fit rounded-full px-3 py-1 font-eyebrow ${
+    categoryStyles[categorySlug ?? ""] ?? "bg-gray-100 text-gray-900"
+  }`;
   const courseDescription = description ?? "";
   const formatLabel =
     type === "digital" ? "Digitalt" : type === "inPerson" ? "På plats" : null;
-  const aimLabel =
-    aim === "company"
-      ? "Företagsutbildning"
-      : aim === "open"
-        ? "Öppen utbildning"
-        : null;
+  const locationLabel = [type !== "digital" ? location?.trim() : null, formatLabel]
+    .filter(Boolean)
+    .join(", ");
   const href =
-    slug && categorySlug ? `/juridikkurser/${categorySlug}/${slug}` : null;
+    slug && categorySlug ? `/${categorySlug}/${slug}` : null;
   const words = courseDescription.trim().split(/\s+/);
   const excerpt =
     words.length > 15
@@ -50,7 +63,19 @@ export default function CourseCard({
       : courseDescription;
 
   return (
-    <article className="group bg-white h-full gap-x-5 grid-cols-[auto_auto_1fr] grid-rows-auto min-w-0 max-w-full wrap-anywhere p-6 gap-2 rounded-md w-full grid drop-shadow-sm/0 hover:drop-shadow-md/10 transition-all duration-150">
+    <article className="group bg-white h-full gap-x-5 grid-cols-[auto_1fr_auto] md:grid-cols-[auto_auto_1fr] lg:grid-cols-[auto_1fr_auto] grid-rows-auto min-w-0 max-w-full wrap-anywhere p-6 gap-2 rounded-md w-full grid drop-shadow-sm/0 hover:drop-shadow-md/10 transition-all duration-150">
+      {categoryTitle && (
+        categorySlug ? (
+          <Link
+            href={`/${categorySlug}`}
+            className={categoryTagClassName}
+          >
+            {categoryTitle}
+          </Link>
+        ) : (
+          <p className={categoryTagClassName}>{categoryTitle}</p>
+        )
+      )}
       <Link
         href={href || "#"}
         className="hover:underline no-underline decoration-ink/0 hover:decoration-footer transition-all duration-100 text-xl text-ink hover:text-footer font-bold font-['Poppins'] col-span-full cursor-pointer"
@@ -61,15 +86,15 @@ export default function CourseCard({
         {length ? length : ""}
       </p>
       <ul className="col-span-full flex flex-col sm:flex-row flex-wrap gap-2 max-w-full mb-md">
-        {type !== "digital" && location && (
-          <li className="text-sm col-span-full flex gap-2 font-bold cursor-default">
-            <Icon name="location" size="" />
-            <p>{location}</p>
+        {locationLabel && (
+          <li className="text-sm col-span-full items-center flex flex-row gap-2 font-bold cursor-default">
+            <Icon name={type === "inPerson" ? "location" : "laptop"} size="" />{" "}
+            <p>{locationLabel}</p>
           </li>
         )}
-        <li className="text-sm flex gap-2 font-bold cursor-default">
-          <Icon name={type === "inPerson" ? "house" : "laptopHouse"} size="" />{" "}
-          <p>{[aimLabel, formatLabel].filter(Boolean).join(", ")}</p>
+        <li className="text-sm flex items-center gap-2 font-bold cursor-default">
+          <Icon name="house" size="" />{" "}
+          <p>Öppen utbildning</p>
         </li>
         <li className="text-sm flex gap-2 font-bold cursor-default">
           <Icon name="pricetag" size="" />
@@ -77,10 +102,10 @@ export default function CourseCard({
             ? `Från ${new Intl.NumberFormat("sv-SE").format(Number(cost))} SEK`
             : "Enligt överenskommelse"}
         </li>
-        {dates && dates.length > 0 && (
-          <li className="text-sm font-semibold flex gap-2 w-full cursor-default">
+        {sortedDates.length > 0 && (
+          <li className="text-sm font-semibold flex items-center gap-2 w-full cursor-default">
             <Icon name="calendar" size="" />
-            {dates.map((date, index) => (
+            {sortedDates.map((date, index) => (
               <span key={`${date}-${index}`}>
                 {index > 0 && ", "}
                 <time dateTime={date}>
@@ -101,17 +126,20 @@ export default function CourseCard({
         href="/boka-kurs"
         variant="primary"
         showIcon={false}
-        className="col-span-1 max-h-min self-end"
+        className={`col-span-1 max-h-min self-end ${
+          categoryButtonStyles[categorySlug ?? ""] ?? "hover:bg-gray-100! hover:text-gray-900"
+        }`}
         >
         Boka kurs
       </ButtonComp>
+      <ShareCourseButton href={href} />
       <ButtonComp
         href="/boka-kurs"
         variant="custom"
         className="col-span-1 save-btn"
         icon="heartEmpty"
         >
-        spara kurs
+        spara
       </ButtonComp>
     </article>
   );

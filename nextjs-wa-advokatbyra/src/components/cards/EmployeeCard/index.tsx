@@ -124,7 +124,7 @@ export default function EmployeeCard({
     return null;
   }
 
-  const employeeHref = `/om-oss/${employee.slug}`;
+  const employeeHref = `/team/${employee.slug}`;
 
   return (
     <article
