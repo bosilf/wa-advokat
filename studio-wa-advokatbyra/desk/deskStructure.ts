@@ -1,4 +1,4 @@
-import type { StructureResolver } from "sanity/structure"
+import type {StructureResolver} from 'sanity/structure'
 import {
   LinkIcon,
   CogIcon,
@@ -13,86 +13,57 @@ import {
   PresentationIcon,
   AddUserIcon,
   TaskIcon,
-  ComposeIcon
-} from "@sanity/icons"
-
+  ComposeIcon,
+} from '@sanity/icons'
 
 export const deskStructure: StructureResolver = (S) =>
   S.list()
-    .title("Innehåll (WA Advokatbyrå)")
+    .title('Innehåll (WA Advokatbyrå)')
     .items([
       // --------------------------------
       // HUVUDSIDOR
       // --------------------------------
 
       S.listItem()
-        .title("Huvudsidor")
+        .title('Huvudsidor')
         .icon(FolderIcon)
         .child(
           S.list()
-            .title("Huvudsidor")
+            .title('Huvudsidor')
             .items([
               S.listItem()
-                .title("Startsida")
+                .title('Startsida')
                 .icon(HomeIcon)
-                .child(
-                  S.document()
-                    .schemaType("home")
-                    .documentId("home")
-                ),
+                .child(S.document().schemaType('home').documentId('home')),
 
               S.listItem()
-                .title("Om oss")
+                .title('Om oss')
                 .icon(UsersIcon)
-                .child(
-                  S.document()
-                    .schemaType("aboutPage")
-                    .documentId("about-page")
-                ),
+                .child(S.document().schemaType('aboutPage').documentId('about-page')),
 
               S.listItem()
-                .title("Rättsområden")
+                .title('Rättsområden')
                 .icon(CaseIcon)
-                .child(
-                  S.document()
-                    .schemaType("serviceMainPage")
-                    .documentId("service-main-page")
-                ),
+                .child(S.document().schemaType('serviceMainPage').documentId('service-main-page')),
 
               S.listItem()
-                .title("Juridikkurser")
+                .title('Juridikkurser')
                 .icon(PresentationIcon)
-                .child(
-                  S.document()
-                    .schemaType("courseMainPage")
-                    .documentId("course-main-page")
-                ),
+                .child(S.document().schemaType('courseMainPage').documentId('course-main-page')),
 
               S.listItem()
-                .title("Kontakt")
+                .title('Kontakt')
                 .icon(EnvelopeIcon)
-                .child(
-                  S.document()
-                    .schemaType("contactPage")
-                    .documentId("contact-page")
-                ),
+                .child(S.document().schemaType('contactPage').documentId('contact-page')),
               S.listItem()
-                .title("Boka kurs")
+                .title('Boka kurs')
                 .icon(TaskIcon)
-                .child(
-                  S.document()
-                    .schemaType("bookCoursePage")
-                    .documentId("book-course-page")
-                ),
+                .child(S.document().schemaType('bookCoursePage').documentId('book-course-page')),
               S.listItem()
-                .title("Artiklar samlingssida")
+                .title('Artiklar samlingssida')
                 .icon(DocumentTextIcon)
-                .child(
-                  S.document()
-                    .schemaType("articleMainPage")
-                    .documentId("article-main-page")
-                ),
-            ])
+                .child(S.document().schemaType('articleMainPage').documentId('article-main-page')),
+            ]),
         ),
 
       // --------------------------------
@@ -100,81 +71,64 @@ export const deskStructure: StructureResolver = (S) =>
       // --------------------------------
 
       S.listItem()
-        .title("Medarbetare")
+        .title('Medarbetare')
         .icon(AddUserIcon)
-        .child(
-          S.documentTypeList("employee")
-            .title("Alla Medarbetare")
-        ),
-        S.listItem()
-        .title("Studentpoolen")
+        .child(S.documentTypeList('employee').title('Alla Medarbetare')),
+      S.listItem()
+        .title('Studentpoolen')
         .icon(AddUserIcon)
         .child(
           S.list()
-            .title("Studentpoolen")
+            .title('Studentpoolen')
             .items([
               // Studentpoolens huvudsida
               S.listItem()
-                .title("Studentpoolens sida")
+                .title('Studentpoolens sida')
                 .icon(HomeIcon)
                 .child(
                   S.document()
-                    .schemaType("studentPoolPage")
-                    .documentId("student-pool-page")
-                    .title("Studentpoolens sida")
+                    .schemaType('studentPoolPage')
+                    .documentId('student-pool-page')
+                    .title('Studentpoolens sida'),
                 ),
-      
+
               S.divider(),
-      
+
               // Studenter
               S.listItem()
-                .title("Alla studenter")
+                .title('Alla studenter')
                 .icon(AddUserIcon)
-                .child(
-                  S.documentTypeList("studentPool")
-                    .title("Alla studenter")
-                ),
-            ])
+                .child(S.documentTypeList('studentPool').title('Alla studenter')),
+            ]),
         ),
 
       S.listItem()
-        .title("Rättsområden")
+        .title('Rättsområden')
         .icon(CaseIcon)
-        .child(
-          S.documentTypeList("service")
-            .title("Alla Rättsområden")
-        ),
+        .child(S.documentTypeList('service').title('Alla Rättsområden')),
 
       S.listItem()
-        .title("Sidor")
+        .title('Sidor')
         .icon(CaseIcon)
-        .child(
-          S.documentTypeList("page")
-            .title("Alla Sidor")
-        ),
+        .child(S.documentTypeList('page').title('Alla Sidor')),
 
       S.listItem()
-        .title("Kurser")
+        .title('Kurser')
         .icon(PresentationIcon)
-        .child(
-          S.documentTypeList("course")
-            .title("Alla Kurser")
-          ),
-          S.listItem()
-          .title("Kurskategorier")
-          .icon(PresentationIcon)
-          .child(
-            S.documentTypeList('courseCategory')
-            .title("Kurskategorier")
-        ),
+        .child(S.documentTypeList('course').title('Alla Kurser')),
+      S.listItem()
+        .title('Kurskategorier')
+        .icon(PresentationIcon)
+        .child(S.documentTypeList('courseCategory').title('Kurskategorier')),
+      S.listItem()
+        .title('Bokningsbara kurser')
+        .icon(PresentationIcon)
+        .child(S.documentTypeList('futureCourse').title('Kurslista för bokning')),
 
       S.listItem()
-        .title("Artiklar")
+        .title('Artiklar')
         .icon(ComposeIcon)
-        .child(
-          S.documentTypeList("article")
-            .title("Alla Artiklar")
-        ),
+        .child(S.documentTypeList('article').title('Alla Artiklar')),
 
       S.divider(),
 
@@ -183,31 +137,17 @@ export const deskStructure: StructureResolver = (S) =>
       // --------------------------------
 
       S.listItem()
-        .title("Navigering")
+        .title('Navigering')
         .icon(LinkIcon)
-        .child(
-          S.document()
-            .schemaType("navigation")
-            .documentId("navigation")
-            .title("Navigering")
-        ),
+        .child(S.document().schemaType('navigation').documentId('navigation').title('Navigering')),
 
       S.listItem()
-        .title("Yrkestitlar")
+        .title('Yrkestitlar')
         .icon(TagsIcon)
-        .child(
-          S.documentTypeList("role")
-            .title("Hantera Yrkestitlar")
-        ),
-
-
+        .child(S.documentTypeList('role').title('Hantera Yrkestitlar')),
 
       S.listItem()
-        .title("Globala Inställningar & Färger")
+        .title('Globala Inställningar & Färger')
         .icon(CogIcon)
-        .child(
-          S.document()
-            .schemaType("settings")
-            .documentId("global-settings")
-        ),
+        .child(S.document().schemaType('settings').documentId('global-settings')),
     ])

@@ -16,6 +16,7 @@
   --color-white: #FFF;
   --color-border: #D9DBE0;
   --color-footer: #51616B;
+  --color-booking: #223A47;
 
   --color-red: #FF142B;
   --color-ink: #1A1A1A;
@@ -28,6 +29,7 @@
   --spacing-xs: clamp(2px, 1vw, 4px);
   --spacing-sm: clamp(6px, 1vw, 8px);
   --spacing-md: clamp(16px, 1vw, 32px);
+  --spacing-2md: calc(var(--spacing-md) * 2);
   --spacing-lg: clamp(32px, 1vw, 64px);
   --spacing-xl: clamp(64px, 1vw, 120px);
   --spacing-section-sides: clamp(24px, 1vw, 80px);
@@ -77,6 +79,9 @@
   }
 
 
+}
+.save-btn {
+  @apply flex gap-2 items-center justify-center w-max
 }
 
 .input-field {@apply 

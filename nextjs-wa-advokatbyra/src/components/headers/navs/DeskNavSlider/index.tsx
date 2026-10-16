@@ -10,12 +10,16 @@ type DeskNavSliderProps = {
   items: NavigationItems;
   activeItemKey: string | null;
   onNavigate?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 };
 
 export default function DeskNavSlider({
   items,
   activeItemKey,
   onNavigate,
+  onMouseEnter,
+  onMouseLeave,
 }: DeskNavSliderProps) {
   const activeIndex = items.findIndex(
     (item) => item._key === activeItemKey,
@@ -28,8 +32,10 @@ export default function DeskNavSlider({
     <div
       id="desktop-navigation-slider"
       aria-hidden={!isOpen}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       className={`
-        absolute left-1/3 top-full
+        absolute z-2000 left-1/3 top-full
         -translate-x-1/2
         h-min
         pt-sm

@@ -4290,1037 +4290,6 @@
     }
   },
   {
-    "type": "type",
-    "name": "studentPool.reference",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_ref": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          }
-        },
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "reference"
-          }
-        },
-        "_weak": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "boolean"
-          },
-          "optional": true
-        }
-      },
-      "dereferencesTo": "studentPool"
-    }
-  },
-  {
-    "name": "aboutPage",
-    "type": "document",
-    "attributes": {
-      "_id": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        }
-      },
-      "_type": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string",
-          "value": "aboutPage"
-        }
-      },
-      "_createdAt": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        }
-      },
-      "_updatedAt": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        }
-      },
-      "_rev": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        }
-      },
-      "hero": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "heroRegular"
-        },
-        "optional": true
-      },
-      "benefitsSection": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "items": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "array",
-                "of": {
-                  "type": "object",
-                  "attributes": {
-                    "title": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      },
-                      "optional": true
-                    },
-                    "text": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      },
-                      "optional": true
-                    },
-                    "icon": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "union",
-                        "of": [
-                          {
-                            "type": "string",
-                            "value": "check"
-                          },
-                          {
-                            "type": "string",
-                            "value": "arrow"
-                          }
-                        ]
-                      },
-                      "optional": true
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "aboutBenefitItem"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "object",
-                    "attributes": {
-                      "_key": {
-                        "type": "objectAttribute",
-                        "value": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "optional": true
-            }
-          }
-        },
-        "optional": true
-      },
-      "teamSection": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "eyebrow": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "eyebrow"
-              },
-              "optional": true
-            },
-            "title": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "text": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "teamMembers": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "array",
-                "of": {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
-                    "name": "employee.reference"
-                  }
-                }
-              },
-              "optional": true
-            },
-            "students": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "array",
-                "of": {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
-                    "name": "studentPool.reference"
-                  }
-                }
-              },
-              "optional": true
-            },
-            "cta": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "button"
-              },
-              "optional": true
-            }
-          }
-        },
-        "optional": true
-      },
-      "practiceAreasSection": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "eyebrow": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "eyebrow"
-              },
-              "optional": true
-            },
-            "title": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "text": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "array",
-                "of": {
-                  "type": "object",
-                  "attributes": {
-                    "children": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "array",
-                        "of": {
-                          "type": "object",
-                          "attributes": {
-                            "marks": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "array",
-                                "of": {
-                                  "type": "string"
-                                }
-                              },
-                              "optional": true
-                            },
-                            "text": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string"
-                              },
-                              "optional": true
-                            },
-                            "_type": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string",
-                                "value": "span"
-                              }
-                            }
-                          },
-                          "rest": {
-                            "type": "object",
-                            "attributes": {
-                              "_key": {
-                                "type": "objectAttribute",
-                                "value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "optional": true
-                    },
-                    "style": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "union",
-                        "of": [
-                          {
-                            "type": "string",
-                            "value": "normal"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h1"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h2"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h3"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h4"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h5"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h6"
-                          },
-                          {
-                            "type": "string",
-                            "value": "blockquote"
-                          }
-                        ]
-                      },
-                      "optional": true
-                    },
-                    "listItem": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "union",
-                        "of": [
-                          {
-                            "type": "string",
-                            "value": "bullet"
-                          },
-                          {
-                            "type": "string",
-                            "value": "number"
-                          }
-                        ]
-                      },
-                      "optional": true
-                    },
-                    "markDefs": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "array",
-                        "of": {
-                          "type": "object",
-                          "attributes": {
-                            "href": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string"
-                              },
-                              "optional": true
-                            },
-                            "_type": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string",
-                                "value": "link"
-                              }
-                            }
-                          },
-                          "rest": {
-                            "type": "object",
-                            "attributes": {
-                              "_key": {
-                                "type": "objectAttribute",
-                                "value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "optional": true
-                    },
-                    "level": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "number"
-                      },
-                      "optional": true
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "block"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "object",
-                    "attributes": {
-                      "_key": {
-                        "type": "objectAttribute",
-                        "value": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "optional": true
-            },
-            "services": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "array",
-                "of": {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
-                    "name": "service.reference"
-                  }
-                }
-              },
-              "optional": true
-            },
-            "cta": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "button"
-              },
-              "optional": true
-            }
-          }
-        },
-        "optional": true
-      },
-      "adviceSection": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "eyebrow": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "eyebrow"
-              },
-              "optional": true
-            },
-            "title": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "text": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "array",
-                "of": {
-                  "type": "object",
-                  "attributes": {
-                    "children": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "array",
-                        "of": {
-                          "type": "object",
-                          "attributes": {
-                            "marks": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "array",
-                                "of": {
-                                  "type": "string"
-                                }
-                              },
-                              "optional": true
-                            },
-                            "text": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string"
-                              },
-                              "optional": true
-                            },
-                            "_type": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string",
-                                "value": "span"
-                              }
-                            }
-                          },
-                          "rest": {
-                            "type": "object",
-                            "attributes": {
-                              "_key": {
-                                "type": "objectAttribute",
-                                "value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "optional": true
-                    },
-                    "style": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "union",
-                        "of": [
-                          {
-                            "type": "string",
-                            "value": "normal"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h1"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h2"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h3"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h4"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h5"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h6"
-                          },
-                          {
-                            "type": "string",
-                            "value": "blockquote"
-                          }
-                        ]
-                      },
-                      "optional": true
-                    },
-                    "listItem": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "union",
-                        "of": [
-                          {
-                            "type": "string",
-                            "value": "bullet"
-                          },
-                          {
-                            "type": "string",
-                            "value": "number"
-                          }
-                        ]
-                      },
-                      "optional": true
-                    },
-                    "markDefs": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "array",
-                        "of": {
-                          "type": "object",
-                          "attributes": {
-                            "href": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string"
-                              },
-                              "optional": true
-                            },
-                            "_type": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string",
-                                "value": "link"
-                              }
-                            }
-                          },
-                          "rest": {
-                            "type": "object",
-                            "attributes": {
-                              "_key": {
-                                "type": "objectAttribute",
-                                "value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "optional": true
-                    },
-                    "level": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "number"
-                      },
-                      "optional": true
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "block"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "object",
-                    "attributes": {
-                      "_key": {
-                        "type": "objectAttribute",
-                        "value": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "optional": true
-            },
-            "cta": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "button"
-              },
-              "optional": true
-            }
-          }
-        },
-        "optional": true
-      },
-      "coursesSection": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "eyebrow": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "eyebrow"
-              },
-              "optional": true
-            },
-            "title": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "subheading": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "text": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "array",
-                "of": {
-                  "type": "object",
-                  "attributes": {
-                    "children": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "array",
-                        "of": {
-                          "type": "object",
-                          "attributes": {
-                            "marks": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "array",
-                                "of": {
-                                  "type": "string"
-                                }
-                              },
-                              "optional": true
-                            },
-                            "text": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string"
-                              },
-                              "optional": true
-                            },
-                            "_type": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string",
-                                "value": "span"
-                              }
-                            }
-                          },
-                          "rest": {
-                            "type": "object",
-                            "attributes": {
-                              "_key": {
-                                "type": "objectAttribute",
-                                "value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "optional": true
-                    },
-                    "style": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "union",
-                        "of": [
-                          {
-                            "type": "string",
-                            "value": "normal"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h1"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h2"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h3"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h4"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h5"
-                          },
-                          {
-                            "type": "string",
-                            "value": "h6"
-                          },
-                          {
-                            "type": "string",
-                            "value": "blockquote"
-                          }
-                        ]
-                      },
-                      "optional": true
-                    },
-                    "listItem": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "union",
-                        "of": [
-                          {
-                            "type": "string",
-                            "value": "bullet"
-                          },
-                          {
-                            "type": "string",
-                            "value": "number"
-                          }
-                        ]
-                      },
-                      "optional": true
-                    },
-                    "markDefs": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "array",
-                        "of": {
-                          "type": "object",
-                          "attributes": {
-                            "href": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string"
-                              },
-                              "optional": true
-                            },
-                            "_type": {
-                              "type": "objectAttribute",
-                              "value": {
-                                "type": "string",
-                                "value": "link"
-                              }
-                            }
-                          },
-                          "rest": {
-                            "type": "object",
-                            "attributes": {
-                              "_key": {
-                                "type": "objectAttribute",
-                                "value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "optional": true
-                    },
-                    "level": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "number"
-                      },
-                      "optional": true
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "block"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "object",
-                    "attributes": {
-                      "_key": {
-                        "type": "objectAttribute",
-                        "value": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "optional": true
-            },
-            "courses": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "array",
-                "of": {
-                  "type": "object",
-                  "attributes": {
-                    "_key": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "rest": {
-                    "type": "inline",
-                    "name": "course.reference"
-                  }
-                }
-              },
-              "optional": true
-            },
-            "cta": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "button"
-              },
-              "optional": true
-            }
-          }
-        },
-        "optional": true
-      },
-      "contactSection": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "eyebrow": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "eyebrow"
-              },
-              "optional": true
-            },
-            "title": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "text": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "showContactForm": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "boolean"
-              },
-              "optional": true
-            },
-            "form": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "object",
-                "attributes": {
-                  "title": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    },
-                    "optional": true
-                  },
-                  "nameLabel": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    },
-                    "optional": true
-                  },
-                  "emailLabel": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    },
-                    "optional": true
-                  },
-                  "phoneLabel": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    },
-                    "optional": true
-                  },
-                  "messagePlaceholder": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    },
-                    "optional": true
-                  },
-                  "submitLabel": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    },
-                    "optional": true
-                  }
-                }
-              },
-              "optional": true
-            }
-          }
-        },
-        "optional": true
-      },
-      "additionalSections": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "array",
-          "of": {
-            "type": "object",
-            "attributes": {
-              "_key": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string"
-                }
-              }
-            },
-            "rest": {
-              "type": "inline",
-              "name": "pageSection"
-            }
-          }
-        },
-        "optional": true
-      },
-      "seo": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "seo"
-        },
-        "optional": true
-      }
-    }
-  },
-  {
     "name": "service",
     "type": "document",
     "attributes": {
@@ -6025,6 +4994,109 @@
     }
   },
   {
+    "name": "futureCourse",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "futureCourse"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "coursePick": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "course.reference"
+        },
+        "optional": true
+      },
+      "location": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "digital"
+            },
+            {
+              "type": "string",
+              "value": "inPerson"
+            }
+          ]
+        },
+        "optional": true
+      },
+      "aim": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "company"
+            },
+            {
+              "type": "string",
+              "value": "open"
+            }
+          ]
+        },
+        "optional": true
+      },
+      "cost": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "dates": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "string"
+          }
+        },
+        "optional": true
+      }
+    }
+  },
+  {
     "name": "courseMainPage",
     "type": "document",
     "attributes": {
@@ -6160,6 +5232,30 @@
         "optional": true
       },
       "courseOpportunities": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "title": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "textContent": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "blockObject"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "companyCourse": {
         "type": "objectAttribute",
         "value": {
           "type": "object",
@@ -9762,6 +8858,1037 @@
         "type": "objectAttribute",
         "value": {
           "type": "string"
+        },
+        "optional": true
+      },
+      "seo": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "seo"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "type": "type",
+    "name": "studentPool.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "studentPool"
+    }
+  },
+  {
+    "name": "aboutPage",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "aboutPage"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "hero": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "heroRegular"
+        },
+        "optional": true
+      },
+      "benefitsSection": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "items": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "object",
+                  "attributes": {
+                    "title": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      },
+                      "optional": true
+                    },
+                    "text": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      },
+                      "optional": true
+                    },
+                    "icon": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "check"
+                          },
+                          {
+                            "type": "string",
+                            "value": "arrow"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
+                    "_type": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string",
+                        "value": "aboutBenefitItem"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "object",
+                    "attributes": {
+                      "_key": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "teamSection": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "eyebrow": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "eyebrow"
+              },
+              "optional": true
+            },
+            "title": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "text": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "teamMembers": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "employee.reference"
+                  }
+                }
+              },
+              "optional": true
+            },
+            "students": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "studentPool.reference"
+                  }
+                }
+              },
+              "optional": true
+            },
+            "cta": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "button"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "practiceAreasSection": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "eyebrow": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "eyebrow"
+              },
+              "optional": true
+            },
+            "title": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "text": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "object",
+                  "attributes": {
+                    "children": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "array",
+                        "of": {
+                          "type": "object",
+                          "attributes": {
+                            "marks": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "array",
+                                "of": {
+                                  "type": "string"
+                                }
+                              },
+                              "optional": true
+                            },
+                            "text": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "span"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "optional": true
+                    },
+                    "style": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "normal"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h1"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h2"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h3"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h4"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h5"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h6"
+                          },
+                          {
+                            "type": "string",
+                            "value": "blockquote"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
+                    "listItem": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "bullet"
+                          },
+                          {
+                            "type": "string",
+                            "value": "number"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
+                    "markDefs": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "array",
+                        "of": {
+                          "type": "object",
+                          "attributes": {
+                            "href": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "link"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "optional": true
+                    },
+                    "level": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "number"
+                      },
+                      "optional": true
+                    },
+                    "_type": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string",
+                        "value": "block"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "object",
+                    "attributes": {
+                      "_key": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "optional": true
+            },
+            "services": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "service.reference"
+                  }
+                }
+              },
+              "optional": true
+            },
+            "cta": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "button"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "adviceSection": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "eyebrow": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "eyebrow"
+              },
+              "optional": true
+            },
+            "title": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "text": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "object",
+                  "attributes": {
+                    "children": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "array",
+                        "of": {
+                          "type": "object",
+                          "attributes": {
+                            "marks": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "array",
+                                "of": {
+                                  "type": "string"
+                                }
+                              },
+                              "optional": true
+                            },
+                            "text": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "span"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "optional": true
+                    },
+                    "style": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "normal"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h1"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h2"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h3"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h4"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h5"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h6"
+                          },
+                          {
+                            "type": "string",
+                            "value": "blockquote"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
+                    "listItem": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "bullet"
+                          },
+                          {
+                            "type": "string",
+                            "value": "number"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
+                    "markDefs": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "array",
+                        "of": {
+                          "type": "object",
+                          "attributes": {
+                            "href": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "link"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "optional": true
+                    },
+                    "level": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "number"
+                      },
+                      "optional": true
+                    },
+                    "_type": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string",
+                        "value": "block"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "object",
+                    "attributes": {
+                      "_key": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "optional": true
+            },
+            "cta": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "button"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "coursesSection": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "eyebrow": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "eyebrow"
+              },
+              "optional": true
+            },
+            "title": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "subheading": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "text": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "object",
+                  "attributes": {
+                    "children": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "array",
+                        "of": {
+                          "type": "object",
+                          "attributes": {
+                            "marks": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "array",
+                                "of": {
+                                  "type": "string"
+                                }
+                              },
+                              "optional": true
+                            },
+                            "text": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "span"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "optional": true
+                    },
+                    "style": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "normal"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h1"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h2"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h3"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h4"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h5"
+                          },
+                          {
+                            "type": "string",
+                            "value": "h6"
+                          },
+                          {
+                            "type": "string",
+                            "value": "blockquote"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
+                    "listItem": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "union",
+                        "of": [
+                          {
+                            "type": "string",
+                            "value": "bullet"
+                          },
+                          {
+                            "type": "string",
+                            "value": "number"
+                          }
+                        ]
+                      },
+                      "optional": true
+                    },
+                    "markDefs": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "array",
+                        "of": {
+                          "type": "object",
+                          "attributes": {
+                            "href": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              },
+                              "optional": true
+                            },
+                            "_type": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string",
+                                "value": "link"
+                              }
+                            }
+                          },
+                          "rest": {
+                            "type": "object",
+                            "attributes": {
+                              "_key": {
+                                "type": "objectAttribute",
+                                "value": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "optional": true
+                    },
+                    "level": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "number"
+                      },
+                      "optional": true
+                    },
+                    "_type": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string",
+                        "value": "block"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "object",
+                    "attributes": {
+                      "_key": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "optional": true
+            },
+            "courses": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "array",
+                "of": {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "course.reference"
+                  }
+                }
+              },
+              "optional": true
+            },
+            "cta": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "button"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "contactSection": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "eyebrow": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "eyebrow"
+              },
+              "optional": true
+            },
+            "title": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "text": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "showContactForm": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "boolean"
+              },
+              "optional": true
+            },
+            "form": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "object",
+                "attributes": {
+                  "title": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  },
+                  "nameLabel": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  },
+                  "emailLabel": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  },
+                  "phoneLabel": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  },
+                  "messagePlaceholder": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  },
+                  "submitLabel": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  }
+                }
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "additionalSections": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "_key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "rest": {
+              "type": "inline",
+              "name": "pageSection"
+            }
+          }
         },
         "optional": true
       },

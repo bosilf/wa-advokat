@@ -40,8 +40,10 @@ import { studentPoolPage } from './singletons/studentPoolPage'
 import { redirects } from './objects/redirects'
 import { filterLinks } from './objects/filterLinks'
 import { serviceMainPage } from './singletons/serviceMainPage'
+import { futureCourse } from './documents/futureCourses'
 
 export const schemaTypes = [
+  aboutPage,
   accordionItem,
   article,
   articleMainPage,
@@ -50,11 +52,12 @@ export const schemaTypes = [
   bookCoursePage,
   cardContainer,
   contactPage,
+  course,
   courseMainPage,
   courseCategory,
-  course,
   eyebrow,
   employee,
+  futureCourse,
   filterLinks,
   heroRegular,
   homePage,
@@ -63,7 +66,6 @@ export const schemaTypes = [
   navigation,
   page,
   pageSection,
-  aboutPage,
   richTextBlock,
   richText,
   imageBlock,

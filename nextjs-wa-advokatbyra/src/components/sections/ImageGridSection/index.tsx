@@ -161,10 +161,9 @@ ImageGridProps) {
           src={urlFor(image).url()}
           alt={image.alt ?? ""}
           fill
-          loading="eager"
-          preload
+          loading="lazy"
           quality={75}
-          sizes="(max-width: 767px) 250vw, 100vw"
+          sizes="(min-width: 1024px) 60vw, 100vw"
           className="object-cover"
           style={{
             objectPosition: `${hotspotX * 100}% ${hotspotY * 100}%`,
@@ -175,11 +174,12 @@ ImageGridProps) {
       <div
         className={`
           flex max-w-150 flex-col gap-md
+          m-auto
           px-section-sides py-section-tb
           ${isRight ? "lg:order-1 lg:pr-lg ml-auto" : "lg:order-2"}
         `}
       >
-        <p className="font-eyebrow text-muted">
+        <p className="font-eyebrow text-body">
           {eyebrow}
         </p>
   

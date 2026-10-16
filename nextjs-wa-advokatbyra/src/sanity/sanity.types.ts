@@ -653,137 +653,6 @@ export type FilterLinks = {
   destination?: CourseReference | EmployeeReference | ServiceReference | CourseCategoryReference | ArticleReference | AboutPageReference | ContactPageReference | BookCoursePageReference | ArticleMainPageReference | CourseMainPageReference;
 };
 
-export type StudentPoolReference = {
-  _ref: string;
-  _type: "reference";
-  _weak?: boolean;
-  [internalGroqTypeReferenceTo]?: "studentPool";
-};
-
-export type AboutPage = {
-  _id: string;
-  _type: "aboutPage";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  hero?: HeroRegular;
-  benefitsSection?: {
-    items?: Array<{
-      title?: string;
-      text?: string;
-      icon?: "check" | "arrow";
-      _type: "aboutBenefitItem";
-      _key: string;
-    }>;
-  };
-  teamSection?: {
-    eyebrow?: Eyebrow;
-    title?: string;
-    text?: string;
-    teamMembers?: Array<{
-      _key: string;
-    } & EmployeeReference>;
-    students?: Array<{
-      _key: string;
-    } & StudentPoolReference>;
-    cta?: Button;
-  };
-  practiceAreasSection?: {
-    eyebrow?: Eyebrow;
-    title?: string;
-    text?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-    services?: Array<{
-      _key: string;
-    } & ServiceReference>;
-    cta?: Button;
-  };
-  adviceSection?: {
-    eyebrow?: Eyebrow;
-    title?: string;
-    text?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-    cta?: Button;
-  };
-  coursesSection?: {
-    eyebrow?: Eyebrow;
-    title?: string;
-    subheading?: string;
-    text?: Array<{
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: "span";
-        _key: string;
-      }>;
-      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-      listItem?: "bullet" | "number";
-      markDefs?: Array<{
-        href?: string;
-        _type: "link";
-        _key: string;
-      }>;
-      level?: number;
-      _type: "block";
-      _key: string;
-    }>;
-    courses?: Array<{
-      _key: string;
-    } & CourseReference>;
-    cta?: Button;
-  };
-  contactSection?: {
-    eyebrow?: Eyebrow;
-    title?: string;
-    text?: string;
-    showContactForm?: boolean;
-    form?: {
-      title?: string;
-      nameLabel?: string;
-      emailLabel?: string;
-      phoneLabel?: string;
-      messagePlaceholder?: string;
-      submitLabel?: string;
-    };
-  };
-  additionalSections?: Array<{
-    _key: string;
-  } & PageSection>;
-  seo?: Seo;
-};
-
 export type Service = {
   _id: string;
   _type: "service";
@@ -871,6 +740,20 @@ export type Service = {
   redirects?: Redirects;
 };
 
+export type FutureCourse = {
+  _id: string;
+  _type: "futureCourse";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  coursePick?: CourseReference;
+  location?: string;
+  type?: "digital" | "inPerson";
+  aim?: "company" | "open";
+  cost?: string;
+  dates?: Array<string>;
+};
+
 export type CourseMainPage = {
   _id: string;
   _type: "courseMainPage";
@@ -893,6 +776,10 @@ export type CourseMainPage = {
     text?: BlockObject;
   };
   courseOpportunities?: {
+    title?: string;
+    textContent?: BlockObject;
+  };
+  companyCourse?: {
     title?: string;
     textContent?: BlockObject;
   };
@@ -1363,6 +1250,137 @@ export type Employee = {
   seo?: Seo;
 };
 
+export type StudentPoolReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "studentPool";
+};
+
+export type AboutPage = {
+  _id: string;
+  _type: "aboutPage";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  hero?: HeroRegular;
+  benefitsSection?: {
+    items?: Array<{
+      title?: string;
+      text?: string;
+      icon?: "check" | "arrow";
+      _type: "aboutBenefitItem";
+      _key: string;
+    }>;
+  };
+  teamSection?: {
+    eyebrow?: Eyebrow;
+    title?: string;
+    text?: string;
+    teamMembers?: Array<{
+      _key: string;
+    } & EmployeeReference>;
+    students?: Array<{
+      _key: string;
+    } & StudentPoolReference>;
+    cta?: Button;
+  };
+  practiceAreasSection?: {
+    eyebrow?: Eyebrow;
+    title?: string;
+    text?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    services?: Array<{
+      _key: string;
+    } & ServiceReference>;
+    cta?: Button;
+  };
+  adviceSection?: {
+    eyebrow?: Eyebrow;
+    title?: string;
+    text?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    cta?: Button;
+  };
+  coursesSection?: {
+    eyebrow?: Eyebrow;
+    title?: string;
+    subheading?: string;
+    text?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    courses?: Array<{
+      _key: string;
+    } & CourseReference>;
+    cta?: Button;
+  };
+  contactSection?: {
+    eyebrow?: Eyebrow;
+    title?: string;
+    text?: string;
+    showContactForm?: boolean;
+    form?: {
+      title?: string;
+      nameLabel?: string;
+      emailLabel?: string;
+      phoneLabel?: string;
+      messagePlaceholder?: string;
+      submitLabel?: string;
+    };
+  };
+  additionalSections?: Array<{
+    _key: string;
+  } & PageSection>;
+  seo?: Seo;
+};
+
 export type MediaTag = {
   _id: string;
   _type: "media.tag";
@@ -1502,7 +1520,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = BtnProps | Redirects | TitleObject | TextObject | EmployeeReference | TeamSection | SanityImageAssetReference | StudentPoolPage | SanityImageCrop | SanityImageHotspot | BlockObject | StudentPool | Settings | Seo | Button | HomeReference | PageReference | ContactPageReference | AboutPageReference | ServiceMainPageReference | CourseMainPageReference | ServiceReference | CourseReference | ArticleReference | Eyebrow | Section | Sections | Role | AccordionBlock | ServiceGridBlock | EmployeeGridBlock | ButtonGroupBlock | ImageBlock | RichText | RichTextBlock | PageSection | Navigation | LinkReference | NavigationItem | Link | ServiceMainPage | Page | Slug | Home | HeroRegular | CourseCategoryReference | BookCoursePageReference | ArticleMainPageReference | FilterLinks | StudentPoolReference | AboutPage | Service | CourseMainPage | ContactPage | CardContainer | SectionReference | BookCoursePage | ArticleMainPage | Article | AccordionItem | Course | CourseCategory | RoleReference | Employee | MediaTag | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = BtnProps | Redirects | TitleObject | TextObject | EmployeeReference | TeamSection | SanityImageAssetReference | StudentPoolPage | SanityImageCrop | SanityImageHotspot | BlockObject | StudentPool | Settings | Seo | Button | HomeReference | PageReference | ContactPageReference | AboutPageReference | ServiceMainPageReference | CourseMainPageReference | ServiceReference | CourseReference | ArticleReference | Eyebrow | Section | Sections | Role | AccordionBlock | ServiceGridBlock | EmployeeGridBlock | ButtonGroupBlock | ImageBlock | RichText | RichTextBlock | PageSection | Navigation | LinkReference | NavigationItem | Link | ServiceMainPage | Page | Slug | Home | HeroRegular | CourseCategoryReference | BookCoursePageReference | ArticleMainPageReference | FilterLinks | Service | FutureCourse | CourseMainPage | ContactPage | CardContainer | SectionReference | BookCoursePage | ArticleMainPage | Article | AccordionItem | Course | CourseCategory | RoleReference | Employee | StudentPoolReference | AboutPage | MediaTag | Color | RgbaColor | HsvaColor | HslaColor | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: CONTACT_PAGE_QUERY
@@ -2874,8 +2892,41 @@ export type SERVICE_PAGE_QUERY_RESULT = {
 } | null;
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: COURSE_CARD_QUERY
+// Query: *[_type == "futureCourse" && defined(coursePick->._id)]  | order(coursePick->courseName asc) {    _id,    location,    cost,    dates,    type,    aim,    "name": coalesce(coursePick->courseName, "Namnlös kurs"),    "description": pt::text(coursePick->intro),    "length": coursePick->length,    "lecturer": coursePick->lecturer-> {      _id,      firstName,      lastName,      "slug": slug.current,      image {        asset,        crop,        hotspot,        alt      },      "roles": roles[]->{ _id, title }    },    "slug": coursePick->slug.current,    "categorySlug": coursePick->category->slug.current  }
+export type COURSE_CARD_QUERY_RESULT = Array<{
+  _id: string;
+  location: string | null;
+  cost: string | null;
+  dates: Array<string> | null;
+  type: "digital" | "inPerson" | null;
+  aim: "company" | "open" | null;
+  name: string | "Namnl\xF6s kurs";
+  description: string;
+  length: string | null;
+  lecturer: {
+    _id: string;
+    firstName: string | null;
+    lastName: string | null;
+    slug: string | null;
+    image: {
+      asset: SanityImageAssetReference | null;
+      crop: SanityImageCrop | null;
+      hotspot: SanityImageHotspot | null;
+      alt: string | null;
+    } | null;
+    roles: Array<{
+      _id: string;
+      title: string | null;
+    }> | null;
+  } | null;
+  slug: string | null;
+  categorySlug: string | null;
+}>;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: COURSE_BOOKING_QUERY
-// Query: *[    _type == "courseCategory" &&    defined(slug.current) &&    (      !defined($courseBookingCategorySlug) ||      slug.current == $courseCategorySlug    )  ] | order(title asc) {    _id,    "title": coalesce(title, "Kurskategori"),    "slug": slug.current,    "courses": *[      _type == "course" &&      category._ref == ^._id    ] | order(courseName asc) {      _id,      "title": coalesce(courseName, "Namnlös kurs")    }  }
+// Query: *[    _type == "courseCategory" &&    defined(slug.current) &&    (      !defined($courseBookingCategorySlug) ||      slug.current == $courseBookingCategorySlug    )  ] | order(title asc) {    _id,    "title": coalesce(title, "Kurskategori"),    "slug": slug.current,    "courses": *[      _type == "course" &&      category._ref == ^._id    ] | order(courseName asc) {      _id,      "title": coalesce(courseName, "Namnlös kurs")    }  }
 export type COURSE_BOOKING_QUERY_RESULT = Array<{
   _id: string;
   title: string | "Kurskategori";
@@ -2888,7 +2939,7 @@ export type COURSE_BOOKING_QUERY_RESULT = Array<{
 
 // Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
 // Variable: COURSE_MAIN_PAGE_QUERY
-// Query: *[_type == "courseMainPage"][0] {    title,    eyebrow,    image {      asset,      crop,      hotspot,      alt    },    introSection {      eyebrow {        ...      },      title,      text {        ...,        block[] {          ...        }      }    },    courseOpportunities {      title,      textContent {        ...,        block[] {          ...        }      }    },    "cardContainers": courseCategories[] {      _key,      description {        ...,        block[] {          ...        }      },      chosenCourseCategory-> {        _id,        title,        slug,        image {          asset,          crop,          hotspot,          alt        },        courseLecturerSection {          "lecturer": lecturer-> {            _id,            firstName,            lastName,            professionalTitle,            slug,            image {              asset,              crop,              hotspot,              alt            },            roles[]-> {              _id,              title            }          }        }      },      "links": courseList[]-> {        _id,        "title": courseName,        "href": select(          defined(category->slug.current) &&          defined(slug.current) =>          "/juridikkurser/" +          category->slug.current +          "/" +          slug.current,          null        )      }    },    courseInfo {      infoEyebrow {        ...      },      info {        ...      },      infoBody {        ...,        block[] {          ...        }      }    },    courseCategoryBlock {      infoEyebrow {        ...      },      info {        ...      },      infoBody {        ...,        block[] {          ...        }      }    },    slug,    seo {      ...    }  }
+// Query: *[_type == "courseMainPage"][0] {    title,    eyebrow,    image {      asset,      crop,      hotspot,      alt    },    introSection {      eyebrow {        ...      },      title,      text {        ...,        block[] {          ...        }      }    },    courseOpportunities {      title,      textContent {        ...,        block[] {          ...        }      }    },        companyCourse {      title,      textContent {        ...,        block[] {          ...        }      }    },    "cardContainers": courseCategories[] {      _key,      description {        ...,        block[] {          ...        }      },      chosenCourseCategory-> {        _id,        title,        slug,        image {          asset,          crop,          hotspot,          alt        },        courseLecturerSection {          "lecturer": lecturer-> {            _id,            firstName,            lastName,            professionalTitle,            slug,            image {              asset,              crop,              hotspot,              alt            },            roles[]-> {              _id,              title            }          }        }      },      "links": courseList[]-> {        _id,        "title": courseName,        "href": select(          defined(category->slug.current) &&          defined(slug.current) =>          "/juridikkurser/" +          category->slug.current +          "/" +          slug.current,          null        )      }    },    courseInfo {      infoEyebrow {        ...      },      info {        ...      },      infoBody {        ...,        block[] {          ...        }      }    },    courseCategoryBlock {      infoEyebrow {        ...      },      info {        ...      },      infoBody {        ...,        block[] {          ...        }      }    },    slug,    seo {      ...    }  }
 export type COURSE_MAIN_PAGE_QUERY_RESULT = {
   title: string | null;
   eyebrow: string | null;
@@ -2940,6 +2991,35 @@ export type COURSE_MAIN_PAGE_QUERY_RESULT = {
     } | null;
   } | null;
   courseOpportunities: {
+    title: string | null;
+    textContent: {
+      _type: "blockObject";
+      block: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "blockquote" | "display" | "eyebrow" | "h2" | "h3" | "normal";
+        listItem?: "bullet" | "check" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      } | {
+        _key: string;
+        _type: "button";
+        hasButton?: boolean;
+        btnProps?: BtnProps;
+      }> | null;
+    } | null;
+  } | null;
+  companyCourse: {
     title: string | null;
     textContent: {
       _type: "blockObject";
@@ -3816,4 +3896,39 @@ export type ARTICLE_PAGE_QUERY_RESULT = {
     metaDescription: string | null;
   } | null;
 } | null;
+
+// Source: ../nextjs-wa-advokatbyra/src/sanity/queries.ts
+// Variable: SEARCH_QUERY
+// Query: *[    _type in ["course", "courseCategory", "employee", "article", "service"] &&    defined(slug.current) &&    (_type != "course" || defined(category->slug.current)) &&    (      courseName match $term || title match $term ||      (coalesce(firstName, "") + " " + coalesce(lastName, "")) match $term ||      pt::text(intro) match $term || pt::text(employeeDescription) match $term    )  ] {    _id,    _type,    "title": coalesce(courseName, title, firstName + " " + lastName),    "description": coalesce(pt::text(intro), pt::text(employeeDescription), ""),    "href": select(      _type == "course" => "/juridikkurser/" + category->slug.current + "/" + slug.current,      _type == "courseCategory" => "/juridikkurser/" + slug.current,      _type == "employee" => "/om-oss/" + slug.current,      _type == "article" => "/artiklar/" + slug.current,      _type == "service" => "/rattsomraden/" + slug.current    )  } | order(title asc)
+export type SEARCH_QUERY_RESULT = Array<{
+  _id: string;
+  _type: "article";
+  title: string | null;
+  description: string;
+  href: string | null;
+} | {
+  _id: string;
+  _type: "course";
+  title: string | null;
+  description: string;
+  href: string | null;
+} | {
+  _id: string;
+  _type: "courseCategory";
+  title: string | null;
+  description: string;
+  href: string | null;
+} | {
+  _id: string;
+  _type: "employee";
+  title: string | null;
+  description: string;
+  href: string | null;
+} | {
+  _id: string;
+  _type: "service";
+  title: string | null;
+  description: string;
+  href: string | null;
+}>;
 

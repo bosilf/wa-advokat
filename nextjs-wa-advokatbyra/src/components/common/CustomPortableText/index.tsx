@@ -4,6 +4,11 @@ import { useRef } from "react";
 import type { ReactNode } from "react";
 
 import { PortableText } from "@portabletext/react";
+import type {
+  PortableTextComponents,
+  PortableTextMarkComponentProps,
+  PortableTextProps,
+} from "@portabletext/react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -88,21 +93,26 @@ function AnimatedStrong({
   );
 }
 
-const components = {
+type LinkMark = {
+  _type: "link";
+  href?: string;
+};
+
+const components: PortableTextComponents = {
   list: {
-    bullet: ({ children }: any) => (
+    bullet: ({ children }) => (
       <ul className="my-4 ml-6 list-disc space-y-2 font-body text-body marker:text-body">
         {children}
       </ul>
     ),
 
-    number: ({ children }: any) => (
+    number: ({ children }) => (
       <ol className="mb-4 ml-6 list-decimal space-y-2 text-body marker:font-thin marker:text-body">
         {children}
       </ol>
     ),
 
-    check: ({ children }: any) => (
+    check: ({ children }) => (
       <ol className="mb-4 ml-6 list-item space-y-2 text-body marker:font-bold marker:text-body">
         {children}
       </ol>
@@ -110,26 +120,38 @@ const components = {
   },
 
   block: {
-    normal: ({ children }: any) => (
-      <p className="mb-4 font-body text-body leading-relaxed">
+    normal: ({ children }) => (
+      // Empty paragraphs from Sanity should occupy one line instead of collapsing.
+      <p className="mb-4 min-h-[1lh] font-body text-body leading-relaxed">
         {children}
       </p>
     ),
 
-    h2: ({ children }: any) => (
-      <h2 className="mt-sm font-heading text-ink">
+    h2: ({ children }) => (
+      <h2 className="mt-sm min-h-[1lh] font-heading text-ink">
         {children}
       </h2>
     ),
 
-    h3: ({ children }: any) => (
-      <h3 className="font-sans text-lg first-of-type:mt-0 font-semibold mt-6 mb-3 text-ink">
+    h3: ({ children }) => (
+      <h3 className="min-h-[1lh] font-subheading text-ink">
         {children}
       </h3>
     ),
 
-    h4: ({ children }: any) => (
-      <h4 className="font-eyebrow text-muted">
+    eyebrow: ({ children }) => (
+      <p className="min-h-[1lh] font-eyebrow text-muted">
+        {children}
+      </p>
+    ),
+    subheading: ({ children }) => (
+      <p className="min-h-[1lh] font-subheading text-ink">
+        {children}
+      </p>
+    ),
+
+    h4: ({ children }) => (
+      <h4 className="min-h-[1lh] font-eyebrow text-muted">
         {children}
       </h4>
     ),
@@ -149,9 +171,9 @@ const components = {
     link: ({
       children,
       value,
-    }: any) => (
+    }: PortableTextMarkComponentProps<LinkMark>) => (
       <a
-        href={value.href}
+        href={value?.href}
         className="font-bodybold text-ink transition-colors hover:text-accent"
       >
         {children}
@@ -160,11 +182,24 @@ const components = {
   },
 };
 
+type TextContent = PortableTextProps["value"] | ReactNode;
+
+function isPortableText(value: TextContent): value is NonNullable<PortableTextProps["value"]> {
+  const isBlock = (block: unknown) =>
+    typeof block === "object" && block !== null && "_type" in block;
+
+  return Array.isArray(value) ? value.every(isBlock) : isBlock(value);
+}
+
 export function CustomPortableText({
   value,
 }: {
-  value: any;
+  value: TextContent;
 }) {
+  if (!isPortableText(value)) {
+    return <>{value}</>;
+  }
+
   return (
     <PortableText
       value={value}

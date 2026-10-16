@@ -99,9 +99,9 @@ const CardContainer = ({
   
           <div>
             <Link href={employee?.slug || "/"} >
-              <h4 className="font-subheading text-ink">
+              <h3 className="font-subheading text-ink">
                 {employee.name}
-              </h4>
+              </h3>
             </Link>
   
             {employee.role && (

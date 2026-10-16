@@ -45,6 +45,9 @@ export default function RootLayout({
       lang="sv"
       className={`${serif.variable} ${cursive.variable} ${sans.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+      </head>
       <body className="overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
         {children}
         <Analytics />

@@ -87,6 +87,23 @@ export const courseMainPage = defineType({
       ],
     }),
     defineField({
+      name: "companyCourse",
+      title: "Företagsanpassade kurser",
+      group: 'content',
+      type: "object",
+      fields: [
+        {
+          name: "title",
+          title: "Rubrik",
+          type: "string",
+        },
+        {
+          type: "blockObject",
+          name: 'textContent',
+        }
+      ],
+    }),
+    defineField({
       name: 'courseCategories',
       title: 'Kurskategorier',
       type: 'array',

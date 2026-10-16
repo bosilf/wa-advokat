@@ -3,12 +3,40 @@ import { NAVIGATION_QUERY } from "@/sanity/queries";
 
 import DeskNav from "../DeskNav";
 import MobileNav from "../MobileNav";
+import type { NavigationItems } from "../NavItems";
+
+// Keep the main destinations available when the CMS cannot be reached.
+const fallbackItems: NavigationItems = [
+  { label: "Rättsområden", href: "/rattsomraden" },
+  { label: "Juridikkurser", href: "/juridikkurser" },
+  { label: "Medarbetare", href: "/om-oss" },
+  { label: "Om oss", href: "/om-oss" },
+  { label: "Kontakt", href: "/kontakt" },
+].map(({ label, href }, index) => ({
+  _key: `fallback-${index}`,
+  hasDropdown: false,
+  dropdownSource: null,
+  resolvedLink: { label, href, linkType: "internal", referenceType: null },
+  courses: [],
+  dropdownItems: [],
+}));
 
 export default async function Nav() {
-  const navigation = await client.fetch(NAVIGATION_QUERY);
-  const items = navigation?.headerNavigation ?? [];
+  let items = fallbackItems;
 
-  // console.log(JSON.stringify(items, null, 2));
+  try {
+    const navigation = await client.fetch(NAVIGATION_QUERY, {}, {
+      next: { revalidate: 60 },
+    });
+    items = navigation?.headerNavigation ?? fallbackItems;
+  } catch (error) {
+    // Query/configuration errors should remain visible to developers.
+    if (!(error instanceof TypeError && error.message === "fetch failed")) {
+      throw error;
+    }
+    console.error("Navigation fetch failed; using fallback links.", error);
+  }
+
   return (
     <>
       <MobileNav items={items} />

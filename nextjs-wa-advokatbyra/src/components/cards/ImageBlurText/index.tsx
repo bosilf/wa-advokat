@@ -45,11 +45,11 @@ export default function ImageBlurText({
       >
       <Image
         src={urlFor(image).url()}
-        alt={image.alt ?? ""}
+        alt={image.alt?.trim() ?? ""}
         fill
         loading="lazy"
         quality={75}
-        sizes="(max-width: 767px) 250vw, 100vw"
+        sizes="(min-width: 1024px) 40vw, (min-width: 848px) 752px, calc(100vw - 48px)"
         className={`object-cover z-20 h-full ${
           !link
             ? ""

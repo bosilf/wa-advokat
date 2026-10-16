@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import type { NAVIGATION_QUERY_RESULT } from "@/sanity/sanity.types";
 
@@ -23,12 +24,14 @@ export default function NavItems({
   onDropdownChange,
   onNavigate,
 }: NavItemsProps) {
+  const isHomepage = usePathname() === "/";
+
   return (
     <ul
       className={
         mobile
           ? "flex flex-col items-start gap-md"
-          : "flex items-center gap-lg"
+          : `relative z-2000 flex items-center gap-lg ${isHomepage ? "" : "mix-blend-difference"}`
       }
     >
       {items.map((item) => {
@@ -79,18 +82,15 @@ export default function NavItems({
               className={`
                 ${!item.hasDropdown ? "relative group" : ""}
                 relative block
-                font-subheading text-ink
+                font-subheading
+                ${mobile ? "text-ink focus-visible:outline-ink" : "text-white focus-visible:outline-white"}
                 transition-colors duration-300
                 focus-visible:outline-2
                 focus-visible:outline-offset-4
-                focus-visible:outline-ink
-                md:text-white
-                md:focus-visible:outline-white
-                ${isActive ? "text-muted" : ""}
               `}
             >
               {!item.hasDropdown &&
-                <div className="absolute w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-white top-full left-0 " />
+                <div className="absolute w-0 group-hover:w-full transition-all duration-300 h-0.5 bg-current top-full left-0 " />
               }
               {label}
 

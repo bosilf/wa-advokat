@@ -19,7 +19,7 @@ type HeroCtaProps = {
   eyebrow?: string | null;
   title?: string | null;
   image?: HeroImage | null;
-  button: ButtonProps,
+  button: ButtonProps;
 };
 
 export default function HeroCta({
@@ -51,36 +51,48 @@ export default function HeroCta({
   const hotspotX = image.hotspot?.x ?? 0.5;
   const hotspotY = image.hotspot?.y ?? 0.5;
 
-
   return (
     <section className="bg-canvas z-10 flex h-svh min-h-screen flex-col overflow-hidden">
       <div className="relative min-h-0 w-full flex-1 overflow-hidden">
         <Image
           src={urlFor(image).url()}
-          alt={image.alt ?? ""}
+          alt={image.alt?.trim() ?? ""}
           fill
           loading="eager"
-          preload
+          fetchPriority="high"
           quality={75}
-          sizes="(max-width: 767px) 250vw, 100vw"
+          sizes="100vw"
           className="object-cover"
           style={{
             objectPosition: `${hotspotX * 100}% ${hotspotY * 100}%`,
           }}
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-accent/50 mix-blend-soft-light"
+          className="pointer-events-none z-100 absolute inset-0 bg-accent/50 mix-blend-soft-light"
           aria-hidden="true"
         />
-        <ButtonComp 
-          href={button.href} 
-          ariaLabel={button.ariaLabel} 
-          target={button.target}
-          variant="primary"
-          className="z-200 absolute bottom-md left-lg lg:left-xl"
-        >
-          Gör intresseanmälan
-        </ButtonComp>
+        <div className="p-md  transition-all duration-300 md:pl-xl z-200 h-full left-lg grid-rows-[1fr_auto_auto] lg:left-xl grid grid-cols-[auto_1fr]">
+          <div className="h-full col-span-2" />
+
+          <ButtonComp
+            href="#main"
+            target={button.target}
+            variant="bookingSecondary"
+            showIcon={false}
+            className="row-start-2"
+          >
+            Läs mer
+          </ButtonComp>
+          <ButtonComp
+            href={button.href}
+            ariaLabel="Gör en intresseanmälan"
+            target={button.target}
+            variant="booking"
+            className="row-start-3"
+          >
+            Gör en intresseanmälan
+          </ButtonComp>
+        </div>
       </div>
 
       <div

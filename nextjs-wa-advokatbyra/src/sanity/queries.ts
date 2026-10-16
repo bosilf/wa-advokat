@@ -931,6 +931,36 @@ export const SERVICE_PAGE_QUERY = defineQuery(`
   }
 `);
 
+export const COURSE_CARD_QUERY = defineQuery(`
+  *[_type == "futureCourse" && defined(coursePick->._id)]
+  | order(coursePick->courseName asc) {
+    _id,
+    location,
+    cost,
+    dates,
+    type,
+    aim,
+    "name": coalesce(coursePick->courseName, "Namnlös kurs"),
+    "description": pt::text(coursePick->intro),
+    "length": coursePick->length,
+    "lecturer": coursePick->lecturer-> {
+      _id,
+      firstName,
+      lastName,
+      "slug": slug.current,
+      image {
+        asset,
+        crop,
+        hotspot,
+        alt
+      },
+      "roles": roles[]->{ _id, title }
+    },
+    "slug": coursePick->slug.current,
+    "categorySlug": coursePick->category->slug.current
+  }
+`);
+
 export const COURSE_BOOKING_QUERY = defineQuery(`
   *[
     _type == "courseCategory" &&
@@ -979,6 +1009,16 @@ export const COURSE_MAIN_PAGE_QUERY = defineQuery(`
     },
 
     courseOpportunities {
+      title,
+      textContent {
+        ...,
+        block[] {
+          ...
+        }
+      }
+    },
+    
+    companyCourse {
       title,
       textContent {
         ...,
@@ -1556,4 +1596,29 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
       metaDescription
     }
   }
+`);
+
+export const SEARCH_QUERY = defineQuery(`
+  *[
+    _type in ["course", "courseCategory", "employee", "article", "service"] &&
+    defined(slug.current) &&
+    (_type != "course" || defined(category->slug.current)) &&
+    (
+      courseName match $term || title match $term ||
+      (coalesce(firstName, "") + " " + coalesce(lastName, "")) match $term ||
+      pt::text(intro) match $term || pt::text(employeeDescription) match $term
+    )
+  ] {
+    _id,
+    _type,
+    "title": coalesce(courseName, title, firstName + " " + lastName),
+    "description": coalesce(pt::text(intro), pt::text(employeeDescription), ""),
+    "href": select(
+      _type == "course" => "/juridikkurser/" + category->slug.current + "/" + slug.current,
+      _type == "courseCategory" => "/juridikkurser/" + slug.current,
+      _type == "employee" => "/om-oss/" + slug.current,
+      _type == "article" => "/artiklar/" + slug.current,
+      _type == "service" => "/rattsomraden/" + slug.current
+    )
+  } | order(title asc)
 `);

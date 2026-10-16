@@ -1,13 +1,26 @@
 import { FaArrowRight, FaCheck } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowLeftLongFill } from "react-icons/ri";
-
+import { IoLocationOutline } from "react-icons/io5";
+import { FaLaptopHouse } from "react-icons/fa";
+import { BsHouseCheck } from "react-icons/bs";
+import { IoPricetagOutline } from "react-icons/io5";
+import { FaRegCalendarCheck } from "react-icons/fa";
+import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart } from "react-icons/io";
 
 const iconList = {
   arrow: FaArrowRight,
   arrowSimple: IoIosArrowDown,
   check: FaCheck,
   arrowSerifLeft: RiArrowLeftLongFill,
+  location: IoLocationOutline,
+  house: BsHouseCheck,
+  laptopHouse: FaLaptopHouse,
+  pricetag: IoPricetagOutline,
+  calendar: FaRegCalendarCheck,
+  heartEmpty: IoMdHeartEmpty,
+  heart: IoMdHeart
 } as const;
 
 export type IconsProps = {

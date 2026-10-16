@@ -135,7 +135,7 @@ export default async function CourseCategoryPage({
         image={category.image}
       />
 
-      <main>
+      <main id="main">
         <Section 
           eyebrowCrumbs={[
             {
@@ -186,7 +186,11 @@ export default async function CourseCategoryPage({
           }}
         >
           <CustomPortableText value={lecturerSection?.text?.block} />
-          <ButtonComp href={`/om-oss/${lecturerSection?.lecturer?.slug}`} variant="secondary" >Mer om kursledaren</ButtonComp>
+          <div className="flex gap-2 flex-col lg:flex-row">
+
+          <ButtonComp href={`/boka-kurs/${categorySlug}`} showIcon={false} variant="primary"  >Boka kurs i {categoryTitle}</ButtonComp>
+          <ButtonComp href={`/om-oss/${lecturerSection?.lecturer?.slug}`} variant="secondary" >Om kursledaren</ButtonComp>
+          </div>
         </ImageGridSection>
 
         <ColumnSection
