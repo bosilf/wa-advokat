@@ -5,7 +5,6 @@ import DeskNav from "../DeskNav";
 import MobileNav from "../MobileNav";
 import type { NavigationItems } from "../NavItems";
 
-// Keep the main destinations available when the CMS cannot be reached.
 const fallbackItems: NavigationItems = [
   { label: "Rättsområden", href: "/rattsomraden" },
   { label: "Juridikkurser", href: "/juridikkurser" },
@@ -30,7 +29,6 @@ export default async function Nav() {
     });
     items = navigation?.headerNavigation ?? fallbackItems;
   } catch (error) {
-    // Query/configuration errors should remain visible to developers.
     if (!(error instanceof TypeError && error.message === "fetch failed")) {
       throw error;
     }

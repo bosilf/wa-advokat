@@ -1,3 +1,4 @@
+import { getEyebrowHref } from "@/lib/getEyebrowHref";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -344,7 +345,7 @@ export default async function OmOss() {
               ) : undefined
             }
             eyebrowHref={
-              courses.eyebrow?.resolvedLink ?? "/juridikkurser"
+              getEyebrowHref(courses.eyebrow)
             }
             color="bg-canvas"
             button={courses.cta}
@@ -377,7 +378,7 @@ export default async function OmOss() {
               undefined
             }
             eyebrowHref={
-              contact.eyebrow?.resolvedLink || "/kontakt"
+              getEyebrowHref(contact.eyebrow)
             }
             color="bg-surface"
           >

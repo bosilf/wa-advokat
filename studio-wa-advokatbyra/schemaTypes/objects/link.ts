@@ -1,4 +1,26 @@
-import { defineField, defineType } from "sanity";
+import { defineField, defineType, type ValidationContext } from "sanity";
+
+function isDisabledEyebrowLink(context: ValidationContext): boolean {
+  let current: unknown = context.document;
+
+  for (const segment of context.path ?? []) {
+    if (!current || typeof current !== "object") return false;
+    if (Array.isArray(current)) {
+      current = typeof segment === "number"
+        ? current[segment]
+        : typeof segment === "object" && "_key" in segment
+          ? current.find((item) => item?._key === segment._key)
+          : undefined;
+    } else {
+      const object = current as Record<string, unknown>;
+      if (object._type === "eyebrow" && segment === "link" && object.hasLink !== true) {
+        return true;
+      }
+      current = typeof segment === "string" ? object[segment] : undefined;
+    }
+  }
+  return false;
+}
 
 export const link = defineType({
   name: "link",
@@ -33,7 +55,9 @@ export const link = defineType({
         layout: "radio",
       },
       initialValue: "internal",
-      validation: (rule) => rule.required(),
+      validation: (rule) => rule.custom((value, context) =>
+        isDisabledEyebrowLink(context) || value ? true : "Välj typ av länk.",
+      ),
     }),
     defineField({
       name: "internalReference",
@@ -58,6 +82,7 @@ export const link = defineType({
     
       validation: (rule) =>
         rule.custom((value, context) => {
+          if (isDisabledEyebrowLink(context)) return true;
           const parent = context.parent as {
             linkType?: string;
           };
@@ -83,6 +108,7 @@ export const link = defineType({
 
       validation: (rule) =>
         rule.custom((value, context) => {
+          if (isDisabledEyebrowLink(context)) return true;
           const parent = context.parent as {
             linkType?: string;
           };
@@ -109,6 +135,7 @@ export const link = defineType({
       referencedTitle: "internalReference.title",
       courseName: "internalReference.courseName",
       slug: "internalReference.slug.current",
+      categorySlug: "internalReference.category.slug.current",
       referencedHref: "internalReference.href",
     },
 
@@ -121,6 +148,7 @@ export const link = defineType({
       courseName,
       slug,
       referencedHref,
+      categorySlug,
     }) {
       const inheritedTitle =
         courseName ??
@@ -133,8 +161,8 @@ export const link = defineType({
       const resolvedHref =
         linkType === "external"
           ? manualHref
-          : referencedType === "course" && slug
-            ? `/juridikkurser/${slug}`
+          : referencedType === "course" && categorySlug && slug
+            ? `/${categorySlug}/${slug}`
             : referencedHref;
 
       return {

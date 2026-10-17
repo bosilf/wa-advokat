@@ -1,0 +1,555 @@
+{
+  "summary": {
+    "category": "Entreprenadjuridik",
+    "publishedId": "76adc6ce-666f-42e1-b355-549f50b1b539",
+    "draftId": "drafts.76adc6ce-666f-42e1-b355-549f50b1b539",
+    "existing": 1,
+    "additions": [
+      "Formalia",
+      "ÄTA-arbeten",
+      "Hinder och störningar",
+      "Projekteringsansvarets fördelning",
+      "Organisation, samordning, kontroll",
+      "Avtalsjuridik",
+      "Entreprenadformer och upphandlingsformer",
+      "Ersättningsformer",
+      "Tidspåverkan",
+      "Ansvarstid och garantins innebörd",
+      "Besiktningsfrågor",
+      "Skadeståndsfrågor",
+      "Tvistehantering",
+      "Fördjupad kunskap om AB-familjens avtal"
+    ],
+    "skipped": 1
+  },
+  "items": [
+    {
+      "_type": "object",
+      "_key": "2c46289c7a31a3567640",
+      "title": "Kalkylförutsättningar",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "fb5d0a5ad9e4bfbef94b",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "f39a8115331ad2314a55",
+                "text": "För både beställare och entreprenörer är det viktigt att ha god kunskap om det juridiska regelverk som styr kalkylförutsättningarna. Detta är en viktig och grundläggande del av entreprenadjuridiken och blir styrande för vad som senare ska anses ingå i entreprenadavtalet. Lite förenklat är kalkylförutsättningarna den juridik som talar om vad entreprenören ska prissätta när han lämnar anbud samt vilka förutsättningar entreprenören ska räkna med, om det individuella entreprenadavtalet inte anger någonting särskilt. Det kan t ex rör vilket antal av någonting entreprenören ska räkna med i sitt anbud. Det kan också röra vilka förutsättningar entreprenören har rätt att utgå ifrån att han kommer att arbeta under, när entreprenadarbetena väl utförs. Särskilda regler har införts i standardavtalen AB 04 och ABT 06 i syfte att – så gott som det går – definiera vilka kalkylförutsättningar som gäller om inte parterna avtalar om någonting annat.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "463e59a1f762aed0703d",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "60c738dcf06a25721b0a",
+                "text": "Om verkligheten avviker från kalkylförutsättningarna uppstår olika juridiska konsekvenser för parterna. Eftersom kalkylförutsättningarna styr vad entreprenören ska räkna med när han lämnar anbud, blir dessa styrande för vad som anses ingå i ett anbud som accepterats av beställaren, dvs vad som ingår i entreprenadavtalet. Kalkylförutsättningarna blir därför en entreprenadjuridisk utgångspunkt, som bland annat blir styrande för entreprenörens rätt till ekonomisk ersättning i projektet.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "f8b484aa408673005388",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "d32125797555f15b8a47",
+                "text": "En grundläggande tanke är bakom kalkylförutsättningarna i AB 04 och ABT 06 är att anbuden ska vara jämförbara. Om olika entreprenören skulle räkna med olika saker när de lämnade anbud, skulle beställaren inte kunna jämföra anbuden. Beställaren skulle då inte kunna göra en upphandling i konkurrens. Det är viktigt för båda parter att ha god kunskap om det entreprenadjuridiska regelverket och vilka kalkylförutsättningar som branschens vanligaste standardavtal (AB 04 och ABT 06) föreskriver. Detta går vi igenom vid våra kurser i entreprenadjuridik.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "d0801ba8f5d664ea5953",
+      "title": "Formalia",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "9ea47564370cee753bd6",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "c1b66c103d3a879de6ee",
+                "text": "Den svenska entreprenadjuridiken bygger huvudsakligen på standardavtalen AB 04 och ABT 06. Dessa standardavtal innehåller ett stort antal frister som måste följas. Den part som missar en frist riskerar att lida rättsförlust, till exempel genom att förlora rätt till ersättning för ett tilläggsarbete, ett avgående arbete eller en skada. Den som kommer i kontakt med entreprenadjuridiken måste därför ha goda kunskaper om vilka frister som gäller samt kunna orientera sig i standardavtalen (AB 04 och ABT 06) så att man enkelt kan hitta de relevanta fristerna. Det är också viktigt att känna till från vilka tidpunkter fristerna börjar löpa, vilket bland annat varierar beroende på vilken typ av händelse det är fråga om.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "1063fd54481cc96c6b50",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "0011624dd95457b6da13",
+                "text": "Juridiskt sett innebär fristerna i AB 04 och ABT 06 en stor skillnad i förhållande till vad som annars gäller i ett så kallat ”standardavtalslöst” entreprenadavtal. Fristerna i AB 04 och ABT 06 är generellt sett betydligt tuffare mot både beställaren och entreprenören.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "1eae312cfe388b44eaef",
+      "title": "ÄTA-arbeten",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "90732f79b4154a73bd0a",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "d3d0fc77c17278d9799d",
+                "text": "Begreppet ÄTA-arbete innefattar Ändringsarbete, Tilläggsarbete (förutsatt att det har ett tillräckligt nära samband med kontraktsarbetena) och Avgående arbeten. Ändringar och tillägg är kostnadsdrivande på så sätt att entreprenören erhåller ersättning utöver kontraktssumman. Avgående arbeten innebär i sin tur att entreprenören får mindre ersättning än kontraktssumman eftersom delar av kontraktsarbetena då avbeställs. I många avtal skiljer man på å ena sidan ”ändringar och tillägg” och å andra sidan avgående arbeten. I AB 04 och ABT 06, vilka kan sägas utgöra grunden för den svenska entreprenadjuridiken, har allt hanterats inom ramen för termen ”ÄTA-arbete”, vilket alltså kan vara både någonting som ändras/tillkommer och någonting som avgår. Bestämmelserna i AB 04 / ABT 06 som rör ÄTA-arbeten har därför olika innebörder beroende på om det är fråga om ett kostnadsdrivande ändrings/tilläggsarbete eller ett avgående arbete.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "f57ec6fe501225f4592a",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "4cd58149a6871480793e",
+                "text": "Inom entreprenadjuridiken hanteras ÄTA-arbeten också olika beroende på vilket av standardavtalen parterna avtalat om. Det är också vanligt förekommande att beställaren inför särskilda regleringar, eller särskilda formaliaregler, i sina individuella avtal rörande ÄTA-arbeten. För att vara säker på att ha rätt till ersättning för ändringar och tillägg måste entreprenören vara väl införstådd med vilka formaliaregler som gäller. Det är också viktigt för entreprenören att vara införstådd med vilka krav entreprenadjuridiken ställer på hans agerande vid förekomst eller upptäckt av ÄTA-arbete.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "249c50a082f8f28c1a87",
+      "title": "Hinder och störningar",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "33efbeade002f95fbec5",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "a6530eb6cc41df6b7838",
+                "text": "Om entreprenören hindras från att arbeta under avtalade förutsättningar föreligger ett hinder. Standardavtalen AB 04 och ABT 06 skiljer på olika sorters hinder och hanterar dessa på lite olika sätt. Under en kurs i entreprenadjuridik går vi därför igenom exempel på vad som kan utgöra hinder, hur beställaren kan undvika att skapa hinder för entreprenören samt hur entreprenören ska agera om det ändå inträffar ett hinder.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "1c0674d835a8eed11603",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "36b284c2cf0e5a0eabdc",
+                "text": "Det kan vara utmanande att som entreprenör driva hinderskrav mot en beställare och för att nå framgång krävs ofta att organisationen fattar rätt beslut reda ”från dag ett”. Entreprenörens organisation måste t ex aktivt arbeta med att säkra utredning till stöd för kraven. Som så ofta inom entreprenadjuridiken finns det också frister kopplade till hinderskrav.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "2663bdbe415a409f9714",
+      "title": "Projekteringsansvarets fördelning",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "e10c650c2636e3a02b95",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "b82786afef93d8580d20",
+                "text": "En central del av entreprenadjuridiken är att förstå hur projekteringsansvaret fördelar sig mellan parterna. Vid våra kurser i entreprenadjuridik går vi därför utförligt igenom vad AB 04 respektive ABT 06 föreskriver rörande projekteringsansvarets fördelning. Vi går också igenom vad projekteringsansvaret innebär rent konkret samt jämför entreprenörens åtaganden vid en utförandeentreprenad på AB 04 med entreprenörens åtaganden vid en totalentreprenad på ABT 06. Efter avslutad kurs har deltagarna erhållit konkreta verktyg för att kunna analysera hur projekteringsansvaret fördelas. Deltagarna har också fått insyn i hur domstolar dömt i uppmärksammade mål rörande projekteringsansvarets fördelning.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "83d548ba754338851db5",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "39cb09219436103bc916",
+                "text": "En central del av entreprenadjuridiken är att förstå hur projekteringsansvaret fördelar sig mellan parterna. Vid våra kurser i entreprenadjuridik går vi därför utförligt igenom vad AB 04 respektive ABT 06 föreskriver rörande projekteringsansvarets fördelning. Vi går också igenom vad projekteringsansvaret innebär rent konkret samt jämför entreprenörens åtaganden vid en utförandeentreprenad på AB 04 med entreprenörens åtaganden vid en totalentreprenad på ABT 06. Efter avslutad kurs har deltagarna erhållit konkreta verktyg för att kunna analysera hur projekteringsansvaret fördelas. Deltagarna har också fått insyn i hur domstolar dömt i uppmärksammade mål rörande projekteringsansvarets fördelning.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "ddfa355d3e9d8d40fc2e",
+      "title": "Organisation, samordning, kontroll",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "93111da5a7b471b18975",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "49fdf641616b8ea2e78a",
+                "text": "Ett entreprenadavtal baserat på AB 04 eller ABT 06 bygger på tanken att vardera parten ska utse ett ombud som med bindande verkan får företräda sin huvudman i frågor som rör entreprenaden. I verkligheten är det dock vanligt att flera olika personer agerar som företrädare för beställaren och/eller entreprenören, ofta på lite olika nivå i organisationerna. Det aktualiserar frågan om ”vem som får göra vad”. Vid våra kurser i entreprenadjuridik går vi igenom för och nackdelar med olika sätt att organisera sig och hur man bör tänka för att slippa diskussioner om behörighetsfrågor. Vid utbildningstillfället går vi också igenom samordningsfrågor och hur parterna kan arbeta med olika kontrollfunktioner, såsom t ex egenkontroll och beställarkontrollant.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "7f9d6e48dc5830e795b3",
+      "title": "Avtalsjuridik",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "c87c01e3322b552a6b46",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "b61b6e9d42db9976afe2",
+                "text": "Entreprenadjuridiken bygger huvudsakligen på standardavtalen AB 04 och ABT 06. Det räcker emellertid inte att förstå innehållet i dessa avtal för att kunna tillämpa avtalsjuridiken. Förutom avtalen finns det en bakomliggande civilrätt som påverkar alla avtal; oavsett om det är fråga om ett entreprenadavtal eller ett avtal som reglerar någonting annat. Som exempel kan nämnas att AB 04 och ABT 06 inte innehåller regler om ",
+                "marks": []
+              },
+              {
+                "_type": "span",
+                "_key": "294d917050efde0a88f5",
+                "text": "när",
+                "marks": [
+                  "em"
+                ]
+              },
+              {
+                "_type": "span",
+                "_key": "b44e643c5e725a03a8b0",
+                "text": " ett avtal anses ha uppkommit. Detta regleras istället i annan lagstiftning och i rättspraxis. I den bakomliggande lagstiftningen och rättstillämpningen finns också regler om hur avtals ska tolkas om parterna blir oense om innehållet. AB 04 och ABT 06 innehåller visserligen vissa stödregler, men dessa regler klargör endast hur tolkningsoperationen ska genomföras i vissa särskilda situationer. Entreprenadjuridiken består alltså inte bara av standardavtalen utan också den bakomliggande juridiken. Vid våra kurser går vi igenom de mest relevanta delarna av den bakomliggande civilrätten för att ge deltagarna en djupare och bättre förståelse för regelverket. Vid behov arrangerar vi också en särskild kurs där vi under två dagar fördjupar oss uteslutande i den bakomliggande juridiken och relaterar denna till AB 04 / ABT 06.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "95808c39a1863c86bb0a",
+      "title": "Entreprenadformer och upphandlingsformer",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "5f0273f1378fa99586f8",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "1db19e6659e754831614",
+                "text": "Inom entreprenadjuridiken reglerar upphandlingsformerna – lite förenklat – avtalsstrukturen, eller vem som har avtal med vem. Entreprenadformerna kan, i sin tur, förenklat sägas reglera innehållet i avtalet med bäring på frågan om projekteringsansvar. Vid våra kurser i entreprenadjuridik går vi igenom vilka upphandlingsformer och entreprenadformer som finns. Kursdeltagarna lär sig även att skilja upphandlingsformer från entreprenadformer på så sätt att varje entreprenad klassificeras med en upphandlingsform och en entreprenadform. Vi går också igenom vissa speciella varianter såsom samordnad generalentreprenad, m m.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "9c50ed95f7aa1775d697",
+      "title": "Ersättningsformer",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "f5652791aa0d3c050b71",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "ebeb1aa810f14fc1e377",
+                "text": "Inom entreprenadjuridiken finns det olika ersättningsformer, dvs olika sätt att ersätta entreprenören för de arbeten han utfört. Vid en första anblick kan ersättningsformerna verka enkla eftersom entreprenören normalt ersätts genom ett fast pris eller på löpande räkning (observera dock att det finns olika varianter på fast pris och löpande räkning). Ändå är det just i ersättningsformerna det ofta blir fel i entreprenadavtalen. Ett vanligt exempel är att beställaren genom egna avtalstexter blandar samman olika begrepp, vilket t ex kan riskera att skapa ”en zon” där entreprenören inte har rätt till betalning för utförda arbeten om man tillämpar avtalet efter dess ordalydelse. En annan vanligt förekommande situation är att entreprenören missförstått vissa begrepp rörande ersättningsformerna och därför fakturerar för mycket, vilket beställaren riskerar att missa om han inte är uppmärksam.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "13c412f54d8e8b8bef12",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "46bcb63d8e16308e354a",
+                "text": "Vid våra kurser i entreprenadjuridik går vi därför grundligt igenom ersättningsformerna och reder ut eventuella oklarheter rörande begrepp kopplade till dessa. Vi går också igenom vilka överväganden man bör göra som beställare när man anger ersättningsformer i ett förfrågningsunderlag samt hur man som entreprenör bör förhålla sig till den föreskrivna ersättningsformen.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "0fd258d4e92f308f8e51",
+      "title": "Tidspåverkan",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "4aa9a58f9a4f661e0890",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "1b9d0f1d3b8e2c768dc1",
+                "text": "I en entreprenad finns det olika händelser som kan få tidspåverkan. Det kan t ex handla om hinder eller ÄTA-arbeten, vilka gör att tidsplanen måste kastas om. Detta kan i sin tur driva kostnader för entreprenören och i vissa fall kan dessa kostnader föras vidare till beställaren. Vid våra kurser i entreprenadjuridik går vi igenom hur entreprenören respektive beställaren bör agera vid händelser av aktuellt slag. Det finns olika juridiska grunder som kan åberopas och det är viktigt att parterna redan från början är medvetna om vilka olika bestämmelser i AB 04 / ABT 06 som aktualiseras samt hur de förhåller sig till varandra. För entreprenören är det också viktigt att uppfylla viss avtalsformalia för att senare ha möjlighet att framställa krav och för att ha rätt till tidsförlängning. Ur beställarens perspektiv är det viktigt att vara medveten om vilka åtgärder man bör vidta för att kunna bemöta krav rörande hinder/rubbningar på bästa tänkbara sätt.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "f4981726e936845c4d60",
+      "title": "Ansvarstid och garantins innebörd",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "11eae1edaa7d6a447e54",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "cb78371b64ed29076f7e",
+                "text": "Fel i entreprenaden föreligger om entreprenaden inte har utförts på kontraktsenligt sätt. Det innebär att bedömningen av om fel föreligger blir helt beroende av vad parterna avtalat och hur ansvaret fördelats parterna emellan. Om t ex entreprenören både projekterat och utfört arbetena, ansvarar entreprenören både för sk utförandefel och för projekteringsfel. Om det istället är beställaren som projekterat, föreligger per definition inget fel i entreprenörens arbete om en avvikelse beror på brister i projekteringen.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "f0c841fa458aa61ed60f",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "383e8f5c58e697514e49",
+                "text": "Entreprenadjuridiken i branschens vanligaste standardavtal (AB 04 och ABT 06) bygger också på tanken att det ska bli svårare för beställaren att göra gällande fel ju längre tid som går. Vid våra kurser i entreprenadjuridik går vi igenom vad som krävs för att göra gällande fel i entreprenaden under entreprenadtiden, garantitiden och resterande delar av ansvarstiden. En viktig del i detta är att förstå innebörden av garantiansvaret. Vi går också igenom vilka preskriptionsfrister som gäller och hur dessa samspelar med övriga delar av AB 04 respektive ABT 06.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "a2732d460eccdfb12327",
+      "title": "Besiktningsfrågor",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "32603f2e64b261a23511",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "6acff827feb95b5a9310",
+                "text": "I standardavtalen AB 04 och ABT 06 har många besiktningsfrågor lämnats öppna. Det är då istället upp till parterna att hantera dessa frågor, vilket ofta sker löpande under entreprenadtiden snarare än i entreprenadavtalet. Vid våra kurser i entreprenadjuridik går vi igenom olika besiktningsformer och hur parterna kan hantera dessa besiktningsformer som verktyg i sitt arbete.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "6bc3a259247ec565498a",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "702a03462a8aba24c487",
+                "text": "Utbildningen lägger särskilt fokus vid slutbesiktningen. Det beror bland annat på att slutbesiktningen är kopplad till ett flertal frister samt juridiska effekter, såsom till exempel riskövergången för entreprenaden.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "f8368931b3b38d40814e",
+      "title": "Skadeståndsfrågor",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "fad9b1372ce67c3f7cf0",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "41f7fc1afdff606d0437",
+                "text": "I anslutning till en entreprenad kan det uppstå olika sorters skador och i kapitel 5 i AB 04 och ABT 06 återfinns de bestämmelser som reglerar skadeståndsfrågorna. Vid våra kurser i entreprenadjuridik går vi igenom vilka skadeståndsregler som återfinns i standardavtalen och hur de förhåller sig till varandra. Som så ofta finns det också särskilda frister inom vilka skadeståndskrav måste framställas. För den som kommer i kontakt med entreprenadjuridik är det därför viktigt att ha kunskap om dessa frister och förstå från vilka tidpunkter de löper.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "6d1f71cfa456921543c2",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "d9c5b22a952629523fcb",
+                "text": "En viktig del av kapitel 5 är entreprenörens strikta ansvar för skador på sina egna arbeten inom entreprenadtiden. Vid våra utbildningar går vi igenom vad detta innebär rent konkret samt hur man som entreprenör / beställare bör tänka vid ett förtida ibruktagande av entreprenaden. Vi går också igenom praktiska exempel på skador som kan uppkomma i anslutning till en entreprenad och hur de lämpligast bör hanteras rent juridiskt.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "72209155ab52d8fa461d",
+      "title": "Tvistehantering",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "4fafef2c6daa57399883",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "67bbfae881d577514999",
+                "text": "Ibland är det oundvikligt att en entreprenadrättslig tvist uppkommer. Vid våra kurser i entreprenadjuridik går vi igenom vilka tvistelösningsalternativ som finns och vad de innebär för parterna rent konkret. Vi går t ex igenom vilka fördelar respektive nackdelar det finns med att avgöra en tvist i allmän domstol eller i skiljenämnd. Vi går även igenom vilka olika sorters skiljeklausuler som kan användas och vad de får för konsekvenser.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_type": "object",
+      "_key": "df0ed4d0680983ecbf1b",
+      "title": "Fördjupad kunskap om AB-familjens avtal",
+      "text": {
+        "_type": "blockObject",
+        "block": [
+          {
+            "_type": "block",
+            "_key": "3daa146253566780b7b9",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "13ae8320c3e0408e8b88",
+                "text": "Efter avslutad kurs har kursdeltagarna erhållit fördjupade kunskaper även inom andra delar av entreprenadjuridiken än de som nämns ovan.",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "_type": "block",
+            "_key": "4214bd1832234337adb3",
+            "style": "normal",
+            "markDefs": [],
+            "children": [
+              {
+                "_type": "span",
+                "_key": "e1739c0f1ff7179f1af0",
+                "text": "I den mån det är möjligt strävar vi efter att kursdeltagarna ska få svar på sina specifika frågor rörande entreprenadjuridiken. Särskilt vid företagsinterna kurser brukar det finnas möjlighet att avsätta tid för deltagarnas individuella juridiska frågor. Vi vet av erfarenhet att detta brukar vara mycket uppskattat.",
+                "marks": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

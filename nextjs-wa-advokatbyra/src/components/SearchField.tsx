@@ -29,14 +29,14 @@ export default function SearchField({
         name={name}
         placeholder={placeholder || " "}
         disabled={disabled}
-        className={`peer min-h-12 w-full min-w-0 rounded-full border border-border backdrop-blur-md bg-white/20 py-3 pl-4 pr-20 font-sans text-base text-ink placeholder:text-footer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-footer disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+        className={`peer min-h-10 w-full min-w-0 rounded-full border border-border backdrop-blur-md bg-white/20 py-2 pl-4 pr-20 font-sans text-base text-ink placeholder:text-footer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-footer disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
       />
       <HiOutlineSearch
         aria-hidden="true"
         size={20}
         className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-footer opacity-0 peer-[:placeholder-shown:not(:focus)]:opacity-100"
       />
-      <button type="submit" disabled={disabled} className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-ink px-4 py-2 font-sans text-sm text-white hover:bg-footer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-footer disabled:opacity-50">
+      <button type="submit" disabled={disabled} className="absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-ink px-4 py-2 font-sans text-sm text-white hover:bg-footer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-footer disabled:opacity-50">
         Sök
       </button>
     </form>

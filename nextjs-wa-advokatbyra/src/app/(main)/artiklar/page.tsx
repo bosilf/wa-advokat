@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+
 
 import { client } from "@/sanity/client";
 import { ARTICLES_QUERY } from "@/sanity/queries";
 import type { ARTICLES_QUERY_RESULT } from "@/sanity/sanity.types";
 
 import HeroRegular from "@/components/heroes/HeroRegular";
-import ImageComponent from "@/components/common/Image";
+import ArticleCard from "@/components/cards/ArticleCard";
 
 export const revalidate = 30;
 
@@ -47,37 +47,14 @@ export default async function ArticlesPage() {
 
             <div className="grid grid-cols-1 gap-lg md:grid-cols-2 lg:grid-cols-3">
               {articles.map((article) => (
-                <Link
+                <ArticleCard
                   key={article._id}
-                  href={`/artiklar/${article.slug}`}
-                  className="group flex flex-col"
-                >
-                  {article.image && (
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <ImageComponent
-                        image={article.image}
-                      />
-                    </div>
-                  )}
-
-                  <div className="flex flex-col gap-sm pt-md">
-                    {article.title && (
-                      <p className="font-eyebrow text-muted">
-                        {article.title}
-                      </p>
-                    )}
-
-                    <h3 className="font-heading-sm text-ink group-hover:text-accent">
-                      {article.title}
-                    </h3>
-
-                    {article.excerpt && (
-                      <p className="font-body text-body">
-                        {article.excerpt}
-                      </p>
-                    )}
-                  </div>
-                </Link>
+                  title={article.title ?? "Artikel"}
+                  lead={article.excerpt}
+                  link={`/artiklar/${article.slug}`}
+                  image={article.image}
+                  writers={article.writers}
+                />
               ))}
             </div>
           </div>

@@ -185,7 +185,7 @@ export const course = defineType({
       return {
         title: title ?? "Namnlös kurs",
         subtitle: slug
-          ? `/juridikkurser/${category}/${slug}`
+          ? `/${category}/${slug}`
           : "Slug saknas",
       };
     },

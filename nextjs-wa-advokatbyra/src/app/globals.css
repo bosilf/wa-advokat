@@ -41,7 +41,7 @@
   --spacing-section-tb: clamp(64px, 4vw, 130px);
   --spacing-5xl: clamp(100px, 1vw, 160px);
 
-  --radius-*: initial;
+  /* --radius-*: initial;
   --radius-sharp: 0px;
   --radius-xs: clamp(2px, 1vw, 4px);
   --radius-sm: 4px;
@@ -49,7 +49,7 @@
   --radius-lg: 18px;
   --radius-xl: 50px;
   --radius-2xl: 150px;
-  --radius-round: 9999px;
+  --radius-round: 9999px; */
 
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Poppins", sans-serif;
@@ -86,6 +86,9 @@
 
 }
 
+.li-course-block {
+  @apply grid grid-cols-[auto_1fr_auto] items-center text-sm tracking-wider gap-3 cursor-pointer py-3.5 px-2.5 bg-ink/0 hover:bg-gray-200 rounded-lg
+}
 
 .save-btn {
   @apply flex gap-2 mr-auto items-center w-max

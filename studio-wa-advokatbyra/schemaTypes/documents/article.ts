@@ -23,6 +23,13 @@ export const article = defineType({
 
   fields: [
     defineField({
+      name: "publishedAt",
+      title: "Publiceringsdatum",
+      type: "datetime",
+      group: "content",
+      description: "Artikelns ursprungliga publiceringsdatum.",
+    }),
+    defineField({
       name: "title",
       title: "Rubrik",
       type: "string",
@@ -58,7 +65,7 @@ export const article = defineType({
       description:
         "Visas på artikelkort, i listor och i sökresultat på webbplatsen.",
       validation: (rule) =>
-        rule.required().min(50).max(220),
+        rule.required()
     }),
 
     defineField({

@@ -9,9 +9,12 @@ import { FaRegCalendarCheck } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 import { IoMdShare } from "react-icons/io";
+import { FiArrowUpRight } from "react-icons/fi";
+import { RiDoubleQuotesR } from "react-icons/ri";
 
 const iconList = {
   arrow: FaArrowRight,
+  arrowUpRight: FiArrowUpRight,
   arrowSimple: IoIosArrowDown,
   check: FaCheck,
   arrowSerifLeft: RiArrowLeftLongFill,
@@ -25,6 +28,7 @@ const iconList = {
   share: IoMdShare,
   laptop: IoMdLaptop,
   book: IoMdBook,
+  doubleQuotes: RiDoubleQuotesR,
 } as const;
 
 export type IconsProps = {

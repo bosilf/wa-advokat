@@ -1,3 +1,4 @@
+import { getEyebrowHref } from "@/lib/getEyebrowHref";
 import { client } from "@/sanity/client";
 import { HOMEPAGE_QUERY } from "@/sanity/queries";
 import type { HOMEPAGE_QUERY_RESULT, internalGroqTypeReferenceTo } from "@/sanity/sanity.types";
@@ -63,7 +64,7 @@ export default async function IndexPage() {
               }}
               description={ serviceIntro }
               
-              heading={services?.tjansterTitle || 'text saknas'} eyebrow={services?.eyebrow?.text || 'Rättsområden'} eyebrowHref={services.eyebrow?.link?.href || "/"}>
+              heading={services?.tjansterTitle || 'text saknas'} eyebrow={services?.eyebrow?.text || 'Rättsområden'} eyebrowHref={getEyebrowHref(services.eyebrow)}>
               {accordions.length > 0 ? (
                 <CardContainer
                   hasAccordion
@@ -83,7 +84,7 @@ export default async function IndexPage() {
         <Section 
           eyebrow={team?.eyebrow?.text || "Medarbetare"}
           eyebrowHref={
-            team?.eyebrow?.link?.href ?? undefined
+            getEyebrowHref(team?.eyebrow)
           }
           heading={team?.title ?? "Title saknas"}
           color="bg-surface" 
@@ -116,7 +117,7 @@ export default async function IndexPage() {
         </Section>
         <Section
           eyebrow={contact?.eyebrow?.text || "testing"}
-          eyebrowHref={contact?.eyebrow?.link?.href || "/boll"}
+          eyebrowHref={getEyebrowHref(contact?.eyebrow)}
           heading={contact?.contactTitle ?? "Kontakta oss"}
         >
           {contact?.contactText ? (

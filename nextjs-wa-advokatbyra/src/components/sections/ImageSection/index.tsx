@@ -24,7 +24,9 @@ export default function ImageSection({
     setIsLoading(!isLoading)
   }
 
-  const imageUrl = image
+  const imageUrl = typeof image === "string" && image.startsWith("/")
+    ? image
+    : image
     ? urlFor(image)
         .width(2400)
         .quality(85)

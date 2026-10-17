@@ -25,7 +25,10 @@ export default function NavItems({
   onNavigate,
 }: NavItemsProps) {
   const pathname = usePathname();
-  const useWhiteNavigation = pathname === "/" || /^\/team\/[^/]+\/?$/.test(pathname);
+  const useWhiteNavigation =
+    pathname === "/" ||
+    pathname.startsWith("/team/") ||
+    pathname.startsWith("/artiklar/");
 
   return (
     <ul

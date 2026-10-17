@@ -36,7 +36,7 @@ export const page = defineType({
       type: "slug",
       group: "content",
       description:
-        "Exempel: om-oss, tjanster/entreprenadratt eller juridikkurser/upphandling/grundkurs.",
+        "Exempel: om-oss, tjanster/entreprenadratt eller upphandling/grundkurs.",
       options: {
         source: "title",
         maxLength: 150,

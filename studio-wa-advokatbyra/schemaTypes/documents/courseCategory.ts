@@ -156,29 +156,43 @@ export const courseCategory = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'imageDivider',
+      type: 'object',
+      fields: [
+        {
+          type: 'image',
+          name: 'image',
+          options: {
+            hotspot: true
+          }
+        },
+        {
+          type: 'string',
+          name: 'alt'
+        }
+      ]
+    }),
 
     defineField({
       name: 'courseInfoSection',
       title: 'Kursinfo innehåll:',
       group: "content",
-      type: 'object',
-      fields: [
-        {
-          type: 'titleObject',
-          name: 'title'
-        },
-        {
-          type: 'blockObject',
-          name: 'text'
-        },
-        {
-          type: 'array',
-          name: 'courseInfo',
-          title: 'Kursinfo', 
-          of: [
-            { type: 'accordionItem' },
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            {
+              type: 'string',
+              name: 'title'
+            },
+            {
+              type: 'blockObject',
+              name: 'text'
+            },
           ]
-        }
+        })
       ]
     }),
 
@@ -201,6 +215,12 @@ export const courseCategory = defineType({
     }),
     defineField({
       group: 'content',
+      name: 'courseOfferingText',
+      title: 'Utbildningserbjudande – text',
+      type: 'blockObject',
+    }),
+    defineField({
+      group: 'content',
       name: 'courseQuotesSection',
       title: 'Omdömen:',
       type: 'array',
@@ -211,6 +231,7 @@ export const courseCategory = defineType({
           fields: [
             { type: 'text', name: 'quote', description: "Utan citattecken", title: 'Citat:' },
             { type: 'string', name: 'person', title: 'Namn, person:' },
+            { type: 'string', name: 'courseLabel', title: 'Kursnamn i omdömet', description: 'Valfri visningstext, till exempel kursnamn och årtal.' },
             { 
               type: 'reference', 
               name: 'courseTaken', 
@@ -225,11 +246,8 @@ export const courseCategory = defineType({
     defineField({
       name: "excerpt",
       title: "Kort beskrivning",
-      type: "text",
-      rows: 3,
+      type: "blockObject",
       group: "content",
-      validation: (rule) =>
-        rule.required().min(40).max(220),
     }),
 
     defineField({
@@ -249,7 +267,7 @@ export const courseCategory = defineType({
       return {
         title: title ?? "Namnlös kurskategori",
         subtitle: slug
-          ? `/juridikkurser/${slug}/`
+          ? `/${slug}/`
           : "Slug saknas",
         media: media,
       };

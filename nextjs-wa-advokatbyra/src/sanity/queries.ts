@@ -144,6 +144,7 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
     teamSection {
       eyebrow {
         text,
+        hasLink,
         "resolvedLink": wa::resolveLinkRef(link)
       },
 
@@ -197,6 +198,7 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
     practiceAreasSection {
       eyebrow {
         text,
+        hasLink,
         "resolvedLink": wa::resolveLinkRef(link)
       },
 
@@ -228,6 +230,7 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
     adviceSection {
       eyebrow {
         text,
+        hasLink,
         "resolvedLink": wa::resolveLinkRef(link)
       },
 
@@ -246,6 +249,7 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
     coursesSection {
       eyebrow {
         text,
+        hasLink,
         "resolvedLink": wa::resolveLinkRef(link)
       },
       title,
@@ -279,6 +283,7 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
     contactSection {
       eyebrow {
         text,
+        hasLink,
         "resolvedLink": wa::resolveLinkRef(link)
       },
 
@@ -300,6 +305,7 @@ export const OM_OSS_PAGE_QUERY = defineQuery(`
       ...,
       eyebrow {
         text,
+        hasLink,
         "resolvedLink": wa::resolveLinkRef(link)
       },
 
@@ -681,7 +687,7 @@ export const ARTICLE_QUERY = defineQuery(`
     _id, 
     title, 
     "slug": slug.current, 
-    publishedAt
+    publishedAt,
   }
 `);
 
@@ -1171,7 +1177,12 @@ export const COURSE_CATEGORY_PAGE_QUERY =
       _id,
       _type,
       title,
-      excerpt,
+      excerpt {
+        ...,
+        block[] {
+          ...
+        }
+      },
 
       "slug": slug.current,
 
@@ -1179,6 +1190,15 @@ export const COURSE_CATEGORY_PAGE_QUERY =
         asset,
         crop,
         hotspot
+      },
+
+      imageDivider {
+        image {
+          asset,
+          crop,
+          hotspot
+        },
+        alt
       },
 
       introTitle,
@@ -1296,24 +1316,16 @@ export const COURSE_CATEGORY_PAGE_QUERY =
           }
       },
 
-      courseInfoSection {
-        title {
-          ...
-        },
-
+      courseInfoSection[] {
+        _key,
+        _type,
+        title,
         text {
           ...,
           block[] {
             ...
           }
-        },
-
-        "accordions":
-          courseInfo[] {
-            _key,
-            title,
-            description
-          }
+        }
       },
 
       contactSection {
@@ -1333,11 +1345,19 @@ export const COURSE_CATEGORY_PAGE_QUERY =
         }
       },
 
+      courseOfferingText {
+        ...,
+        block[] {
+          ...
+        }
+      },
+
       courseQuotesSection[] {
         _key,
         _type,
         quote,
         person,
+        courseLabel,
 
         courseTaken-> {
           _id,
@@ -1571,7 +1591,7 @@ export const STUDENT_QUERY = defineQuery(`
 `);
 
 export const ARTICLES_QUERY = defineQuery(`
-  *[_type == "article"] | order(_createdAt desc) {
+  *[_type == "article"] | order(coalesce(publishedAt, _createdAt) desc) {
     _id,
     title,
     writers[]-> {
@@ -1602,13 +1622,39 @@ export const ARTICLES_QUERY = defineQuery(`
 `);
 
 export const ARTICLE_PAGE_QUERY = defineQuery(`
-  *[_type == "article" && slug.current == $articleSlug][0]{
+  *[_type == "article" && slug.current == $articleSlug][0] {
+    _id,
     title,
+    excerpt,
     "slug": slug.current,
+    body[] {
+      ...
+    },
+    card {
+      ...,
+      accordionItems[] {
+        ...,
+        _type == "reference" => @-> {
+          ...,
+          "href": select(
+            _type == "course" && defined(category->slug.current) && defined(slug.current) =>
+              "/" + category->slug.current + "/" + slug.current,
+            _type == "courseCategory" => "/" + slug.current,
+            _type == "employee" => "/team/" + slug.current,
+            _type == "article" => "/artiklar/" + slug.current,
+            null
+          )
+        }
+      }
+    },
     writers[]-> {
+      _id,
       firstName,
       lastName,
-      slug,
+      "slug": slug.current,
+      "href": "/team/" + slug.current,
+      professionalTitle,
+      roles[]-> { _id, title, "slug": slug.current },
       image {
         crop,
         asset,
@@ -1620,11 +1666,34 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
       asset,
       crop,
       hotspot,
-      alt
+      alt,
+      credit
+    },
+    relatedServices[]-> {
+      _id,
+      title,
+      "slug": slug.current,
+      "href": "/rattsomraden/" + slug.current
+    },
+    relatedCourses[]-> {
+      _id,
+      courseName,
+      "slug": slug.current,
+      category-> { _id, title, "slug": slug.current },
+      "href": select(
+        defined(category->slug.current) && defined(slug.current) =>
+          "/" + category->slug.current + "/" + slug.current,
+        null
+      )
     },
     seo {
-      metaTitle,
-      metaDescription
+      ...,
+      socialImage {
+        asset,
+        crop,
+        hotspot,
+        alt
+      }
     }
   }
 `);

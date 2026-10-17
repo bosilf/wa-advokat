@@ -128,7 +128,7 @@ const components: PortableTextComponents = {
     ),
 
     h2: ({ children }) => (
-      <h2 className="mt-sm min-h-[1lh] font-heading text-ink">
+      <h2 className="mt-sm min-h-[1lh] mb-md font-heading text-ink">
         {children}
       </h2>
     ),

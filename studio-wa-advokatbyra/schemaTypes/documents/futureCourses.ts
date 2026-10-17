@@ -1,4 +1,3 @@
-import { array } from 'node:stream/iter'
 import {defineType, defineField, defineArrayMember} from 'sanity'
 
 export const futureCourse = defineType({
@@ -51,15 +50,11 @@ export const futureCourse = defineType({
       name: 'aim',
       title: 'Inrikting kurs',
       type: 'string',
-      description: 'Välj om kursen är för företagare eller en öppen utbildning.',
+      description: 'Kurstillfällen erbjuds som öppen utbildning.',
 
       options: {
         layout: 'radio',
         list: [
-          {
-            title: 'Företagsutbildning',
-            value: 'company',
-          },
           {
             title: 'Öppen utbildning',
             value: 'open',
@@ -100,7 +95,6 @@ export const futureCourse = defineType({
         inPerson: 'På plats',
       }
       const aimLabels: Record<string, string> = {
-        company: 'Företagsutbildning',
         open: 'Öppen utbildning',
       }
 
