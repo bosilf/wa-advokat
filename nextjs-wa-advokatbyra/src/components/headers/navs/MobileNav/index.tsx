@@ -7,6 +7,7 @@ import HamburgerMenu from "../HamburgerMenu";
 import Icon from "@/components/Icon";
 
 import type { NavigationItems } from "../NavItems";
+import ButtonComp from "@/components/buttons/Button";
 
 type MobileNavProps = {
   items: NavigationItems;
@@ -16,19 +17,21 @@ export default function MobileNav({ items }: MobileNavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
+  const [openCourseGroup, setOpenCourseGroup] = useState<string | null>(null);
+
   function toggleMenu() {
     setIsMenuOpen((current) => !current);
   }
 
   function toggleDropdown(itemKey: string) {
-    setOpenDropdown((current) =>
-      current === itemKey ? null : itemKey,
-    );
+    setOpenCourseGroup(null);
+    setOpenDropdown((current) => (current === itemKey ? null : itemKey));
   }
 
   function closeMenu() {
     setIsMenuOpen(false);
     setOpenDropdown(null);
+    setOpenCourseGroup(null);
   }
 
   return (
@@ -43,10 +46,7 @@ export default function MobileNav({ items }: MobileNavProps) {
         ${isMenuOpen ? "w-screen" : "w-0"}
       `}
     >
-      <HamburgerMenu
-        toggleMenu={toggleMenu}
-        isOpen={isMenuOpen}
-      />
+      <HamburgerMenu toggleMenu={toggleMenu} isOpen={isMenuOpen} />
 
       <div className="h-50 shrink-0" />
 
@@ -98,7 +98,12 @@ export default function MobileNav({ items }: MobileNavProps) {
                   focus-visible:outline-ink
                 "
               >
-                <span>{item.resolvedLink.label}</span>
+                <Link
+                  onClick={isDropdownOpen ? closeMenu : undefined}
+                  href={isDropdownOpen ? item!.resolvedLink!.href! : "#"}
+                >
+                  {item.resolvedLink.label}
+                </Link>
 
                 <Icon
                   name="arrowSimple"
@@ -112,40 +117,46 @@ export default function MobileNav({ items }: MobileNavProps) {
               <div
                 id={dropdownId}
                 hidden={!isDropdownOpen}
-                className="pb-md pl-md pt-sm"
+                className="pb-md pt-sm"
               >
                 {item.dropdownSource === "courses" ? (
-                  <div className="flex flex-col gap-lg">
-                    {item.courses?.map((group) => (
-                      <div key={group._key}>
-                        {group.title && (
-                          <p className="mb-sm font-subheading text-sm text-muted">
-                            {group.title}
-                          </p>
-                        )}
-
-                        <ul className="flex flex-col gap-sm font-body">
-                          {group.courses?.map((course) => (
-                            <li key={course._id}>
-                              <Link
-                                href={course.href ?? "#"}
-                                onClick={closeMenu}
-                                className="
-                                  block py-xs
-                                  transition-colors
-                                  hover:text-muted
-                                  focus-visible:outline-2
-                                  focus-visible:outline-offset-2
-                                  focus-visible:outline-ink
-                                "
-                              >
-                                {course.title}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
+                  <div className="flex flex-col gap-sm">
+                    {item.courses?.map((group) => {
+                      const groupKey = `${item._key}-${group._key}`;
+                      const groupId = `mobile-course-group-${groupKey}`;
+                      const isGroupOpen = openCourseGroup === groupKey;
+                      return (
+                        <div className="ml-2" key={group._key}>
+                          <button
+                            type="button"
+                            aria-expanded={isGroupOpen}
+                            aria-controls={groupId}
+                            onClick={() => setOpenCourseGroup((current) => current === groupKey ? null : groupKey)}
+                            className="flex min-h-11 w-full items-center justify-between gap-md text-left font-subheading text-sm text-ink hover:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+                          >
+                            {group.title ?? "Kurser"}
+                            <Icon name="arrowSimple" className={`shrink-0 transition-transform duration-300 ${isGroupOpen ? "rotate-180" : "rotate-0"}`} />
+                          </button>
+                          <ul id={groupId} hidden={!isGroupOpen} className="flex flex-col gap-sm pl-md font-body">
+                            {group.href && (
+                              <li>
+                                <Link href={group.href} onClick={closeMenu} className="block py-xs font-semibold hover:text-muted">
+                                  Se alla kurser inom {group.title}
+                                </Link>
+                              </li>
+                            )}
+                            {group.courses?.map((course) => (
+                              <li key={course._id}>
+                                <Link href={course.href ?? "#"} onClick={closeMenu} className="block py-xs transition-colors hover:text-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink">
+                                  {course.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    })}
+                    <ButtonComp href="/boka-kurs" showIcon={false}>boka kurs</ButtonComp>
                   </div>
                 ) : (
                   <ul className="flex flex-col gap-sm font-body">

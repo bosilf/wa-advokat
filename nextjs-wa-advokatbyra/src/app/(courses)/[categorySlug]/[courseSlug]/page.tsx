@@ -1,12 +1,14 @@
 import ContentPage from "@/components/pages/ContentPage";
 import {client} from "@/sanity/client"
 import type {Metadata} from "next";
-import {cache} from "react";
+import {cache, type ReactNode} from "react";
 import { COURSE_PAGE_QUERY, PAGE_BY_PATH_QUERY } from "@/sanity/queries"
 import { COURSE_PAGE_QUERY_RESULT } from "@/sanity/sanity.types"
 import {CustomPortableText} from "@/components/common/CustomPortableText"
 import ImageComponent from "@/components/common/Image";
 import CourseSection from "@/components/sections/CourseSection";
+import CourseBlocksSection, {type CourseBlockItem} from "@/components/sections/CourseBlocksSection";
+import {splitCourseMoments} from "@/lib/splitCourseMoments";
 import AsideCourse from "@/components/asides/AsideCourse"
 import CourseMessage from "@/components/messages/CourseMessage"
 import HeroCourse from "@/components/heroes/HeroCourse"
@@ -96,6 +98,38 @@ export default async function CoursePage({ params }: PageProps) {
   const fullName = `${lecturer?.firstName || ''} ${lecturer?.lastName || ''}`.trim() 
 
   const courseSections = course?.courseSections ?? []
+  const courseItems: CourseBlockItem[] = [];
+  const introExtras: ReactNode[] = [];
+
+  for (const section of courseSections) {
+    if (section._type === "courseTextSection") {
+      const {intro, moments} = splitCourseMoments(section.sectionContent ?? []);
+      if (moments.length > 0) {
+        if (intro.length > 0) {
+          introExtras.push(<CustomPortableText key={section._key} value={intro} />);
+        }
+        courseItems.push(...moments.map(moment => ({
+          id: `${section._key}-${moment.id}`,
+          title: moment.title,
+          content: <CustomPortableText value={moment.blocks} />,
+        })));
+      } else {
+        courseItems.push({
+          id: section._key,
+          title: section.sectionTitle || "Namnlöst kursmoment",
+          content: <CustomPortableText value={section.sectionContent} />,
+        });
+      }
+    } else if (section._type === "image" && section.asset) {
+      const image = <ImageComponent key={section._key} image={{asset: section.asset, crop: section.crop, hotspot: section.hotspot, alt: section.alt}} />;
+      const previousItem = courseItems[courseItems.length - 1];
+      if (previousItem) {
+        previousItem.content = <>{previousItem.content}{image}</>;
+      } else {
+        introExtras.push(image);
+      }
+    }
+  }
 
 
   return (
@@ -133,7 +167,7 @@ export default async function CoursePage({ params }: PageProps) {
               { href: `/${course?.category?.slug}` || '#', label: course?.category?.title || 'Kategori saknas' },
             ]}
             >
-            <CustomPortableText value={course?.aboutCourse} />
+            <CustomPortableText value={course?.intro} />
           </CourseSection>
         </div>
         <AsideIntroSection color="bg-canvas">
@@ -162,34 +196,21 @@ export default async function CoursePage({ params }: PageProps) {
       >
         <CustomPortableText value={course?.aimCourse} />
       </CourseSection>
-      <CourseSection  heading="Innehåll i utbildningen">
-        {courseSections.map((section) => {
-          if (section._type === "courseTextSection") {
-            return (
-              <section key={section._key}>
-                {section.sectionTitle && (
-                  <h2>{section.sectionTitle}</h2>
-                )}
-                {section.sectionContent && (
-                  <CustomPortableText value={section.sectionContent} />
-                )}
-              </section>
-            );
+      {courseSections.length > 0 && (
+        <CourseBlocksSection
+          heading="Innehåll i utbildningen"
+          eyebrow={course.courseName ?? "Kursinnehåll"}
+          description={null}
+          listTitle={`${course.courseName ?? "Utbildningen"} – kursinnehåll`}
+          introContent={
+            <>
+              <CustomPortableText value={course.aboutCourse} />
+              {introExtras}
+            </>
           }
-        
-          if (section._type === "image" && section.asset) {
-            return (
-              <ImageComponent key={section._key} image={{
-                asset: section.asset, 
-                crop: section.crop, 
-                hotspot: section.hotspot, 
-                alt: section.alt
-              }} />
-            );
-          }
-          return null;
-        })}
-      </CourseSection>
+          items={courseItems}
+        />
+      )}
       <div id="bokning" className="scroll">
         <CourseMessage name={course?.courseName || 'kurs'}email=""></CourseMessage>
       </div>

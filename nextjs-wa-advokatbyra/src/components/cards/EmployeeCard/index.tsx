@@ -130,7 +130,7 @@ export default function EmployeeCard({
     <article
       ref={cardRef}
       className="
-        group relative overflow-hidden rounded-lg bg-white
+        group relative overflow-hidden rounded-3xl bg-white
         transition-shadow duration-300
         hover:shadow-lg
         focus-within:ring-2 focus-within:ring-accent
@@ -179,7 +179,7 @@ export default function EmployeeCard({
         >
           <span className="font-body">Läs mer om</span>
 
-          <span className="flex items-center gap-sm font-subheading">
+          <Link href={employeeHref} className="flex items-center gap-sm font-subheading">
             {firstName || employeeName}
 
             <Icon
@@ -187,7 +187,7 @@ export default function EmployeeCard({
               size={15}
               className="text-white"
             />
-          </span>
+          </Link>
         </div>
       </div>
       <div className="grid grid-cols-[1fr_auto] p-lg md:grid-cols-1">

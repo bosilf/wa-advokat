@@ -2,6 +2,7 @@ import { client } from "@/sanity/client";
 import { NAVIGATION_QUERY } from "@/sanity/queries";
 
 import DeskNav from "../DeskNav";
+import HeaderLogo from "../HeaderLogo";
 import MobileNav from "../MobileNav";
 import type { NavigationItems } from "../NavItems";
 
@@ -37,6 +38,9 @@ export default async function Nav() {
 
   return (
     <>
+      <div className="absolute left-0 top-0 z-800 p-lg md:hidden">
+        <HeaderLogo />
+      </div>
       <MobileNav items={items} />
       <DeskNav items={items} />
     </>

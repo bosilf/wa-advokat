@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Image } from "next-sanity/image";
+import { Image as SanityImage } from "next-sanity/image";
+import NextImage, { type StaticImageData } from "next/image";
 import type { SanityImageSource } from "@sanity/image-url";
 
 import { urlFor } from "@/sanity/image";
@@ -15,12 +16,14 @@ type HeroImage = SanityImageSource & {
 };
 
 type HeroArticlerProps = {
+  className?: string;
   eyebrow?: string | null;
   title?: string | null;
-  image?: HeroImage | null;
+  image?: HeroImage | StaticImageData | null;
 };
 
 export default function HeroArticlePage({
+  className = "",
   eyebrow,
   title,
   image,
@@ -45,26 +48,31 @@ export default function HeroArticlePage({
 
   if (!image) return null;
 
-  const hotspotX = image.hotspot?.x ?? 0.5;
-  const hotspotY = image.hotspot?.y ?? 0.5;
+  const staticImage = typeof image === "object" && "src" in image ? image : null;
+  const sanityImage = staticImage ? null : image as HeroImage;
+  const Image = staticImage ? NextImage : SanityImage;
+  const hotspotX = sanityImage?.hotspot?.x ?? 0.5;
+  const hotspotY = sanityImage?.hotspot?.y ?? 0.5;
 
   return (
     <section
-      className={`bg-footer transition-[border-radius] duration-500 ease-out h-svh drop-shadow-xl/20 flex flex-col
+      className={`bg-footer transition-[border-radius] md:flex-1 duration-500 ease-out h-svh drop-shadow-xl/20 flex flex-col
     ${hasScrolled ? "rounded-b-xl" : "rounded-b-none"}
+    ${className}
     `}
     >
       <div className="relative min-h-0 w-full flex-1 overflow-hidden">
-        <div className="absolute -mb-1 h-full w-full z-2 bg-linear-to-t from-footer to-footer/0 " />
+        <div className="absolute mix-blend-color -mb-1 h-full w-full z-2 bg-footer " />
+        <div className="absolute -mb-1 h-full w-full z-3 bg-linear-to-t from-footer to-footer/0 " />
         <Image
-          src={urlFor(image).url()}
-          alt={image.alt ?? ""}
+          src={staticImage ? String(staticImage.src) : urlFor(sanityImage!).url()}
+          alt={sanityImage?.alt ?? ""}
           fill
           loading="eager"
           preload
           quality={75}
           sizes="100vw"
-          className="object-cover opacity-45"
+          className="object-cover opacity-70 mix-blend-overlay"
           style={{
             objectPosition: `${hotspotX * 100}% ${hotspotY * 100}%`,
           }}

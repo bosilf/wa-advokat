@@ -1,3 +1,4 @@
+import CategoryPreview from '../../src/studio/CategoryPreview'
 import {defineType, defineField, defineArrayMember} from 'sanity'
 
 export const futureCourse = defineType({
@@ -83,13 +84,17 @@ export const futureCourse = defineType({
     })
   ],
 
+  components: {preview: CategoryPreview},
+
   preview: {
     select: {
       title: 'coursePick.courseName',
+      categoryTitle: 'coursePick.category.title',
+      categorySlug: 'coursePick.category.slug.current',
       type: 'type',
       aim: 'aim',
     },
-    prepare({title, type, aim}) {
+    prepare({title, type, aim, categoryTitle, categorySlug}) {
       const typeLabels: Record<string, string> = {
         digital: 'Digitalt',
         inPerson: 'På plats',
@@ -99,6 +104,8 @@ export const futureCourse = defineType({
       }
 
       return {
+        categoryTitle,
+        categorySlug,
         title: title ?? 'Namnlös kurs',
         subtitle: [aimLabels[aim], typeLabels[type]].filter(Boolean).join(', ') || 'Info saknas',
       }

@@ -1,3 +1,4 @@
+import CategoryPreview from '../../src/studio/CategoryPreview'
 import {defineType, defineField, defineArrayMember} from 'sanity'
 import {LinkIcon} from '@sanity/icons'
 import { text } from 'node:stream/consumers';
@@ -175,14 +176,20 @@ export const course = defineType({
     }),
   ],
   
+  components: {preview: CategoryPreview},
+
   preview: {
     select: {
       title: "courseName",
+      categoryTitle: "category.title",
+      categorySlug: "category.slug.current",
       slug: "slug.current",
       category: "category.slug.current"
     },
-    prepare({ title, slug, category }) {
+    prepare({ title, slug, category, categoryTitle, categorySlug }) {
       return {
+        categoryTitle,
+        categorySlug,
         title: title ?? "Namnlös kurs",
         subtitle: slug
           ? `/${category}/${slug}`

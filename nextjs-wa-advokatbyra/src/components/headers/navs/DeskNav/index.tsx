@@ -7,8 +7,7 @@ import NavItems, {
   type NavigationItems,
 } from "../NavItems";
 import SearchField from "@/components/SearchField";
-// import Image from "next/image";
-// import Logo from "../../../../../public/assets/wa-logo-white@2x (1).png";
+import HeaderLogo from "../HeaderLogo";
 
 type DeskNavProps = {
   items: NavigationItems;
@@ -54,7 +53,7 @@ export default function DeskNav({
 
   return (
     <header className="absolute hidden h-fit w-full justify-center grid-cols-[1fr_auto_1fr] p-lg md:grid">
-      {/* <Image src={Logo} alt="WA Advokatbyrå" className="z-3000 mix-blend-difference max-w-40" /> */}
+      <HeaderLogo />
       <nav
         aria-label="Huvudnavigation"
         className="relative col-start-2 col-span-1"

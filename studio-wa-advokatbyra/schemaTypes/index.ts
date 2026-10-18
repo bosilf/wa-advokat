@@ -41,6 +41,7 @@ import { redirects } from './objects/redirects'
 import { filterLinks } from './objects/filterLinks'
 import { serviceMainPage } from './singletons/serviceMainPage'
 import { futureCourse } from './documents/futureCourses'
+import { serviceSection } from './documents/serviceSection'
 
 export const schemaTypes = [
   aboutPage,
@@ -78,6 +79,7 @@ export const schemaTypes = [
   sections,
   section,
   service,
+  serviceSection,
   serviceMainPage,
   settings,
   studentPool,

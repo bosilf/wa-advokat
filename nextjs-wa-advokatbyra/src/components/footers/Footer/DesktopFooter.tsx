@@ -61,7 +61,7 @@ export default function DesktopFooter() {
           </ul>
         </nav>
 
-        <form onSubmit={handleSubmit} aria-labelledby={`${formId}-heading`} className="col-start-2 row-start-2 row-span-2 hidden h-full md:flex min-w-0 flex-col gap-4 lg:col-start-3 lg:row-start-1 lg:gap-3 xl:pr-24">
+        <form onSubmit={handleSubmit} aria-labelledby={`${formId}-heading`} className="col-start-2 relative z-15 row-start-2 row-span-2 hidden h-full md:flex min-w-0 flex-col gap-4 lg:col-start-3 lg:row-start-1 lg:gap-3 xl:pr-24">
           <h2 id={`${formId}-heading`} className={headingClasses}>Skicka ett meddelande!</h2>
           <label htmlFor={`${formId}-name`} className="sr-only">För- och efternamn</label>
           <input id={`${formId}-name`} name="name" autoComplete="name" placeholder="För- och efternamn" required className={`${fieldClasses} rounded-full`} />

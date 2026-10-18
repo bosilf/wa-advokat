@@ -22,10 +22,10 @@ const TeamCardSmall = ({
     <Link className="group w-fit" href={link || "#"}>
       <article
         hidden={hide}
-        className="bg-white min-w-fit w-60 max-h-20 grid grid-cols-[auto_1fr] gap-sm lg:gap-3 p-sm pr-md rounded-md transition-all duration-200 drop-shadow-lg/0 group-hover:drop-shadow-lg/20"
+        className="bg-white min-w-fit w-60 max-h-20 grid grid-cols-[auto_1fr] gap-sm lg:gap-3 p-sm pr-md rounded-xl transition-all duration-200 drop-shadow-lg/0 group-hover:drop-shadow-lg/20"
       >
-        <div className="aspect-square h-full my-auto w-full overflow-hidden rounded-full">
-          <ImageComponent image={image} sizes="56px" />
+        <div className="my-auto size-14 shrink-0 overflow-hidden rounded-full">
+          <ImageComponent image={image} sizes="56px" aspectRatio={1} />
         </div>
         <div className="flex flex-col justify-center gap-xs">
           <h3

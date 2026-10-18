@@ -16,6 +16,7 @@ const categoryButtonStyles: Record<string, string> = {
 
 export type CourseCardProps = {
   name: string;
+  bookingLabel?: string;
   description?: string | null;
   location?: string | null;
   cost?: string | null;
@@ -34,6 +35,7 @@ export type CourseCardProps = {
 
 export default function CourseCard({
   name,
+  bookingLabel = "Boka kurs",
   description = "",
   location,
   cost,
@@ -63,7 +65,7 @@ export default function CourseCard({
       : courseDescription;
 
   return (
-    <article className="group bg-white h-full gap-x-5 grid-cols-[auto_1fr_auto] md:grid-cols-[auto_auto_1fr] lg:grid-cols-[auto_1fr_auto] grid-rows-auto min-w-0 max-w-full wrap-anywhere p-6 gap-2 rounded-md w-full grid drop-shadow-sm/0 hover:drop-shadow-md/10 transition-all duration-150">
+    <article className="group z-15 bg-white h-full gap-x-5 grid-cols-[auto_1fr_auto] md:grid-cols-[auto_auto_1fr] lg:grid-cols-[auto_1fr_auto] grid-rows-auto min-w-0 max-w-full wrap-anywhere p-6 gap-2 rounded-4xl w-full grid drop-shadow-sm/0 hover:drop-shadow-md/10 transition-all duration-150">
       {categoryTitle && (
         categorySlug ? (
           <Link
@@ -130,7 +132,7 @@ export default function CourseCard({
           categoryButtonStyles[categorySlug ?? ""] ?? "hover:bg-gray-100! hover:text-gray-900"
         }`}
         >
-        Boka kurs
+        {bookingLabel}
       </ButtonComp>
       <ShareCourseButton href={href} />
       <ButtonComp

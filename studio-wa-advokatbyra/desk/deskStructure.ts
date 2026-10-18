@@ -1,18 +1,22 @@
 import type {StructureResolver} from 'sanity/structure'
+import StudioOverview from './StudioOverview'
+import ServiceStructure from './ServiceStructure'
+import CourseStructure from './CourseStructure'
+import StudentStructure from './StudentStructure'
+import ArticleStructure from './ArticleStructure'
+import EmployeeStructure from './EmployeeStructure'
+import {overviewDocumentChild} from './overviewDocumentChild'
 import {
   LinkIcon,
   CogIcon,
   TagsIcon,
   UsersIcon,
-  StackCompactIcon,
   HomeIcon,
   DocumentTextIcon,
   CaseIcon,
-  FolderIcon,
   EnvelopeIcon,
   PresentationIcon,
   AddUserIcon,
-  TaskIcon,
   ComposeIcon,
 } from '@sanity/icons'
 
@@ -20,132 +24,88 @@ export const deskStructure: StructureResolver = (S) =>
   S.list()
     .title('Innehåll (WA Advokatbyrå)')
     .items([
-      // --------------------------------
-      // HUVUDSIDOR
-      // --------------------------------
-
       S.listItem()
-        .title('Huvudsidor')
-        .icon(FolderIcon)
-        .child(
-          S.list()
-            .title('Huvudsidor')
-            .items([
-              S.listItem()
-                .title('Startsida')
-                .icon(HomeIcon)
-                .child(S.document().schemaType('home').documentId('home')),
-
-              S.listItem()
-                .title('Om oss')
-                .icon(UsersIcon)
-                .child(S.document().schemaType('aboutPage').documentId('about-page')),
-
-              S.listItem()
-                .title('Rättsområden')
-                .icon(CaseIcon)
-                .child(S.document().schemaType('serviceMainPage').documentId('service-main-page')),
-
-              S.listItem()
-                .title('Juridikkurser')
-                .icon(PresentationIcon)
-                .child(S.document().schemaType('courseMainPage').documentId('course-main-page')),
-
-              S.listItem()
-                .title('Kontakt')
-                .icon(EnvelopeIcon)
-                .child(S.document().schemaType('contactPage').documentId('contact-page')),
-              S.listItem()
-                .title('Boka kurs')
-                .icon(TaskIcon)
-                .child(S.document().schemaType('bookCoursePage').documentId('book-course-page')),
-              S.listItem()
-                .title('Artiklar samlingssida')
-                .icon(DocumentTextIcon)
-                .child(S.document().schemaType('articleMainPage').documentId('article-main-page')),
-            ]),
-        ),
-
-      // --------------------------------
-      // CONTENT COLLECTIONS
-      // --------------------------------
-
+        .id('overview')
+        .title('Översikt')
+        .child(S.component().id('overview').title('Översikt').component(StudioOverview)),
       S.listItem()
+        .id('home')
+        .title('Startsida')
+        .icon(HomeIcon)
+        .child(S.document().schemaType('home').documentId('home').title('Startsida')),
+      S.listItem()
+        .id('employees')
         .title('Medarbetare')
-        .icon(AddUserIcon)
-        .child(S.documentTypeList('employee').title('Alla Medarbetare')),
+        .icon(UsersIcon)
+        .child(
+          S.component()
+            .id('employees')
+            .title('Medarbetare')
+            .component(EmployeeStructure)
+            .child(overviewDocumentChild(S)),
+        ),
       S.listItem()
+        .id('studentOverview')
         .title('Studentpoolen')
         .icon(AddUserIcon)
         .child(
-          S.list()
+          S.component()
+            .id('studentOverview')
             .title('Studentpoolen')
-            .items([
-              // Studentpoolens huvudsida
-              S.listItem()
-                .title('Studentpoolens sida')
-                .icon(HomeIcon)
-                .child(
-                  S.document()
-                    .schemaType('studentPoolPage')
-                    .documentId('student-pool-page')
-                    .title('Studentpoolens sida'),
-                ),
-
-              S.divider(),
-
-              // Studenter
-              S.listItem()
-                .title('Alla studenter')
-                .icon(AddUserIcon)
-                .child(S.documentTypeList('studentPool').title('Alla studenter')),
-            ]),
+            .component(StudentStructure)
+            .child(overviewDocumentChild(S)),
         ),
-
       S.listItem()
+        .id('serviceOverview')
         .title('Rättsområden')
         .icon(CaseIcon)
-        .child(S.documentTypeList('service').title('Alla Rättsområden')),
-
+        .child(
+          S.component()
+            .id('serviceOverview')
+            .title('Rättsområden')
+            .component(ServiceStructure)
+            .child(overviewDocumentChild(S)),
+        ),
       S.listItem()
-        .title('Sidor')
-        .icon(CaseIcon)
-        .child(S.documentTypeList('page').title('Alla Sidor')),
-
-      S.listItem()
+        .id('courseOverview')
         .title('Kurser')
         .icon(PresentationIcon)
-        .child(S.documentTypeList('course').title('Alla Kurser')),
+        .child(
+          S.component()
+            .id('courseOverview')
+            .title('Kurser')
+            .component(CourseStructure)
+            .child(overviewDocumentChild(S)),
+        ),
       S.listItem()
-        .title('Kurskategorier')
-        .icon(PresentationIcon)
-        .child(S.documentTypeList('courseCategory').title('Kurskategorier')),
-      S.listItem()
-        .title('Bokningsbara kurser')
-        .icon(PresentationIcon)
-        .child(S.documentTypeList('futureCourse').title('Kurslista för bokning')),
-
-      S.listItem()
+        .id('articles')
         .title('Artiklar')
         .icon(ComposeIcon)
-        .child(S.documentTypeList('article').title('Alla Artiklar')),
-
+        .child(
+          S.component()
+            .id('articles')
+            .title('Artiklar')
+            .component(ArticleStructure)
+            .child(overviewDocumentChild(S)),
+        ),
+      S.listItem()
+        .id('contact')
+        .title('Kontakt')
+        .icon(EnvelopeIcon)
+        .child(S.document().schemaType('contactPage').documentId('contact-page').title('Kontakt')),
+      S.listItem()
+        .title('Sidor')
+        .icon(DocumentTextIcon)
+        .child(S.documentTypeList('page').title('Alla sidor')),
       S.divider(),
-
-      // --------------------------------
-      // GLOBAL / REUSABLE
-      // --------------------------------
-
       S.listItem()
         .title('Navigering')
         .icon(LinkIcon)
         .child(S.document().schemaType('navigation').documentId('navigation').title('Navigering')),
-
       S.listItem()
         .title('Yrkestitlar')
         .icon(TagsIcon)
-        .child(S.documentTypeList('role').title('Hantera Yrkestitlar')),
-
+        .child(S.documentTypeList('role').title('Hantera yrkestitlar')),
       S.listItem()
         .title('Globala Inställningar & Färger')
         .icon(CogIcon)

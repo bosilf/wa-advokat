@@ -1,0 +1,124 @@
+[
+  {
+    "title": "Byggentreprenad",
+    "status": "already exists",
+    "id": "drafts.imported-wa-service-area-byggentreprenad"
+  },
+  {
+    "title": "Samverkansentreprenad",
+    "id": "drafts.imported-wa-service-area-samverkansentreprenader",
+    "status": "created draft",
+    "paragraphs": 11,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/09/tekniska-konsulter-projekt-1024x1024.jpg"
+  },
+  {
+    "title": "Nyproduktion",
+    "id": "drafts.imported-wa-service-area-nyproduktion",
+    "status": "created draft",
+    "paragraphs": 11,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/07/nyproduktionsentreprenad-juridik-1024x1024.jpg"
+  },
+  {
+    "title": "Bostadsrättsförening",
+    "id": "drafts.imported-wa-service-area-bostadsrattsforeningar",
+    "status": "created draft",
+    "paragraphs": 10,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/09/BRF-projekt-1024x1024.jpg"
+  },
+  {
+    "title": "Tekniska konsulter",
+    "id": "drafts.imported-wa-service-area-tekniska-konsulter",
+    "status": "created draft",
+    "paragraphs": 15,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/07/tekniska-konsulter-entreprenadjuridik-1024x1024.jpg"
+  },
+  {
+    "title": "Installationsentreprenad",
+    "id": "drafts.imported-wa-service-area-installation",
+    "status": "created draft",
+    "paragraphs": 15,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/07/installationsprojekt-juridik-1024x1024.jpg"
+  },
+  {
+    "title": "Teknikintensiv tvistelösning",
+    "id": "drafts.imported-wa-service-area-teknikintensiv-tvistelosning",
+    "status": "created draft",
+    "paragraphs": 9,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/07/teknikintensiv-tvistelosningar-entreprenadjuridik-1024x1024.jpg"
+  },
+  {
+    "title": "Infrastruktur",
+    "id": "drafts.imported-wa-service-area-infrastruktur",
+    "status": "created draft",
+    "paragraphs": 13,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/09/infrastruktur-projekt-1024x1024.jpg"
+  },
+  {
+    "title": "Anläggning",
+    "id": "drafts.imported-wa-service-area-anlaggning",
+    "status": "created draft",
+    "paragraphs": 13,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/06/entreprenadjuridik-samhallsbyggnadsprojekt-sverige-1024x1024.jpg"
+  },
+  {
+    "title": "Solenergi",
+    "id": "drafts.imported-wa-service-area-solenergi",
+    "status": "created draft",
+    "paragraphs": 9,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/06/solenergi-entreprenad-projekt-1024x1024.jpg"
+  },
+  {
+    "title": "Vattenkraft",
+    "id": "drafts.imported-wa-service-area-vattenkraft",
+    "status": "created draft",
+    "paragraphs": 9,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/07/vattenkraftsprojekt-juridik-1024x1024.jpg"
+  },
+  {
+    "title": "Järnväg",
+    "id": "drafts.imported-wa-service-area-jarnvag",
+    "status": "created draft",
+    "paragraphs": 8,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/09/jarnvagsprojekt-1024x1024.jpg"
+  },
+  {
+    "title": "Industri",
+    "id": "drafts.imported-wa-service-area-industri",
+    "status": "created draft",
+    "paragraphs": 10,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2026/09/industri-projekt-1024x1024.jpg"
+  },
+  {
+    "title": "Vindkraftverk",
+    "id": "drafts.imported-wa-service-area-vindkraftverk",
+    "status": "created draft",
+    "paragraphs": 8,
+    "sections": 1,
+    "links": [],
+    "image": "https://wa-advokat.se/wp-content/uploads/2023/10/entreprenad-vindkraftverk-sverige-1024x1024.jpg"
+  }
+]

@@ -1,3 +1,4 @@
+import CategoryPreview from '../../src/studio/CategoryPreview'
 import { CaseIcon } from "@sanity/icons";
 import { defineArrayMember } from "sanity";
 import { defineField, defineType } from "sanity";
@@ -346,9 +347,13 @@ export const service = defineType({
     },
   ],
 
+  components: {preview: CategoryPreview},
+
   preview: {
     select: {
       title: "title",
+      categoryTitle: "title",
+      categorySlug: "slug.current",
       excerpt: "excerpt",
       firstExpertFirstName: "experts.0.firstName",
       firstExpertLastName: "experts.0.lastName",
@@ -356,6 +361,8 @@ export const service = defineType({
     },
 
     prepare({
+      categoryTitle,
+      categorySlug,
       title,
       excerpt,
       firstExpertFirstName,
@@ -370,6 +377,8 @@ export const service = defineType({
         .join(" ");
 
       return {
+        categoryTitle,
+        categorySlug,
         title: title || "Namnlös tjänst",
         subtitle:
           firstExpert ||

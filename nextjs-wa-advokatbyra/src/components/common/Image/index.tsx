@@ -17,11 +17,13 @@ export type ImageType = SanityImageSource & {
 export type ImageCompProps = {
   image?: ImageType | null;
   sizes?: string;
+  aspectRatio?: number;
 };
 
 export default function ImageComponent({
   image,
   sizes = "100vw",
+  aspectRatio,
 }: ImageCompProps) {
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -43,13 +45,21 @@ export default function ImageComponent({
 
   if (!image) return null;
 
-  const hotspotX = image.hotspot?.x ?? 0.5;
-  const hotspotY = image.hotspot?.y ?? 0.5;
+  const cropped = aspectRatio !== undefined && aspectRatio > 0;
+  const imageUrl = cropped
+    ? urlFor(image)
+        .width(800)
+        .height(Math.max(1, Math.round(800 / aspectRatio)))
+        .fit("crop")
+        .url()
+    : urlFor(image).url();
+  const hotspotX = cropped ? 0.5 : (image.hotspot?.x ?? 0.5);
+  const hotspotY = cropped ? 0.5 : (image.hotspot?.y ?? 0.5);
 
   return (
-      <div className="relative h-full min-h-0 w-full flex-1 overflow-hidden">
+    <div className="relative h-full min-h-0 w-full flex-1 overflow-hidden">
       <Image
-        src={urlFor(image).url()}
+        src={imageUrl}
         alt={image.alt ?? ""}
         loading="lazy"
         fill
@@ -60,6 +70,6 @@ export default function ImageComponent({
           objectPosition: `${hotspotX * 100}% ${hotspotY * 100}%`,
         }}
       />
-      </div>
+    </div>
   );
 }

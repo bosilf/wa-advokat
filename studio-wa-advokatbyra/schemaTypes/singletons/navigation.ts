@@ -94,14 +94,6 @@ export const navigation = defineType({
       validation: (rule) => rule.max(10).unique(),
     }),
 
-    // defineField({
-    //   name: "footerCourseCta",
-    //   title: "Knapp efter juridikkurser",
-    //   type: "navigationItem",
-    //   group: "footer",
-    //   description:
-    //     "Valfri länk, exempelvis Boka kurs. Länken väljs bland befintliga länkar.",
-    // }),
     defineField({
       name: "footerCourseCta",
       title: "Knapp i navigationen",

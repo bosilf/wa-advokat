@@ -48,7 +48,7 @@ export default function DeskNavSlider({
         }
       `}
     >
-      <div className="overflow-hidden rounded-lg bg-white/50 backdrop-blur-md text-ink shadow-xl">
+      <div className="overflow-hidden rounded-3xl bg-white/50 backdrop-blur-md text-ink shadow-xl">
         <div
           className="
             flex items-stretch

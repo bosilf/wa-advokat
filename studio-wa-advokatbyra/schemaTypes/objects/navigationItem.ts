@@ -97,6 +97,50 @@ export const navigationItem = defineType({
           return true;
         }),
     }),
+    defineField({
+      name: "customizeDropdown",
+      title: "Anpassa innehåll och ordning",
+      type: "boolean",
+      initialValue: false,
+      description: "Välj vilka poster som ska visas och dra dem till önskad ordning. Avstängt visar det automatiska innehållet.",
+      hidden: ({parent, path}) => path?.[0] !== "headerNavigation" || !parent?.hasDropdown,
+    }),
+    defineField({
+      name: "selectedEmployees",
+      title: "Medarbetare i dropdown",
+      type: "array",
+      description: "Lägg till eller ta bort medarbetare. Dra posterna för att ändra ordningen.",
+      of: [{type: "reference", to: [{type: "employee"}]}],
+      hidden: ({parent}) => !parent?.hasDropdown || !parent?.customizeDropdown || parent?.dropdownSource !== "employees",
+      validation: (rule) => rule.unique(),
+    }),
+    defineField({
+      name: "selectedServices",
+      title: "Rättsområden i dropdown",
+      type: "array",
+      description: "Lägg till eller ta bort rättsområden. Dra posterna för att ändra ordningen.",
+      of: [{type: "reference", to: [{type: "service"}]}],
+      hidden: ({parent}) => !parent?.hasDropdown || !parent?.customizeDropdown || parent?.dropdownSource !== "services",
+      validation: (rule) => rule.unique(),
+    }),
+    defineField({
+      name: "dropdownCourseGroups",
+      title: "Kursgrupper i dropdown",
+      type: "array",
+      description: "Dra grupperna för att ändra ordningen. Öppna en grupp för att välja och ordna dess kurser.",
+      hidden: ({parent}) => !parent?.hasDropdown || !parent?.customizeDropdown || parent?.dropdownSource !== "courses",
+      of: [{
+        type: "object",
+        name: "dropdownCourseGroup",
+        title: "Kursgrupp",
+        fields: [
+          {name: "category", title: "Kurskategori", type: "reference", to: [{type: "courseCategory"}], validation: (rule) => rule.required()},
+          {name: "title", title: "Annan grupprubrik (valfritt)", type: "string"},
+          {name: "courses", title: "Kurser och ordning", type: "array", description: "Välj kurser och dra dem till önskad ordning.", of: [{type: "reference", to: [{type: "course"}]}], validation: (rule) => rule.unique()},
+        ],
+        preview: {select: {title: "title", category: "category.title"}, prepare: ({title, category}) => ({title: title || category || "Kursgrupp"})},
+      }],
+    }),
   ],
 
   preview: {

@@ -1,0 +1,2815 @@
+[
+  {
+    "id": "drafts.imported-wa-service-area-samverkansentreprenader",
+    "source": "https://wa-advokat.se/juridiska-tjanster/samverkansentreprenader/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/09/tekniska-konsulter-projekt-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Samverkansentreprenad",
+    "slug": {
+      "_type": "slug",
+      "current": "samverkansentreprenader"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "Partnering- eller samverkansentreprenader kan vara ett sätt att omfördela risk och skapa ett mer gemensamt projekt än vad som är fallet i en traditionell entreprenad. Men i praktiken avgörs mycket av hur avtalet är…",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "3af1312ea253e98ea147",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "Partnering- eller samverkansentreprenader kan vara ett sätt att omfördela risk och skapa ett mer gemensamt projekt än vad som är fallet i en traditionell entreprenad. Men i praktiken avgörs mycket av hur avtalet är utformat och vilken roll beställaren är beredd att faktiskt ta i entreprenaden. Eftersom det inte finns någon enhetlig standard rörande avtal vid samverkansentreprenader, blir varje samverkansprojekt unikt och det förekommer stora variationer mellan projekten – bland annat vad gäller ansvarsfördelning, ersättning, incitamentsklausuler, organisation, målbild och riskfördelning.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "1e748f315baaafa187e6",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "Det är viktigt att säkerställa att ett avtal om samverkansentreprenad håller i praktiken och inte bara på pappret. Vi bistår regelbundet beställare med att säkerställa att samverkansavtalet är väl genomtänkt och att avtalet faktiskt fungerar. Om avtalet underkastas prövning av domstol måste klausuler och mekanismer tolkas såsom beställaren tänkt sig.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "c2c0ecce9f3732a28e37",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9ce007250cb86d0c067",
+            "text": "För entreprenörer är det i många fall viktigt med en granskning av beställarens samverkansavtal, för att säkerställa att det inte förekommer väsentliga risker. Detta kan ge otrevliga överraskningar längre fram i entreprenaden.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "62a7eca6df9c91c6a57a",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5b8c65c04662b2a0a790",
+            "text": "Samverkansentreprenader fordrar ett mer samarbetsvänligt arbetssätt än traditionella entreprenader, inte minst eftersom tanken är att parterna ska arbeta som om de ägde och drev projektet tillsammans. Samtidigt kvarstår samma juridiska grundfrågor som vid traditionella entreprenader, t ex vad som ingår i priset, hur avvikelser ska ersättas (genom riktkostnadsjustering eller på annat sätt), när avvikelser ska leda till prisförändringar, hur riskerna ska fördelas när förutsättningar förändras, m m. WA Advokatbyrå bistår löpande vid denna typ av uppdrag och hjälper parter att utforma, förhandla och hantera samverkansavtal.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "928dcad694d1144f0fb1",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "702e6c947d8c621fe76a",
+            "text": "Vi har även erfarenhet av att företräda beställare och entreprenörer i tvister rörande samverkansavtal, varav vissa varit mycket juridiskt komplexa. Som exempel kan nämnas tvister om riktkostnadsjusteringar och beräkningar av ekonomiskt utfall.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "229824d70fae5d0f2736",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "59ef426288a8d95d1330",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "ef179773f66d176eda15",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Framtagande av partneringavtal och förfrågningsunderlag",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "912d5174c26cca84c551",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Granskning av partneringavtal för att flagga väsentliga risker",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "dfeca23acea7417b42e8",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Strategisk rådgivning",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "a998a190cd1c67b29d74",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Riktkostnadsförändringar och incitamentsutfall",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "45da67ac70edc392433e",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Löpande projektstöd, t ex hantering av oklarheter eller felaktigheter i ingångna avtal",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "a119981fe53d3e4e6d42",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Ombud i domstol och skiljenämnd",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 20,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-ceaebe7aa75285ebb63a400f0bd8d087d1943222-1024x1024-jpg"
+      },
+      "alt": "Samverkansentreprenad"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-nyproduktion",
+    "source": "https://wa-advokat.se/juridiska-tjanster/nyproduktion/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/07/nyproduktionsentreprenad-juridik-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Nyproduktion",
+    "slug": {
+      "_type": "slug",
+      "current": "nyproduktion"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "WA Advokatbyrå biträder regelbundet såväl nybildade bostadsrättsföreningar som fastighetsutvecklare i samband med nyproduktionsprojekt.",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "4d5f071c2cf9db970c5d",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "WA Advokatbyrå biträder regelbundet såväl nybildade bostadsrättsföreningar som fastighetsutvecklare i samband med nyproduktionsprojekt.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "02b9e7e204a912fda0f1",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "När fel upptäcks i en nyproducerad bostadsrättsförening väntar ofta ett krävande arbete för styrelsen. Det är inte alltid lätt för en nytillträdd styrelse att snabbt sätta sig in i tekniska och juridiska frågor. För att underlätta för styrelsen tar WA Advokatbyrå gärna ett helhetsgrepp på ärendet. Vi föreslår t ex vilka tekniska utredningar som bör genomföras samt ställer vårt kontaktnät till våra klienters förfogande. I detta ingår även att vi gärna rekommenderar teknisk expertis som vi vet har rätt kompetensprofil och som vi har goda erfarenheter av. Det kan t ex röra besiktningsmän eller andra tekniskt sakkunniga.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "e27e237ad0919d09cecf",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9ce007250cb86d0c067",
+            "text": "Vi bistår sedan med skriftväxling, hantering av fel och skador samt utformande av krav mot ansvarig entreprenör. Vid tvist företräder vi föreningen i domstol eller skiljenämnd och hanterar föreningens rättsskyddsförsäkring.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "7eb7c15f6584afea6f75",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5b8c65c04662b2a0a790",
+            "text": "För fastighetsutvecklare bistår vi bland annat med råd vid upphandling av entreprenader, framtagande av avtal och mallavtal samt agerar ombud i tvister. Vissa av våra medarbetare har erfarenhet av styrelsearbete i samband med nyproduktion och är väl införstådda med vilka juridiska problem som kan uppkomma i projekten.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "0174b6aa0013fbf30612",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "9d694303e70a39dfa76e",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "88ae8d204f221003844a",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Juridiskt stöd till bostadsrättsföreningar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "dd6bc52bf85edce3652e",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Fel i entreprenaden",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "15d2eee530baee5a2494",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Skadeståndsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "c98072911c18c40ebc31",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Rådgivning rörande vilka tekniska utredningar som bör genomföras",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "4f1e536ed7e523e6a68f",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Upprättande av avtal och mallavtal för fastighetsutvecklare",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "d62fbdf58a6ced285c37",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Ombud i domstol och skiljenämnder",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "0c10c31a5a569562f553",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "8aa57a7aecd32837f2b0",
+                    "text": "Besiktningsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 30,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-666acc2bf61cc6bd428cdedd008e84d663bb18b4-1024x1024-jpg"
+      },
+      "alt": "Nyproduktion"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-bostadsrattsforeningar",
+    "source": "https://wa-advokat.se/juridiska-tjanster/bostadsrattsforeningar/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/09/BRF-projekt-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Bostadsrättsförening",
+    "slug": {
+      "_type": "slug",
+      "current": "bostadsrattsforeningar"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "WA Advokatbyrå rekommenderas regelbundet av ledande organisationer för bostadsrättsföreningar. Våra medarbetare är vana vid att arbeta nära styrelsen, både i stora och små frågor.",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "4d4fd4bb254f60d50036",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "WA Advokatbyrå rekommenderas regelbundet av ledande organisationer för bostadsrättsföreningar. Våra medarbetare är vana vid att arbeta nära styrelsen, både i stora och små frågor.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "a0e60e62c4cc73d1d978",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "Vi bistår exempelvis föreningar med hantering av fel och skador samt med att utforma krav mot entreprenörer. Vi är gärna bollplank rörande vilka tekniska utredningar som bör genomföras samt ställer vårt kontaktnät till klientens förfogande. I detta ingår även att vi rekommenderar teknisk expertis som vi vet har rätt kompetensprofil och som vi har goda erfarenheter av. Det kan t ex röra besiktningsmän eller andra tekniskt sakkunniga.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "d6e0c1f42aef099ddd90",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9ce007250cb86d0c067",
+            "text": "Vi bistår också gärna bostadsrättsföreningar med upphandlingar av entreprenader, där vi bland annat säkerställer att entreprenadavtalet och förfrågningsunderlaget håller ihop juridiskt samt inte innehåller onödiga risker.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "9b45d2697c8bf4881cd7",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5b8c65c04662b2a0a790",
+            "text": "Vid tvist företräder vi föreningen i domstol eller skiljenämnd och hanterar föreningens rättsskyddsförsäkring.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "2a0bfc8e026c23c26dce",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "0f296ddfc88cbe0f05cb",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "88ae8d204f221003844a",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Juridiskt stöd till bostadsrättsföreningar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "c1993ea3b002e3db8f82",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Fel och skadeståndsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "ac432021e1c2e13775f7",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Rådgivning rörande vilka tekniska utredningar som bör genomföras",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "2ed431ec4a19a9c52ec4",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Upprättande och granskning av entreprenadavtal med tillhörande handlingar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "37a0dea30a978d044283",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Besiktningsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "d62fbdf58a6ced285c37",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Ombud i domstol och skiljenämnder",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 40,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-5df3c3f448a2838e5e2f2aab21faffd18a499bdf-1024x1024-jpg"
+      },
+      "alt": "Bostadsrättsförening"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-tekniska-konsulter",
+    "source": "https://wa-advokat.se/juridiska-tjanster/tekniska-konsulter/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/07/tekniska-konsulter-entreprenadjuridik-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Tekniska konsulter",
+    "slug": {
+      "_type": "slug",
+      "current": "tekniska-konsulter"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "I de flesta entreprenader är konsulter på något sätt engagerade och den juridik som styr konsultens uppdrag kan sägas utgöra en egen del av entreprenadjuridiken.",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "bf0cd4dad19a67ddbdd7",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "I de flesta entreprenader är konsulter på något sätt engagerade och den juridik som styr konsultens uppdrag kan sägas utgöra en egen del av entreprenadjuridiken.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "5d1ae784389d306960c8",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "Att driva konsultansvarstvister mot en konsult som gjort fel kräver stor precision för att beställaren ska nå framgång. Särskilt viktigt är det att kunna bevisa sambandet mellan konsultens fel/vårdslöshet och den skada som beställaren lidit. WA Advokatbyrå företräder regelbundet konsulter och beställare i denna typ av tvister och våra medarbetare vet vad som kommer att krävas för att beställaren ska kunna få ersättning. Vi tar gärna en aktiv del i beräkning och utformning av kraven, eftersom vi på så sätt kan sätta vår klient i en bättre position och minska de processuella riskerna. Vi vet också hur man som konsult bör agera för att framgångsrikt bestrida krav från beställaren.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "7469274f7e07832a68dd",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9ce007250cb86d0c067",
+            "text": "Vi hjälper även regelbundet våra klienter med annan juridisk rådgivning kopplad till konsultuppdragen. Detta kan t ex handla om att utforma konsultavtalen så konsulten måste bemanna projektet med personal som har efterfrågad kompetens. Det kan även handla om att införa sanktioner om leveranser inte sker i avtalad tid och på avtalat sätt. Genom att kombinera juridisk och kommersiell förståelse, skapar vi förutsättningar för att ni ska få er affär i hamn.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "570d941fe1feec5d923a",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "5b8c65c04662b2a0a790",
+            "text": "Vi företräder regelbundet beställare och konsulter i domstolar och skiljenämnder i konsulträttsliga tvister. Många av de tvister som vi hanterar är mycket tekniskt och juridiskt komplexa och vi lämnar ingenting åt slumpen.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "25296a6d6aca81b17ba3",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "ea593eb4cf14c74af6e8",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "c799b7c144dc6e3152f7",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Felprojekteringar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "02dab822635537f02a39",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Vårdslöshet / bristande fackmässighet vid utförande av konsultuppdrag",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "ff9cf743cf9e4bb88b36",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Frågor om konsultens rätt till ersättning",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "4ec4755eb59440e1c2f6",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Rådgivning vid beställarens uteblivna betalning för utfört arbete",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "a01030c043fe7eec1910",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Konsultens rätt att innehålla handlingar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "5041aed7ad3340d002a6",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Försening och viten",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "460cc9a3a840f3708d93",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "8aa57a7aecd32837f2b0",
+                    "text": "Konsultens avrådandeskyldighet",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "0d52ebc23746ef94392e",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "b110d889e34e617e2b2b",
+                    "text": "Obeprövade tekniska lösningar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "4b657b239c9a279dc899",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "2f22a83e9a09e6d173d8",
+                    "text": "Utformning av krav mot konsulten",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "619b1a139295f731fad1",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "646c16b0f5f195b59415",
+                    "text": "Bestridande av krav",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "e8187f2079f73b8879af",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "f2250c3da604f8253847",
+                    "text": "Tvister rörande konsultansvar och ersättning för utfört arbete",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 50,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-7d4e6e7c6df939b14e690811678363ceae56af75-1024x1024-jpg"
+      },
+      "alt": "Tekniska konsulter"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-installation",
+    "source": "https://wa-advokat.se/juridiska-tjanster/installation/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/07/installationsprojekt-juridik-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Installationsentreprenad",
+    "slug": {
+      "_type": "slug",
+      "current": "installation"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "WA Advokatbyrå biträder regelbundet entreprenörer, beställare och konsulter i olika installationsentreprenader. Det kan t ex röra el, VVS, ventilation, sprinkler, styrsystem, rör, hissinstallationer, m m.",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "c3b6e0e214de63c2680b",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "WA Advokatbyrå biträder regelbundet entreprenörer, beställare och konsulter i olika installationsentreprenader. Det kan t ex röra el, VVS, ventilation, sprinkler, styrsystem, rör, hissinstallationer, m m.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "04cb4bad3940033f266b",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "Som exempel på uppdrag kan nämnas att bistå entreprenörer och beställare med granskning av kontraktshandlingar inför anbudslämnande för att identifiera risker, samt föreslå hur dessa risker kan hanteras. Vi stöttar även med löpande rådgivning under entreprenadtiden, där vi bidrar med ett praktiskt, lösningsinriktat och strategiskt stöd fram tills projektet är avslutat. Vid oenighet företräder vi som ombud i förhandlingar och domstolsprocess.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "58cdf486552239047986",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9ce007250cb86d0c067",
+            "text": "Vi bistår även konsulter med rådgivning i samband med t ex projektering eller projektledning. Om något blir fel företräder vi konsulter och beställare i konsultansvarstvister samt tvister rörande fel i handlingar.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "0f6888175dc1025e6c9b",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "f990cef125686bade4ec",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "1cb2bcfd83f02ab6697d",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Upprättande av avtal och AF-del",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "ddd057138b3554ad8b04",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Granskning av avtal och AF-del för att identifiera väsentliga risker",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "06ebafd52fc4339468f7",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Hantering av ÄTA-krav",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "c9e214f4d8180ae756df",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Försening och viten",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "f90a810bd3b1f77f63d1",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Hinder och väsentlig rubbning",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "8437e73612add6b2e8ec",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Ersättningsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "676037ad5beabb1c318f",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "8aa57a7aecd32837f2b0",
+                    "text": "Analys av kontraktsarbetenas omfattning",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "b618445a4ec42a0d7d54",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "b110d889e34e617e2b2b",
+                    "text": "Hantering av fel i entreprenadarbeten",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "a5c9540e07594fc10298",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "2f22a83e9a09e6d173d8",
+                    "text": "Felprojekteringar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "53121b17c6f1f4f3441b",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "646c16b0f5f195b59415",
+                    "text": "Vårdslöshet / bristande fackmässighet vid utförande av konsultuppdrag",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "3dda575bd7ce60d99d75",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "f2250c3da604f8253847",
+                    "text": "Obeprövade tekniska lösningar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "a799e4839315d8efe2c9",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "3e0e09c84da7fc381b2d",
+                    "text": "Ombud vid tvister i domstol och skiljenämnder",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 60,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-0b5daa0dd6bccccb93ccdca880baba86778605c3-1024x1024-jpg"
+      },
+      "alt": "Installationsentreprenad"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-teknikintensiv-tvistelosning",
+    "source": "https://wa-advokat.se/juridiska-tjanster/teknikintensiv-tvistelosning/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/07/teknikintensiv-tvistelosningar-entreprenadjuridik-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Teknikintensiv tvistelösning",
+    "slug": {
+      "_type": "slug",
+      "current": "teknikintensiv-tvistelosning"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "Ett av våra kärnområden är kommersiell tvistelösning med särskild inriktning mot teknikintensiva tvister, där juridik och teknik är nära sammanflätade. Det kan till exempel gälla hinder och störningar i större…",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "5f14a16b594d4ae82615",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "Ett av våra kärnområden är kommersiell tvistelösning med särskild inriktning mot teknikintensiva tvister, där juridik och teknik är nära sammanflätade. Det kan till exempel gälla hinder och störningar i större entreprenadprojekt, fel i tekniskt komplexa anläggningar såsom fabriker eller kraftverk, m m. I dessa uppdrag är samspelet mellan juridik och teknik avgörande. Vi arbetar nära våra klienter och tekniskt sakkunniga för att säkerställa att inget faller mellan stolarna. Vårt arbete präglas av hög precision och för oss är det viktigt att våra klienter tidigt kan skapa sig en bild över vilka möjligheter och risker som finns.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "34f91298ee8cee29ce36",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "WA Advokatbyrå företräder kontinuerligt svenska som internationella klienter i domstolar, skiljenämnder och i andra rättsliga förfaranden. Ofta engageras vi i ett tidigt skede och arbetar utomrättsligt med analys, förhandling och strategisk rådgivning innan en process inleds.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "a2acd85486aec4ef0079",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "00905bf588d3a8cb0056",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "d67ba879161490b9a16f",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Strategisk rådgivning inför och under tvist",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "02386a9685fef4703dd9",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Hantering av hinder, störningar och förseningar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "b75dba61ae8dc47ff0c4",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Samarbete med tekniska sakkunniga och experter",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "06b5e6a33c5719b34b72",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Ombud i domstol och skiljenämnd",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "faa09bc0d5f1daa1b84e",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Förhandling och tvistlösning utanför domstol",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "9de4f92d57a4f126eb61",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Bedömning av ansvar, fel och skadestånd",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "c87b76703a0936fb2fdb",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "8aa57a7aecd32837f2b0",
+                    "text": "Löpande rådgivning i komplexa projekt",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 70,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-c502975a3cb128aca57133df4f78be6b110090e2-1024x1024-jpg"
+      },
+      "alt": "Teknikintensiv tvistelösning"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-infrastruktur",
+    "source": "https://wa-advokat.se/juridiska-tjanster/infrastruktur/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/09/infrastruktur-projekt-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Infrastruktur",
+    "slug": {
+      "_type": "slug",
+      "current": "infrastruktur"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "Entreprenader rörande väg och andra infrastrukturprojekt innefattar vanligtvis ett flertal entreprenadrättsliga frågor. Det kan t ex röra kontraktsarbetenas omfattning, ersättningsmekanismer, samordning,…",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "468440566891bd766868",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "Entreprenader rörande väg och andra infrastrukturprojekt innefattar vanligtvis ett flertal entreprenadrättsliga frågor. Det kan t ex röra kontraktsarbetenas omfattning, ersättningsmekanismer, samordning, skadeståndsansvar och avtalsfrågor.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "887d82e3f70aaeafdf9b",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "Med en djup förståelse för branschen agerar WA Advokatbyrå rådgivare till beställare, entreprenörer och konsulter genom projektens samtliga faser. Advokatbyrån har erfarenhet från större infrastrukturprojekt, där vi till exempel företrätt offentliga beställare med avtalsfrågor och agerat ombud i tvister.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "510e275429d745803927",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9ce007250cb86d0c067",
+            "text": "Våra medarbetare är vana vid att arbeta nära projekten. Vi vet vilka problem som brukar uppstå och hur de kan hanteras.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "fd2f0540457e395cd29b",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "a99b90e13aff7a0acf45",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "1cb2bcfd83f02ab6697d",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Upprättande av avtal och AF-del",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "ddd057138b3554ad8b04",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Granskning av avtal och AF-del för att identifiera väsentliga risker",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "06ebafd52fc4339468f7",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Hantering av ÄTA-krav",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "91dfa5ffdb542aca8d2e",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Försening",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "f90a810bd3b1f77f63d1",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Hinder och väsentlig rubbning",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "8437e73612add6b2e8ec",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Ersättningsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "676037ad5beabb1c318f",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "8aa57a7aecd32837f2b0",
+                    "text": "Analys av kontraktsarbetenas omfattning",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "d75b451d3496396830d1",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "b110d889e34e617e2b2b",
+                    "text": "Ombud i domstol och skiljenämnder",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "21a91408392f80345dd0",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "2f22a83e9a09e6d173d8",
+                    "text": "Hantering av fel",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "b0872708c26028c70966",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "646c16b0f5f195b59415",
+                    "text": "Besiktningsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 80,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-d706e69c77fa82a606310d7636d7be75dbd9645d-1024x1024-jpg"
+      },
+      "alt": "Infrastruktur"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-anlaggning",
+    "source": "https://wa-advokat.se/juridiska-tjanster/anlaggning/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/06/entreprenadjuridik-samhallsbyggnadsprojekt-sverige-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Anläggning",
+    "slug": {
+      "_type": "slug",
+      "current": "anlaggning"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "WA Advokatbyrå företräder regelbundet entreprenörer, beställare och konsulter i olika anläggningsprojekt. Många av de projekt där vi anlitas är omfattande och tekniskt komplexa.",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "36cc3c0a767a4c14f400",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "WA Advokatbyrå företräder regelbundet entreprenörer, beställare och konsulter i olika anläggningsprojekt. Många av de projekt där vi anlitas är omfattande och tekniskt komplexa. Detta ställer inte bara krav på entreprenadjuridisk kunskap, utan förutsätter också en teknisk förståelse samt en förståelse för vår klients affär.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "f888d7df46529ed5a7b0",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "Som exempel på ärenden där advokatfirman anlitats kan nämnas omfattande tvister rörande hinder och väsentliga rubbningar i markentreprenader. Detta ställer särskilda krav på vår juridiska rådgivning, eftersom vi snabbt måste kunna analysera hur olika händelser drivit kostnader och påverkat entreprenaden. Som ytterligare exempel på uppdrag kan nämnas tvister och avtalshantering rörande grundläggningsentreprenader, dränering, ledningar, broar m m.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "acbbddadefc84947df61",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9ce007250cb86d0c067",
+            "text": "Vi har också erfarenhet av att biträda våra klienter vid komplexa avtalsstrukturer kopplade till anläggningsentreprenader, såsom t ex samverkansavtal och incitamentsklausuler.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "e4a59ee71747740a03df",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "71b43f5e5497806e5ee2",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "1cb2bcfd83f02ab6697d",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Upprättande av avtal och AF-del",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "ddd057138b3554ad8b04",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Granskning av avtal och AF-del för att identifiera väsentliga risker",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "06ebafd52fc4339468f7",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Hantering av ÄTA-krav",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "91dfa5ffdb542aca8d2e",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Försening",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "f90a810bd3b1f77f63d1",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Hinder och väsentlig rubbning",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "8437e73612add6b2e8ec",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Ersättningsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "676037ad5beabb1c318f",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "8aa57a7aecd32837f2b0",
+                    "text": "Analys av kontraktsarbetenas omfattning",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "d75b451d3496396830d1",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "b110d889e34e617e2b2b",
+                    "text": "Ombud i domstol och skiljenämnder",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "21a91408392f80345dd0",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "2f22a83e9a09e6d173d8",
+                    "text": "Hantering av fel",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "b0872708c26028c70966",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "646c16b0f5f195b59415",
+                    "text": "Besiktningsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 90,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-25fad2578f5724f6607dbb2c62ec0abf9aa90978-1024x1024-jpg"
+      },
+      "alt": "Anläggning"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-solenergi",
+    "source": "https://wa-advokat.se/juridiska-tjanster/solenergi/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/06/solenergi-entreprenad-projekt-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Solenergi",
+    "slug": {
+      "_type": "slug",
+      "current": "solenergi"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "WA Advokatbyrå agerar som rådgivare till beställare, entreprenörer och konsulter i solenergibranschen. Advokatbyrån har medverkat i upphandlingar av större solkraftparker och solkraftsanläggningar.",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "ea0566e61aa46412394a",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "Från att ha varit en relativt liten del av energisystemet har solkraft de senaste åren blivit ett av de snabbast växande kraftslagen. Antalet nätanslutna solcellsanläggningar har ökat explosionsartat, inklusive bland annat större solcellsparker och kommersiella takanläggningar.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "e14182b35596234a51fd",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "WA Advokatbyrå agerar som rådgivare till beställare, entreprenörer och konsulter i solenergibranschen. Advokatbyrån har medverkat i upphandlingar av större solkraftparker och solkraftsanläggningar. Vi är därför väl bekanta med vilka juridiska frågor som är viktiga i dessa projekt samt hur riskerna kan reduceras. Advokatbyrån har även lett utredningar av fel samt hanterat tvister rörande solcellsanläggningar.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "9da336313184a6590f00",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "4f5c6957a718cc6bafed",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "a63ced797e8c5e996a55",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Analys av juridiska risker i avtalshandlingar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "60ade88c5fccda6a0a96",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Framtagande av entreprenadavtal och AF-del",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "28d5a0a8fd9cdad68004",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Rådgivning om ändrings- och tilläggsarbeten samt störningar i projekt",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "d59a72e21d98ba1963ca",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Hantering av tvister i domstol och skiljenämnd",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "70ee82ceffc72f909099",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Krav rörande avhjälpande av fel",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "7f067f397722a3d2fe44",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Skadeståndskrav och hantering mot försäkringsbolag",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "ec102c4fa56a36b45165",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "8aa57a7aecd32837f2b0",
+                    "text": "Löpande rådgivning i projektet",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 100,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-baa8dc8c54d85dab773d9e06b02626b97392acac-1024x1024-jpg"
+      },
+      "alt": "Solenergi"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-vattenkraft",
+    "source": "https://wa-advokat.se/juridiska-tjanster/vattenkraft/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/07/vattenkraftsprojekt-juridik-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Vattenkraft",
+    "slug": {
+      "_type": "slug",
+      "current": "vattenkraft"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "Våra medarbetare har bistått med juridisk rådgivning i flera entreprenadprojekt kopplade till vattenkraftsanläggningar, där vi bland annat bistått en av Sveriges största vattenkraftsägare med strategisk och…",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "bdf3fb97b2a6b971770a",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "Vattenkraft står för ungefär 40 % av Sveriges elproduktion, vilket gör den till landets största förnybara energikälla.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "8f90682a9f44904ce1cc",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "Våra medarbetare har bistått med juridisk rådgivning i flera entreprenadprojekt kopplade till vattenkraftsanläggningar, där vi bland annat bistått en av Sveriges största vattenkraftsägare med strategisk och affärsnära rådgivning. Vi har även biträtt vid upphandling av renoveringsprojekt på större vattenkraftsanläggningar samt vid tvister kopplade till dammar och vattenkraftsprojekt.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "e95582c6ba198a80895e",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9ce007250cb86d0c067",
+            "text": "Våra medarbetare har även erfarenhet av småskalig vattenkraft.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "59b18e80c44a83634c9c",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "4aa0bcd1b69f22b6d27c",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "943b04aa7c1edf3fc83e",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Hantering och reducering av juridiska risker kopplade till vattenkraftsprojekt",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "5ba9187f56547eb3db0f",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Juridisk rådgivning rörande tekniskt komplexa system",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "13bb762f1019cfacc44e",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Hantering av fel i turbiner, komponenter och entreprenadarbeten",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "f00f1742b44bf58f8682",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Skadeståndskrav och hantering mot försäkringsbolag",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "2c1381e613e680622f04",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Löpande rådgivning i projektet",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "02b0073fa7ca6ad41fb3",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Tvister kopplade till entreprenadarbeten på vattenkraftsanläggningar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 110,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-1acb587046dfbe137fcd76e25518ae606a58e753-1024x1024-jpg"
+      },
+      "alt": "Vattenkraft"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-jarnvag",
+    "source": "https://wa-advokat.se/juridiska-tjanster/jarnvag/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/09/jarnvagsprojekt-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Järnväg",
+    "slug": {
+      "_type": "slug",
+      "current": "jarnvag"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "WA Advokatbyrå har bistått med rådgivning i flera järnvägsprojekt, där vi bland annat företrätt järnvägsbolag och underentreprenörer. Vi har agerat ombud i större tvister, bland annat rörande underhåll av järnväg.",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "79b377ca7d59d50a4dab",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "WA Advokatbyrå har bistått med rådgivning i flera järnvägsprojekt, där vi bland annat företrätt järnvägsbolag och underentreprenörer. Vi har agerat ombud i större tvister, bland annat rörande underhåll av järnväg. Våra medarbetare har även erfarenhet av att bistå med avtalsstöd och löpande rådgivning.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "656be6a38099f6d674be",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "WA Advokatbyrå vet vilka särskilda avtalskonstruktioner som normalt används vid järnvägsentreprenader och hur dessa entreprenader hanteras.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "171a25349cf43fbee297",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "a4832231c6ddf60591f0",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "7a164aba4f52a8c8d6b1",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "ÄTA och hinder",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "b8adb4b5225c690044ca",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Förseningar och vite",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "2b359baa5af95693ce82",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Fel",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "73296f7544fcc3bfa057",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Skadestånd och ersättningskrav",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "7b4a934b8455a43b1257",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Löpnade projektstöd",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "bfdccf028c985df946e1",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Ombud i tvister",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 120,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-a992513be63ad432ab20c5607b0e9a8b47ead5e9-1024x1024-jpg"
+      },
+      "alt": "Järnväg"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-industri",
+    "source": "https://wa-advokat.se/juridiska-tjanster/industri/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2026/09/industri-projekt-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Industri",
+    "slug": {
+      "_type": "slug",
+      "current": "industri"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "WA Advokatbyrå har biträtt beställare, konsulter och entreprenörer i samband med olika typer av industriprojekt. Som exempel på genomförda uppdrag kan nämnas hantering av fel/stillestånd i produktionslinor, tvister…",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "522752498ac9b0e0aa7e",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "WA Advokatbyrå har biträtt beställare, konsulter och entreprenörer i samband med olika typer av industriprojekt. Som exempel på genomförda uppdrag kan nämnas hantering av fel/stillestånd i produktionslinor, tvister rörande uppförandet av industrianläggningar, tvister rörande projektering och uppförande av anläggningar inom processindustri, tvister rörande kritiska styrsystem till industrianläggningar, juridiskt biträde i samband med förhandling av konsult- och entreprenadavtal, m m.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "73fa29d1cf6dad0a4379",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "Våra medarbetare är vana vid att arbeta med teknikintensiva tvister där juridiken och tekniken måste samspela.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "0aaf75dd2070a14f86e0",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a9ce007250cb86d0c067",
+            "text": "Vi är också gärna juridiskt bollplank åt våra klienter under projektens gång.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "85581e22c39fb70e4045",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "e78e7840f5e92e3f1f1d",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "92ece8f17f9de938c196",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Förhandling av avtal",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "d305f2b78ec2e44467ea",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Fel och stopp i produktionen",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "cb014baa0f42feeb4cd4",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Ombud i teknikintensiva tvister inom industrin",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "e21198da5aa303d3a4c2",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Upprättande och granskning av avtal",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "193486a7077ae8f5cce9",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Förseningar",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "8437e73612add6b2e8ec",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Ersättningsfrågor",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "c6b4057540343d10b1c3",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "8aa57a7aecd32837f2b0",
+                    "text": "Löpande projektstöd till beställare, entreprenörer och konsulter",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 130,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-8b52aa87255cf155046cd07346b5a54b0be2a322-1024x1024-jpg"
+      },
+      "alt": "Industri"
+    }
+  },
+  {
+    "id": "drafts.imported-wa-service-area-vindkraftverk",
+    "source": "https://wa-advokat.se/juridiska-tjanster/vindkraftverk/",
+    "imageSource": "https://wa-advokat.se/wp-content/uploads/2023/10/entreprenad-vindkraftverk-sverige-1024x1024.jpg",
+    "_type": "serviceSection",
+    "title": "Vindkraftverk",
+    "slug": {
+      "_type": "slug",
+      "current": "vindkraftverk"
+    },
+    "parentService": {
+      "_type": "reference",
+      "_ref": "b3c24302-dfc6-41e6-a967-e0927ff142c0"
+    },
+    "excerpt": "Nya vindkraftsprojekt tar form i viktiga steg mot en mer hållbar och miljövänlig energiframtid. Initierat av en ökad medvetenhet om klimatförändringar och behovet av ren energi, är projektens huvudsyfte att generera…",
+    "body": [
+      {
+        "_type": "block",
+        "_key": "87130ee18e2afca8a4bd",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "22841ea360fc3c3676a3",
+            "text": "Vindkraft bidrar till fossilfri elproduktion och är en viktig del av Sveriges energimix.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      },
+      {
+        "_type": "block",
+        "_key": "bd1a049d595b1c3b48d1",
+        "style": "normal",
+        "children": [
+          {
+            "_type": "span",
+            "_key": "a302da3294ef556ab933",
+            "text": "WA Advokatbyrå har anlitats som rådgivare i flera större vindkraftsprojekt och är väl införstådda med projektens komplexitet. Advokatbyrån har bland annat företrätt beställare i tekniskt och juridiskt komplicerade tvister rörande byggnation av vindkraftsparker samt agerat rådgivare till entreprenören verksamma inom branschen.",
+            "marks": []
+          }
+        ],
+        "markDefs": []
+      }
+    ],
+    "sections": [
+      {
+        "_type": "pageSection",
+        "_key": "54eb541269760b8989b9",
+        "heading": "Entreprenadsrättslig rådgivning",
+        "blocks": [
+          {
+            "_type": "richTextBlock",
+            "_key": "15092bc3150ea27490b0",
+            "content": [
+              {
+                "_type": "block",
+                "_key": "5533ef6cef6e2a7ee213",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "22841ea360fc3c3676a3",
+                    "text": "Hantering och reducering av juridiska risker kopplade till vindkraftsprojekt",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "8c0e3b6c230da44e9ad1",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a302da3294ef556ab933",
+                    "text": "Juridisk rådgivning rörande tekniskt komplexa system såsom t ex SCADA",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "13bb762f1019cfacc44e",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "a9ce007250cb86d0c067",
+                    "text": "Hantering av fel i turbiner, komponenter och entreprenadarbeten",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "f00f1742b44bf58f8682",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "5b8c65c04662b2a0a790",
+                    "text": "Skadeståndskrav och hantering mot försäkringsbolag",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "2c1381e613e680622f04",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "702e6c947d8c621fe76a",
+                    "text": "Löpande rådgivning i projektet",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              },
+              {
+                "_type": "block",
+                "_key": "08b87c38a5eba426b49f",
+                "style": "normal",
+                "children": [
+                  {
+                    "_type": "span",
+                    "_key": "56a2ee1c11d337a73708",
+                    "text": "Tvister kopplade till vindkraftsparkens uppförande eller komponenter",
+                    "marks": []
+                  }
+                ],
+                "markDefs": [],
+                "listItem": "bullet",
+                "level": 1
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "experts": [
+      {
+        "_key": "e778ac241ab2",
+        "_ref": "7d571bf0-dbcc-414e-ab6c-577ce45373bd",
+        "_type": "reference"
+      }
+    ],
+    "sortOrder": 140,
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-9ead846281a1690949df604ea6301ed123915d20-1024x1024-jpg"
+      },
+      "alt": "Vindkraftverk"
+    }
+  }
+]

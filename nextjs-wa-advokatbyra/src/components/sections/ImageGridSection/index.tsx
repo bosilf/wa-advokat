@@ -128,8 +128,10 @@ ImageGridProps) {
       ref={sectionRef}
       className={`
         ${color}
+        relative
         grid grid-rows-[1fr_2fr]
         lg:grid-rows-1
+        z-15
         ${
           isRight
             ? "lg:grid-cols-[3fr_2fr]"

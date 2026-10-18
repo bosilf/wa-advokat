@@ -466,6 +466,19 @@ export const NAVIGATION_QUERY = defineQuery(`
       },
 
       "courses": select(
+  dropdownSource == "courses" && customizeDropdown == true =>
+    dropdownCourseGroups[defined(category->slug.current)] {
+      _key,
+      "title": coalesce(title, category->title),
+      "slug": category->slug.current,
+      "href": "/" + category->slug.current,
+      "courses": courses[defined(@->slug.current) && defined(@->category->slug.current)]-> {
+        _id,
+        "_key": _id,
+        "title": courseName,
+        "href": "/" + category->slug.current + "/" + slug.current
+      }
+    },
   dropdownSource == "courses" =>
     *[
       _type == "courseCategory" &&
@@ -499,11 +512,10 @@ export const NAVIGATION_QUERY = defineQuery(`
 
       "dropdownItems": select(
         dropdownSource == "employees" =>
-          *[
-            _type == "employee" &&
-            defined(slug.current)
-          ]
-          |  {
+          coalesce(
+            select(customizeDropdown == true => coalesce(selectedEmployees[]->, [])),
+            *[_type == "employee" && defined(slug.current)]
+          )[defined(slug.current)] {
             _id,
             firstName,
             lastName,
@@ -530,11 +542,10 @@ export const NAVIGATION_QUERY = defineQuery(`
           },
 
         dropdownSource == "services" =>
-          *[
-            _type == "service" &&
-            defined(slug.current)
-          ]
-          | order(title asc) {
+          coalesce(
+            select(customizeDropdown == true => coalesce(selectedServices[]->, [])),
+            *[_type == "service" && defined(slug.current)] | order(title asc)
+          )[defined(slug.current)] {
             _id,
             title,
 
@@ -1299,21 +1310,31 @@ export const COURSE_CATEGORY_PAGE_QUERY =
           }
         },
 
-        "accordions":
-          courseList[]-> {
-            "_key": _id,
-            "title": courseName,
-            "description":
-              seo.metaDescription,
+      },
 
-            "btnHref":
-              "/" +
-              category->slug.current +
-              "/" +
-              slug.current,
-
-            "icon": true
-          }
+      "categoryCourses": *[
+        _type == "course" &&
+        category._ref == ^._id &&
+        defined(slug.current)
+      ] | order(courseName asc) {
+        "_key": _id,
+        "title": courseName,
+        "description": coalesce(seo.metaDescription, pt::text(intro), pt::text(aboutCourse)),
+        length,
+        "slug": slug.current,
+        "categorySlug": category->slug.current,
+        "categoryTitle": category->title,
+        "upcoming": *[
+          _type == "futureCourse" &&
+          coursePick._ref == ^._id &&
+          (aim == "open" || !defined(aim)) &&
+          count(dates[@ >= $today]) > 0
+        ] {
+          location,
+          cost,
+          type,
+          "dates": dates[@ >= $today] | order(@ asc)
+        } | order(dates[0] asc) [0]
       },
 
       courseInfoSection[] {
@@ -1594,7 +1615,11 @@ export const ARTICLES_QUERY = defineQuery(`
   *[_type == "article"] | order(coalesce(publishedAt, _createdAt) desc) {
     _id,
     title,
+    "topic": relatedServices[0]->title,
+    "featuredLead": pt::text(body[_type == "block" && style == "normal" && !(pt::text(@) match "Av *")][0...2]),
     writers[]-> {
+      _id,
+      "roles": roles[]->title,
       firstName,
       lastName,
       slug,

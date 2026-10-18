@@ -47,7 +47,7 @@ export default function CourseBlocksSection({
   const isIntro = selectedIndex === -1;
 
   return (
-    <section id={sectionId} ref={sectionRef} className="bg-canvas font-sans w-full">
+    <section id={sectionId} ref={sectionRef} className="bg-canvas relative z-15 font-sans w-full">
       <div className="max-w-250 gap-2 max-h-full relative grid grid-cols-1 md:grid-cols-[1fr_2fr] m-auto px-section-sides py-section-tb">
         <p className="font-eyebrow col-span-full">{eyebrow}</p>
         <h2 className="text-ink font-heading text-pretty">{heading}</h2>

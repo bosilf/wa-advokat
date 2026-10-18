@@ -10,7 +10,9 @@ import { structureTool } from 'sanity/structure'
 import { deskStructure } from './desk/deskStructure'
 import {waStudioTheme} from "./src/studio/theme";
 import WAStudioIcon from "./src/studio/icon";
-import "./src/studio/studio.css";
+import { structureHomeLandingPlugin } from 'sanity-plugin-blank-space'
+import StudioOverview from './desk/StudioOverview'
+import './src/studio/studio.css'
 
 const devOnlyPlugins = [visionTool()]
 
@@ -27,6 +29,12 @@ export default defineConfig({
   plugins: [
     structureTool({
       structure: deskStructure,
+      title: 'Webbinnehåll'
+    }),
+    structureHomeLandingPlugin({
+      component: StudioOverview,
+      title: 'Översikt',
+      paneId: 'overview',
     }),
     colorInput(),
     // customDocumentActions(),
@@ -36,6 +44,33 @@ export default defineConfig({
 
   schema: {
     types: schemaTypes,
+    templates: (previous) => [
+      ...previous,
+      {
+        id: 'service-section-for-service',
+        title: 'Fördjupning inom rättsområde',
+        schemaType: 'serviceSection',
+        parameters: [{name: 'parentServiceId', title: 'Rättsområde', type: 'string'}],
+        value: ({parentServiceId}: {parentServiceId?: string}) => parentServiceId ? {
+          parentService: {
+            _type: 'reference',
+            _ref: parentServiceId.replace(/^drafts\./, ''),
+          },
+        } : {},
+      },
+      {
+        id: 'course-for-category',
+        title: 'Kurs inom kategori',
+        schemaType: 'course',
+        parameters: [{name: 'categoryId', title: 'Kurskategori', type: 'string'}],
+        value: ({categoryId}: {categoryId?: string}) => categoryId ? {
+          category: {
+            _type: 'reference',
+            _ref: categoryId.replace(/^drafts\./, ''),
+          },
+        } : {},
+      },
+    ],
   },
 
   form: {

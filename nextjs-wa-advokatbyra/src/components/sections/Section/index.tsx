@@ -27,6 +27,9 @@ export type EyebrowCrumb = {
 export type SectionProps = {
   children: ReactNode;
   color?: string;
+  textColor?: string;
+  paperTexture?: boolean;
+  zIndex?: number;
   hideEyebrow?: boolean;
   eyebrow?: string;
   eyebrowHref?: string;
@@ -44,6 +47,9 @@ export default function Section({
   hideEyebrow = false,
   children,
   color = "bg-canvas",
+  textColor,
+  paperTexture = false,
+  zIndex = 15,
 }: SectionProps) {
   const sectionRef =
     useRef<HTMLElement>(null);
@@ -176,9 +182,16 @@ export default function Section({
   return (
     <section
       ref={sectionRef}
-      className={`${color} h-fit w-full`}
+      className={`${color} relative h-fit w-full ${paperTexture ? "isolate" : ""}`}
+      style={{zIndex}}
     >
-      <div className="z-10 m-auto flex max-w-200 flex-col gap-md px-section-sides py-section-tb">
+      {paperTexture && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[url('/assets/paper-texture.svg')] bg-size-[125px_125px] bg-repeat mix-blend-multiply opacity-60"
+        />
+      )}
+      <div className={`${paperTexture ? "relative" : ""} z-10 m-auto flex max-w-200 flex-col gap-md px-section-sides py-section-tb`}>
       <div
         ref={headingRef}
       >
@@ -216,6 +229,7 @@ export default function Section({
                               }
                               className="
                                 text-muted
+                                
                                 transition-colors
                                 hover:text-ink
                                 hover:underline
@@ -272,12 +286,12 @@ export default function Section({
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    className="w-fit font-eyebrow text-muted hover:text-ink"
+                    className={`w-fit font-eyebrow ${textColor ?? "text-muted hover:text-ink"}`}
                   >
                     {eyebrow}
                   </Link>
                 ) : (
-                  <span className="font-eyebrow text-muted">
+                  <span className={`font-eyebrow ${textColor ?? "text-muted"}`}>
                     {eyebrow}
                   </span>
                 )}
@@ -286,7 +300,7 @@ export default function Section({
           </>
         )}
 
-          <h2 className="font-heading text-ink text-balance">
+          <h2 className={`font-heading ${textColor ?? "text-ink"} z-15 relative text-balance`}>
             {heading}
           </h2>
         </div>

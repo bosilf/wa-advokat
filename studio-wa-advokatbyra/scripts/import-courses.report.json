@@ -1,0 +1,76 @@
+[
+  {
+    "title": "Grundkurs i entreprenadjuridik",
+    "status": "already exists",
+    "id": "cd3bebfa-df66-48c4-a249-4f912adf925f"
+  },
+  {
+    "title": "Fördjupningskurs i entreprenadjuridik",
+    "status": "already exists",
+    "id": "680973ed-6e46-4e55-9f56-10d0a4e671a8"
+  },
+  {
+    "title": "Kurs i avtalsjuridik med inriktning mot entreprenadjuridik",
+    "status": "already exists",
+    "id": "a67121ef-6a60-429b-a6d9-03ed3d873fa1"
+  },
+  {
+    "title": "Kurs i entreprenadjuridik: konsulträtt (ABK 09)",
+    "status": "already exists",
+    "id": "b7ecdbf6-9e6b-4d17-a24d-1300dff4b0a4"
+  },
+  {
+    "title": "Kurs om skillnaderna mellan de nya och gamla avtalen",
+    "status": "already exists",
+    "id": "53f1d413-f72c-42aa-8bb1-326d7d490ba4"
+  },
+  {
+    "title": "Praktisk besiktningskurs för beställare och entreprenörer",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-424a82354649d518bfce",
+    "slug": "praktisk-besiktningskurs-for-bestallare-och-entreprenorer",
+    "paragraphs": 2
+  },
+  {
+    "title": "Entreprenadjuridik för beställare",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-cb367be34c16a0a03390",
+    "slug": "entreprenadjuridik-for-bestallare",
+    "paragraphs": 2
+  },
+  {
+    "title": "Entreprenadjuridik för entreprenörer",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-7b0a3abbbd154b67b4aa",
+    "slug": "entreprenadjuridik-for-entreprenorer",
+    "paragraphs": 2
+  },
+  {
+    "title": "Praktisk kurs – kostnadsdrivande konsekvenser i entreprenader",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-e6f8c31db3a845521960",
+    "slug": "praktisk-kurs-kostnadsdrivande-konsekvenser-i-entreprenader",
+    "paragraphs": 2
+  },
+  {
+    "title": "Besiktningsjuridik",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-079417aeb97887a2a4da",
+    "slug": "besiktningsjuridik",
+    "paragraphs": 2
+  },
+  {
+    "title": "Kurs om partnering- och samverkansentreprenader",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-00c4e27194a4d6f7af8b",
+    "slug": "kurs-om-partnering-och-samverkansentreprenader",
+    "paragraphs": 2
+  },
+  {
+    "title": "Konsumententreprenader",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-d713d51e6e5bc07a6d3e",
+    "slug": "konsumententreprenader",
+    "paragraphs": 2
+  }
+]

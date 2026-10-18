@@ -24,7 +24,7 @@ export default function RichTextBlock({
   }
 
   return (
-    <div className="font-body">
+    <div className="font-body wrap-break-word">
       <CustomPortableText value={block.content} />
     </div>
   );

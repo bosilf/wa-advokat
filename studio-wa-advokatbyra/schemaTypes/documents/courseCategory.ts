@@ -1,3 +1,4 @@
+import CategoryPreview from '../../src/studio/CategoryPreview'
 import { BookIcon, LinkIcon } from "@sanity/icons";
 import { defineField, defineType, defineArrayMember } from "sanity";
 
@@ -126,6 +127,7 @@ export const courseCategory = defineType({
     defineField({
       name: "courseListSection",
       title: "Kursutbud innehåll",
+      description: "Kurslistan visar automatiskt publicerade kurser med denna kategori, i alfabetisk ordning. Här redigerar du rubrik och beskrivning.",
       group: "content",
       type: "object",
       fields: [
@@ -143,6 +145,7 @@ export const courseCategory = defineType({
     
         defineField({
           name: "courseList",
+          hidden: true,
           title: "Kurser",
           type: "array",
           of: [
@@ -152,7 +155,7 @@ export const courseCategory = defineType({
             }),
           ],
           validation: (rule) =>
-            rule.required().unique().min(1),
+            rule.unique(),
         }),
       ],
     }),
@@ -257,14 +260,20 @@ export const courseCategory = defineType({
       group: "seo",
     }),
   ],
+  components: {preview: CategoryPreview},
+
   preview: {
     select: {
       slug: 'slug.current',
+      categoryTitle: 'title',
+      categorySlug: 'slug.current',
       title: 'title',
       media: 'image'
     },
-    prepare({ title, slug, media }) {
+    prepare({ title, slug, media, categoryTitle, categorySlug }) {
       return {
+        categoryTitle,
+        categorySlug,
         title: title ?? "Namnlös kurskategori",
         subtitle: slug
           ? `/${slug}/`

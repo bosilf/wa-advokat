@@ -1,8 +1,6 @@
 import Link from "next/link";
 import Icon from "../Icon";
 
-
-
 type CourseTakenTypes = {
   slug?: string,
   name: string,

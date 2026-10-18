@@ -3,7 +3,7 @@ import Icon from "../Icon";
 
 export default function ScrollerEndCard() {
   return (
-    <div className="flex flex-col gap-3 min-w-40 items-center justify-center p-6">
+    <div className="lg:hidden flex flex-col gap-3 min-w-40 items-center justify-center p-6">
       <Link href="/artiklar" className="flex flex-col gap-4 group">
         <p className="text-ink group-hover:text-accent transition-all duration-150 font-subheading h-fit text-center">
           Se alla våra artiklar

@@ -95,13 +95,13 @@ export default async function ArticlePage({ params }: PageProps) {
 
   return (
     <>
+    <div className="flex flex-col h-screen">
+
       <HeroArticlePage
         eyebrow="artikel"
         title={article.title}
         image={article.image}
-      />
-
-      <main>
+        />
         <Section color="bg-canvas" heading={article!.title!}>
           <p className="text-ink">{article.excerpt}</p>
           <div className="grid mt-md md:grid-cols-[auto_1fr] gap-sm md:w-full">
@@ -118,11 +118,15 @@ export default async function ArticlePage({ params }: PageProps) {
               ))}
           </div>
         </Section>
+        </div>
         <section className="bg-surface">
+
           <div className="max-w-200 m-auto px-section-sides py-section-tb">
             <CustomPortableText value={article.body} />
           </div>
         </section>
+
+      <main>
       </main>
     </>
   );

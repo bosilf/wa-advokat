@@ -1,0 +1,4524 @@
+[
+  {
+    "title": "Grundkurs i entreprenadjuridik",
+    "status": "already exists",
+    "id": "cd3bebfa-df66-48c4-a249-4f912adf925f",
+    "sourceSlug": "grundkurs",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "3920bacb50de1bf54a88",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a302da3294ef556ab933",
+              "text": "Denna utbildning är en grundkurs i entreprenadjuridik omfattandes två utbildningsdagar. Deltagarna får kunskap om de regler som påverkar byggprocessen och om branschens vanligaste standardavtal AB 04 och ABT 06.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "abe9af8bc98a50c2d5b9",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "28aafb4ca56edfa58bdc",
+              "text": "\n\n",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "0ba5ccaf945b46ced9da",
+              "text": "Denna utbildning riktar sig till beställare, entreprenörer och konsulter samt innefattar såväl teori som praktiska övningsuppgifter. Inga tidigare kurser eller utbildningar krävs, men en allmän förståelse för branschen är en fördel.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "bb13cebc4e8b7079e07e",
+          "sectionTitle": "Om utbildningen",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "345e5d035862d380f289",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "da46f5d08b0078953b92",
+                  "href": "https://wa-advokat.se/entreprenadjuridik/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "5b8c65c04662b2a0a790",
+                  "text": "\n\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "73e23b443f02b5eeecab",
+                  "text": "Grundkurs i entreprenadjuridik omfattar en genomgång av grundläggande avtalsjuridik samt ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "cd7da774aa7f1d6b5a15",
+                  "text": "entreprenadjuridik",
+                  "marks": [
+                    "da46f5d08b0078953b92"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "2b51daa5c1d79aed74e6",
+                  "text": ". Utgångspunkt tas i standardavtalen AB 04 och ABT 06, där centrala bestämmelser gås igenom. Målet med kursen är att deltagaren ska få god kunskap om regelverket i dessa standardavtal, som kan sägas utgöra grunden i den svenska entreprenadjuridiken. Kursen innehåller även en introduktion till allmän avtalsjuridik där frågor kring t.ex. avtalets uppkomst, avtalstolkning, m.m. behandlas övergripande.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "ecee9b4a25014d455638",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "702e6c947d8c621fe76a",
+                  "text": "\n\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "4caaa93fb401cbc51daf",
+                  "text": "I denna utbildning ingår även gruppövningar där kursdeltagarna får arbeta tillsammans och tillämpa sina entreprenadjuridiska kunskaper på verkliga fall, vilket brukar vara ett mycket uppskattat sätt att tillgodogöra sig kunskap.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "2a10b64d66c0b612e088",
+          "sectionTitle": "Vår grundkurs i entreprenadjuridik omfattar bland annat:",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "18311138cde0ee87bc3f",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "8aa57a7aecd32837f2b0",
+                  "text": "Kalkylförutsättningar inom entreprenadjuridiken",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "6d8aa09c9513b4bf2862",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b110d889e34e617e2b2b",
+                  "text": "Kontraktshandlingarnas rangordning och tolkningsfrågor",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "c83258cb014d26c8990b",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2f22a83e9a09e6d173d8",
+                  "text": "Parternas ansvar för uppgifter inom entreprenadjuridiken",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "cb29944a211607f41fe1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "646c16b0f5f195b59415",
+                  "text": "Utförande av kontraktsarbetena, kravet på fackmässighet",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "d97fe512bb7d3045a612",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f2250c3da604f8253847",
+                  "text": "Formalia kring ÄTA-arbeten",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "21efe098f3d1dcf72460",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3e0e09c84da7fc381b2d",
+                  "text": "Hur entreprenören ersätts för ÄTA-arbeten",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "3d50f789c62f4f6125a3",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b0291de4b9ec6f373b85",
+                  "text": "Organisation, samordning, kontroll",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "77ed9564351aa5150eb7",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "1f157b02589f0849a9b7",
+                  "text": "Ansvarstid, garantitid, garantiansvar inom entreprenadjuridiken",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "732ec9aaf794372a6964",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2b85c012804d40ab209d",
+                  "text": "Hinder, stillestånd, m.m.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "ecfa8ed93981f292671a",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9a4783c6a775d3d51ace",
+                  "text": "Entreprenadjuridikens skadeståndsregler",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "f404c96ff9b43c04e5d0",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3fd0d44c2332c0108669",
+                  "text": "Ansvar för fel, felavhjälpande",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "70f7aab5bdd5937dd925",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "e5c9bc83f4b8007f6a3d",
+                  "text": "Förseningsansvaret",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "605451dd7502beb1ca49",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "37b3b16ebff1eb7c6b8a",
+                  "text": "Entreprenadjuridikens frister",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "014992faff69b956d541",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "aa65502de905860e1960",
+                  "text": "Ekonomifrågor; ersättning, betalning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "5ac661126dc009362625",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "e968afcbe67015bc57dc",
+                  "text": "Rätt till innehållande av medel",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "25b6ed7908f6df82acd3",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b35db1ba1a312eb590bc",
+                  "text": "Besiktningsformer",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "66bb65645d8d381a35e3",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2702bac1b476b4750e4c",
+                  "text": "Hävning, skadestånd vid hävning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "616e82cd07fd48bcab5f",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "25afb5697f41ec7ee5de",
+                  "text": "Allmänt om entreprenadtvister och tvistelösning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "207167aa271fc35b2e71",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "29c33a3753580302d390",
+                  "text": "Kort om AB-U 07 / ABT-U 07",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "835d96ef6f540ce61590",
+          "sectionTitle": "Utbildningens längd",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "eb9045f07af29e00ebe9",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "bad2ce6173b99e5d33aa",
+                  "text": "\n\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "9c165994151aa98994d2",
+                  "text": "Två utbildningsdagar.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven AlbinssonAdvokat / delägareTelefon: +46760 – 51 74 18E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Grundkurs i entreprenadjuridik Denna utbildning är en grundkurs i entreprenadjuridik omfattandes två utbildningsdagar. Deltagarna får kunskap om de regler som påverkar byggprocessen och om branschens vanligaste standardavtal AB 04 och ABT 06. Om utbildningen Grundkurs i entreprenadjuridik omfattar en genomgång av grundläggande avtalsjuridik samt entreprenadjuridik. Utgångspunkt tas i standardavtalen AB 04 och ABT 06, där centrala bestämmelser gås igenom. Målet med kursen är att deltagaren ska få god kunskap om regelverket i dessa"
+  },
+  {
+    "title": "Fördjupningskurs i entreprenadjuridik",
+    "status": "already exists",
+    "id": "680973ed-6e46-4e55-9f56-10d0a4e671a8",
+    "sourceSlug": "fortsattningskurs",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "0bc98e42e88f2afc3d05",
+          "style": "normal",
+          "markDefs": [
+            {
+              "_type": "link",
+              "_key": "0f751e5bb9ae241fa5a9",
+              "href": "https://wa-advokat.se/entreprenadjuridik/"
+            }
+          ],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a302da3294ef556ab933",
+              "text": "Fördjupningskursen i entreprenadjuridik riktar sig till deltagare med viss erfarenhet av bygg-, anläggnings- och installationsbranschen. Syftet är att förmedla djupare kunskaper inom ",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "59510d91a04a1af46794",
+              "text": "entreprenadjuridik",
+              "marks": [
+                "0f751e5bb9ae241fa5a9"
+              ]
+            },
+            {
+              "_type": "span",
+              "_key": "412a4789b02cad19bacb",
+              "text": " samt kunskap om hur man agerar för att förebygga och hantera tvistesituationer.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "74ceaaf49f45e3537eaa",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a9ce007250cb86d0c067",
+              "text": "\n\nInnehållet fokuseras på händelser som – med hänsyn till regleringarna i AB 04/ABT 06 – kan ha kostnadspåverkan. De teoretiska avsnitten varvas med praktiska övningar. Utrymme ges för deltagarnas egna frågor. Utbildningen tar även upp nya och relevanta rättsfall inom entreprenadjuridik.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "86b4e30d44d8467f1e97",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "5b8c65c04662b2a0a790",
+              "text": "\n\nMålet med denna utbildning är att deltagarna ska få fördjupade kunskaper inom AB 04/ABT 06 och entreprenadjuridik, bli medvetna om risker och fallgropar vid kontraktsskrivning och under pågående entreprenad, samt lära sig att förebygga dessa risker. Deltagarna bör ha grundläggande kunskaper i entreprenadjuridik.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "86c1c96ab79435212018",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "702e6c947d8c621fe76a",
+              "text": "\n\nFortsättningskursen i entreprenadjuridik behandlar bland annat:",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "7baf0e92eacc7cc1bec6",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "56a2ee1c11d337a73708",
+              "text": "\n\n– Åtagandets omfattning, tolkning av kontraktshandlingar",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "1261daeedceb8600a026",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "8aa57a7aecd32837f2b0",
+              "text": "\n\n– Kalkylförutsättningar inom entreprenadjuridiken",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "39bf0205dad390c3302e",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "b110d889e34e617e2b2b",
+              "text": "\n\n– Formaliteter och praktisk hantering av förändringar av entreprenaden pga ÄTA, hinder, störningar etc",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "a08f3a0b679c45155517",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "2f22a83e9a09e6d173d8",
+              "text": "\n\n– Ekonomiska konsekvenser av olika händelser",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "6a3484af9d5f7af07ca9",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "646c16b0f5f195b59415",
+              "text": "\n\n– Skadeståndsrättens grundregler, skadestånd inom entreprenadjuridiken",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "21f316cc5923ed487b38",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "f2250c3da604f8253847",
+              "text": "\n\n– Tvistehantering och förhandling",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "2ce21d0a6c4368eedeed",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "3e0e09c84da7fc381b2d",
+              "text": "\n\nVid en företagsintern kurs kan innehållet anpassas efter önskemål. Den kan exempelvis behandla frågeställningar utifrån interna dokument, såsom tillämpade kontrakt, AF-del, avvikelserapporter etc.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "f493618a98fe92718255",
+          "sectionTitle": "Utbildning för erfarna inom entreprenadjuridik",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "955ebcd6d6b427681dda",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "1f157b02589f0849a9b7",
+                  "text": "\n\nUtbildningen riktar sig till dig som har viss erfarenhet av entreprenadjuridik. Du bör ha gått en grundkurs men det är inte ett måste.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "e2d9dc7a0fb24c224e08",
+          "sectionTitle": "Kurslängd",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "66ab2aaa11058d2eef27",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9a4783c6a775d3d51ace",
+                  "text": "\n\nKursen omfattar en utbildningsdag.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven AlbinssonAdvokat / delägareTelefon: +46760 – 51 74 18E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Fördjupningskurs i entreprenadjuridik Fördjupningskursen i entreprenadjuridik riktar sig till deltagare med viss erfarenhet av bygg-, anläggnings- och installationsbranschen. Syftet är att förmedla djupare kunskaper inom entreprenadjuridik samt kunskap om hur man agerar för att förebygga och hantera tvistesituationer. Innehållet fokuseras på händelser som – med hänsyn till regleringarna i AB 04/ABT 06 – kan ha kostnadspåverkan. De teoretiska avsnitten varvas med praktiska övningar. Utrymme ges för deltagarnas egna frågor. Utbildn"
+  },
+  {
+    "title": "Kurs i avtalsjuridik med inriktning mot entreprenadjuridik",
+    "status": "already exists",
+    "id": "a67121ef-6a60-429b-a6d9-03ed3d873fa1",
+    "sourceSlug": "avtalsjuridik",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "2682ee7e501a127f0a7d",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a302da3294ef556ab933",
+              "text": "Att skriva tydliga avtal, identifiera risker i avtal, och att förstå det regelverk som påverkar avtal är av stor vikt när man gör affärer. Denna kurs ger dig grunderna och minskar dina affärsrisker.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "f7054554c84e68ec7cb6",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "8aa57a7aecd32837f2b0",
+              "text": "\n\nKursen behandlar bland annat följande:",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "df0e03f09f43fecd4310",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "b110d889e34e617e2b2b",
+              "text": "\n\n– Hur tolkar en domstol ett otydligt avtal?",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "0ec192c0f90d1332f2ab",
+              "text": "\n",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "1ae5a0c9001739879ef8",
+              "text": "– Hur säkrar man bevisning om avtal eller dess innehåll?",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "b62f83ac792baacd17f4",
+              "text": "\n",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "b9b50c59f4251e9d2d4d",
+              "text": "– Vad händer vid ena partens avtalsbrott?",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "5e3f5bd32061547f7d10",
+              "text": "\n",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "ff03ebd569bbe83387e5",
+              "text": "– Ingående av avtal genom parternas agerande och/eller passivitet",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "23b323a8f473c8d85ba0",
+              "text": "\n",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "d37a27bd393a0d3b1822",
+              "text": "– Vem har rätt att företräda bolag i avtalsförhandlingar?",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "4b86cb1e4dcaaca79cd9",
+              "text": "\n",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "52c08677cc5d041c3036",
+              "text": "– Hur skriver man bra avtal?",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "bc861341b65c5fae1c4e",
+              "text": "\n",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "27d1f808ba7bd1a99344",
+              "text": "– Vanliga klausuler",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "9a8b2e822f98771f5b5c",
+              "text": "\n",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "430f138d46468151fee1",
+              "text": "– Vanligt förekommande fällor i entreprenadavtal",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "a8500269e3a0a9c8b795",
+              "text": "\n",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "40b53111bd97d80d8508",
+              "text": "– Praktiska övningsuppgifter i grupp",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "e0bd0c1f8e5de306658b",
+          "sectionTitle": "Om kursen",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "283387fbc9805fd548ee",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "5b8c65c04662b2a0a790",
+                  "text": "\n\nKursen behandlar bland annat hur man skriver tydliga avtal, olika principer för tolkning av avtal, hur man kan undvika att underförstådda avtal uppstår under projekten på grund av agerande/passivitet, innebörden av vissa vanliga klausuler, m m. Kursen innefattar även praktiska övningsuppgifter där deltagarna tränas i att identifiera riskfyllt avtalsinnehåll och att skriva tydliga avtal.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "ea99cc9e27a2a7e45023",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "98811783e1fee1f43383",
+                  "href": "https://wa-advokat.se/entreprenadjuridik/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "702e6c947d8c621fe76a",
+                  "text": "\n\nKursen kan ses som en ytterligare kunskapspåbyggnad i ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "4caaa93fb401cbc51daf",
+                  "text": "entreprenadjuridik",
+                  "marks": [
+                    "98811783e1fee1f43383"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "2afafcddf683494cf329",
+                  "text": " efter att ha gått vår grundkurs.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "8383de1ad145549ea465",
+          "sectionTitle": "Kurslängd",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "c68614929c0a002079f6",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "646c16b0f5f195b59415",
+                  "text": "\n\nKursen omfattar två utbildningsdagar.\n",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven AlbinssonAdvokat / delägareTelefon: +46760 – 51 74 18E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Kurs i avtalsjuridik med inriktning mot entreprenadjuridik Att skriva tydliga avtal, identifiera risker i avtal, och att förstå det regelverk som påverkar avtal är av stor vikt när man gör affärer. Denna kurs ger dig grunderna och minskar dina affärsrisker. Om kursen Kursen behandlar bland annat hur man skriver tydliga avtal, olika principer för tolkning av avtal, hur man kan undvika att underförstådda avtal uppstår under projekten på grund av agerande/passivitet, innebörden av vissa vanliga klausuler, m m. Kursen innefattar även"
+  },
+  {
+    "title": "Kurs i entreprenadjuridik: konsulträtt (ABK 09)",
+    "status": "already exists",
+    "id": "b7ecdbf6-9e6b-4d17-a24d-1300dff4b0a4",
+    "sourceSlug": "konsultratt-abk-09",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "78aed3adddd2e263d610",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a302da3294ef556ab933",
+              "text": "Denna utbildning tar utgångspunkt i standardavtalet ABK 09. Syftet är att ge deltagarna nödvändiga kunskaper om konsultupphandling, ABK 09 samt praktiska frågor som ofta uppkommer i samband med konsultuppdragets utförande. Kursen behandlar även verkliga rättsfall och exempel samt ger deltagarna verktyg för att undvika problem i projekten.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "b8674b201892de54e0c3",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "37b3b16ebff1eb7c6b8a",
+              "text": "\n\nKursen riktar sig till den som är konsult eller upphandlar konsulter. Kursen kräver inga förkunskaper.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "be1ccc3007af173fac5f",
+          "sectionTitle": "Om utbildningen",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "82d2682a863ae1709306",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "da46f5d08b0078953b92",
+                  "href": "https://wa-advokat.se/entreprenadjuridik/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "5b8c65c04662b2a0a790",
+                  "text": "\n\nKursen omfattar grundläggande konsultjuridik, dvs juridiken som bland annat styr konsultens ansvar för de tjänster han tillhandahåller vilket är en viktig del av ",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "73e23b443f02b5eeecab",
+                  "text": "entreprenadjuridiken",
+                  "marks": [
+                    "da46f5d08b0078953b92"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "cd7da774aa7f1d6b5a15",
+                  "text": ". Kursen innefattar en genomgång av det regelverk som påverkar tekniska konsulter och tar sin utgångspunkt i standardavtalet ABK 09 som nästan alltid används i relationen mellan konsult och uppdragsgivare.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "cf0932841d0ee04c45d2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "702e6c947d8c621fe76a",
+                  "text": "\n\nSyftet med utbildningen är bland annat att deltagarna ska ges kunskap om olika sätt att upphandla konsulter. Frågeställningar som behandlas är bland annat vilka krav som ställs på konsultens utförande av uppdraget, skadeståndsregler, hur rätten till uppdragsresultatet kan hanteras i avtal mellan parterna samt konsultansvarstvistens särskilda drag.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "ed8a777a1b7ab3ae1876",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "56a2ee1c11d337a73708",
+                  "text": "\n\nUtbildningen behandlar bland annat följande:",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "9c7fe352a09144080804",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "8aa57a7aecd32837f2b0",
+                  "text": "\n\n• Avtalsfrågor vid konsultavtal, beställning, uppdragsbekräftelse, avtalstidpunkt m.m.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "2463fa340f575517d1fd",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b110d889e34e617e2b2b",
+                  "text": "\n\n• Omfattning och upphandlingsformer",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "86ca6452e688f52400d0",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2f22a83e9a09e6d173d8",
+                  "text": "\n\n• Genomförande; krav på fackmässighet m.m.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "ab91d45093a16e015b34",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "646c16b0f5f195b59415",
+                  "text": "\n\n• Organisation; behörighetsfrågor, m.m.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "0932dd896f34dfd5b75f",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f2250c3da604f8253847",
+                  "text": "\n\n• Tider",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "51333f8958c8d06862ad",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3e0e09c84da7fc381b2d",
+                  "text": "\n\n• Ansvarsregler; projekteringsmissar, preskription och försäkring",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "a97fe2d48f52ccb703a5",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b0291de4b9ec6f373b85",
+                  "text": "\n\n• Ekonomi; fast eller rörligt arvode, blandformer och budget",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "e3d2cd29779a30052408",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "1f157b02589f0849a9b7",
+                  "text": "\n\n• Rätten till uppdragsresultatet, ändamålet med uppdraget",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "9ed71d080c7a3fef0030",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2b85c012804d40ab209d",
+                  "text": "\n\n• Konsultansvarstvister, svårigheterna med skadeståndskrav",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "e210b3920818feaa1185",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9a4783c6a775d3d51ace",
+                  "text": "\n\n• Användande av administrativa föreskrifter – enligt egna mallar och/eller AF Konsult",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "5f890e5981ad4f480781",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3fd0d44c2332c0108669",
+                  "text": "\n\n• Fällor och fel vid konsultavtal",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "fa2250ea896f23ca44ca",
+          "sectionTitle": "Utbildningens längd",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "9052d1d1c5afaba94744",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "e968afcbe67015bc57dc",
+                  "text": "\n\nKursen omfattar en utbildningsdag.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven AlbinssonAdvokat / delägareTelefon: +46760 – 51 74 18E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Entreprenadjuridik: Konsulträtt (ABK 09) Denna utbildning tar utgångspunkt i standardavtalet ABK 09. Syftet är att ge deltagarna nödvändiga kunskaper om konsultupphandling, ABK 09 samt praktiska frågor som ofta uppkommer i samband med konsultuppdragets utförande. Kursen behandlar även verkliga rättsfall och exempel samt ger deltagarna verktyg för att undvika problem i projekten. Om utbildningen Kursen omfattar grundläggande konsultjuridik, dvs juridiken som bland annat styr konsultens ansvar för de tjänster han tillhandahåller vi"
+  },
+  {
+    "title": "Kurs om skillnaderna mellan de nya och gamla avtalen",
+    "status": "already exists",
+    "id": "53f1d413-f72c-42aa-8bb1-326d7d490ba4",
+    "sourceSlug": "kurs-om-skillnaderna-mellan-de-nya-och-gamla-ab-avtalen",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "c8b1f51d9ae0c8c29673",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a302da3294ef556ab933",
+              "text": "De nya standardavtalen inom branschen omarbetas vilket är en stor förändring inom entreprenadjuridiken.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "d41bd426f95698033c9e",
+          "sectionTitle": "Om utbildningen",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "2af78e43dc904b2f62cc",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "5b8c65c04662b2a0a790",
+                  "text": "De nya standardavtalen innehåller relativt stora förändringar, däribland en ny struktur och en ny kapitelindelning. Delar av regelverket är också helt nytt i förhållande till tidigare versioner. Som exempel kan nämnas att begreppet ÄTA-arbete tagits bort och att många av de krav som entreprenören kan ha på grund av omständigheter som är kostnadsdrivande har klumpats ihop till samma rättsfigur, vilket sannolikt gör det enklare att framställa krav mot beställaren. Beställaren har vidare fått utökad rätt att påverka under entreprenadtiden, genom att t ex begära att få ta del av information om kvalitet, miljö, arbetsmiljö och annan information som är av vikt för entreprenaden. De nya avtalen har även moderniserats så att de kan hantera digitala modeller och förändringar i sådana.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "c228102c43a811c35de8",
+          "sectionTitle": "Kursen omfattar bland annat",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "be52e6016de9ef4e1094",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "56a2ee1c11d337a73708",
+                  "text": "Genomgång av struktur och kapitelindelning i nya AB 25 och ABPU 25.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "6c2bfbea821a9a29798e",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "8aa57a7aecd32837f2b0",
+                  "text": "Nya begrepp och bestämmelser.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "6c6745f3a6051a2a4133",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b110d889e34e617e2b2b",
+                  "text": "Modernisering av arbetssätt vid entreprenader; digitala modeller etc",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "4c98b543fc60cc749893",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2f22a83e9a09e6d173d8",
+                  "text": "Beställarens rätt att utöver kontroll av entreprenaden under entreprenadtiden",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "69b4f1e9bee869745467",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "646c16b0f5f195b59415",
+                  "text": "Nytt sätt att hantera ÄTA, hinder, störningar m m",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "0a2b386434a6cb838cc4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f2250c3da604f8253847",
+                  "text": "Entreprenader på löpande räkning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "289d719b3fb19215c4ad",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3e0e09c84da7fc381b2d",
+                  "text": "Jämförelse av AB 25 och ABPU 25 i förhållande till föregående versioner av standardavtalen, med fokus på de viktigaste skillnaderna.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "d2f57d6a49b86c427180",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b0291de4b9ec6f373b85",
+                  "text": "Praktiska råd vid övergången mellan nuvarande AB avtal och AB 25 och ABPU 25.",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "84e14b96767b1d025593",
+          "sectionTitle": "Målet med kursen",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "e390a67f62f518d34ade",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2b85c012804d40ab209d",
+                  "text": "Under kursen går vi igenom de viktigaste förändringarna i förhållande till föregående versioner av standardavtalen. Målet med kursen är att deltagarna ska få en god inblick i de nya entreprenadjuridiska regelverken samt vad som har förändrats i förhållande till AB 04 och ABT 06.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "3fa1840db1602f2a35be",
+          "sectionTitle": "Utbildningens längd",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "bcb905418418d95db45d",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3fd0d44c2332c0108669",
+                  "text": "Kursen ges på en halvdag och vid förfrågan.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "916a75be7dfd9a45ea6e",
+          "sectionTitle": "Intresseanmälan",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "17f04c73ef73d8843a19",
+              "style": "normal",
+              "markDefs": [
+                {
+                  "_type": "link",
+                  "_key": "f31d0fca341d19e0d8f6",
+                  "href": "https://wa-advokat.se/boka-grundkurs-i-entreprenadjuridik-idag/"
+                }
+              ],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "37b3b16ebff1eb7c6b8a",
+                  "text": "Vill du veta mer?",
+                  "marks": [
+                    "f31d0fca341d19e0d8f6"
+                  ]
+                },
+                {
+                  "_type": "span",
+                  "_key": "ffc96b0440a64774609a",
+                  "text": " Vi återkopplar snabbt med kursinformation eller andra frågor du vill ha svar på.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven AlbinssonAdvokat / delägareTelefon: +46760 – 51 74 18E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Kurs om skillnaderna mellan de nya och gamla AB avtalen De nya standardavtalen inom branschen omarbetas vilket är en stor förändring inom entreprenadjuridiken. Om utbildningen De nya standardavtalen innehåller relativt stora förändringar, däribland en ny struktur och en ny kapitelindelning. Delar av regelverket är också helt nytt i förhållande till tidigare versioner. Som exempel kan nämnas att begreppet ÄTA-arbete tagits bort och att många av de krav som entreprenören kan ha på grund av omständigheter som är kostnadsdrivande har"
+  },
+  {
+    "title": "Praktisk besiktningskurs för beställare och entreprenörer",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-424a82354649d518bfce",
+    "slug": "praktisk-besiktningskurs-for-bestallare-och-entreprenorer",
+    "paragraphs": 2,
+    "sourceSlug": "praktisk-besiktningskurs-for-bestallare-och-entreprenorer",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "6473fde24e58989013f6",
+          "style": "h3",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "heading",
+              "text": "Besiktningsförfarandets ”Best Practice”",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "894cd26312bb5e357824",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a9ce007250cb86d0c067",
+              "text": "I AB-familjens avtal har många besiktningsfrågor lämnats öppna. Det är då istället upp till parterna att hantera dessa frågor, vilket ofta sker löpande under entreprenadtiden snarare än i entreprenadavtalet.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "42966ea9231f57b5ad1b",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "5b8c65c04662b2a0a790",
+              "text": "I denna kurs går vi igenom vanliga problem och vad som är ”best practice” när det kommer till besiktningsförfarandet. Kursen innehåller en juridisk del där advokat specialiserad inom entreprenadjuridik är kursledare samt en praktisk del där besiktningsman/projektledare är kursledare.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "3703d995d3ffcbd6ab96",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "56a2ee1c11d337a73708",
+              "text": "Kursen riktar sig till dig som löpande arbetar med entreprenadprojekt, såsom till exempel projekt- eller arbetsledare, ombud eller liknande. Kursen riktar sig till såväl beställare som entreprenörer.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "d7a9e373c363e30fe29e",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "8aa57a7aecd32837f2b0",
+              "text": "Kursen riktar sig inte till besiktningsmän.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "292d487970853d92ba4e",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "1f157b02589f0849a9b7",
+              "text": "Inga förkunskaper nödvändiga.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "e73b03058bac1e6d57da",
+          "sectionTitle": "Kursinnehåll",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "a5979b365a2cd73fe89a",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2f22a83e9a09e6d173d8",
+                  "text": "Kursens syfte är att ge deltagarna konkreta verktyg för att undvika problem i entreprenadprojekten samt att identifiera vad som utgör ”best practice”. Kursen ger deltagarna nödvändiga kunskaper om entreprenadbesiktningar samt praktiska verktyg att hantera de frågor som löpande uppkommer under entreprenadprojekt.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "3fe8de898372f640120e",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "646c16b0f5f195b59415",
+                  "text": "I kursen gås bland annat igenom hur beställaren respektive entreprenören kan hantera slutbesiktningen för att hamna i en så bra position som möjligt. I kursen genomgås relevanta avtalsbestämmelser, verkliga exempel och rättsfall rörande besiktningsförfarandet.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "05af71caba9b243e7ba9",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f2250c3da604f8253847",
+                  "text": "Genom de båda kursledarnas olika yrkesroller och erfarenhet får utbildningen ett unikt djup.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "856101718018c9e19cdf",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3e0e09c84da7fc381b2d",
+                  "text": "Efter avslutad kurs ska deltagarna ha erhållit kunskap om vilka juridiska och praktiska problem som ofta uppkommer samt hur dessa lämpligast kan hanteras.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "a1097b530e15ce8e1700",
+          "sectionTitle": "Utbildningens längd",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "643aee2b833f8858b38f",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9a4783c6a775d3d51ace",
+                  "text": "En utbildningsdag.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "a617668a33203a87292c",
+          "sectionTitle": "Kursbeskrivning",
+          "sectionContent": []
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "8d1046d3b6c7ec61af14",
+          "sectionTitle": "Förmiddag",
+          "sectionContent": []
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "aaa05d4b4cced7f64e0d",
+          "sectionTitle": "Pass 1 – Genomförandet",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "ad58f3b1fb4cac6671be",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "aa65502de905860e1960",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "955d493abc2c6d57de6f",
+                  "text": "Praktisk planering av ett besiktningsförfarande, besiktningsplaner och besiktningstidplaner",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "f20a1e8b6846a3b2c189",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "058d597a0f4b88de1151",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "e968afcbe67015bc57dc",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "47041251b9cbe1e16137",
+                  "text": "Att utse en besiktningsman – hur ska man tänka",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "080c017e2abaf821dc7b",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "f65e7edf3d9f8f7e1411",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b35db1ba1a312eb590bc",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "1f0d872857cdc8beb2ba",
+                  "text": "Vilka regelverk reglerar besiktningar och hur kan man som beställare och entreprenör ta del av dem och bli bättre på dem",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "ab99d77b0f98ca9a08f5",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "0e6d6dfe9bf526602f33",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2702bac1b476b4750e4c",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "159b0f6bc3f33172d75d",
+                  "text": "Praktiskt genomförande av en besiktning och hantering av entreprenadens godkännande",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "14467e42cd1d6ccad8c2",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "2d73949979f4e4aeefdb",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "25afb5697f41ec7ee5de",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "4a0e28713d67dd9472bb",
+                  "text": "Garantier och ansvarstid",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "632910ed2e977518c945",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "46f4cee486fd09f14dfa",
+          "sectionTitle": "Pass 2 – Djupdykning i kapitel 7",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "72d273351011522131ac",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "cb5edc4fbb104b89cb1e",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "b9638ec5c046f5db03fd",
+                  "text": "Parternas strategiska överväganden rörande olika besiktningsformer",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "79807d7071d6dc0c4ae1",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "326fc74888003c138769",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "28aafb4ca56edfa58bdc",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "0ba5ccaf945b46ced9da",
+                  "text": "Genomgång av relevant rättspraxis, vanliga fel och fallgropar som kan uppstå i samband med besiktningsförfarandet",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "a7de8c2f0eb1e8ada701",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "e917659d387ce268470b",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ce26231ce03db9482dcc",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "f3d35c91c9326e2f544e",
+                  "text": "Praktiska frågor vid slutbesiktning – vad bör man tänka på",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "9a51775e37aa05bd9a21",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "ab32b9a1b719961e0017",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "bad2ce6173b99e5d33aa",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "9c165994151aa98994d2",
+                  "text": "Vilka juridiska frågor måste beställaren och entreprenören ta ställning till",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "9ab24d674ff58a149977",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "8500c499e6cdb95c56b1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "c54580c2d8839ccae6d6",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "0b2364cee0117c0cd5c2",
+                  "text": "Hantering av besiktningsplaner",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "ae51097f09db3b937028",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "c526fe6b65fcc7c3a84d",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "fcc5a72d27f3b73ca524",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "68c52c38214af1265826",
+                  "text": "Entreprenader där slutbesiktning avtalats bort eller av annan anledning inte genomförs",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "d126327ad54f5fe76676",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "85108b4395b2e8a7ad66",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f3286be29226b14352eb",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "ae626bde226312377538",
+                  "text": "Juridiska verkningar av olika besiktningar",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "6b81c5317612491d3ed3",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "3bd9d80e20c450667221",
+          "sectionTitle": "Eftermiddag",
+          "sectionContent": []
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "7f393b3127e04e833a9d",
+          "sectionTitle": "Pass 3 – En korrekt utförd entreprenadbesiktning",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "f30d0f9416a407bfa606",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "64b369ac4be111ade316",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "6368b36c92cd507eba3c",
+                  "text": "Hur fungerar det oftast idag och vilka fallgropar bör man undvika",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "100238207f808abf796d",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "ee091ec864fcf8b850dd",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "7a718ed734a95b10a06f",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "714f42350b0fbef799ad",
+                  "text": "Fokus på vilka handlingar som ska ligga till grund för en entreprenadbesiktning",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "8d21241870ec3835098c",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "a456b34db8a8a976a90b",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "afd92779ee24f3ae5d6f",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "a1cef41dbaa4d7700be8",
+                  "text": "Vikten av att dokumentera avvikelser från kontraktshandlingarna",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "7ce62acb4c82fc79c4d8",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "e782897ded446a304a40",
+          "sectionTitle": "Pass 4 – Avtalsjuridiken som styr entreprenadens genomförande",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "61b3434f2587cfd8d5dc",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "8b1726732a4d1362eb92",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "95bb987ced14af96eeae",
+                  "text": "Särskilt fokus läggs på frågor som påverkar besiktningsförfarandet eller innehållet i det befintliga avtalet",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "789be9d12c246f237cd1",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "d5b5d701b7cc9e014b82",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b7c0e52e464e81339331",
+                  "text": "\n",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "d8bcc6d14b454cb0f588",
+                  "text": "Genomgång av hur beställaren respektive entreprenören bör tänka och agera inför slutbesiktningen",
+                  "marks": []
+                },
+                {
+                  "_type": "span",
+                  "_key": "5886e7e3fa4092d25f7d",
+                  "text": "\n",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven AlbinssonAdvokat / delägareTelefon: +46760 – 51 74 18E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Praktisk besiktningskurs för beställare och entreprenörer Besiktningsförfarandets ”Best Practice” I AB-familjens avtal har många besiktningsfrågor lämnats öppna. Det är då istället upp till parterna att hantera dessa frågor, vilket ofta sker löpande under entreprenadtiden snarare än i entreprenadavtalet. I denna kurs går vi igenom vanliga problem och vad som är ”best practice” när det kommer till besiktningsförfarandet. Kursen innehåller en juridisk del där advokat specialiserad inom entreprenadjuridik är kursledare samt en prakt"
+  },
+  {
+    "title": "Entreprenadjuridik för beställare",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-cb367be34c16a0a03390",
+    "slug": "entreprenadjuridik-for-bestallare",
+    "paragraphs": 2,
+    "sourceSlug": "entreprenadjuridik-for-bestallare",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "91f4cac3a56f516d607a",
+          "style": "h3",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "heading",
+              "text": "Grundkurs med fokus på beställarens ansvar, risker och möjligheter",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "17cea37029ce4cf4392d",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a9ce007250cb86d0c067",
+              "text": "Entreprenadprojekt innebär stora ekonomiska värden och komplexa juridiska frågeställningar. För beställaren är det avgörande att förstå hur entreprenadavtalet ska användas för att styra projektet, minska riskerna och skapa rätt förutsättningar för ett framgångsrikt genomförande.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "c120eae7de0bbbca7904",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "5b8c65c04662b2a0a790",
+              "text": "Denna kurs ger en praktisk introduktion till entreprenadjuridiken med särskilt fokus på de frågor som är viktigast ur ett beställarperspektiv. Kursen utgår från AB 04 och ABT 06 och varvar genomgång av regelverket med praktiska exempel från verkliga entreprenadprojekt.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "1d0695fd6b1c5d5e2deb",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "702e6c947d8c621fe76a",
+              "text": "Deltagarna får en förståelse för hur beställaren bör agera genom hela entreprenaden – från upphandling och kontraktsskrivning till produktion, besiktning och slutreglering.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "239368ab36233d3663fb",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "56a2ee1c11d337a73708",
+              "text": "Kursen kan genomföras som en ",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "ae5dd0c8f5769cc5bb28",
+              "text": "intensiv endagskurs",
+              "marks": [
+                "strong"
+              ]
+            },
+            {
+              "_type": "span",
+              "_key": "ff24aa1d961a006dbe7d",
+              "text": " eller som en ",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "962538260cc175754911",
+              "text": "fördjupad tvådagarskurs",
+              "marks": [
+                "strong"
+              ]
+            },
+            {
+              "_type": "span",
+              "_key": "1bcef002ce389c49debd",
+              "text": ".",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "c4dc14b89c23c8eab022",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "b110d889e34e617e2b2b",
+              "text": "Kursen riktar sig till dig som företräder beställarsidan i entreprenadprojekt, exempelvis projektledare, byggledare, projektchefer, fastighetsägare, kommuner och regioner, beställarombud, inköpare, tekniska konsulter och förvaltare.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "91d5acd6c7ff0ed67a21",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "2f22a83e9a09e6d173d8",
+              "text": "Några förkunskaper i entreprenadjuridik krävs inte.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "076cbb0baf81c9852caa",
+          "sectionTitle": "Kursinnehåll",
+          "sectionContent": []
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "87a012a4ef42f1242d2a",
+          "sectionTitle": "Dag 1 – Grundläggande entreprenadjuridik ur beställarens perspektiv",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "3ec098c8a40e366f98ea",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3e0e09c84da7fc381b2d",
+                  "text": "Under kursens första dag behandlas de grundläggande reglerna i AB 04 och ABT 06 och hur de påverkar beställarens arbete genom hela entreprenaden.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "395a8b59c927dd22ffa8",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b0291de4b9ec6f373b85",
+                  "text": "Bland annat behandlas entreprenadformer och ansvarsfördelning, AB 04 och ABT 06 – struktur och uppbyggnad, beställarens ansvar och befogenheter, kontraktshandlingarnas rangordning, projektering och ansvarsfördelning, tider, förseningar och vite, ÄTA-arbeten, ekonomisk reglering, säkerheter och försäkringar, besiktningar, garantitid och ansvar efter entreprenaden samt praktiska exempel och vanliga fallgropar.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "3dd70b9741bfe1655189",
+          "sectionTitle": "Dag 2 – Fördjupning och praktisk tillämpning",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "23808483d7be664ff081",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2b85c012804d40ab209d",
+                  "text": "Den andra dagen ger deltagarna en djupare förståelse för hur entreprenadjuridiken används i praktiken och hur beställaren kan förebygga kostsamma tvister.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b3a9804175cb5ced6457",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9a4783c6a775d3d51ace",
+                  "text": "Fördjupningen omfattar bland annat kravhantering under entreprenaden, dokumentation och bevisning, störningar och hinder, hantering av omfattande ÄTA-arbeten, ekonomiska konsekvenser av ändringar, samverkan mellan beställare, entreprenör och konsult, besiktningsprocessen ur beställarens perspektiv, reklamationer, tvistelösning samt genomgång av rättsfall och praktiska exempel.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "f2feb3fb14efbae64810",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3fd0d44c2332c0108669",
+                  "text": "Stor vikt läggs vid diskussioner och erfarenhetsutbyte kring deltagarnas egna projekt.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "4a60020210f10db3e093",
+          "sectionTitle": "Kursens mål",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "38fe25eb90b66021b9b7",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "37b3b16ebff1eb7c6b8a",
+                  "text": "Efter kursen ska deltagarna ha en god förståelse för hur entreprenadavtalet används som ett praktiskt verktyg i beställarrollen.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "fde22e5cfd172175ee4a",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "aa65502de905860e1960",
+                  "text": "Deltagarna ska bland annat kunna förstå uppbyggnaden av AB 04 och ABT 06, identifiera de viktigaste juridiska riskerna i ett entreprenadprojekt, fatta välgrundade beslut under projektets genomförande, hantera frågor om ÄTA-arbeten, tider och ansvar, minska risken för kostsamma tvister samt skapa bättre förutsättningar för framgångsrika entreprenader.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "d073ea601482c44459eb",
+          "sectionTitle": "Kursupplägg",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "01b97554945f58a6b4fb",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b35db1ba1a312eb590bc",
+                  "text": "Kursen erbjuds i två olika omfattningar.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "78da70d7a883822d7710",
+          "sectionTitle": "Endagskurs",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "58c57dffd5fe800b5ab3",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "25afb5697f41ec7ee5de",
+                  "text": "En koncentrerad grundutbildning som ger deltagarna en god förståelse för entreprenadjuridikens viktigaste delar ur ett beställarperspektiv.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "0bf11ac5d6f9ba6591b4",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "29c33a3753580302d390",
+                  "text": "Passar organisationer som vill ge projektledare och beställare en stabil juridisk grund.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "27fe11b3ddda07c865c4",
+          "sectionTitle": "Tvådagarskurs",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "572dab5ed8bd20ac6fd0",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "28aafb4ca56edfa58bdc",
+                  "text": "Innehåller samma grund som endagskursen men kompletteras med fördjupning, praktiska övningar och fler verkliga exempel.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "ab4c4c508e28db48dc0e",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ce26231ce03db9482dcc",
+                  "text": "Passar organisationer som arbetar löpande med större entreprenadprojekt eller vill ge sina medarbetare en mer omfattande utbildning.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven Albinsson Advokat / delägare Telefon: +46760 – 51 74 18 E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Entreprenadjuridik för beställare Grundkurs med fokus på beställarens ansvar, risker och möjligheter Entreprenadprojekt innebär stora ekonomiska värden och komplexa juridiska frågeställningar. För beställaren är det avgörande att förstå hur entreprenadavtalet ska användas för att styra projektet, minska riskerna och skapa rätt förutsättningar för ett framgångsrikt genomförande. Denna kurs ger en praktisk introduktion till entreprenadjuridiken med särskilt fokus på de frågor som är viktigast ur ett beställarperspektiv. Kursen u"
+  },
+  {
+    "title": "Entreprenadjuridik för entreprenörer",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-7b0a3abbbd154b67b4aa",
+    "slug": "entreprenadjuridik-for-entreprenorer",
+    "paragraphs": 2,
+    "sourceSlug": "entreprenadjuridik-for-entreprenorer",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "00e29790281526d2d01a",
+          "style": "h3",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "heading",
+              "text": "Grundkurs med fokus på entreprenörens rättigheter, skyldigheter och affärsmässiga risker",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "eecf1ba06690028902d8",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a9ce007250cb86d0c067",
+              "text": "Entreprenadprojekt ställer höga krav på såväl tekniskt kunnande som förståelse för de juridiska regler som styr entreprenaden. För entreprenören är det viktigt att känna till sina rättigheter och skyldigheter för att kunna genomföra projekt effektivt, hantera förändringar och säkerställa rätt till ersättning.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "6340a47e7ae9366030c7",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "5b8c65c04662b2a0a790",
+              "text": "Denna kurs ger en praktisk introduktion till entreprenadjuridiken med särskilt fokus på de frågeställningar som är viktigast ur entreprenörens perspektiv. Kursen utgår från AB 04 och ABT 06 och kombinerar genomgång av regelverket med praktiska exempel från verkliga entreprenadprojekt.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "448dfdd899c9f122b760",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "702e6c947d8c621fe76a",
+              "text": "Deltagarna får kunskap om hur entreprenören bör agera från anbud och kontraktstecknande till produktion, besiktning och garantitid för att minska riskerna och skapa bättre lönsamhet i projekten.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "239368ab36233d3663fb",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "56a2ee1c11d337a73708",
+              "text": "Kursen kan genomföras som en ",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "ae5dd0c8f5769cc5bb28",
+              "text": "intensiv endagskurs",
+              "marks": [
+                "strong"
+              ]
+            },
+            {
+              "_type": "span",
+              "_key": "ff24aa1d961a006dbe7d",
+              "text": " eller som en ",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "962538260cc175754911",
+              "text": "fördjupad tvådagarskurs",
+              "marks": [
+                "strong"
+              ]
+            },
+            {
+              "_type": "span",
+              "_key": "1bcef002ce389c49debd",
+              "text": ".",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "aab12a86716209b5a813",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "b110d889e34e617e2b2b",
+              "text": "Kursen riktar sig till dig som arbetar hos entreprenörer eller installationsföretag, exempelvis projektledare, platschefer, arbetsledare, entreprenadingenjörer, kalkylatorer, projektchefer, företagsledare och andra som arbetar med entreprenadprojekt.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "91d5acd6c7ff0ed67a21",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "2f22a83e9a09e6d173d8",
+              "text": "Några förkunskaper i entreprenadjuridik krävs inte.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "b41281c33e3b180abaaf",
+          "sectionTitle": "Kursinnehåll",
+          "sectionContent": []
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "9bdcbdf79ea4a5a6e124",
+          "sectionTitle": "Dag 1 – Grundläggande entreprenadjuridik ur entreprenörens perspektiv",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "fabfd13609668507d8a2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3e0e09c84da7fc381b2d",
+                  "text": "Under kursens första dag behandlas de grundläggande reglerna i AB 04 och ABT 06 och hur de påverkar entreprenörens arbete genom hela entreprenaden.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "aa6ddc7d00cfcda9dd9f",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b0291de4b9ec6f373b85",
+                  "text": "Bland annat behandlas entreprenadformer och ansvarsfördelning, AB 04 och ABT 06 – struktur och uppbyggnad, entreprenörens ansvar och åtaganden, kontraktshandlingarnas rangordning, projektering och ansvarsfördelning, tider, förseningar och vite, ÄTA-arbeten och entreprenörens rätt till ersättning, ekonomisk reglering, säkerheter och försäkringar, besiktningar, garantitid och ansvar efter entreprenaden samt praktiska exempel och vanliga fallgropar.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "be316999b5cb6822139b",
+          "sectionTitle": "Dag 2 – Fördjupning och praktisk tillämpning",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "6ddae713faaf1dd00c8c",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2b85c012804d40ab209d",
+                  "text": "Den andra dagen ger deltagarna en djupare förståelse för hur entreprenadjuridiken används i praktiken och hur entreprenören kan minska juridiska och ekonomiska risker under projektets genomförande.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "1dc5055aeb129efcf30e",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9a4783c6a775d3d51ace",
+                  "text": "Fördjupningen omfattar bland annat kravhantering mot beställaren, dokumentation och bevisning, hinder och störningar i entreprenaden, hantering av ÄTA-arbeten och ersättningskrav, ekonomiska konsekvenser av ändringar, samverkan med beställare och konsulter, besiktningsprocessen ur entreprenörens perspektiv, reklamationer, tvistelösning samt genomgång av rättsfall och praktiska exempel.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "f2feb3fb14efbae64810",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3fd0d44c2332c0108669",
+                  "text": "Stor vikt läggs vid diskussioner och erfarenhetsutbyte kring deltagarnas egna projekt.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "6888ce64b22a90a86e1f",
+          "sectionTitle": "Kursens mål",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "6ca47a86039169bc1d1a",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "37b3b16ebff1eb7c6b8a",
+                  "text": "Efter kursen ska deltagarna ha en god förståelse för hur entreprenadavtalet kan användas som ett praktiskt verktyg för att genomföra entreprenader med bättre kontroll över tid, kostnader och ansvar.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "1a2b1111fd9fa1097ad7",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "aa65502de905860e1960",
+                  "text": "Deltagarna ska bland annat kunna förstå uppbyggnaden av AB 04 och ABT 06, identifiera juridiska och ekonomiska risker i entreprenadprojekt, hantera frågor om ÄTA-arbeten, hinder och förseningar, dokumentera och framställa krav på ett korrekt sätt, minska risken för tvister samt skapa bättre förutsättningar för lönsamma och väl genomförda entreprenader.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "bdcba0b7a5c748816ae3",
+          "sectionTitle": "Kursupplägg",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "01b97554945f58a6b4fb",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b35db1ba1a312eb590bc",
+                  "text": "Kursen erbjuds i två olika omfattningar.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "0d5822c9c415ce150fd7",
+          "sectionTitle": "Endagskurs",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "38ba504c90b7805e053c",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "25afb5697f41ec7ee5de",
+                  "text": "En koncentrerad grundutbildning som ger deltagarna en god förståelse för entreprenadjuridikens viktigaste delar ur entreprenörens perspektiv.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "e6f54f0c8b776eeb6949",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "29c33a3753580302d390",
+                  "text": "Passar företag som vill ge projektledare, platschefer och arbetsledare en stabil juridisk grund för det dagliga arbetet.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "bd046cdfdb17bf7560c5",
+          "sectionTitle": "Tvådagarskurs",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "572dab5ed8bd20ac6fd0",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "28aafb4ca56edfa58bdc",
+                  "text": "Innehåller samma grund som endagskursen men kompletteras med fördjupning, praktiska övningar och fler verkliga exempel.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "dda541a29b2904135a05",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ce26231ce03db9482dcc",
+                  "text": "Passar entreprenadföretag som arbetar med större eller mer komplexa projekt och vill ge sina medarbetare en mer omfattande utbildning inom entreprenadjuridik.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven Albinsson Advokat / delägare Telefon: +46760 – 51 74 18 E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Entreprenadjuridik för entreprenörer Grundkurs med fokus på entreprenörens rättigheter, skyldigheter och affärsmässiga risker Entreprenadprojekt ställer höga krav på såväl tekniskt kunnande som förståelse för de juridiska regler som styr entreprenaden. För entreprenören är det viktigt att känna till sina rättigheter och skyldigheter för att kunna genomföra projekt effektivt, hantera förändringar och säkerställa rätt till ersättning. Denna kurs ger en praktisk introduktion till entreprenadjuridiken med särskilt fokus på de fråg"
+  },
+  {
+    "title": "Praktisk kurs – kostnadsdrivande konsekvenser i entreprenader",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-e6f8c31db3a845521960",
+    "slug": "praktisk-kurs-kostnadsdrivande-konsekvenser-i-entreprenader",
+    "paragraphs": 2,
+    "sourceSlug": "praktisk-kurs-kostnadsdrivande-konsekvenser-i-entreprenader",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "945946f51eb05de29ae0",
+          "style": "h3",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "heading",
+              "text": "Störningar, hinder, ÄTA-arbeten och väsentlig rubbning i praktiken",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "112df9ec7fa66b27a6ff",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a9ce007250cb86d0c067",
+              "text": "I entreprenadprojekt uppstår ofta situationer som påverkar både tid och kostnader. Störningar i produktionen, hinder i arbetet, ändringar och tilläggsarbeten (ÄTA) samt frågor om väsentlig rubbning kan få betydande ekonomiska konsekvenser för både beställare och entreprenörer.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "819785e2a22f0245530f",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "5b8c65c04662b2a0a790",
+              "text": "Regelverken i AB-familjens standardavtal ger en ram för hur dessa situationer ska hanteras, men i praktiken uppstår ofta frågor om när ersättning kan krävas, hur krav ska formuleras och hur konsekvenser ska dokumenteras och bevisas.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "fb856f4e156b0af82120",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "702e6c947d8c621fe76a",
+              "text": "I denna kurs går vi igenom vanliga situationer där kostnader uppstår i entreprenader och hur dessa bör hanteras i praktiken. Kursen kombinerar en juridisk genomgång av regelverket med praktiska exempel från verkliga projekt.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "57a055db293937fa8cbb",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "56a2ee1c11d337a73708",
+              "text": "Målet är att deltagarna ska få bättre förståelse för när ersättning kan krävas eller bestridas, hur krav ska hanteras korrekt samt hur konflikter kan förebyggas.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "e958a252815593d160f7",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "b110d889e34e617e2b2b",
+              "text": "Kursen riktar sig till dig som arbetar praktiskt med entreprenadprojekt, exempelvis:",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "4b2c471198b17c21e644",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "2f22a83e9a09e6d173d8",
+              "text": "projektledare",
+              "marks": []
+            }
+          ],
+          "listItem": "bullet",
+          "level": 1
+        },
+        {
+          "_type": "block",
+          "_key": "b4d49da0c41028b8f8f7",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "646c16b0f5f195b59415",
+              "text": "arbetsledare",
+              "marks": []
+            }
+          ],
+          "listItem": "bullet",
+          "level": 1
+        },
+        {
+          "_type": "block",
+          "_key": "da194b5f6c0b09e7ef8f",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "f2250c3da604f8253847",
+              "text": "platschefer",
+              "marks": []
+            }
+          ],
+          "listItem": "bullet",
+          "level": 1
+        },
+        {
+          "_type": "block",
+          "_key": "be726b3eeefaad32670d",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "3e0e09c84da7fc381b2d",
+              "text": "entreprenadchefer",
+              "marks": []
+            }
+          ],
+          "listItem": "bullet",
+          "level": 1
+        },
+        {
+          "_type": "block",
+          "_key": "157923b846734741c62d",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "b0291de4b9ec6f373b85",
+              "text": "beställarombud",
+              "marks": []
+            }
+          ],
+          "listItem": "bullet",
+          "level": 1
+        },
+        {
+          "_type": "block",
+          "_key": "d0a46f56c4fc280f3497",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "1f157b02589f0849a9b7",
+              "text": "konsulter inom bygg- och anläggningsprojekt",
+              "marks": []
+            }
+          ],
+          "listItem": "bullet",
+          "level": 1
+        },
+        {
+          "_type": "block",
+          "_key": "c9d63c201a4f4deab8dd",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "2b85c012804d40ab209d",
+              "text": "Kursen riktar sig till såväl ",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "108049760e4b0cdf18de",
+              "text": "beställare som entreprenörer",
+              "marks": [
+                "strong"
+              ]
+            },
+            {
+              "_type": "span",
+              "_key": "2eaf76153e4886cf0347",
+              "text": " som vill stärka sin förståelse för hur kostnadsdrivande situationer i entreprenader ska hanteras.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "402b1c706db166bd46fc",
+          "sectionTitle": "Kursinnehåll",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "38324a1521f2ab225114",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3fd0d44c2332c0108669",
+                  "text": "Kursen ger deltagarna kunskap om hur kostnadsdrivande situationer i entreprenader uppstår och hur de bör hanteras enligt AB-systemet och i praktiken.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "d9d87b3da8aab669ad9d",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "e5c9bc83f4b8007f6a3d",
+                  "text": "Under kursen behandlas bland annat:",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "3f66a93cde5a79c22ad8",
+          "sectionTitle": "ÄTA-arbeten",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "9475b57ee624fd2ba9cf",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "aa65502de905860e1960",
+                  "text": "Vad är ett ÄTA-arbete?",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "2e2f3fac1110f78ee96c",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "e968afcbe67015bc57dc",
+                  "text": "Beställning och rätt till ersättning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "31f09531de6e7a38bc48",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b35db1ba1a312eb590bc",
+                  "text": "Bevisfrågor och dokumentation",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "e51a7a048e1fd6bd7854",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2702bac1b476b4750e4c",
+                  "text": "Vanliga tvister kring ÄTA",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "3f04485c69bc4ebb797d",
+          "sectionTitle": "Hinder i entreprenaden",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "0f47ff3457e2c90164bf",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "29c33a3753580302d390",
+                  "text": "Vad räknas som hinder?",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "1ac432651b0cd2fd754e",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "cb5edc4fbb104b89cb1e",
+                  "text": "Rätt till tidsförlängning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b9fadddb03deb112630a",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "28aafb4ca56edfa58bdc",
+                  "text": "Sambandet mellan hinder och kostnadsersättning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "bd0099b5df3f8a8e4ec2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ce26231ce03db9482dcc",
+                  "text": "Praktiska exempel från projekt",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "c7098aad4b4fc4108113",
+          "sectionTitle": "Störningar i produktionen",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "80dac6f76d309fb36e4f",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "c54580c2d8839ccae6d6",
+                  "text": "Produktionsstörningar och ineffektivitet",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "c641fe982c4816b19640",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "fcc5a72d27f3b73ca524",
+                  "text": "Hur störningar kan påverka kostnader",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "e0acfc4133c43c615703",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f3286be29226b14352eb",
+                  "text": "Metoder för att identifiera och dokumentera störningar",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "f1b391175a3116236e9c",
+          "sectionTitle": "Väsentlig rubbning",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "c1e571df4dd8df011de2",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "76690b9129b9895c87a9",
+                  "text": "Vad innebär väsentlig rubbning av entreprenaden?",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "f52350e2ceae0d38d8b1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "64b369ac4be111ade316",
+                  "text": "När kan ersättning utgå?",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "202bc3b4ea57cfeb98c9",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "7a718ed734a95b10a06f",
+                  "text": "Bedömningar i praxis och praktiska exempel",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "00dd8e5165480139b382",
+          "sectionTitle": "Praktisk hantering av krav",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "df359b53f74503fbde12",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "c419226b2d82b6d184e8",
+                  "text": "Hur krav ska formuleras och framställas",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b80586cb18afa139f5d5",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "8b1726732a4d1362eb92",
+                  "text": "Dokumentation som stärker eller försvagar ett krav",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "1e40e6d3271bdff4fda6",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b7c0e52e464e81339331",
+                  "text": "Hur tvister kan undvikas genom rätt hantering under projektets gång",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "02cb768b050ba6a123e9",
+          "sectionTitle": "Utbildningens längd",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "dfd1ddf4b2954c5270a9",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "055a2f18067132c33084",
+                  "text": "En utbildningsdag.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "8bd4fc81227f99ea98f7",
+          "sectionTitle": "Kursens mål",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "ef03a2fad5fdab3651eb",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "23ce24895ca207a1781f",
+                  "text": "Efter kursen ska deltagarna:",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "d1116d622c6bb59fa87e",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "d577d2c9ec3b4add2739",
+                  "text": "förstå när kostnadsdrivande situationer uppstår i entreprenader",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "78e32d44f59d805350ac",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ddb5ad2cffe9282163b6",
+                  "text": "kunna identifiera hinder, störningar och ÄTA-arbeten",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "701142ba76e5f376abda",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "7affcc9294d722e0a729",
+                  "text": "veta hur krav ska hanteras och dokumenteras",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "f6238151c7e63dda7491",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ca347c4be74bb570a6e1",
+                  "text": "ha bättre förutsättningar att förebygga tvister i entreprenadprojekt",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven AlbinssonAdvokat / delägareTelefon: +46760 – 51 74 18E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Praktisk kurs – kostnadsdrivande konsekvenser i entreprenader Störningar, hinder, ÄTA-arbeten och väsentlig rubbning i praktiken I entreprenadprojekt uppstår ofta situationer som påverkar både tid och kostnader. Störningar i produktionen, hinder i arbetet, ändringar och tilläggsarbeten (ÄTA) samt frågor om väsentlig rubbning kan få betydande ekonomiska konsekvenser för både beställare och entreprenörer. Regelverken i AB-familjens standardavtal ger en ram för hur dessa situationer ska hanteras, men i praktiken uppstår ofta frågor "
+  },
+  {
+    "title": "Besiktningsjuridik",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-079417aeb97887a2a4da",
+    "slug": "besiktningsjuridik",
+    "paragraphs": 2,
+    "sourceSlug": "besiktningsjuridik",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "3621a01b604265aae2f8",
+          "style": "h3",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "heading",
+              "text": "Grundkurs i besiktningsförfarandet enligt AB 04 och ABT 06",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "988db37b50ef016d23d0",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a9ce007250cb86d0c067",
+              "text": "Besiktningen är en av entreprenadens viktigaste milstolpar. Resultatet av besiktningen påverkar bland annat entreprenadens godkännande, garantitidens början, ansvarsfördelningen mellan parterna och möjligheterna att framställa krav efter entreprenadens avslut.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "a5e222d4c3e2bb6294c1",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "5b8c65c04662b2a0a790",
+              "text": "Trots besiktningens centrala betydelse innehåller AB 04 och ABT 06 relativt få detaljerade regler om hur besiktningsförfarandet ska genomföras i praktiken. Många frågor avgörs därför genom etablerad praxis och erfarenhet från entreprenadprojekt.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "3c56a6edbb4337a061b2",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "702e6c947d8c621fe76a",
+              "text": "Denna kurs ger en praktisk genomgång av besiktningsjuridiken och besiktningsförfarandet enligt AB 04 och ABT 06. Kursen kombinerar genomgång av regelverket med praktiska exempel och diskussioner kring vanliga situationer som uppkommer före, under och efter en besiktning.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "15037b585b461b669789",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "56a2ee1c11d337a73708",
+              "text": "Kursen genomförs som en ",
+              "marks": []
+            },
+            {
+              "_type": "span",
+              "_key": "ae5dd0c8f5769cc5bb28",
+              "text": "intensiv endagskurs",
+              "marks": [
+                "strong"
+              ]
+            },
+            {
+              "_type": "span",
+              "_key": "ff24aa1d961a006dbe7d",
+              "text": ".",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "4dc98a67b98b5d3df036",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "b110d889e34e617e2b2b",
+              "text": "Kursen riktar sig till besiktningsmän.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "91d5acd6c7ff0ed67a21",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "2f22a83e9a09e6d173d8",
+              "text": "Några förkunskaper i entreprenadjuridik krävs inte.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "d58223d027e7dc9619df",
+          "sectionTitle": "Kursinnehåll",
+          "sectionContent": []
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "60f2467172812f2c6448",
+          "sectionTitle": "Grunderna i besiktningsjuridik",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "ad43a20d15534e4a0103",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3e0e09c84da7fc381b2d",
+                  "text": "Inledningsvis behandlas besiktningsförfarandets roll i entreprenaden och de regler som gäller enligt AB 04 och ABT 06.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "7d17fe99c2c15196e4ca",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b0291de4b9ec6f373b85",
+                  "text": "Bland annat behandlas besiktningens syfte och funktion, olika typer av besiktningar, besiktningsmannens roll och ansvar, parternas rättigheter och skyldigheter, godkännande av entreprenaden, felbedömning och felklassificering, besiktningsutlåtandets betydelse, garantibesiktningar samt praktiska exempel och vanliga fallgropar.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "92ee7b9d40e28cc46a49",
+          "sectionTitle": "Fördjupning och praktisk tillämpning",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "a1ddd29ce0822ee3d728",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2b85c012804d40ab209d",
+                  "text": "Deltagarna får en djupare förståelse för hur besiktningsjuridiken tillämpas i praktiken och hur olika frågor bör hanteras för att minska risken för tvister.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b13ae994fb498b342f18",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9a4783c6a775d3d51ace",
+                  "text": "Fördjupningen omfattar bland annat förberedelser inför besiktning, dokumentation och bevisning, bedömning av fel och ansvar, efterbesiktningar och särskilda besiktningar, besiktningsmannens bedömningar, garantifrågor, reklamationer, rättsfall och praktiska exempel samt genomgång av vanligt förekommande tvister kopplade till besiktningsförfarandet.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "f2feb3fb14efbae64810",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3fd0d44c2332c0108669",
+                  "text": "Stor vikt läggs vid diskussioner och erfarenhetsutbyte kring deltagarnas egna projekt.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "2b793ddd7911187310b6",
+          "sectionTitle": "Kursens mål",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "f6521ea8d04678b41884",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "37b3b16ebff1eb7c6b8a",
+                  "text": "Efter kursen ska deltagarna ha en god förståelse för besiktningsförfarandets juridiska betydelse och hur besiktningar bör genomföras enligt AB 04 och ABT 06.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "13cb7cbe7f2554b377c5",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "aa65502de905860e1960",
+                  "text": "Deltagarna ska bland annat kunna förstå besiktningsmannens roll och ansvar, tolka besiktningsutlåtanden, bedöma olika typer av fel, förstå sambandet mellan besiktning, garanti och ansvar, identifiera juridiska risker i besiktningsprocessen samt bidra till ett effektivt och rättssäkert besiktningsförfarande.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "197b6f042767ad58cfc0",
+          "sectionTitle": "Kursupplägg",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "4da742a6fb260ac8a54d",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b35db1ba1a312eb590bc",
+                  "text": "Kursen erbjuds som grundutbildning med fördjupning.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "b34ea03b8abc1c98391c",
+          "sectionTitle": "Grundutbildning",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "04bb2d9c0a935678ae43",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "25afb5697f41ec7ee5de",
+                  "text": "En koncentrerad grundutbildning som ger deltagarna en god förståelse för besiktningsjuridikens viktigaste delar och besiktningsförfarandets praktiska genomförande.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "b35d64b77f61486d8b4c",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "29c33a3753580302d390",
+                  "text": "Passar organisationer som vill ge sina medarbetare en stabil grund i besiktningsprocessen.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "38a54dd9693c523d51c6",
+          "sectionTitle": "Fördjupning",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "2845bfd75fe146046c53",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "28aafb4ca56edfa58bdc",
+                  "text": "Vi kompletterar med fördjupning, praktiska övningar, rättsfall och fler verkliga exempel.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "9a30a99debf21cf76d98",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "ce26231ce03db9482dcc",
+                  "text": "Passar organisationer som arbetar löpande med entreprenadprojekt och vill ge sina medarbetare en mer omfattande utbildning inom besiktningsjuridik och besiktningsförfarande.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven Albinsson Advokat / delägare Telefon: +46760 – 51 74 18 E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Besiktningsjuridik Grundkurs i besiktningsförfarandet enligt AB 04 och ABT 06 Besiktningen är en av entreprenadens viktigaste milstolpar. Resultatet av besiktningen påverkar bland annat entreprenadens godkännande, garantitidens början, ansvarsfördelningen mellan parterna och möjligheterna att framställa krav efter entreprenadens avslut. Trots besiktningens centrala betydelse innehåller AB 04 och ABT 06 relativt få detaljerade regler om hur besiktningsförfarandet ska genomföras i praktiken. Många frågor avgörs därför genom etab"
+  },
+  {
+    "title": "Kurs om partnering- och samverkansentreprenader",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-00c4e27194a4d6f7af8b",
+    "slug": "kurs-om-partnering-och-samverkansentreprenader",
+    "paragraphs": 2,
+    "sourceSlug": "kurs-om-partnering-och-samverkansentreprenader",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "276d5166059488219b7a",
+          "style": "h3",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "heading",
+              "text": "Praktisk kurs i partnering och samverkansentreprenader",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "f4004a4ae37658fe710a",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a9ce007250cb86d0c067",
+              "text": "Allt fler bygg- och anläggningsprojekt genomförs som samverkansentreprenader, där beställare, entreprenörer och konsulter arbetar tillsammans mot gemensamma mål. En väl fungerande samverkansmodell kan skapa bättre projektresultat, ökad kostnadskontroll och färre tvister, men ställer samtidigt höga krav på tydliga avtal, ansvarsfördelning och ett strukturerat samarbete.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "2bb54d2696f66c9c43c8",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "5b8c65c04662b2a0a790",
+              "text": "Denna kurs ger en praktisk introduktion till partnering och samverkansentreprenader med utgångspunkt i entreprenadjuridiken och de frågor som uppstår under projektets genomförande. Kursen behandlar hur samverkansmodeller byggs upp, vilka juridiska utmaningar som finns och hur parterna kan skapa effektiva samarbetsformer genom hela entreprenaden.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "75b65809bc623a584f3c",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "702e6c947d8c621fe76a",
+              "text": "Kursen utgår från AB 04 och ABT 06 samt etablerade samverkansmodeller och kombinerar juridik med praktiska exempel från verkliga entreprenadprojekt.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "6e926052e4f667bc9e25",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "8aa57a7aecd32837f2b0",
+              "text": "Kursen riktar sig till alla som arbetar med eller planerar att genomföra entreprenader i samverkan, exempelvis projektledare, byggledare, platschefer, entreprenadchefer, beställare, entreprenörer, konsulter, projekteringsledare och företagsledare.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "c8063e054b7b8c6f3305",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "b110d889e34e617e2b2b",
+              "text": "Några förkunskaper i partnering eller entreprenadjuridik krävs inte.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "0c162a4ab5e5b00baac1",
+          "sectionTitle": "Kursinnehåll",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "eb895ff3c7a5e4e556ed",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "646c16b0f5f195b59415",
+                  "text": "Under kursen behandlas bland annat",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "7e707f4aac4402d71456",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f2250c3da604f8253847",
+                  "text": "Partnering och samverkansentreprenader – begrepp och grundläggande principer",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "0762776a7de4023c23b6",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3e0e09c84da7fc381b2d",
+                  "text": "Olika samverkansmodeller och entreprenadformer",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "db3b16b4db8de5dc71b6",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b0291de4b9ec6f373b85",
+                  "text": "AB 04 och ABT 06 i samverkansprojekt",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "8e105da83e0111842ae8",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "1f157b02589f0849a9b7",
+                  "text": "Organisation, roller och ansvarsfördelning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "e996d01f3dc51a901751",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2b85c012804d40ab209d",
+                  "text": "Samverkansavtal och kontraktsstruktur",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "cadbb082bab92d1b5e9c",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9a4783c6a775d3d51ace",
+                  "text": "Gemensamma mål, incitamentsmodeller och ekonomistyrning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "eb72f7349318071bd2da",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3fd0d44c2332c0108669",
+                  "text": "Riskhantering och gemensam problemlösning",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "57508d15fa21492c5df0",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "e5c9bc83f4b8007f6a3d",
+                  "text": "ÄTA-arbeten och förändringshantering i samverkansprojekt",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "c1281f7a08d4699841a9",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "37b3b16ebff1eb7c6b8a",
+                  "text": "Projektstyrning och beslutsprocesser",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "75d0b45ac761d2d63b3f",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "aa65502de905860e1960",
+                  "text": "Kommunikation och konflikthantering",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "a8f1c36526c506311237",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "e968afcbe67015bc57dc",
+                  "text": "Besiktningar och projektavslut",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "94a1b89b425d3ed4f7e0",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b35db1ba1a312eb590bc",
+                  "text": "Praktiska erfarenheter från partneringprojekt",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "3260086e459209d17db6",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "2702bac1b476b4750e4c",
+                  "text": "Genomgång av rättsfall och vanliga juridiska frågeställningar",
+                  "marks": []
+                }
+              ],
+              "listItem": "bullet",
+              "level": 1
+            },
+            {
+              "_type": "block",
+              "_key": "b2b963789fe816f7c591",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "25afb5697f41ec7ee5de",
+                  "text": "Stor vikt läggs vid diskussioner och erfarenhetsutbyte kring deltagarnas egna projekt.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "8df49e09701a1e6ce02e",
+          "sectionTitle": "Kursens mål",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "a103c0bb9b67712a3684",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "cb5edc4fbb104b89cb1e",
+                  "text": "Efter kursen ska deltagarna ha en god förståelse för hur samverkansentreprenader planeras, organiseras och genomförs ur ett juridiskt och praktiskt perspektiv.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "1303673d5047538cbdb9",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "28aafb4ca56edfa58bdc",
+                  "text": "Deltagarna ska bland annat kunna förstå hur partnering skiljer sig från traditionella entreprenadformer, identifiera juridiska och affärsmässiga risker i samverkansprojekt, bidra till ett effektivt samarbete mellan projektets aktörer, hantera förändringar och gemensamma beslut under entreprenaden samt skapa bättre förutsättningar för framgångsrika projekt med färre konflikter och tvister.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "2810d3fa5902155986a1",
+          "sectionTitle": "Kursupplägg",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "4d4057935a9141790fe1",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "bad2ce6173b99e5d33aa",
+                  "text": "Kursen genomförs som en intensiv halvdagsutbildning där teori varvas med praktiska exempel, diskussioner och erfarenheter från genomförda samverkansentreprenader.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "dade32b6454769cbd615",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "c54580c2d8839ccae6d6",
+                  "text": "Utbildningen kan anpassas efter deltagarnas verksamhet och projekt, vilket gör kursen lika relevant för beställare som entreprenörer och konsulter. Fokus ligger på de juridiska och praktiska frågor som är avgörande för att skapa ett framgångsrikt samarbete och undvika vanliga fallgropar i partneringprojekt.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven Albinsson Advokat / delägare Telefon: +46760 – 51 74 18 E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Samverkansentreprenader Praktisk kurs i partnering och samverkansentreprenader Allt fler bygg- och anläggningsprojekt genomförs som samverkansentreprenader, där beställare, entreprenörer och konsulter arbetar tillsammans mot gemensamma mål. En väl fungerande samverkansmodell kan skapa bättre projektresultat, ökad kostnadskontroll och färre tvister, men ställer samtidigt höga krav på tydliga avtal, ansvarsfördelning och ett strukturerat samarbete. Denna kurs ger en praktisk introduktion till partnering och samverkansentreprenad"
+  },
+  {
+    "title": "Konsumententreprenader",
+    "status": "created draft",
+    "id": "drafts.imported-wa-course-d713d51e6e5bc07a6d3e",
+    "slug": "konsumententreprenader",
+    "paragraphs": 2,
+    "sourceSlug": "konsumententreprenader",
+    "fields": {
+      "aboutCourse": [
+        {
+          "_type": "block",
+          "_key": "8cc09fc5ff00c10b156d",
+          "style": "h3",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "heading",
+              "text": "Praktisk kurs i konsumententreprenader och konsumenttjänstlagen",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "86ac7f9300c64eaa13fb",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "a9ce007250cb86d0c067",
+              "text": "När bygg- och installationsarbeten utförs åt privatpersoner gäller särskilda regler. Konsumenttjänstlagen ger konsumenten ett starkt skydd och ställer höga krav på den entreprenör som åtar sig arbetet. Det gäller bland annat avtalets omfattning, pris, ändrings- och tilläggsarbeten, förseningar, fel, reklamationer och bevisning.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "cf835f89deeabfa409cf",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "5b8c65c04662b2a0a790",
+              "text": "Denna kurs ger en praktisk genomgång av de juridiska frågor som uppkommer vid konsumententreprenader. Kursen behandlar både konsumenttjänstlagen och de standardavtal som ofta används vid småhusentreprenader och andra arbeten åt privatpersoner.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "6f16c34fb4ef18d9f266",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "702e6c947d8c621fe76a",
+              "text": "Kursen utgår från vanliga situationer i bygg- och installationsprojekt och belyser särskilt de frågor som ofta leder till tvist mellan entreprenör och konsument.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "aimCourse": [
+        {
+          "_type": "block",
+          "_key": "993aa4d9b8a3538e6bcc",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "8aa57a7aecd32837f2b0",
+              "text": "Kursen riktar sig till dig som arbetar med bygg- eller installationsarbeten där beställaren är konsument, exempelvis entreprenörer, hantverkare, installationsföretag, projektledare, arbetsledare, platschefer, företagsledare och andra som hanterar avtal, ekonomi eller tvister i konsumentprojekt.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "_type": "block",
+          "_key": "1e6dd8424d8fe68a5784",
+          "style": "normal",
+          "markDefs": [],
+          "children": [
+            {
+              "_type": "span",
+              "_key": "b110d889e34e617e2b2b",
+              "text": "Några förkunskaper i juridik krävs inte.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "courseSections": [
+        {
+          "_type": "courseTextSection",
+          "_key": "aac134a61dcfea1e09b4",
+          "sectionTitle": "Kursinnehåll",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "d73a19027bdda081b1a3",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "646c16b0f5f195b59415",
+                  "text": "Under kursen behandlas bland annat konsumenttjänstlagens grundläggande regler, vilka arbeten som omfattas av entreprenörens åtagande, ABS 18 och Hantverkarformuläret 17, avtalets omfattning och tolkning, prisfrågor och betalningsvillkor, ändrings- och tilläggsarbeten, avrådningsskyldighet, fackmässighet, dokumentation och bevisning, färdigställande och försening, felansvar, reklamationer, besiktning, hävning, tvister och praktiska exempel från konsumententreprenader.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "0913446ae4ee534d0876",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "f2250c3da604f8253847",
+                  "text": "Stor vikt läggs vid hur entreprenören kan agera praktiskt under projektets gång för att minska risken för missförstånd, obetalda krav och tvister.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "b9e5d53bab6062f3514e",
+          "sectionTitle": "Kursens mål",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "d20255312a15f0c252a7",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "b0291de4b9ec6f373b85",
+                  "text": "Efter kursen ska deltagarna ha en god förståelse för de särskilda regler som gäller när bygg- och installationsarbeten utförs åt konsumenter.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "2960220cd1a9fb0e932b",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "1f157b02589f0849a9b7",
+                  "text": "Deltagarna ska bland annat kunna förstå hur konsumenttjänstlagen påverkar entreprenörens ansvar, använda ABS 18 och Hantverkarformuläret 17 på ett korrekt sätt, hantera frågor om pris, omfattning och tilläggsarbeten, dokumentera arbetet för att stärka sin bevisning, bedöma frågor om fel, försening och reklamation samt förebygga tvister med konsumenter.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "courseTextSection",
+          "_key": "6524e30d0424b11bbe2d",
+          "sectionTitle": "Kursupplägg",
+          "sectionContent": [
+            {
+              "_type": "block",
+              "_key": "c8ef1ece6a67f669c931",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "9a4783c6a775d3d51ace",
+                  "text": "Kursen genomförs som en praktisk endagsutbildning där juridiska regler varvas med exempel från verkliga bygg- och installationsprojekt.",
+                  "marks": []
+                }
+              ]
+            },
+            {
+              "_type": "block",
+              "_key": "f3247ce49e5a9ef42611",
+              "style": "normal",
+              "markDefs": [],
+              "children": [
+                {
+                  "_type": "span",
+                  "_key": "3fd0d44c2332c0108669",
+                  "text": "Utbildningen kan anpassas efter deltagarnas verksamhet och passar särskilt företag som löpande utför arbeten åt privatpersoner och vill stärka sin juridiska och praktiska hantering av konsumententreprenader.",
+                  "marks": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "lecturerText": "Kursledare Sven Albinsson Kontaktuppgifter Sven Albinsson Advokat / delägare Telefon: +46760 – 51 74 18 E-post: sven.albinsson@wa-advokat.se Kursöversikter Våra kurser Konsumententreprenader Praktisk kurs i konsumententreprenader och konsumenttjänstlagen När bygg- och installationsarbeten utförs åt privatpersoner gäller särskilda regler. Konsumenttjänstlagen ger konsumenten ett starkt skydd och ställer höga krav på den entreprenör som åtar sig arbetet. Det gäller bland annat avtalets omfattning, pris, ändrings- och tilläggsarbeten, förseningar, fel, reklamationer och bevisning. Denna kurs ger en praktisk genomgång av de juridiska frågor som uppkommer vid konsumententreprenader. Kursen behand"
+  }
+]

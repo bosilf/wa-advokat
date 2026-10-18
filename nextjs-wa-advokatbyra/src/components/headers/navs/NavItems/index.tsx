@@ -27,6 +27,7 @@ export default function NavItems({
   const pathname = usePathname();
   const useWhiteNavigation =
     pathname === "/" ||
+    pathname === "/artiklar" ||
     pathname.startsWith("/team/") ||
     pathname.startsWith("/artiklar/");
 
