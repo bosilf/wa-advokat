@@ -780,42 +780,8 @@ export const SERVICE_MAIN_PAGE_QUERY = defineQuery(`
   }
 `);
 
-export const SERVICE_PAGE_QUERY = defineQuery(`
-  ${LINK_RESOLVER}
-  *[
-    _type == "service" &&
-    slug.current == $serviceSlug
-  ][0] {
-    _id,
-    title,
-    eyebrow,
-    slug,
-    intro[] {
-      ...,
-      block[]
-    },
-    excerpt,
-    image {
-      hotspot,
-      alt,
-      asset,
-      crop,
-      caption,
-      credit,
-    },
-    body[] {
-      ...,
-      image {
-        hotspot,
-        alt,
-        caption,
-        credit,
-        asset,
-        crop,
-      },
-      block[]
-    },
-    sections[] {
+const SERVICE_CONTENT_SECTIONS_QUERY = `
+  sections[] {
       _key,
       _type,
       heading,
@@ -911,6 +877,95 @@ export const SERVICE_PAGE_QUERY = defineQuery(`
           }
         }
       }
+    }
+`;
+
+export const SERVICE_PAGE_QUERY = defineQuery(`
+  ${LINK_RESOLVER}
+  *[
+    _type == "service" &&
+    slug.current == $serviceSlug
+  ][0] {
+    _id,
+    title,
+    eyebrow,
+    slug,
+    intro[] {
+      ...,
+      block[]
+    },
+    excerpt,
+    image {
+      hotspot,
+      alt,
+      asset,
+      crop,
+      caption,
+      credit,
+    },
+    body[] {
+      ...,
+      image {
+        hotspot,
+        alt,
+        caption,
+        credit,
+        asset,
+        crop,
+      },
+      block[]
+    },
+    ${SERVICE_CONTENT_SECTIONS_QUERY},
+
+    areas {
+      heading,
+      eyebrow,
+      description {
+        ...,
+        block[] {...}
+      }
+    },
+
+    "serviceSections": *[
+      _type == "serviceSection" && parentService._ref == ^._id
+    ] | order(sortOrder asc, title asc) {
+      _id,
+      _type,
+      title,
+      "slug": slug.current,
+      excerpt,
+      sortOrder,
+      parentService-> {
+        _id,
+        title,
+        "slug": slug.current
+      },
+      intro[] {...},
+      image {asset, crop, hotspot, alt},
+      body[] {...},
+      ${SERVICE_CONTENT_SECTIONS_QUERY},
+      experts[]-> {
+        _id,
+        firstName,
+        lastName,
+        professionalTitle,
+        phone,
+        email,
+        "slug": slug.current,
+        image {asset, crop, hotspot, alt},
+        roles[]-> {_id, title}
+      },
+      relatedCourses[]-> {
+        _id,
+        courseName,
+        "slug": slug.current,
+        length,
+        intro,
+        category-> {_id, title, "slug": slug.current}
+      },
+      cta {...},
+      seo {metaTitle, metaDescription},
+      redirects
     },
 
     experts[]-> {

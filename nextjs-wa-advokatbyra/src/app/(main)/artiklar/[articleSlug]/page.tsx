@@ -95,39 +95,42 @@ export default async function ArticlePage({ params }: PageProps) {
 
   return (
     <>
-    <div className="flex flex-col h-screen">
-
-      <HeroArticlePage
-        eyebrow="artikel"
-        title={article.title}
-        image={article.image}
+      <div className="flex flex-col h-screen">
+        <HeroArticlePage
+          eyebrow="artikel"
+          title={article.title}
+          image={article.image}
         />
-        <Section color="bg-canvas" heading={article!.title!}>
-          <p className="text-ink">{article.excerpt}</p>
-          <div className="grid mt-md md:grid-cols-[auto_1fr] gap-sm md:w-full">
-            <p className="font-bold text-ink">Av:</p>
-            {writers.length > 0 &&
-              writers.map((writer) => (
-                <TeamCardSmall
-                  key={writer._id}
-                  name={writer.name}
-                  caption={writer.roleTitles.length > 0 ? writer.roleTitles : "Medarbetare"}
-                  link={writer.slug ? `/team/${writer.slug}` : undefined}
-                  image={writer.image}
-                />
-              ))}
-          </div>
-        </Section>
-        </div>
-        <section className="bg-surface">
-
-          <div className="max-w-200 m-auto px-section-sides py-section-tb">
-            <CustomPortableText value={article.body} />
+        <section className="bg-canvas">
+          <div className="max-w-200 m-auto px-section-sides py-section-tb flex flex-col gap-3">
+            <p className="text-ink">{article.excerpt}</p>
+            <div className="grid md:grid-cols-[auto_1fr] gap-sm md:w-full">
+              <p className="font-bold text-ink col-span-full">Av:</p>
+              {writers.length > 0 &&
+                writers.map((writer) => (
+                  <TeamCardSmall
+                    key={writer._id}
+                    name={writer.name}
+                    caption={
+                      writer.roleTitles.length > 0
+                        ? writer.roleTitles
+                        : "Medarbetare"
+                    }
+                    link={writer.slug ? `/team/${writer.slug}` : undefined}
+                    image={writer.image}
+                  />
+                ))}
+            </div>
           </div>
         </section>
+      </div>
+      <section className="bg-surface">
+        <div className="max-w-200 m-auto px-section-sides py-section-tb">
+          <CustomPortableText value={article.body} />
+        </div>
+      </section>
 
-      <main>
-      </main>
+      <main></main>
     </>
   );
 }

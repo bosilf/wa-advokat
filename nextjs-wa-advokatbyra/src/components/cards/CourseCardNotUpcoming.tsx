@@ -134,7 +134,7 @@ export default function CourseCardNotUpcoming({
         >
         {bookingLabel}
       </ButtonComp>
-      <ShareCourseButton href={href} />
+      <ShareCourseButton hidden href={href} />
       <ButtonComp
         href="/boka-kurs"
         variant="custom"

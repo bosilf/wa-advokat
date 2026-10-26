@@ -1,4 +1,5 @@
 import CategoryPreview from '../../src/studio/CategoryPreview'
+import CourseOpenCoursesInput from '../../src/studio/CourseOpenCoursesInput'
 import {defineType, defineField, defineArrayMember} from 'sanity'
 import {LinkIcon} from '@sanity/icons'
 import { text } from 'node:stream/consumers';
@@ -11,12 +12,21 @@ export const course = defineType({
     { title: 'Innehåll',
       name: 'content'
     },
+    {title: 'Öppen kurs', name: 'openCourse'},
     { title: 'Global SEO',
       name: 'seo'
     }
   ],
 
   fields: [
+    defineField({
+      name: 'openCourseDates',
+      title: 'Öppna kurstillfällen',
+      type: 'string',
+      group: 'openCourse',
+      // This input manages related futureCourse documents; no duplicate values are stored here.
+      components: {input: CourseOpenCoursesInput},
+    }),
     defineField({
       name: 'courseName',
       title: 'Namn Utbildning',

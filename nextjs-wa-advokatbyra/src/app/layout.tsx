@@ -45,8 +45,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://cdn.sanity.io" />
       </head>
       <body className="overscroll-y-none min-h-fit flex flex-col overflow-x-hidden">
-        <div className="fixed pointer-events-none bg-white/20 -top-200 mix-blend-overlay rounded-full -right-100 z-9 size-300 blur-3xl" />
-        <div className="fixed pointer-events-none bg-contract-light/10 mix-blend-overlay top-0 rounded-full right-0 z-2 size-100 blur-3xl" />
         {children}
         <Analytics />
         <SpeedInsights />

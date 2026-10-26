@@ -123,7 +123,7 @@ export default async function CourseCategoryPage({ params }: PageProps) {
               {activeCourses.length > 0 && (
                 <div className="flex flex-col gap-md">
                   <p className="font-eyebrow text-muted">Boka kurs</p>
-                  <h2 className="font-heading text-ink">Kommande kurser</h2>
+                  <h2 className="font-heading text-ink">Öppna kurser</h2>
                   {activeCourses.map((course) => (
                     <CourseCard
                       key={course._key}
@@ -141,16 +141,18 @@ export default async function CourseCategoryPage({ params }: PageProps) {
                   ))}
                 </div>
               )}
-              <div className="flex flex-col gap-md">
-                {companySection?.title?.title && (
+              {companySection?.title?.title && (
+                <div className="flex flex-col gap-md">
+                  <p className="font-eyebrow text-muted">
+                    Företagsanpassad kurs
+                  </p>
                   <h3 className="mb-md font-heading text-ink">
                     {companySection.title.title}
                   </h3>
-                )}
-
-                <CustomPortableText value={companyBlocks || "text saknas"} />
-                <ButtonComp href="/boka-kurs">Önska datum</ButtonComp>
-              </div>
+                  <CustomPortableText value={companyBlocks || "text saknas"} />
+                  <ButtonComp href="/boka-kurs">Önska datum</ButtonComp>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -362,7 +364,7 @@ export default async function CourseCategoryPage({ params }: PageProps) {
           <ButtonComp
             variant="primary"
             showIcon={false}
-            className="self-center"
+            className="lg:self-center"
             href="/artiklar"
           >
             Se alla artiklar

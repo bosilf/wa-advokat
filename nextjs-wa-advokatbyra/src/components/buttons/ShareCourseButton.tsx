@@ -3,7 +3,12 @@
 import { useState } from "react";
 import Icon from "../Icon";
 
-export default function ShareCourseButton({ href }: { href: string | null }) {
+type ShareProps = {
+  href: string | null,
+  hidden?: boolean
+}
+
+export default function ShareCourseButton({ href, hidden = false }: ShareProps) {
   const [status, setStatus] = useState<"idle" | "copying" | "copied" | "error">("idle");
 
   async function copyLink() {
@@ -26,7 +31,7 @@ export default function ShareCourseButton({ href }: { href: string | null }) {
         disabled={!href || status === "copying"}
         className="min-w-fit group/button flex gap-2 items-center cursor-pointer disabled:cursor-default disabled:opacity-50"
       >
-        <span className="lowercase first-letter:uppercase">
+        <span className={`lowercase first-letter:uppercase ${hidden ? "hidden sm:block" : ""}`}>
           {status === "copied" ? "Länk kopierad" : "Dela"}
         </span>
         <Icon name="share" className="transition-colors group-hover/button:text-accent" size={16} />

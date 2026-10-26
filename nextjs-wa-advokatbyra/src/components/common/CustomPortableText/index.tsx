@@ -163,9 +163,9 @@ const components: PortableTextComponents = {
     }: {
       children: ReactNode;
     }) => (
-      <AnimatedStrong>
+      <span className="font-sans font-bold text-ink">
         {children}
-      </AnimatedStrong>
+      </span>
     ),
 
     link: ({

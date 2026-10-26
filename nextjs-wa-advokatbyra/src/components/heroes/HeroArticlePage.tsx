@@ -80,21 +80,21 @@ export default function HeroArticlePage({
       </div>
       <div
         className={`
-          bg-footer h-fit shrink-0 pb-lg pr-lg
+          bg-footer m-auto max-w-200 h-fit w-full shrink-0 pb-lg px-section-sides
           
           transition-[border-radius] duration-500 ease-out
           ${hasScrolled ? "rounded-b-xl" : "rounded-b-none"}
         `}
       >
-        <h1 className="flex flex-col gap-sm pb-lg px-lg md:pl-0 text-white">
+        <h1 className="flex flex-col gap-sm  text-white">
           {eyebrow && (
-            <span className="font-eyebrow pl-lg md:pl-xl text-white">
+            <span className="font-eyebrow text-white">
               {eyebrow}
             </span>
           )}
 
           {title && (
-            <span className="italic font-serif text-4xl font-light md:text-white  md:py-md md:pl-xl md:pr-xl w-fit lg:max-w-[80%] px-lg">
+            <span className="italic font-serif text-4xl font-light md:text-white  md:py-md w-fit ">
               {title}
             </span>
           )}

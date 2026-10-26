@@ -47,7 +47,7 @@ export default function CourseCard({
   categoryTitle,
 }: CourseCardProps) {
   const sortedDates = [...(dates ?? [])].sort();
-  const categoryTagClassName = `col-span-full w-fit rounded-full px-3 py-1 font-eyebrow ${
+  const categoryTagClassName = `col-span-full w-fit rounded-full px-2.5 py-px font-eyebrow ${
     categoryStyles[categorySlug ?? ""] ?? "bg-gray-100 text-gray-900"
   }`;
   const courseDescription = description ?? "";

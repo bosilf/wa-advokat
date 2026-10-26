@@ -47,6 +47,24 @@ export default defineConfig({
     templates: (previous) => [
       ...previous,
       {
+        id: 'future-course-for-course',
+        title: 'Öppet kurstillfälle för utbildning',
+        schemaType: 'futureCourse',
+        parameters: [{name: 'courseId', title: 'Utbildning', type: 'string'}],
+        value: ({courseId}: {courseId?: string}) => ({
+          aim: 'open',
+          type: 'digital',
+          ...(courseId ? {
+            coursePick: {
+              _type: 'reference',
+              _ref: courseId.replace(/^drafts\./, ''),
+              _weak: true,
+              _strengthenOnPublish: {type: 'course'},
+            },
+          } : {}),
+        }),
+      },
+      {
         id: 'service-section-for-service',
         title: 'Fördjupning inom rättsområde',
         schemaType: 'serviceSection',

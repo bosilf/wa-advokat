@@ -26,11 +26,11 @@ export default async function HeroHome() {
       </div>
       <div className="h-full flex items-end">
         <div className="z-10 grid grid-cols-[55%_45%] h-full -gap-20 w-full items-end">
-          <div className="relative w-full h-[80%] min-w-65.5 -mr-10">
+          <div className="relative w-full h-full -mr-10">
             <Image priority src="/assets/maria-frame-2.png" alt="" sizes="min-w-[262]" fill className="absolute object-contain object-bottom drop-shadow-2xl/30" />
           </div>
-          <div className="relative w-full h-full min-w-65.5 -ml-10">
-            <Image priority src="/assets/sven-frame.png" alt="" sizes="min-w-[262]" fill className="absolute object-contain object-bottom drop-shadow-xl/30" />
+          <div className="relative w-full h-full -ml-10">
+            <Image priority src="/assets/sven-frame.png" alt="" sizes="min-w-[262]" fill className="absolute origin-bottom scale-[1.05] object-contain object-bottom drop-shadow-xl/30" />
           </div>
         </div>
       </div>

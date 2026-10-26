@@ -1,5 +1,4 @@
 import { client } from "@/sanity/client";
-import { urlFor } from "@/sanity/image";
 import PageHeaderImage from "../PageHeaderImage";
 
 

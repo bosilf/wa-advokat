@@ -83,7 +83,7 @@ export default function ServiceStructure() {
         <Flex align="center" gap={3}>
           {thumbnail(area)}
           <Box flex={1} style={{minWidth: 0}}>
-            <Stack space={3}>
+            <Stack gap={3}>
               <Text size={1} weight="semibold">{area.title || 'Namnlöst område'}</Text>
               {area.excerpt && <Text size={1} muted textOverflow="ellipsis">{area.excerpt}</Text>}
               {parent && categoryPalette(parent.slug, parent.title) && <CategoryTag title={parent.title} slug={parent.slug} />}
@@ -97,9 +97,9 @@ export default function ServiceStructure() {
 
   return (
     <Card padding={3} height="fill" overflow="auto">
-      <Stack space={4}>
+      <Stack gap={4}>
         <Box padding={3}>
-          <Stack space={3}>
+          <Stack gap={3}>
             <Heading size={2}>Hantera rättsområden</Heading>
             <Text size={1} muted>Öppna ett rättsområde för att redigera huvudsidan eller dess fördjupningar.</Text>
           </Stack>
@@ -114,7 +114,7 @@ export default function ServiceStructure() {
         <Button as={PaneDocumentLink} intent="create" params={{type: 'service'}} icon={AddIcon} text="Lägg till rättsområde" mode="bleed" justify="flex-start" />
         {error && (
           <Card tone="critical" padding={3} radius={2}>
-            <Stack space={3}>
+            <Stack gap={3}>
               <Text size={1} role="alert">Kunde inte uppdatera rättsområdena.</Text>
               <Button text="Försök igen" mode="ghost" onClick={() => setRetry((value) => value + 1)} />
             </Stack>
@@ -122,7 +122,7 @@ export default function ServiceStructure() {
         )}
         {!content && !error && <Box padding={3}><Text size={1} role="status">Laddar rättsområden…</Text></Box>}
         {content?.services.length === 0 && <Box padding={3}><Text size={1} muted>Inga rättsområden har skapats ännu.</Text></Box>}
-        <Stack space={1}>
+        <Stack gap={1}>
           {content?.services.map((service) => (
             <details key={service._id} className="wa-course-group">
               <Card as="summary" data-as="button" tone="transparent" padding={3} radius={2}>
@@ -134,7 +134,7 @@ export default function ServiceStructure() {
                 </Flex>
               </Card>
               <Box paddingLeft={3} paddingTop={2}>
-                <Stack space={1}>
+                <Stack gap={1}>
                   <Button as={PaneDocumentLink} intent="edit" params={{id: service._id, type: 'service'}} icon={EditIcon} text={`Uppdatera rättsområde: ${service.title || 'Namnlöst rättsområde'}`} mode="bleed" justify="flex-start" />
                   <Button
                     as={PaneDocumentLink}
@@ -155,10 +155,10 @@ export default function ServiceStructure() {
           ))}
         </Stack>
         {unassigned.length > 0 && (
-          <Stack space={3}>
+          <Stack gap={3}>
             <Box padding={3}><Text size={1} weight="semibold">Fördjupningar utan rättsområde</Text></Box>
             <Box paddingX={3}><Text size={1} muted>Öppna en fördjupning och välj Tillhör rättsområde under Experter och kopplingar.</Text></Box>
-            <Stack space={1}>{unassigned.map((area) => subareaRow(area))}</Stack>
+            <Stack gap={1}>{unassigned.map((area) => subareaRow(area))}</Stack>
           </Stack>
         )}
       </Stack>

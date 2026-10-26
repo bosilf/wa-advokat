@@ -113,8 +113,8 @@ export default function Section({
 
           scrollTrigger: {
             trigger: section,
-            start: "top 95%",
-            end: "top",
+            start: "top",
+            end: "bottom",
             scrub: 0.8,
             invalidateOnRefresh: true,
           },
@@ -124,7 +124,7 @@ export default function Section({
         gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: "top 78%",
+            start: "top bottom",
             once: true,
           },
         });
@@ -144,7 +144,7 @@ export default function Section({
             duration: 0.8,
             ease: "power3.out",
           },
-          "-=0.5",
+          "-=0.7",
         );
 
       // const revealTimeline = gsap.timeline({

@@ -1,62 +1,59 @@
 import CategoryPreview from '../../src/studio/CategoryPreview'
-import { CaseIcon } from "@sanity/icons";
-import { defineArrayMember } from "sanity";
-import { defineField, defineType } from "sanity";
+import {CaseIcon} from '@sanity/icons'
+import {defineArrayMember} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export const service = defineType({
-  name: "service",
-  title: "Tjänster",
-  type: "document",
+  name: 'service',
+  title: 'Tjänster',
+  type: 'document',
   icon: CaseIcon,
 
   groups: [
     {
-      name: "content",
-      title: "Innehåll",
+      name: 'content',
+      title: 'Innehåll',
       default: true,
     },
     {
-      name: "relations",
-      title: "Experter och kopplingar",
+      name: 'relations',
+      title: 'Experter och kopplingar',
     },
     {
-      name: "settings",
-      title: "Inställningar",
+      name: 'settings',
+      title: 'Inställningar',
     },
     {
-      name: "seo",
-      title: "SEO",
+      name: 'seo',
+      title: 'SEO',
     },
   ],
 
   fields: [
     defineField({
-      name: "title",
-      title: "Tjänstens namn",
-      type: "string",
-      group: "content",
+      name: 'title',
+      title: 'Tjänstens namn',
+      type: 'string',
+      group: 'content',
 
-      validation: (rule) =>
-        rule.required().min(3).max(120),
+      validation: (rule) => rule.required().min(3).max(120),
     }),
     defineField({
-      name: "eyebrow",
-      title: "Eyebrow",
-      type: "eyebrow",
-      group: "content",
-      description:
-        "Den mindre texten ovanför tjänstens huvudrubrik. Kan innehålla en valfri länk.",
+      name: 'eyebrow',
+      title: 'Eyebrow',
+      type: 'eyebrow',
+      group: 'content',
+      description: 'Den mindre texten ovanför tjänstens huvudrubrik. Kan innehålla en valfri länk.',
     }),
 
     defineField({
-      name: "slug",
-      title: "Länk till rättsområdet",
-      group: "content",
-      description:
-        'Klicka på "Generate" för att skapa länken till kursen.',
-      type: "slug",
+      name: 'slug',
+      title: 'Länk till rättsområdet',
+      group: 'content',
+      description: 'Klicka på "Generate" för att skapa länken till kursen.',
+      type: 'slug',
       options: {
-        source: "title",
+        source: 'title',
         maxLength: 96,
       },
       validation: (rule) => rule.required(),
@@ -65,27 +62,25 @@ export const service = defineType({
       group: 'content',
       type: 'array',
       name: 'intro',
-      of: [{type: 'block'}]
+      of: [{type: 'block'}],
     }),
 
     defineField({
-      name: "excerpt",
-      title: "Kort sammanfattning",
-      type: "text",
+      name: 'excerpt',
+      title: 'Kort sammanfattning',
+      type: 'text',
       rows: 3,
-      group: "content",
-      description:
-        "Används på tjänstekort, i listor och som reserv för metabeskrivningen.",
+      group: 'content',
+      description: 'Används på tjänstekort, i listor och som reserv för metabeskrivningen.',
 
-      validation: (rule) =>
-        rule.required().min(50).max(220),
+      validation: (rule) => rule.required().min(50).max(220),
     }),
 
     defineField({
-      name: "image",
-      title: "Huvudbild",
-      type: "image",
-      group: "content",
+      name: 'image',
+      title: 'Huvudbild',
+      type: 'image',
+      group: 'content',
 
       options: {
         hotspot: true,
@@ -93,28 +88,26 @@ export const service = defineType({
 
       fields: [
         defineField({
-          name: "alt",
-          title: "Alternativtext",
-          type: "string",
-          description:
-            "Beskriv bildens innehåll för besökare som använder skärmläsare.",
+          name: 'alt',
+          title: 'Alternativtext',
+          type: 'string',
+          description: 'Beskriv bildens innehåll för besökare som använder skärmläsare.',
 
-          validation: (rule) =>
-            rule.required().max(160),
+          validation: (rule) => rule.required().max(160),
         }),
 
         defineField({
-          name: "caption",
-          title: "Bildtext",
-          type: "string",
-          description: "Valfritt.",
+          name: 'caption',
+          title: 'Bildtext',
+          type: 'string',
+          description: 'Valfritt.',
         }),
 
         defineField({
-          name: "credit",
-          title: "Fotograf/bildkälla",
-          type: "string",
-          description: "Valfritt.",
+          name: 'credit',
+          title: 'Fotograf/bildkälla',
+          type: 'string',
+          description: 'Valfritt.',
         }),
       ],
 
@@ -122,69 +115,69 @@ export const service = defineType({
     }),
 
     defineField({
-      name: "body",
-      title: "Introduktion",
-      type: "array",
-      group: "content",
+      name: 'body',
+      title: 'Introduktion',
+      type: 'array',
+      group: 'content',
 
       of: [
         {
-          type: "block",
+          type: 'block',
 
           styles: [
-            { title: "Normal text", value: "normal" },
-            { title: "Rubrik 2", value: "h2" },
-            { title: "Rubrik 3", value: "h3" },
-            { title: "Citat", value: "blockquote" },
+            {title: 'Normal text', value: 'normal'},
+            {title: 'Rubrik 2', value: 'h2'},
+            {title: 'Rubrik 3', value: 'h3'},
+            {title: 'Citat', value: 'blockquote'},
           ],
 
           lists: [
-            { title: "Punktlista", value: "bullet" },
-            { title: "Numrerad lista", value: "number" },
+            {title: 'Punktlista', value: 'bullet'},
+            {title: 'Numrerad lista', value: 'number'},
           ],
 
           marks: {
             annotations: [
               {
-                name: "externalLink",
-                title: "Extern länk",
-                type: "object",
+                name: 'externalLink',
+                title: 'Extern länk',
+                type: 'object',
 
                 fields: [
                   defineField({
-                    name: "href",
-                    title: "Webbadress",
-                    type: "url",
+                    name: 'href',
+                    title: 'Webbadress',
+                    type: 'url',
 
                     validation: (rule) =>
                       rule.required().uri({
-                        scheme: ["http", "https"],
+                        scheme: ['http', 'https'],
                       }),
                   }),
 
                   defineField({
-                    name: "openInNewTab",
-                    title: "Öppna i ny flik",
-                    type: "boolean",
+                    name: 'openInNewTab',
+                    title: 'Öppna i ny flik',
+                    type: 'boolean',
                     initialValue: false,
                   }),
                 ],
               },
               {
-                name: "internallLink",
-                title: "Intern länk",
-                type: "object",
+                name: 'internallLink',
+                title: 'Intern länk',
+                type: 'object',
 
                 fields: [
                   defineField({
-                    name: "href",
-                    title: "Webbadress",
-                    type: "filterLinks",
+                    name: 'href',
+                    title: 'Webbadress',
+                    type: 'filterLinks',
                   }),
                   defineField({
-                    name: "openInNewTab",
-                    title: "Öppna i ny flik",
-                    type: "boolean",
+                    name: 'openInNewTab',
+                    title: 'Öppna i ny flik',
+                    type: 'boolean',
                     initialValue: false,
                   }),
                 ],
@@ -194,8 +187,8 @@ export const service = defineType({
         },
 
         {
-          type: "image",
-          title: "Bild",
+          type: 'image',
+          title: 'Bild',
 
           options: {
             hotspot: true,
@@ -203,22 +196,22 @@ export const service = defineType({
 
           fields: [
             defineField({
-              name: "alt",
-              title: "Alternativtext",
-              type: "string",
+              name: 'alt',
+              title: 'Alternativtext',
+              type: 'string',
               validation: (rule) => rule.required(),
             }),
 
             defineField({
-              name: "caption",
-              title: "Bildtext",
-              type: "string",
+              name: 'caption',
+              title: 'Bildtext',
+              type: 'string',
             }),
 
             defineField({
-              name: "credit",
-              title: "Fotograf/bildkälla",
-              type: "string",
+              name: 'credit',
+              title: 'Fotograf/bildkälla',
+              type: 'string',
             }),
           ],
         },
@@ -226,32 +219,40 @@ export const service = defineType({
 
       validation: (rule) => rule.required().min(1),
     }),
+    defineField({
+      name: 'areas',
+      type: 'object',
+      fields: [
+        {name: 'heading', type: 'string', title: 'Rubrik'},
+        {name: 'eyebrow', type: 'string', title: 'Ögonbryn'},
+        {name: 'description', type: 'blockObject', title: ''},
+      ],
+    }),
 
     defineField({
-      name: "sections",
-      title: "Sektioner",
-      type: "array",
-      group: "content",
+      name: 'sections',
+      title: 'Sektioner',
+      type: 'array',
+      group: 'content',
       of: [
         defineArrayMember({
-          type: "pageSection",
+          type: 'pageSection',
         }),
       ],
       validation: (rule) => rule.required().min(1),
     }),
 
     defineField({
-      name: "experts",
-      title: "Ansvariga jurister",
-      type: "array",
-      group: "relations",
-      description:
-        "Medarbetarna visas som kort på tjänstens sida.",
+      name: 'experts',
+      title: 'Ansvariga jurister',
+      type: 'array',
+      group: 'relations',
+      description: 'Medarbetarna visas som kort på tjänstens sida.',
 
       of: [
         {
-          type: "reference",
-          to: [{ type: "employee" }],
+          type: 'reference',
+          to: [{type: 'employee'}],
 
           options: {
             disableNew: true,
@@ -259,22 +260,20 @@ export const service = defineType({
         },
       ],
 
-      validation: (rule) =>
-        rule.required().min(1).unique(),
+      validation: (rule) => rule.required().min(1).unique(),
     }),
 
     defineField({
-      name: "relatedCourses",
-      title: "Relaterade kurser",
-      type: "array",
-      group: "relations",
-      description:
-        "Välj kurser som är relevanta för tjänsten.",
+      name: 'relatedCourses',
+      title: 'Relaterade kurser',
+      type: 'array',
+      group: 'relations',
+      description: 'Välj kurser som är relevanta för tjänsten.',
 
       of: [
         {
-          type: "reference",
-          to: [{ type: "course" }],
+          type: 'reference',
+          to: [{type: 'course'}],
 
           options: {
             disableNew: true,
@@ -286,62 +285,59 @@ export const service = defineType({
     }),
 
     defineField({
-      name: "cta",
-      title: "Kontaktknapp",
-      type: "button",
-      group: "content",
-      description:
-        "Valfri knapp som visas efter tjänstens innehåll.",
+      name: 'cta',
+      title: 'Kontaktknapp',
+      type: 'button',
+      group: 'content',
+      description: 'Valfri knapp som visas efter tjänstens innehåll.',
     }),
 
     defineField({
-      name: "sortOrder",
-      title: "Sorteringsordning",
-      type: "number",
-      group: "settings",
-      description:
-        "Lägre nummer visas först i listor och navigation.",
+      name: 'sortOrder',
+      title: 'Sorteringsordning',
+      type: 'number',
+      group: 'settings',
+      description: 'Lägre nummer visas först i listor och navigation.',
 
       initialValue: 100,
 
-      validation: (rule) =>
-        rule.required().integer().min(0),
+      validation: (rule) => rule.required().integer().min(0),
     }),
 
     defineField({
-      name: "seo",
-      title: "SEO",
-      type: "seo",
-      group: "seo",
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
+      group: 'seo',
     }),
     defineField({
       name: 'redirects',
       type: 'redirects',
-      group: 'seo'
-    })
+      group: 'seo',
+    }),
   ],
 
   orderings: [
     {
-      title: "Manuell ordning",
-      name: "sortOrderAsc",
+      title: 'Manuell ordning',
+      name: 'sortOrderAsc',
 
       by: [
         {
-          field: "sortOrder",
-          direction: "asc",
+          field: 'sortOrder',
+          direction: 'asc',
         },
       ],
     },
 
     {
-      title: "Namn A–Ö",
-      name: "titleAsc",
+      title: 'Namn A–Ö',
+      name: 'titleAsc',
 
       by: [
         {
-          field: "title",
-          direction: "asc",
+          field: 'title',
+          direction: 'asc',
         },
       ],
     },
@@ -351,13 +347,13 @@ export const service = defineType({
 
   preview: {
     select: {
-      title: "title",
-      categoryTitle: "title",
-      categorySlug: "slug.current",
-      excerpt: "excerpt",
-      firstExpertFirstName: "experts.0.firstName",
-      firstExpertLastName: "experts.0.lastName",
-      media: "image",
+      title: 'title',
+      categoryTitle: 'title',
+      categorySlug: 'slug.current',
+      excerpt: 'excerpt',
+      firstExpertFirstName: 'experts.0.firstName',
+      firstExpertLastName: 'experts.0.lastName',
+      media: 'image',
     },
 
     prepare({
@@ -369,23 +365,15 @@ export const service = defineType({
       firstExpertLastName,
       media,
     }) {
-      const firstExpert = [
-        firstExpertFirstName,
-        firstExpertLastName,
-      ]
-        .filter(Boolean)
-        .join(" ");
+      const firstExpert = [firstExpertFirstName, firstExpertLastName].filter(Boolean).join(' ')
 
       return {
         categoryTitle,
         categorySlug,
-        title: title || "Namnlös tjänst",
-        subtitle:
-          firstExpert ||
-          excerpt ||
-          "Ingen ansvarig jurist vald",
+        title: title || 'Namnlös tjänst',
+        subtitle: firstExpert || excerpt || 'Ingen ansvarig jurist vald',
         media,
-      };
+      }
     },
   },
-});
+})
