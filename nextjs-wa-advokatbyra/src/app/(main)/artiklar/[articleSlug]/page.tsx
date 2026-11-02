@@ -103,7 +103,7 @@ export default async function ArticlePage({ params }: PageProps) {
         />
         <section className="bg-canvas">
           <div className="max-w-200 m-auto px-section-sides py-section-tb flex flex-col gap-3">
-            <p className="text-ink">{article.excerpt}</p>
+            <p className="text-ink font-body">{article.excerpt}</p>
             <div className="grid md:grid-cols-[auto_1fr] gap-sm md:w-full">
               <p className="font-bold text-ink col-span-full">Av:</p>
               {writers.length > 0 &&

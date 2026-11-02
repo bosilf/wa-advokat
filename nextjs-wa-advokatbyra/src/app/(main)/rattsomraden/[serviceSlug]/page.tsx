@@ -1,18 +1,14 @@
 import { SERVICE_PAGE_QUERY } from "@/sanity/queries";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/client";
-import { CustomPortableText } from "@/components/common/CustomPortableText";
 import { SERVICE_PAGE_QUERY_RESULT } from "@/sanity/sanity.types";
-import Section from "@/components/sections/Section";
 import type { Metadata } from "next";
 import { createPageMetadata } from "@/lib/createPageMetadata";
 import { cache } from "react";
-import CardContainer from "@/components/cards/CardContainer";
 import HeroCourse from "@/components/heroes/HeroCourse";
-import CourseSection from "@/components/sections/CourseSection";
 import PageBuilder from "@/components/page-builder/PageBuilder";
-import ServiceGridBlock from "@/components/page-builder/blocks/ServiceGridBlock";
-import CourseBlocksSection from "@/components/sections/CourseBlocksSection";
+import ServiceBlockSection from "@/components/sections/ServiceBlockSection";
+import { urlFor } from "@/sanity/image";
 
 type PageProps = {
   params: Promise<{
@@ -21,6 +17,23 @@ type PageProps = {
 };
 
 export const revalidate = 30;
+
+function truncateWords(value: string, maxWords = 150) {
+  const words = value.trim().split(/\s+/).filter(Boolean);
+  return `${words.slice(0, maxWords).join(" ")}${words.length > maxWords ? "…" : ""}`;
+}
+
+function serviceDescription(
+  body: unknown,
+  excerpt: string | null | undefined,
+) {
+  const bodyText = (Array.isArray(body) ? body : [])
+    .flatMap((block) => (typeof block === "object" && block && "children" in block && Array.isArray(block.children) ? block.children : []))
+    .map((child) => (typeof child === "object" && child && "text" in child && typeof child.text === "string" ? child.text : ""))
+    .join(" ")
+    .trim();
+  return truncateWords(bodyText || excerpt || "");
+}
 
 const getService = cache(async (serviceSlug: string) => {
   return client.fetch<SERVICE_PAGE_QUERY_RESULT>(
@@ -65,22 +78,6 @@ export default async function ServicePage({ params }: PageProps) {
     notFound();
   }
 
-  const experts = service.experts ?? [];
-  const asideExperts = experts.map((expert) => ({
-    name: [expert.firstName, expert.lastName].filter(Boolean).join(" "),
-    link: expert.slug?.current ? `/team/${expert.slug.current}` : undefined,
-    image: expert.image,
-    caption: (expert.roles ?? [])
-      .map((role) => role?.title)
-      .filter(Boolean)
-      .join(" | "),
-  }));
-
-  const sectionsLog = service.sections ?? [];
-  const areas = service.serviceSections
-
-  console.log("sectionsLog", sectionsLog);
-
   return (
     <>
       <HeroCourse
@@ -95,70 +92,36 @@ export default async function ServicePage({ params }: PageProps) {
       />
   
         <main>
-          <Section heading={service.title || ""} eyebrow="introduktion">
-            <CustomPortableText value={service.intro} />
-            {/* <div className="grid grid-cols-1 px-xl sm:px-0 sm:grid-cols-2 gap-lg sm:gap-md pb-section-tb pt-md lg:hidden">
-              {experts &&
-                experts.map((expert, _id) => (
-                  <CardContainer
-                    hasImage
-                    key={_id}
-                    image={{
-                      link: `/team/${expert.slug?.current}/`,
-                      image: {
-                        asset: expert.image?.asset,
-                        hotspot: expert.image?.hotspot,
-                        alt: expert.image?.alt,
-                        crop: expert.image?.crop,
-                      },
-                      eyebrow: "ansvarig advokat",
-                      title: `${expert.firstName} ${expert.lastName}`,
-                    }}
-                    contact={{
-                      email: expert.email || "",
-                      phone: expert.phone || "",
-                      name: `${expert.firstName} ${expert.lastName}` || "",
-                      slug: `/team/${expert.slug?.current}/`,
-                    }}
-                  />
-                ))}
-            </div> */}
-          </Section>
-          {(service.areas || service.serviceSections.length > 0) && (
-                    <CourseBlocksSection
-                      heading={
-                        service?.areas?.heading ?? `${service.title} – tjänsteområden`
-                      }
-                      eyebrow={service.areas?.eyebrow ?? "Info"}
-                      description={
-                        service.areas?.description && (
-                          <CustomPortableText value={service.areas!.description!} />
-                        )
-                      }
-                      listTitle=""
-                      introContent={
-                        service.areas?.description && (
-                          <CustomPortableText value={service.areas?.description} />
-                        )
-                      }
-                      items={service.serviceSections.map((area) => ({
-                        id: area._id,
-                        title: area.title ?? "Namnlöst kursmoment",
-                        content: area.excerpt ? (
-                          <CustomPortableText key={area._id} value={area.body} />
-                        ) : null,
-                      }))}
-                    />
-                  )}
-          {/* {service.serviceSections && service.serviceSections.map((area, index) => (
-            <CourseBlocksSection
-              key={index}
-              heading={area.title!}
-              items={[
-
-              ]}
+          {service.serviceSections.length > 0 && (
+            <ServiceBlockSection
+              eyebrow={service.areas?.eyebrow ?? "Tjänsteområden"}
+              introContent={
+                <div className="flex flex-col gap-md">
+                  <p>
+                    WA Advokatbyrå i Stockholm erbjuder juridisk rådgivning inom entreprenadrätt och konsulträtt för beställare, entreprenörer och tekniska konsulter. Vi hjälper er att tydliggöra ansvar, hantera risker och tillvarata era rättigheter genom hela byggprocessen – från avtal och upphandling till projektets genomförande och eventuella tvister.
+                  </p>
+                  <p>
+                    Vår rådgivning omfattar granskning och utformning av avtal, löpande projektstöd och frågor om bland annat ÄTA-arbeten, tidsförlängning och konsultansvar. Vi förenar juridisk kompetens med förståelse för projektets tekniska och kommersiella förutsättningar. När parterna är oense hjälper vi er att bedöma handlingsalternativen och företräder er i förhandlingar, domstol och skiljeförfarande.
+                  </p>
+                  <p>
+                    Ansvarig advokat är Sven Albinsson, delägare på WA Advokatbyrå, med lång erfarenhet av entreprenadjuridik, konsulträtt och byggsektorns avtalsfrågor. Kontakta oss för att diskutera hur vi kan hjälpa er i ert projekt eller er tvist.
+                  </p>
+                </div>
+              }
+              items={service.serviceSections.map((area) => ({
+                id: area._id,
+                title: area.title ?? "Namnlöst tjänsteområde",
+                href: area.slug ? `/juridiska-tjanster/${area.slug}` : "#",
+                imageUrl: area.image?.asset
+                  ? urlFor(area.image).width(1400).height(800).fit("crop").url()
+                  : undefined,
+                thumbnailUrl: area.image?.asset
+                  ? urlFor(area.image).width(96).height(96).fit("crop").url()
+                  : undefined,
+                content: <p>{serviceDescription(area.body, area.excerpt)}</p>,
+              }))}
             />
-          ))} */}
+          )}
           <PageBuilder sections={service.sections ?? []} />
         </main>
     </>

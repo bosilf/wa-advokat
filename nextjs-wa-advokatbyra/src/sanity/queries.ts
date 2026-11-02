@@ -1005,6 +1005,37 @@ export const SERVICE_PAGE_QUERY = defineQuery(`
   }
 `);
 
+export const SERVICE_SECTION_PAGE_QUERY = defineQuery(`
+  ${LINK_RESOLVER}
+  *[
+    _type == "serviceSection" &&
+    slug.current == $juridicalServiceSlug
+  ][0] {
+    _id,
+    title,
+    slug,
+    excerpt,
+    intro[] {...},
+    image {asset, crop, hotspot, alt},
+    body[] {...},
+    ${SERVICE_CONTENT_SECTIONS_QUERY},
+    parentService-> {
+      title,
+      "slug": slug.current,
+      "serviceSections": *[
+        _type == "serviceSection" && parentService._ref == ^._id
+      ] | order(sortOrder asc, title asc) {
+        _id,
+        title,
+        "slug": slug.current,
+        excerpt,
+        image {asset, crop, hotspot, alt}
+      }
+    },
+    seo {metaTitle, metaDescription}
+  }
+`);
+
 export const COURSE_CARD_QUERY = defineQuery(`
   *[_type == "futureCourse" && defined(coursePick->._id)]
   | order(coursePick->courseName asc) {

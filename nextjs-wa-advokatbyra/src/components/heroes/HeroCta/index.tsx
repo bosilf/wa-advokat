@@ -74,15 +74,7 @@ export default function HeroCta({
         <div className="p-md  transition-all duration-300 md:pl-xl z-200 h-full left-lg grid-rows-[1fr_auto_auto] lg:left-xl grid grid-cols-[auto_1fr]">
           <div className="h-full col-span-2" />
 
-          <ButtonComp
-            href="#main"
-            target={button.target}
-            variant="bookingSecondary"
-            showIcon={false}
-            className="row-start-2"
-          >
-            Läs mer
-          </ButtonComp>
+        
           <ButtonComp
             href={button.href}
             ariaLabel="Gör en intresseanmälan"
